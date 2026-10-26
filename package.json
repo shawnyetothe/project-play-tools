@@ -1,0 +1,28 @@
+{
+  "name": "art-blocks-toolmakers",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prepare-data": "python3 scripts/prepare.py",
+    "dev": "python3 scripts/prepare.py && next dev --turbopack -H 0.0.0.0 -p 47231",
+    "build": "python3 scripts/prepare.py && next build",
+    "preview": "python3 -m http.server 47231 --directory out --bind 0.0.0.0",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.5.28"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.28",
+    "@eslint/eslintrc": "^3"
+  }
+}

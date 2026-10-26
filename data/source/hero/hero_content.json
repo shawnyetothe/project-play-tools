@@ -1,0 +1,4617 @@
+{
+ "p5": {
+  "tool": "p5.js",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/78000000.png",
+   "source_page": "https://www.artblocks.io/collection/fidenza-by-tyler-hobbs",
+   "caption": "Fidenza #0, Tyler Hobbs, 2021",
+   "credit": "Art Blocks token media for Fidenza #0; © Tyler Hobbs (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/78000000.png"
+  },
+  "intro": "p5.js is a free JavaScript library for drawing, animating and responding to input in a web page. It grew out of Processing, the 'sketchbook' language made for artists, and it is the most used library on Art Blocks. You write a short program, give it a random seed, and every seed draws a different work.",
+  "history": [
+   {
+    "date": "2001",
+    "text": "Casey Reas and Ben Fry start Processing at the MIT Media Lab, a programming language meant for visual artists.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Processing",
+    "verify_keyword": "Reas"
+   },
+   {
+    "date": "2013",
+    "text": "Lauren Lee McCarthy creates p5.js, bringing Processing's ideas to JavaScript and the browser.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Processing",
+    "verify_keyword": "McCarthy"
+   }
+  ],
+  "get_started": [
+   "Open the p5.js web editor (editor.p5js.org) and run the default sketch; no install needed.",
+   "Follow the first Coding Train p5.js videos: shapes, colour, variables, loops.",
+   "Replace Math.random with a seeded random number generator so one seed always draws the same picture.",
+   "Read Art Blocks' 'building your project' page to see how tokenData.hash becomes your seed.",
+   "Make 20 outputs from 20 seeds and print them on one sheet; keep the rules that surprise you."
+  ],
+  "starter_cost": "Free: p5.js is free and open-source software [sourced: p5js.org]. A laptop you already own is enough.",
+  "humanity": [
+   "The hand: scan one of your own pencil lines and let the code draw with its wobble instead of a perfect curve.",
+   "Imperfection: add a small, seeded tremble to every stroke, so no two outputs share the same 'steadiness'.",
+   "Collaboration: invite someone who has never coded to choose the rules while you type, and credit them on the token.",
+   "Time: let a sketch slowly erase and redraw itself, the way a drawing on a chalkboard fades between classes."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "p5.js tutorials",
+    "url": "https://p5js.org/tutorials/"
+   },
+   {
+    "label": "The Coding Train: p5.js track",
+    "url": "https://thecodingtrain.com/tracks/code-programming-with-p5-js"
+   },
+   {
+    "label": "Art Blocks: building your project (tokenData, PRNG)",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": "Draw 100 random lines from one seed; change the seed and see a new output. That is long-form generative art in miniature."
+ },
+ "glsl": {
+  "tool": "WebGL / GLSL shaders",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/9000000.png",
+   "source_page": "https://www.artblocks.io/collection/ignition-by-ge1doot",
+   "caption": "Ignition #0, ge1doot, 2021",
+   "credit": "Art Blocks token media for Ignition #0; © ge1doot (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NIFTY License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/9000000.png"
+  },
+  "intro": "Shaders are small programs that run on the graphics card and decide the colour of every pixel at once. GLSL is the language they are written in, and WebGL is how browsers run them. They make dense, fast, glowing images and are behind about a third of Art Blocks projects in our data.",
+  "history": [
+   {
+    "date": "2004",
+    "text": "GLSL becomes part of core OpenGL with OpenGL 2.0, making programmable shading standard on graphics cards.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/OpenGL_Shading_Language",
+    "verify_keyword": "2.0"
+   },
+   {
+    "date": "2011",
+    "text": "WebGL 1.0 is released, bringing GPU shaders into the web browser.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/WebGL",
+    "verify_keyword": "1.0"
+   }
+  ],
+  "get_started": [
+   "Work through the first chapters of The Book of Shaders in its live editor.",
+   "Write a fragment shader that colours the screen by x and y, then add time.",
+   "Add a noise function and map its value to a two-colour palette.",
+   "Pass a seed from JavaScript as a uniform so each token gets its own field.",
+   "Check your shader on a phone: precision and speed differ by device."
+  ],
+  "starter_cost": "Free: browsers include WebGL; The Book of Shaders is free to read online [sourced: thebookofshaders.com].",
+  "humanity": [
+   "Imperfection: GPUs make perfect gradients; add grain, dust and uneven edges so the image feels made, not rendered.",
+   "Memory: sample the colours of a photo you care about and let the shader build its palette from them.",
+   "The body: drive one uniform from slow breathing (a 4-second in, 6-second out cycle) so the image breathes with a person.",
+   "Place: use the sky colour at a real location and hour as the base of the palette."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "The Book of Shaders",
+    "url": "https://thebookofshaders.com/"
+   },
+   {
+    "label": "WebGL Fundamentals",
+    "url": "https://webglfundamentals.org/"
+   }
+  ],
+  "first_project": "Write a fragment shader that maps a noise field to a two-colour palette, then feed it a seed."
+ },
+ "three": {
+  "tool": "three.js",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/22000000.png",
+   "source_page": "https://www.artblocks.io/collection/the-eternal-pump-by-dmitri-cherniak",
+   "caption": "The Eternal Pump #0, Dmitri Cherniak, 2021",
+   "credit": "Art Blocks token media for The Eternal Pump #0; © Dmitri Cherniak (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/22000000.png"
+  },
+  "intro": "three.js is the standard JavaScript library for 3D in the browser: scenes, cameras, lights, materials and meshes. It hides most of WebGL's detail so you can build and orbit a 3D world in a few dozen lines.",
+  "history": [
+   {
+    "date": "2010",
+    "text": "Ricardo Cabello (mrdoob) first releases three.js on GitHub.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Three.js",
+    "verify_keyword": "Cabello"
+   }
+  ],
+  "get_started": [
+   "Follow the three.js manual's 'Creating a scene' page and get a spinning cube.",
+   "Replace the cube with a seeded grid of boxes whose heights come from the token hash.",
+   "Add one light and one material change; keep the scene simple.",
+   "Export a frame as PNG and the geometry as .obj (three.js has an OBJ exporter) to test physical output later."
+  ],
+  "starter_cost": "Free: three.js is open-source under the MIT license [sourced: github.com/mrdoob/three.js].",
+  "humanity": [
+   "Place: model a room you know by memory, not by measurement, and let the seed rearrange it.",
+   "The body: set the camera at the eye height of a real person you name in the work.",
+   "Care: light a scene the way you would light a room for someone you love, warm and low, instead of studio-bright.",
+   "Making: export the geometry and 3D-print one output, as Aranda\\Lasch did with Primitives' .obj files."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "three.js manual",
+    "url": "https://threejs.org/manual/"
+   },
+   {
+    "label": "three.js docs",
+    "url": "https://threejs.org/docs/"
+   },
+   {
+    "label": "Discover three.js (book)",
+    "url": "https://discoverthreejs.com/"
+   }
+  ],
+  "first_project": "Generate a field of boxes whose heights come from a seed; orbit around it."
+ },
+ "vanilla": {
+  "tool": "Vanilla JS / canvas 2D",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/37000000.png",
+   "source_page": "https://www.artblocks.io/collection/paper-armada-by-kjetil-golid",
+   "caption": "Paper Armada #0, Kjetil Golid, 2021",
+   "credit": "Art Blocks token media for Paper Armada #0; © Kjetil Golid (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NIFTY License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/37000000.png"
+  },
+  "intro": "Vanilla JavaScript means plain browser code with no library. On Art Blocks it usually draws to the canvas 2D API directly, which keeps scripts small (they are stored on-chain) and gives full control.",
+  "history": [
+   {
+    "date": "2004",
+    "text": "Apple introduces the canvas element in WebKit; it later becomes part of the HTML standard.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Canvas_element",
+    "verify_keyword": "Apple"
+   }
+  ],
+  "get_started": [
+   "Read MDN's Canvas tutorial up to 'Drawing shapes' and 'Applying styles and colors'.",
+   "Rebuild a small p5 sketch with plain canvas calls and compare file sizes.",
+   "Write your own tiny seeded random function (Art Blocks' docs show one).",
+   "Handle window resizing yourself so every output scales cleanly."
+  ],
+  "starter_cost": "Free: built into every browser.",
+  "humanity": [
+   "The hand: write the drawing loop to move like a pen: start, press, lift, never jump.",
+   "Imperfection: keep one deliberate 'mistake' rule, like a line that overshoots its corner.",
+   "Time: let the piece draw itself slowly on load so the viewer watches it being made."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: Canvas tutorial",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial"
+   },
+   {
+    "label": "Art Blocks: building your project",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": "Port a small p5 sketch to plain canvas 2D calls; compare file size."
+ },
+ "canvas2d": {
+  "tool": "canvas 2D",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/8000000.png",
+   "source_page": "https://www.artblocks.io/collection/singularity-by-hideki-tsukamoto",
+   "caption": "Singularity #0, Hideki Tsukamoto, 2021",
+   "credit": "Art Blocks token media for Singularity #0; © Hideki Tsukamoto (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/8000000.png"
+  },
+  "intro": "canvas 2D is the browser's built-in drawing surface for lines, shapes, text and images. Libraries like p5.js sit on top of it; many Art Blocks works call it directly.",
+  "history": [
+   {
+    "date": "2004",
+    "text": "Apple introduces the canvas element for WebKit.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Canvas_element",
+    "verify_keyword": "WebKit"
+   }
+  ],
+  "get_started": [
+   "Create a canvas and draw a seeded grid of circles.",
+   "Try globalAlpha and blend modes for layered colour.",
+   "Save a high-resolution PNG by drawing to a larger offscreen canvas."
+  ],
+  "starter_cost": "Free: built into every browser.",
+  "humanity": [
+   "Imperfection: draw each circle as many short segments with tiny seeded offsets.",
+   "Memory: draw from a palette taken from an old family photo.",
+   "Time: layer one translucent pass per day you worked on the piece."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Canvas tutorial",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial"
+   }
+  ],
+  "first_project": "Draw a seeded grid of circles with the canvas 2D API only."
+ },
+ "svg": {
+  "tool": "SVG output in script",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/12000000.png",
+   "source_page": "https://www.artblocks.io/collection/unigrids-by-zeblocks",
+   "caption": "Unigrids #0, Zeblocks, 2021",
+   "credit": "Art Blocks token media for Unigrids #0; © Zeblocks (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/12000000.png"
+  },
+  "intro": "SVG is a vector format: shapes stored as paths and coordinates rather than pixels. Scripts that output SVG can be sent straight to pen plotters, laser cutters and embroidery software, which makes SVG the bridge from code to physical work.",
+  "history": [
+   {
+    "date": "2001",
+    "text": "SVG 1.0 becomes a W3C Recommendation.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/SVG",
+    "verify_keyword": "2001"
+   }
+  ],
+  "get_started": [
+   "Read MDN's 'SVG from scratch' and hand-write one file with a path.",
+   "Generate the same path from a seed in JavaScript and add it to the page.",
+   "Add a key press that downloads the current SVG.",
+   "Open it in vpype or Inkscape and check line order and duplicate lines before plotting."
+  ],
+  "starter_cost": "Free: SVG is an open web standard; Inkscape and vpype are free software [estimate: no paid tools needed].",
+  "humanity": [
+   "The hand: send the SVG to a plotter with a real pen, so ink bleed and paper texture finish the work.",
+   "Collaboration: give the file to an embroiderer, a woodworker or a sign painter and let their craft interpret it.",
+   "Imperfection: keep stroke order visible, so the viewer can see how the line was made."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: SVG from scratch",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+   },
+   {
+    "label": "vpype (plotter-ready SVG)",
+    "url": "https://vpype.readthedocs.io/en/latest/"
+   }
+  ],
+  "first_project": "Render your sketch as SVG paths and open the file in a plotter or vector tool."
+ },
+ "interactive": {
+  "tool": "Interactivity (input handlers)",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/chromie-squiggle-by-snowfro",
+   "caption": "Chromie Squiggle #0, Snowfro, 2020",
+   "credit": "Art Blocks token media for Chromie Squiggle #0; © Snowfro (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x059edd72cd353df5106d2b9cc5ab83a52287ac3a/0.png"
+  },
+  "intro": "Interactive works respond to the viewer's mouse, touch or keys: a click, a drag, a key press. On Art Blocks this ranges from Chromie Squiggle's simple click-to-animate to works you can play with.",
+  "history": [
+   {
+    "date": "1920s",
+    "text": "Some of the earliest interactive art dates to the 1920s, such as Marcel Duchamp's Rotary Glass Plates, which the viewer had to switch on.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Interactive_art",
+    "verify_keyword": "Rotary Glass Plates"
+   }
+  ],
+  "get_started": [
+   "Add one click handler that changes a single layer, while the token hash fixes the rest.",
+   "Add keyboard shortcuts and list them in the token description.",
+   "Test touch on a phone and a tablet.",
+   "Make sure the work still looks finished if nobody touches it."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The hand: let a long press leave a mark that stays, so each owner's touch becomes part of the piece.",
+   "Care: design the interaction to reward patience, like slowly revealing detail only after someone stays.",
+   "Collaboration: let two people's clicks combine, so the work needs more than one hand.",
+   "Memory: keep the last interaction in local storage, so the piece remembers its last visitor on that device."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: Introduction to events",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events"
+   }
+  ],
+  "first_project": "Let a click reseed one layer of the piece while the token hash fixes the rest."
+ },
+ "clock": {
+  "tool": "Clock / time-driven output",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/27000000.png",
+   "source_page": "https://www.artblocks.io/collection/720-minutes-by-alexis-andre",
+   "caption": "720 Minutes #0, Alexis André, 2021",
+   "credit": "Art Blocks token media for 720 Minutes #0; © Alexis André (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/27000000.png"
+  },
+  "intro": "Clock-driven works read the time and change with it: by hour, day or season. Alexis André's 720 Minutes, which changes through the day, is an early Art Blocks example.",
+  "history": [],
+  "get_started": [
+   "Read the hour with new Date() and map it to a palette.",
+   "Check the piece at noon and midnight, and in another time zone.",
+   "Decide whether to use the viewer's local time or one fixed place's time, and say which in the description.",
+   "Add a test mode that fakes the clock so you can preview all states."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "Time: make a piece that is only complete when watched across a whole day.",
+   "Place: fix the clock to the time zone of a place that matters to you, so viewers elsewhere see 'your' hour.",
+   "Memory: mark an anniversary date with a one-day-only state.",
+   "The body: follow sunrise and sunset, which shift through the year, instead of the clock's even hours."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: requestAnimationFrame",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+   },
+   {
+    "label": "Art Blocks: PostParams (timestamps)",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   }
+  ],
+  "first_project": "Shift the palette with the hour of day; check it at noon and midnight."
+ },
+ "fetch": {
+  "tool": "Live network fetch in script",
+  "image": {
+   "url": "https://glitch-gallery-mainnet.s3.amazonaws.com/3000000.png",
+   "source_page": "https://www.artblocks.io/collection/lift-together-by-snowfro",
+   "caption": "LIFT (together) #0, Snowfro, 2026",
+   "credit": "Art Blocks token media for LIFT (together) #0; © Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x0000000222d40f1ae80791fdc42fa6eb5da6f80b/3000000.png"
+  },
+  "intro": "Some Art Blocks scripts fetch live data from the web when they render, so the work can change with the world. It is powerful but fragile: if the source goes away, the work must still render.",
+  "history": [
+   {
+    "date": "2005",
+    "text": "Jesse James Garrett's article (Feb 18, 2005) coins the term Ajax for web pages that fetch data in the background.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Ajax_(programming)",
+    "verify_keyword": "Garrett"
+   }
+  ],
+  "get_started": [
+   "Fetch one public value (for example the latest block number) and let it nudge one parameter.",
+   "Always include a fallback render when offline.",
+   "Cache nothing private; never send viewer data anywhere.",
+   "Write in the description what is fetched and from where."
+  ],
+  "starter_cost": "Free for public APIs; some data providers charge [estimate].",
+  "humanity": [
+   "Place: read the weather of one town and let it set the mood of the piece.",
+   "Care: tie the work to a public good (a river level, an air reading) so watching it means watching over something.",
+   "Memory: if the source disappears, freeze the last state as a record of when it stopped."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Fetch API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+   }
+  ],
+  "first_project": "Fetch one public value (for example a block number) and let it nudge a parameter; render a fallback when offline."
+ },
+ "niche": {
+  "tool": "Niche libraries",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/32000000.png",
+   "source_page": "https://www.artblocks.io/collection/light-beams-by-jason-ting",
+   "caption": "Light Beams #0, Jason Ting, 2021",
+   "credit": "Art Blocks token media for Light Beams #0; © Jason Ting (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/32000000.png"
+  },
+  "intro": "Smaller libraries tried on Art Blocks: regl (WebGL), babylon.js (3D engine), paper.js (vectors), zdog (flat 3D) and Processing.js. Each solves a specific shape of problem; most were used by only a few projects.",
+  "history": [],
+  "get_started": [
+   "Look at the examples on each library's site.",
+   "Pick the one whose shape matches your idea.",
+   "Rebuild one existing sketch in it and compare."
+  ],
+  "starter_cost": "Free: all are open-source.",
+  "humanity": [
+   "Imperfection: zdog and paper.js favour soft, rounded, hand-feeling forms; lean into that.",
+   "Collaboration: small libraries have small communities; ask the maintainer a question and credit them.",
+   "The hand: paper.js's path smoothing can turn a mouse-drawn line into the work's skeleton."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "regl",
+    "url": "https://github.com/regl-project/regl"
+   },
+   {
+    "label": "paper.js tutorials",
+    "url": "https://paperjs.org/tutorials/"
+   },
+   {
+    "label": "Babylon.js docs",
+    "url": "https://doc.babylonjs.com/"
+   },
+   {
+    "label": "Zdog",
+    "url": "https://zzz.dog/"
+   }
+  ],
+  "first_project": "Pick the one that matches your idea's shape (paper.js for vector paths, zdog for flat 3D) and rebuild one sketch."
+ },
+ "regl": {
+  "tool": "regl",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/160000000.png",
+   "source_page": "https://www.artblocks.io/collection/seadragons-by-marcin-ignac",
+   "caption": "Seadragons #0, Marcin Ignac, 2021",
+   "credit": "Art Blocks token media for Seadragons #0; © Marcin Ignac (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/160000000.png"
+  },
+  "intro": "regl is a small functional wrapper around WebGL, used by a handful of Art Blocks shader works.",
+  "history": [],
+  "get_started": [
+   "Draw one full-screen quad with a fragment shader.",
+   "Pass the seed as a uniform.",
+   "Read the regl examples on GitHub."
+  ],
+  "starter_cost": "Free (MIT) [sourced: github.com/regl-project/regl].",
+  "humanity": [
+   "Imperfection: add hand-feel noise to clean GPU output.",
+   "Memory: build a palette from a photo you care about.",
+   "The body: let one uniform follow a breathing rhythm."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "regl on GitHub",
+    "url": "https://github.com/regl-project/regl"
+   }
+  ],
+  "first_project": "Draw one full-screen shader quad with regl."
+ },
+ "paper": {
+  "tool": "paper.js",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/161000000.png",
+   "source_page": "https://www.artblocks.io/collection/spawn-by-john-provencher",
+   "caption": "spawn #0, john provencher, 2021",
+   "credit": "Art Blocks token media for spawn #0; © john provencher (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/161000000.png"
+  },
+  "intro": "paper.js is a vector-graphics scripting library on top of canvas, built for paths, curves and boolean shapes.",
+  "history": [],
+  "get_started": [
+   "Do the paper.js 'Paths' tutorial.",
+   "Generate and smooth a seeded path.",
+   "Export the result as SVG for a plotter."
+  ],
+  "starter_cost": "Free (MIT).",
+  "humanity": [
+   "The hand: draw a path with the mouse and let the seed vary it.",
+   "Imperfection: keep path smoothing slightly loose.",
+   "Making: plot the SVG with a real pen."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "paper.js tutorials",
+    "url": "https://paperjs.org/tutorials/"
+   }
+  ],
+  "first_project": "Generate and smooth a seeded path."
+ },
+ "babylon": {
+  "tool": "babylon.js",
+  "image": {
+   "url": "https://art-blocks-x-pace-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/petro-national-by-john-gerrard",
+   "caption": "Petro National #0, John Gerrard, 2022",
+   "credit": "Art Blocks token media for Petro National #0; © John Gerrard (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-ND 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x64780ce53f6e966e18a22af13a2f97369580ec11/0.png"
+  },
+  "intro": "Babylon.js is a full 3D engine for the web, with physics, materials and WebXR support. On Art Blocks it powers John Gerrard's Petro National and World Flag.",
+  "history": [
+   {
+    "date": "2013",
+    "text": "Babylon.js is first released, built by two Microsoft employees as a side project.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Babylon.js",
+    "verify_keyword": "side-project"
+   }
+  ],
+  "get_started": [
+   "Open the Babylon.js Playground and run an example.",
+   "Make a seeded scene from one example.",
+   "Try the WebXR helper to view it in a headset."
+  ],
+  "starter_cost": "Free (Apache 2.0) [sourced: Wikipedia: Babylon.js].",
+  "humanity": [
+   "Place: John Gerrard's works simulate real places in real time; pick a place you can describe precisely.",
+   "Time: run the scene on a real-world clock so it is always 'now' there.",
+   "Care: model something fragile and let viewers watch it rather than control it."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Babylon.js docs",
+    "url": "https://doc.babylonjs.com/"
+   }
+  ],
+  "first_project": "Build a seeded scene from the playground examples."
+ },
+ "zdog": {
+  "tool": "zdog",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/76000000.png",
+   "source_page": "https://www.artblocks.io/collection/dino-pals-by-hideo",
+   "caption": "dino pals #0, hideo, 2021",
+   "credit": "Art Blocks token media for dino pals #0; © hideo (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NIFTY License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/76000000.png"
+  },
+  "intro": "Zdog is a tiny pseudo-3D engine that draws flat, rounded shapes on canvas or SVG.",
+  "history": [],
+  "get_started": [
+   "Follow the Zdog getting-started page.",
+   "Model one seeded object and spin it.",
+   "Export a frame as SVG."
+  ],
+  "starter_cost": "Free (MIT).",
+  "humanity": [
+   "Imperfection: rounded, toy-like forms feel hand-made; keep them.",
+   "Memory: model a childhood object from memory.",
+   "Care: make something small and gentle on purpose."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Zdog",
+    "url": "https://zzz.dog/"
+   }
+  ],
+  "first_project": "Model one seeded zdog object and spin it."
+ },
+ "pjs": {
+  "tool": "Processing.js",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/1000000.png",
+   "source_page": "https://www.artblocks.io/collection/genesis-by-dca",
+   "caption": "Genesis #0, DCA, 2020",
+   "credit": "Art Blocks token media for Genesis #0; © DCA (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x059edd72cd353df5106d2b9cc5ab83a52287ac3a/1000000.png"
+  },
+  "intro": "Processing.js was a JavaScript port of Processing that ran sketches in the browser. It is retired; p5.js is its successor. DCA's Genesis, one of the first Art Blocks projects, used it.",
+  "history": [
+   {
+    "date": "2008",
+    "text": "John Resig releases Processing.js.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Processing",
+    "verify_keyword": "Resig"
+   }
+  ],
+  "get_started": [
+   "Learn Processing or p5.js instead.",
+   "Read an old Processing.js sketch to see how it maps to p5.js.",
+   "Port one to p5.js."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "Memory: re-make an early sketch of yours and keep its old flaws.",
+   "Collaboration: credit the people whose open code you learned from.",
+   "Time: show the old and new versions side by side."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Processing tutorials",
+    "url": "https://processing.org/tutorials/"
+   },
+   {
+    "label": "p5.js tutorials",
+    "url": "https://p5js.org/tutorials/"
+   }
+  ],
+  "first_project": "Start in p5.js, its successor."
+ },
+ "aframe": {
+  "tool": "A-Frame",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/145000000.png",
+   "source_page": "https://www.artblocks.io/collection/beatboxes-by-zeblocks",
+   "caption": "Beatboxes #0, Zeblocks, 2021",
+   "credit": "Art Blocks token media for Beatboxes #0; © Zeblocks (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/145000000.png"
+  },
+  "intro": "A-Frame is an HTML-style framework for building WebXR (virtual and augmented reality) scenes that open in a headset's browser. Zeblocks' Beatboxes is the Art Blocks example in our data.",
+  "history": [
+   {
+    "date": "2015",
+    "text": "A-Frame is released by Mozilla's VR team.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/A-Frame_(software)",
+    "verify_keyword": "2015"
+   }
+  ],
+  "get_started": [
+   "Follow the A-Frame 'Introduction' and open the scene on a laptop.",
+   "Add a seeded set of shapes.",
+   "Open it in a headset browser (for example on a Meta Quest).",
+   "Keep the scene light; headsets drop frames fast."
+  ],
+  "starter_cost": "Free (MIT). A headset is optional; a used standalone headset costs a few hundred dollars [estimate].",
+  "humanity": [
+   "The body: scale the scene to a real human height and arm's reach.",
+   "Place: rebuild a room you once lived in, from memory.",
+   "Care: give the viewer a calm place to stand, not a ride."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "A-Frame docs",
+    "url": "https://aframe.io/docs/"
+   },
+   {
+    "label": "Immersive Web (WebXR)",
+    "url": "https://immersiveweb.dev/"
+   }
+  ],
+  "first_project": "Place a seeded set of shapes in an A-Frame scene and open it in a headset browser."
+ },
+ "tonejs": {
+  "tool": "Tone.js",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/64000000.png",
+   "source_page": "https://www.artblocks.io/collection/algorhythms-by-han-x-nicolas-daniel",
+   "caption": "AlgoRhythms #0, Han x Nicolas Daniel, 2021",
+   "credit": "Art Blocks token media for AlgoRhythms #0; © Han x Nicolas Daniel (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NIFTY License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/64000000.png"
+  },
+  "intro": "Tone.js is a Web Audio framework for synths, sequencers and effects in the browser. It lets an Art Blocks script turn its seed into music.",
+  "history": [],
+  "get_started": [
+   "Run a Tone.js example and start audio on a click (browsers block autoplay).",
+   "Sequence four notes whose pitches come from the seed.",
+   "Add one effect (reverb) and keep levels low.",
+   "Test on phone speakers."
+  ],
+  "starter_cost": "Free (MIT) [sourced: github.com/Tonejs/Tone.js].",
+  "humanity": [
+   "The body: tune tempo to a resting heartbeat (about 60 beats per minute).",
+   "Place: record one field sound from a place you care about and let the seed choose how it loops.",
+   "Collaboration: write rules a musician friend can 'play' by changing traits.",
+   "Time: let the piece never repeat the same bar twice."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Tone.js",
+    "url": "https://tonejs.github.io/"
+   }
+  ],
+  "first_project": "Sequence four notes whose pitches come from the seed; start on a click."
+ },
+ "webaudio": {
+  "tool": "Web Audio",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/140000000.png",
+   "source_page": "https://www.artblocks.io/collection/good-vibrations-by-aluan-wang",
+   "caption": "Good Vibrations #0, Aluan Wang, 2021",
+   "credit": "Art Blocks token media for Good Vibrations #0; © Aluan Wang (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/140000000.png"
+  },
+  "intro": "The Web Audio API is the browser's built-in sound engine: oscillators, filters and audio graphs. It is how most Art Blocks sound works make sound, from Unigrids (early 2021 in our data) to send/receive.",
+  "history": [],
+  "get_started": [
+   "Read MDN's 'Using the Web Audio API'.",
+   "Make a seeded drone with two oscillators and a filter.",
+   "Start it on a click; never autoplay.",
+   "Map one visual trait to one sound trait."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: shape the volume like a breath, in and out.",
+   "Place: use the resonant frequency of a room you know as the root note.",
+   "Imperfection: detune oscillators slightly so they beat against each other like real instruments."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Web Audio API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API"
+   }
+  ],
+  "first_project": "Make a seeded drone with two oscillators and a filter; start it on a click (autoplay rules)."
+ },
+ "twemoji": {
+  "tool": "twemoji",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/457000000.png",
+   "source_page": "https://www.artblocks.io/collection/dopamine-machines-by-steve-pikelny",
+   "caption": "Dopamine Machines #0, Steve Pikelny, 2023",
+   "credit": "Art Blocks token media for Dopamine Machines #0; © Steve Pikelny (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/457000000.png"
+  },
+  "intro": "twemoji is an open-source set of emoji graphics, used in our data by Steve Pikelny's Dopamine Machines.",
+  "history": [],
+  "get_started": [
+   "Read the twemoji README and its license.",
+   "Use one emoji as a seeded stamp.",
+   "Credit the set in the token description."
+  ],
+  "starter_cost": "Free: graphics under CC-BY 4.0 [sourced: github.com/jdecked/twemoji].",
+  "humanity": [
+   "Memory: build a piece from the emoji you use most with one person.",
+   "Care: use small, shared symbols to say something you find hard to say.",
+   "Collaboration: let each owner choose one symbol."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "twemoji on GitHub",
+    "url": "https://github.com/jdecked/twemoji"
+   }
+  ],
+  "first_project": "Use one emoji glyph as a seeded stamp."
+ },
+ "jslegacy": {
+  "tool": "js-legacy",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/408000000.png",
+   "source_page": "https://www.artblocks.io/collection/nimteens-by-bryan-brinkman",
+   "caption": "NimTeens #0, Bryan Brinkman, 2023",
+   "credit": "Art Blocks token media for NimTeens #0; © Bryan Brinkman (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/408000000.png"
+  },
+  "intro": "js-legacy is Art Blocks' label for an early style of plain-JavaScript project. In our data only one project carries it, so treat it as plain canvas JavaScript.",
+  "history": [],
+  "get_started": [
+   "Start with MDN's Canvas tutorial.",
+   "Read Art Blocks' 'building your project' page.",
+   "Write one seeded sketch with no library."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The hand: plot your sketch on paper once and compare it to the screen.",
+   "Imperfection: keep a visible trace of how the drawing was built.",
+   "Time: let the script reveal its steps slowly."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Canvas tutorial",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial"
+   },
+   {
+    "label": "Art Blocks: building your project",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": "Start with plain canvas 2D."
+ },
+ "custom": {
+  "tool": "custom",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/506000000.png",
+   "source_page": "https://www.artblocks.io/collection/quine-by-larva-labs",
+   "caption": "Quine #0, Larva Labs, 2025",
+   "credit": "Art Blocks token media for Quine #0; © Larva Labs (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xab00000000002ade39f58f9d8278a31574ffbe77/506000000.png"
+  },
+  "intro": "'custom' means the project bundles its own dependency rather than using a library Art Blocks registers. It appears on five projects in our data, including send/receive and Quine.",
+  "history": [],
+  "get_started": [
+   "Read Art Blocks' page on the on-chain generator.",
+   "Keep the bundle small and on-chain if you can.",
+   "Document every dependency in the description."
+  ],
+  "starter_cost": "",
+  "humanity": [
+   "Collaboration: credit everyone whose code you bundle.",
+   "Time: write code you would be glad to read again in ten years.",
+   "Care: comment the code for the next artist."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: the on-chain generator",
+    "url": "https://docs.artblocks.io/protocol/on-chain-generator/"
+   },
+   {
+    "label": "Art Blocks: building your project",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": "Read how Art Blocks loads dependencies before bundling your own."
+ },
+ "unspec": {
+  "tool": "(unspecified)",
+  "image": {
+   "url": "https://prohibition-arbitrum-2.s3.amazonaws.com/171000000.png",
+   "source_page": "https://www.artblocks.io/collection/iris-by-obekt",
+   "caption": "Iris #0, obekt, 2023",
+   "credit": "Art Blocks token media for Iris #0; © obekt (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/42161/0x47a91457a3a1f700097199fd63c039c4784384ab/171000000.png"
+  },
+  "intro": "'(unspecified)' means the Art Blocks API records no library for the project. It is a data gap, not a tool.",
+  "history": [],
+  "get_started": [
+   "Open the project's script on Art Blocks to see what it uses.",
+   "Compare with similar projects.",
+   "Tell us if you find the real library."
+  ],
+  "starter_cost": "",
+  "humanity": [
+   "Care: document your own tools so others can learn.",
+   "Collaboration: share what you used.",
+   "Memory: keep notes on how you made each work."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: building your project",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": ""
+ },
+ "codetool": {
+  "tool": "Code/tool (verified)",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/304000000.png",
+   "source_page": "https://www.artblocks.io/collection/anticyclone-by-william-mapan",
+   "caption": "Anticyclone #0, William Mapan, 2022",
+   "credit": "Art Blocks token media for Anticyclone #0; © William Mapan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/304000000.png"
+  },
+  "intro": "A research-verified claim about how an artist built their code or tools, such as a custom drawing engine or a published toolkit.",
+  "history": [],
+  "get_started": [
+   "Read the verified claims in the Directory for an artist you like.",
+   "Follow their source link.",
+   "Try their method on a small sketch."
+  ],
+  "starter_cost": "",
+  "humanity": [
+   "The hand: many artists build tools that keep their own way of drawing.",
+   "Collaboration: publish your tool so others can use it.",
+   "Care: credit the tools you learned from."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: building your project",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/"
+   }
+  ],
+  "first_project": ""
+ },
+ "sound": {
+  "tool": "In-browser generative sound (Web Audio, Tone.js)",
+  "image": {
+   "url": "https://bright-moments-mainnet.s3.amazonaws.com/21000000.png",
+   "source_page": "https://www.artblocks.io/collection/infinito-by-stefano-contiero",
+   "caption": "Infinito #0, Stefano Contiero, 2022",
+   "credit": "Art Blocks token media for Infinito #0; © Stefano Contiero (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676/21000000.png"
+  },
+  "intro": "Sound generated live in the browser from the token's seed, usually with Web Audio or Tone.js. Every token can sound different, the same way every token looks different.",
+  "history": [],
+  "get_started": [
+   "Map three visual traits to pitch, tempo and timbre.",
+   "Start on a click; keep levels low.",
+   "Test on headphones and phone speakers.",
+   "Write in the description how to listen."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: tie tempo to breathing or a resting heartbeat.",
+   "Place: use a field recording from a place you love as a texture.",
+   "Time: let the sound evolve over a long listen, not a loop.",
+   "Collaboration: invite a musician to write the rules with you."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Web Audio API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API"
+   },
+   {
+    "label": "Tone.js",
+    "url": "https://tonejs.github.io/"
+   }
+  ],
+  "first_project": "Map three traits of a visual piece to pitch, tempo and timbre; start on a click."
+ },
+ "soundcode": {
+  "tool": "Sound (in code)",
+  "image": {
+   "url": "https://doodle-labs-mainnet.s3.amazonaws.com/1000000.png",
+   "source_page": "https://www.artblocks.io/collection/sliderverse-by-che-yu-wu-x-white-castle",
+   "caption": "Sliderverse #0, Che-Yu Wu x White Castle, 2021",
+   "credit": "Art Blocks token media for Sliderverse #0; © Che-Yu Wu x White Castle (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x28f2d3805652fb5d359486dffb7d08320d403240/1000000.png"
+  },
+  "intro": "Audio APIs found in the on-chain script itself. A detection flag, not a verified claim: see the project for what it actually plays.",
+  "history": [],
+  "get_started": [
+   "Open the project's script and look for AudioContext.",
+   "Add a seeded drone to a sketch of your own.",
+   "Start audio on a click."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: shape volume like a breath.",
+   "Place: tune to a room you know.",
+   "Imperfection: detune slightly."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Web Audio API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API"
+   },
+   {
+    "label": "Tone.js",
+    "url": "https://tonejs.github.io/"
+   }
+  ],
+  "first_project": "Add a seeded drone to an existing sketch."
+ },
+ "ai": {
+  "tool": "AI models (training, in-browser inference)",
+  "image": {
+   "url": "https://bright-moments-flex-mainnet.s3.amazonaws.com/11000000.png",
+   "source_page": "https://www.artblocks.io/collection/time-after-vessels-by-sofia-crespo",
+   "caption": "Time after vessels #0, Sofia Crespo, 2023",
+   "credit": "Art Blocks token media for Time after vessels #0; © Sofia Crespo (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-ND 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x7c3ea2b7b3befa1115ab51c09f0c9f245c500b18/11000000.png"
+  },
+  "intro": "AI models used to make or run the work: training on your own images, or running a small model in the browser. On Art Blocks, Mario Klingemann and Sofia Crespo have released AI-based projects (2023 in our data).",
+  "history": [
+   {
+    "date": "1973",
+    "text": "Harold Cohen begins AARON, an early program that made drawings on its own.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/AI_art",
+    "verify_keyword": "AARON"
+   },
+   {
+    "date": "2014",
+    "text": "Generative adversarial networks (GANs) are introduced, later widely used by artists.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/AI_art",
+    "verify_keyword": "2014"
+   },
+   {
+    "date": "2021",
+    "text": "Botto, a decentralised AI artist, makes its first sale (Oct 22, 2021).",
+    "tag": "sourced",
+    "source": "https://www.electricartefacts.art/news/decentralised-ai-artist-machine-bottos-genesis-piece-makes-its-debut",
+    "verify_keyword": "Botto"
+   }
+  ],
+  "get_started": [
+   "Run a pretrained ml5.js model in the browser on your own drawing.",
+   "Train a tiny model only on your own images; write down what went in.",
+   "Let the model's output steer one parameter, not the whole image.",
+   "Credit data sources in the description."
+  ],
+  "starter_cost": "Free to start with ml5.js and TensorFlow.js; training larger models costs cloud time [estimate].",
+  "humanity": [
+   "Memory: train only on your own archive (sketchbooks, photos) so the model speaks in your voice.",
+   "The hand: let the model propose and your hand finish, keeping both visible.",
+   "Care: be open about what data was used and whose it is.",
+   "Collaboration: Sofia Crespo uses models to imagine forms of life; say plainly what the model did and what you did."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ml5.js docs",
+    "url": "https://docs.ml5js.org/"
+   },
+   {
+    "label": "The Coding Train: ml5.js beginner's guide",
+    "url": "https://thecodingtrain.com/tracks/ml5js-beginners-guide"
+   },
+   {
+    "label": "TensorFlow.js tutorials",
+    "url": "https://www.tensorflow.org/js/tutorials"
+   }
+  ],
+  "first_project": "Run a pretrained ml5.js model on your own drawing and let its output steer one parameter."
+ },
+ "sensor": {
+  "tool": "Sensor / live data",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/201000000.png",
+   "source_page": "https://www.artblocks.io/collection/24-heures-by-alexis-andre",
+   "caption": "24 Heures #0, Alexis André, 2021",
+   "credit": "Art Blocks token media for 24 Heures #0; © Alexis André (license listed on Art Blocks:  CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": " CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/201000000.png"
+  },
+  "intro": "Work driven by sensors or live external data: the room's temperature, the time of day, a feed from far away.",
+  "history": [],
+  "get_started": [
+   "Fetch one live value.",
+   "Render a fallback when offline.",
+   "Say in the description what the work listens to."
+  ],
+  "starter_cost": "Free for public data [estimate].",
+  "humanity": [
+   "Place: let the work listen to one specific place.",
+   "Care: tie it to something worth watching over.",
+   "Time: let slow data (seasons, tides) set the pace."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Fetch API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+   }
+  ],
+  "first_project": "Fetch one live value and render a fallback when offline."
+ },
+ "mic": {
+  "tool": "Microphone / audio input",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/55000000.png",
+   "source_page": "https://www.artblocks.io/collection/talking-blocks-by-remo-x-dcsan",
+   "caption": "Talking Blocks #0, REMO x DCsan, 2021",
+   "credit": "Art Blocks token media for Talking Blocks #0; © REMO x DCsan (license listed on Art Blocks: NIFTY license). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NIFTY license",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/55000000.png"
+  },
+  "intro": "Works that listen through the viewer's microphone and react to voice or room sound. REMO x DCsan's Talking Blocks (2021) is the earliest in our data.",
+  "history": [],
+  "get_started": [
+   "Read MDN's getUserMedia page.",
+   "Ask for permission only on a click, and say why.",
+   "Map loudness to one parameter; never record or send audio.",
+   "Test in a quiet and a loud room."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: let a whisper and a shout draw differently.",
+   "Place: the room's own hum becomes part of the work.",
+   "Collaboration: make a piece that needs two voices.",
+   "Care: never store what you hear; say so."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "MDN: getUserMedia",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia"
+   },
+   {
+    "label": "p5.sound AudioIn",
+    "url": "https://p5js.org/reference/p5.sound/p5.AudioIn/"
+   }
+  ],
+  "first_project": "Make the line weight follow microphone level; ask for permission on a click."
+ },
+ "cv": {
+  "tool": "Cameras / computer vision",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/433000000.png",
+   "source_page": "https://www.artblocks.io/collection/still-moving-by-nathaniel-stern-and-sasha-stiles",
+   "caption": "Still Moving #0, Nathaniel Stern and Sasha Stiles, 2023",
+   "credit": "Art Blocks token media for Still Moving #0; © Nathaniel Stern and Sasha Stiles (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/433000000.png"
+  },
+  "intro": "Works that see through a camera: from raw pixels to pose and face detection. Nathaniel Stern and Sasha Stiles' Still Moving (2023) is an Art Blocks example; Sougwen Chung's MIMICRY (2015) used vision to draw with a robot.",
+  "history": [],
+  "get_started": [
+   "Use p5.js createCapture to show the webcam.",
+   "Use the image as a mask for a pattern.",
+   "Try ml5.js pose detection.",
+   "Process everything on the device; store nothing."
+  ],
+  "starter_cost": "Free; a webcam you already own.",
+  "humanity": [
+   "The body: let the viewer's posture shape the work.",
+   "Collaboration: draw together with the camera, as Sougwen Chung does with her robots.",
+   "Care: process images locally and say so plainly.",
+   "Imperfection: keep jitter from the camera rather than smoothing it away."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "p5.js createCapture",
+    "url": "https://p5js.org/reference/p5/createCapture/"
+   },
+   {
+    "label": "ml5.js docs",
+    "url": "https://docs.ml5js.org/"
+   }
+  ],
+  "first_project": "Use the webcam image as a mask for a generative pattern."
+ },
+ "bio": {
+  "tool": "Heart rate / biometric",
+  "image": {
+   "url": "https://bright-moments-flex-mainnet.s3.amazonaws.com/16000000.png",
+   "source_page": "https://www.artblocks.io/collection/totem-symbols-of-change-by-beervangeer-and-studio-poca",
+   "caption": "Totem : Symbols of Change #0, Beervangeer & Studio Poca, 2023",
+   "credit": "Art Blocks token media for Totem : Symbols of Change #0; © Beervangeer & Studio Poca (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x7c3ea2b7b3befa1115ab51c09f0c9f245c500b18/16000000.png"
+  },
+  "intro": "Works shaped by body data such as heartbeat. Beervangeer & Studio Poca's Totem: Symbols of Change (2023) is the Art Blocks example in our maturity map.",
+  "history": [],
+  "get_started": [
+   "Pair a Bluetooth heart-rate strap with Web Bluetooth (Chrome) on a laptop.",
+   "Capture one reading at a chosen moment and use it as a seed.",
+   "Store nothing else; say so in the description."
+  ],
+  "starter_cost": "A Bluetooth chest strap costs tens of dollars [estimate].",
+  "humanity": [
+   "The body: the heartbeat at the moment of minting becomes the work's pulse.",
+   "Care: ask consent clearly and keep body data private.",
+   "Memory: capture a heartbeat at a moment that matters (a first meeting, a goodbye)."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Web Bluetooth API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API"
+   }
+  ],
+  "first_project": "Capture heart rate once at mint from a Bluetooth chest strap and use it as a seed (capture once, store nothing else)."
+ },
+ "eeg": {
+  "tool": "EEG",
+  "image": {
+   "url": "",
+   "source_page": "https://refikanadol.com/works/sense-of-healing-ai-data-sculpture/",
+   "caption": "Example: Sense of Healing (Refik Anadol)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Brain-signal input from consumer EEG headsets, smoothed into slow changes in the work.",
+  "history": [
+   {
+    "date": "1924",
+    "text": "Hans Berger records the first human EEG.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Electroencephalography",
+    "verify_keyword": "Berger"
+   }
+  ],
+  "get_started": [
+   "Read the OpenBCI getting-started docs.",
+   "Stream one signal into a sketch and smooth it heavily.",
+   "Treat it as mood, not mind-reading."
+  ],
+  "starter_cost": "Consumer EEG boards cost hundreds of dollars [estimate].",
+  "humanity": [
+   "The body: let stillness, not effort, make the strongest image.",
+   "Care: be honest that the signal is noisy and personal.",
+   "Collaboration: two people wearing sensors shape one image."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "OpenBCI docs",
+    "url": "https://docs.openbci.com/"
+   }
+  ],
+  "first_project": "Stream an OpenBCI signal into a sketch and smooth it heavily."
+ },
+ "env": {
+  "tool": "Environmental sensors (weather, air)",
+  "image": {
+   "url": "https://frederik-de-wilde.com/wp-content/uploads/2023/01/Screenshot-2023-01-30-at-11.47.30-690x917.png",
+   "source_page": "https://frederik-de-wilde.com/project/cryptospirits/",
+   "caption": "CryptoSpirits, Frederik De Wilde",
+   "credit": "Image: frederik-de-wilde.com (artist site); © Frederik De Wilde. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Air quality, temperature or weather read by a local sensor, so the work reflects the room or city it is in.",
+  "history": [],
+  "get_started": [
+   "Follow Adafruit's PM2.5 sensor guide with a microcontroller.",
+   "Send the reading to a running token view.",
+   "Map it to one parameter, like density."
+  ],
+  "starter_cost": "A PM2.5 sensor and microcontroller cost tens of dollars [estimate].",
+  "humanity": [
+   "Place: the work only makes sense where it is installed.",
+   "Care: make the air visible so people notice it.",
+   "Time: let a year of readings build one image."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit: PM2.5 air quality sensor guide",
+    "url": "https://learn.adafruit.com/pm25-air-quality-sensor"
+   },
+   {
+    "label": "ESP32 get started",
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/"
+   }
+  ],
+  "first_project": "Wire a PM2.5 sensor to a microcontroller and let the reading change density in a running token view."
+ },
+ "motion": {
+  "tool": "Motion / accelerometer",
+  "image": {
+   "url": "",
+   "source_page": "https://interphase.ksawerykomputery.com/",
+   "caption": "Example: INTERPHASE CHIP (Ksawery Komputery)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Phone tilt and motion as input, read with the browser's device orientation events.",
+  "history": [],
+  "get_started": [
+   "Read MDN's 'Detecting device orientation'.",
+   "Ask permission on iOS with a button.",
+   "Tilt to rotate the composition."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: the work moves only when the viewer moves.",
+   "Imperfection: keep hand shake as texture.",
+   "Place: let walking change the piece."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Detecting device orientation",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation"
+   }
+  ],
+  "first_project": "Tilt the phone to rotate the composition."
+ },
+ "haptics": {
+  "tool": "Haptics (vibration output)",
+  "image": {
+   "url": "",
+   "source_page": "https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API",
+   "caption": "Example: MDN: Vibration API",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Vibration as output on phones, through the Vibration API (supported on Android browsers; not on iPhone Safari).",
+  "history": [],
+  "get_started": [
+   "Read MDN's Vibration API page.",
+   "Pulse the phone in a seeded rhythm.",
+   "Keep it short and optional."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: a rhythm felt in the hand, like a pulse.",
+   "Care: make it gentle and easy to turn off.",
+   "Memory: encode a remembered rhythm (a knock, a song)."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Vibration API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API"
+   }
+  ],
+  "first_project": "Pulse the phone in a seeded rhythm."
+ },
+ "gps": {
+  "tool": "GPS / location",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/2000000.png",
+   "source_page": "https://www.artblocks.io/collection/marfamesh-by-harvey-rayner",
+   "caption": "marfaMESH #0, Harvey Rayner, 2023",
+   "credit": "Art Blocks token media for marfaMESH #0; © Harvey Rayner (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-ND 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x942bc2d3e7a589fe5bd4a5c6ef9727dfd82f5c8a/2000000.png"
+  },
+  "intro": "Location as input or as a condition to mint. Harvey Rayner's marfaMESH (2023) used location clusters in Marfa, Texas.",
+  "history": [
+   {
+    "date": "1995",
+    "text": "GPS becomes fully operational.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Global_Positioning_System",
+    "verify_keyword": "1995"
+   }
+  ],
+  "get_started": [
+   "Read MDN's Geolocation API page.",
+   "Use coarse location only, with consent.",
+   "Change one parameter by city or region, never store coordinates."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "Place: a work that can only be minted where it was made.",
+   "Memory: tie each output to a place you walked.",
+   "Care: never store exact locations."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Geolocation API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
+   }
+  ],
+  "first_project": "Change the palette by city (coarse location only, with consent)."
+ },
+ "xr": {
+  "tool": "VR / AR (WebXR)",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/384000000.png",
+   "source_page": "https://www.artblocks.io/collection/vox3l-by-jeanvascript",
+   "caption": "VOXΞL #0, JEANVASCRIPT, 2022",
+   "credit": "Art Blocks token media for VOXΞL #0; © JEANVASCRIPT (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/384000000.png"
+  },
+  "intro": "Virtual and augmented reality in the browser through WebXR. On Art Blocks, Zeblocks' Beatboxes (2021) and JEANVASCRIPT's VOXΞL are examples.",
+  "history": [],
+  "get_started": [
+   "Open an A-Frame or three.js WebXR example on a laptop.",
+   "Open the same page in a headset browser.",
+   "Add a seeded scene.",
+   "Keep frame rate high; test seated and standing."
+  ],
+  "starter_cost": "A used standalone headset costs a few hundred dollars [estimate].",
+  "humanity": [
+   "The body: scale everything to a real human body.",
+   "Place: rebuild a place from memory.",
+   "Care: give the viewer a calm, safe place to stand.",
+   "Collaboration: make a space two people can share."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Immersive Web (WebXR)",
+    "url": "https://immersiveweb.dev/"
+   },
+   {
+    "label": "MDN: WebXR Device API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API"
+   },
+   {
+    "label": "A-Frame docs",
+    "url": "https://aframe.io/docs/"
+   }
+  ],
+  "first_project": "Load a three.js piece in WebXR and walk around it."
+ },
+ "mr": {
+  "tool": "MR headsets (Vision Pro)",
+  "image": {
+   "url": "",
+   "source_page": "https://exquisiteworkers.medium.com/ai-artists-inaugurate-apple-vision-pro-with-the-new-art-universe-app-130fbffc6074",
+   "caption": "Example: Art Universe on Apple Vision Pro (press)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Mixed-reality headsets like Apple Vision Pro, which blend digital objects with the real room.",
+  "history": [
+   {
+    "date": "2024",
+    "text": "Apple Vision Pro goes on sale in the US on February 2, 2024.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Apple_Vision_Pro",
+    "verify_keyword": "2024"
+   }
+  ],
+  "get_started": [
+   "Open a WebXR scene in the headset's browser.",
+   "Place one seeded object on a real table.",
+   "Keep it small and still."
+  ],
+  "starter_cost": "Headsets cost thousands of dollars [estimate].",
+  "humanity": [
+   "Place: the work lives in your actual room.",
+   "The body: let it react to the viewer's distance.",
+   "Care: keep the real room visible."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Apple visionOS developer",
+    "url": "https://developer.apple.com/visionos/"
+   },
+   {
+    "label": "Immersive Web (WebXR)",
+    "url": "https://immersiveweb.dev/"
+   }
+  ],
+  "first_project": "Open a WebXR version of your piece in the headset browser before building a native app."
+ },
+ "glasses": {
+  "tool": "Smart glasses",
+  "image": {
+   "url": "",
+   "source_page": "https://en.wikipedia.org/wiki/Smartglasses",
+   "caption": "Example: Wikipedia: Smartglasses",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Smart glasses that show small displays over the world. No token-linked art found yet.",
+  "history": [
+   {
+    "date": "2013",
+    "text": "Google Glass is in early use through its Explorer program.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Smartglasses",
+    "verify_keyword": "Explorer"
+   }
+  ],
+  "get_started": [
+   "Read the platform's developer docs.",
+   "Show one small, quiet element.",
+   "Test outdoors."
+  ],
+  "starter_cost": "",
+  "humanity": [
+   "Place: a work seen only on a walk.",
+   "Care: keep it quiet and glanceable.",
+   "Time: show it only at dusk."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Smartglasses",
+    "url": "https://en.wikipedia.org/wiki/Smartglasses"
+   }
+  ],
+  "first_project": ""
+ },
+ "spatial": {
+  "tool": "Spatial / binaural audio",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/345000000.png",
+   "source_page": "https://www.artblocks.io/collection/3-minute-meditations-by-thetechnocratic",
+   "caption": "3 Minute Meditations #0, thetechnocratic, 2022",
+   "credit": "Art Blocks token media for 3 Minute Meditations #0; © thetechnocratic (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/345000000.png"
+  },
+  "intro": "Spatial and binaural audio place sound around the listener, best on headphones. thetechnocratic's 3 Minute Meditations (2022) is the Art Blocks example.",
+  "history": [
+   {
+    "date": "1881",
+    "text": "Clément Ader demonstrates stereo telephone listening (the théâtrophone) in Paris, an early form of binaural sound.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Binaural_recording",
+    "verify_keyword": "1881"
+   }
+  ],
+  "get_started": [
+   "Use Web Audio's PannerNode to place a sound.",
+   "Move it slowly around the listener.",
+   "Test on headphones."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: sound that circles the head like breath.",
+   "Place: record a real place binaurally and let the seed recompose it.",
+   "Care: make something for one person, alone, with headphones."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Web audio spatialization basics",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics"
+   }
+  ],
+  "first_project": "Pan three seeded voices around the listener with a PannerNode."
+ },
+ "holo": {
+  "tool": "Holographic / volumetric / stereoscopic",
+  "image": {
+   "url": "https://www.pacegallery.com/media/images/Screenshot_2022-12-09_at_10.14.27.2e16d0ba.fill-1200x630.png",
+   "source_page": "https://www.pacegallery.com/journal/aa-murakami-floating-world/",
+   "caption": "Floating World Genesis, A.A. Murakami (Pace Gallery journal)",
+   "credit": "Image: pacegallery.com; © A.A. Murakami / Pace. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Holographic, volumetric and stereoscopic displays show depth without a headset. A.A. Murakami's Floating World Genesis and the 2021 Looking Glass × Reggie Watts hologram are examples in our map.",
+  "history": [
+   {
+    "date": "1947",
+    "text": "Dennis Gabor invents holography (Nobel Prize 1971).",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Holography",
+    "verify_keyword": "Gabor"
+   }
+  ],
+  "get_started": [
+   "Read the Looking Glass developer docs.",
+   "Render a seeded three.js scene as a quilt of views.",
+   "Show it on a display or as a light-field print."
+  ],
+  "starter_cost": "Light-field displays cost hundreds of dollars or more [estimate].",
+  "humanity": [
+   "The body: depth that changes as you move your head.",
+   "Memory: a remembered object floating in space.",
+   "Care: make a quiet object, not a spectacle."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Looking Glass docs",
+    "url": "https://docs.lookingglassfactory.com/"
+   }
+  ],
+  "first_project": "Export a three.js scene to a light-field display."
+ },
+ "plotter": {
+  "tool": "Pen plotters",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/334000000.png",
+   "source_page": "https://www.artblocks.io/collection/running-moon-by-licia-he",
+   "caption": "Running Moon #0, Licia He, 2022",
+   "credit": "Art Blocks token media for Running Moon #0; © Licia He (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-ND 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/334000000.png"
+  },
+  "intro": "A pen plotter is a machine that draws with a real pen, following vector paths. It is the 'house' physical format of on-chain generative art: Tyler Hobbs's Fidenza (2021) and Licia He's Running Moon are verified plotter works in our data, and Plottables is a platform built for it.",
+  "history": [
+   {
+    "date": "1965",
+    "text": "Georg Nees and others show some of the first computer drawings made on plotters.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Georg_Nees",
+    "verify_keyword": "1965"
+   },
+   {
+    "date": "2021-12-08",
+    "text": "Earliest first mint on the Plottables contract (plotter-first generative art on Art Blocks technology) in our data: Streamlines by NumbersInMotion.",
+    "tag": "sourced",
+    "source": "https://www.artblocks.io/collection/streamlines-by-numbersinmotion",
+    "verify_keyword": "csv:Streamlines|2021-12-08"
+   }
+  ],
+  "get_started": [
+   "Make your sketch output SVG paths.",
+   "Clean the SVG with vpype: merge lines, sort for travel, remove duplicates.",
+   "Plot on a borrowed or hobby plotter (AxiDraw or similar) with one pen.",
+   "Try three papers and two pens; keep notes.",
+   "Decide how a token holder gets a plot, and record it."
+  ],
+  "starter_cost": "A hobby plotter costs a few hundred dollars; makerspaces often have one [estimate].",
+  "humanity": [
+   "The hand: let pen pressure, ink bleed and paper tooth finish what the code started.",
+   "Imperfection: Licia He makes plotter paintings and calls her plotters robots (per her site); let paint skip and pool.",
+   "Time: a plot can take hours; film it and share the slowness.",
+   "Care: sign and date each plot by hand."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "AxiDraw docs (Evil Mad Scientist)",
+    "url": "https://wiki.evilmadscientist.com/AxiDraw"
+   },
+   {
+    "label": "AxiDraw Python API",
+    "url": "https://axidraw.com/doc/py_api/"
+   },
+   {
+    "label": "vpype",
+    "url": "https://vpype.readthedocs.io/en/latest/"
+   }
+  ],
+  "first_project": "Export one SVG from your sketch, optimise it with vpype and plot it on A4."
+ },
+ "prints": {
+  "tool": "Inkjet / giclée / archival prints",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/163000000.png",
+   "source_page": "https://www.artblocks.io/collection/meridian-by-matt-deslauriers",
+   "caption": "Meridian #0, Matt DesLauriers, 2021",
+   "credit": "Art Blocks token media for Meridian #0; © Matt DesLauriers (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/163000000.png"
+  },
+  "intro": "Inkjet, giclée and archival prints turn the screen image into a physical object on paper. Many Art Blocks artists (Fidenza, Meridian, Ringers, Chromie Squiggle) offer or authorise prints.",
+  "history": [
+   {
+    "date": "1991",
+    "text": "The term giclée is coined for fine-art inkjet prints.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Gicl%C3%A9e",
+    "verify_keyword": "1991"
+   }
+  ],
+  "get_started": [
+   "Render a very high-resolution output (for example 8,000+ pixels on the long side).",
+   "Order one proof from a print lab on two papers.",
+   "Compare colour; adjust and reprint.",
+   "Decide edition size and how it links to the token (a QR code or NFC tag on the back)."
+  ],
+  "starter_cost": "A single fine-art proof costs tens of dollars [estimate].",
+  "humanity": [
+   "The hand: sign each print and write the token number by hand.",
+   "Care: pick paper that will outlive you.",
+   "Collaboration: work with one printer you trust and credit them.",
+   "Memory: keep the first proof, with its mistakes, as part of the story."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "p5.js saveCanvas",
+    "url": "https://p5js.org/reference/p5/saveCanvas/"
+   },
+   {
+    "label": "Wikipedia: Giclée",
+    "url": "https://en.wikipedia.org/wiki/Gicl%C3%A9e"
+   }
+  ],
+  "first_project": "Render your token at print resolution (set pixelDensity, then saveCanvas) and proof it at a local print shop."
+ },
+ "screen": {
+  "tool": "Screen print / silkscreen",
+  "image": {
+   "url": "https://www.dmitricherniak.com/projects/works/assets/lacma-iterations-print-1600-7341f7339bff.webp",
+   "source_page": "https://www.dmitricherniak.com/works/ringers-962-the-lacma-iterations/",
+   "caption": "Ringers #962: The LACMA Iterations (screen prints), Dmitri Cherniak, 2023",
+   "credit": "Image: dmitricherniak.com (artist site); © Dmitri Cherniak. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/webp",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Screen printing pushes ink through a stencil on mesh, one colour at a time. Dmitri Cherniak's Ringers #962: The LACMA Iterations (2023) is a screen-printed series from a single token.",
+  "history": [
+   {
+    "date": "1960s",
+    "text": "Andy Warhol and others make screen printing a major art medium.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Screen_printing",
+    "verify_keyword": "Warhol"
+   }
+  ],
+  "get_started": [
+   "Split your output into 2–4 flat colours.",
+   "Export one SVG or high-contrast PNG per colour.",
+   "Book time at a print studio or makerspace.",
+   "Print a small run and register each layer by hand."
+  ],
+  "starter_cost": "A community studio session costs tens of dollars [estimate].",
+  "humanity": [
+   "The hand: every pull of the squeegee is slightly different; keep the differences.",
+   "Imperfection: misregistration is part of the look.",
+   "Collaboration: print with a master printer and credit them.",
+   "Memory: number each print and keep a record of which screen made it."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Screen printing",
+    "url": "https://en.wikipedia.org/wiki/Screen_printing"
+   }
+  ],
+  "first_project": "Separate your output into 2 colour layers and print a test with a local studio."
+ },
+ "riso": {
+  "tool": "Risograph",
+  "image": {
+   "url": "",
+   "source_page": "https://www.artblocks.io/collection/reverie-by-pandelune",
+   "caption": "Example: Reverie (Pandelune) on Art Blocks",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Risograph is a stencil-based printer that prints in bright soy inks, one colour at a time, with a grainy, imperfect look. Pandelune's Reverie (2024) is the Art Blocks example in our map.",
+  "history": [
+   {
+    "date": "1980",
+    "text": "Riso Kagaku Corporation introduces the Risograph in Japan.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Risograph",
+    "verify_keyword": "Riso Kagaku"
+   }
+  ],
+  "get_started": [
+   "Split your output into 2–3 colours.",
+   "Export one grayscale file per colour.",
+   "Book a riso studio (many cities have one).",
+   "Print a small zine of outputs."
+  ],
+  "starter_cost": "A riso studio run costs tens of dollars [estimate].",
+  "humanity": [
+   "Imperfection: riso grain and offset are the point.",
+   "Collaboration: make a zine with friends, one page each.",
+   "Memory: print a small run and give it away by hand."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Stencil wiki (risograph)",
+    "url": "https://stencil.wiki/wiki/Main_Page"
+   },
+   {
+    "label": "Wikipedia: Risograph",
+    "url": "https://en.wikipedia.org/wiki/Risograph"
+   }
+  ],
+  "first_project": "Export each colour as its own greyscale layer and run 10 different outputs."
+ },
+ "darkroom": {
+  "tool": "Darkroom / film / cyanotype",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Anna_Atkins_algae_cyanotype.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Anna_Atkins_algae_cyanotype.jpg",
+   "caption": "Photographs of British Algae: Cyanotype Impressions (a cyanotype photogram), Anna Atkins, 1843",
+   "credit": "Wikimedia Commons: Atkins, Anna, 1799-1871, Public domain",
+   "license": "Public domain",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Darkroom, film and cyanotype processes make images with light and chemistry. Dmitri Cherniak's Light Years (2022) and Trevor Paglen's PRELUDES connect this tradition to tokens.",
+  "history": [
+   {
+    "date": "1842",
+    "text": "John Herschel discovers the cyanotype process.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Cyanotype",
+    "verify_keyword": "1842"
+   },
+   {
+    "date": "1843",
+    "text": "Anna Atkins publishes Photographs of British Algae: Cyanotype Impressions, often called the first book illustrated with photographs.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Cyanotype",
+    "verify_keyword": "1843"
+   }
+  ],
+  "get_started": [
+   "Print your output as a transparency (an inkjet negative).",
+   "Coat paper with cyanotype chemistry (kits are sold online).",
+   "Expose in sunlight, rinse in water.",
+   "Scan the result and compare to the screen."
+  ],
+  "starter_cost": "A cyanotype kit costs under fifty dollars [estimate].",
+  "humanity": [
+   "Time: sunlight sets the exposure; the day's weather becomes part of the work.",
+   "The hand: brush marks from coating stay on the paper.",
+   "Place: expose under the sun of a place that matters to you.",
+   "Imperfection: no two prints match; that is the edition."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Cyanotype",
+    "url": "https://en.wikipedia.org/wiki/Cyanotype"
+   }
+  ],
+  "first_project": "Print your output as a transparency and make a cyanotype in sunlight."
+ },
+ "embroid": {
+  "tool": "Embroidery",
+  "image": {
+   "url": "https://generative-goods-base-2.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/logo-by-generative-goods",
+   "caption": "{LOGO} #0, Generative Goods, 2024",
+   "credit": "Art Blocks token media for {LOGO} #0; © Generative Goods (license listed on Art Blocks: no license ). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "no license ",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/8453/0x0000000080d04343d60d06e1a36aaf46c9242805/0.png"
+  },
+  "intro": "Embroidery stitches thread into fabric; machines can stitch a generative design from a stitch file. Generative Goods' {LOGO} (2024) and Alexis André's Friendship Bracelets bring it to Art Blocks.",
+  "history": [],
+  "get_started": [
+   "Export your output as SVG.",
+   "Convert it to a stitch file with Ink/Stitch (free Inkscape extension).",
+   "Stitch one test on a home embroidery machine or at a makerspace.",
+   "Adjust density and stitch type; stitch again."
+  ],
+  "starter_cost": "A home embroidery machine costs a few hundred dollars [estimate].",
+  "humanity": [
+   "The hand: finish a machine-stitched piece with a few hand stitches.",
+   "Care: stitch something to be worn or used, not just framed.",
+   "Memory: embroider on fabric that belonged to someone.",
+   "Collaboration: send the file to an embroiderer and credit them."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Ink/Stitch (install)",
+    "url": "https://inkstitch.org/docs/install/"
+   },
+   {
+    "label": "Ink/Stitch home",
+    "url": "https://inkstitch.org/"
+   }
+  ],
+  "first_project": "Turn one SVG output into a stitch file with Ink/Stitch and sew a 10 cm patch."
+ },
+ "weave": {
+  "tool": "Weaving / Jacquard / tapestry / cane",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/A_la_m%C3%A9moire_de_J.M._Jacquard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:A_la_m%C3%A9moire_de_J.M._Jacquard.jpg",
+   "caption": "À la mémoire de J.M. Jacquard, portrait woven in silk on a Jacquard loom by Michel Marie Carquillat after Claude Bonnefond, second quarter of the 19th century",
+   "credit": "Wikimedia Commons: Michel Marie Carquillat (tisseur) d'après Claude Bonnefond, Public domain",
+   "license": "Public domain",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Weaving, Jacquard looms, tapestry and cane all build images from crossing threads. The Jacquard loom's punched cards inspired early computing; today Alexis André's Navette and Aranda\\Lasch's Enlace bring weaving to tokens.",
+  "history": [
+   {
+    "date": "1804",
+    "text": "Joseph Marie Jacquard demonstrates his punched-card loom.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Jacquard_machine",
+    "verify_keyword": "1804"
+   }
+  ],
+  "get_started": [
+   "Reduce your output to a grid of a few thread colours.",
+   "Export the grid as a bitmap.",
+   "Ask a Jacquard studio (like TRAME, Navette's partner) for their file spec.",
+   "Weave a small sample first."
+  ],
+  "starter_cost": "Studio Jacquard sampling costs vary widely [estimate].",
+  "humanity": [
+   "The hand: weavers make choices the file cannot; ask them to.",
+   "Time: a loom shows how long things take.",
+   "Memory: weave with yarn from an old garment.",
+   "Collaboration: credit the weaver alongside the code."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Jacquard machine",
+    "url": "https://en.wikipedia.org/wiki/Jacquard_machine"
+   }
+  ],
+  "first_project": "Quantise your output to 6 colours and a thread grid; ask a weaving studio for a sample quote."
+ },
+ "knit": {
+  "tool": "Machine knitting",
+  "image": {
+   "url": "https://abstudio-107-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/yarntificial-city-by-licia-he",
+   "caption": "Yarntificial City #0, Licia He, 2026",
+   "credit": "Art Blocks token media for Yarntificial City #0; © Licia He (license listed on Art Blocks: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xceb0c691553c416fe68bc740f769b12064b75e9a/0.png"
+  },
+  "intro": "Knitting machines turn a pixel grid into fabric, stitch by stitch. A.A. Murakami × TRAME's ASARI and Licia He's Yarntificial City are examples in our map.",
+  "history": [
+   {
+    "date": "1589",
+    "text": "William Lee of Calverton invents the stocking frame, a mechanical knitting machine.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Stocking_frame",
+    "verify_keyword": "William Lee"
+   }
+  ],
+  "get_started": [
+   "Reduce output to a two-colour grid.",
+   "Find a hackable or industrial knitting service.",
+   "Knit a swatch.",
+   "Adjust for stretch: stitches are not square."
+  ],
+  "starter_cost": "Used domestic knitting machines can cost a few hundred dollars [estimate].",
+  "humanity": [
+   "The body: fabric meant to be worn takes the shape of a person.",
+   "Care: knit something for someone.",
+   "Imperfection: dropped stitches show the machine is human-tended."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "AYAB (open-source knitting control)",
+    "url": "https://www.ayab-knitting.com/"
+   },
+   {
+    "label": "Wikipedia: Knitting machine",
+    "url": "https://en.wikipedia.org/wiki/Knitting_machine"
+   }
+  ],
+  "first_project": "Make a 2-colour seeded pattern and knit it with AYAB on a supported machine."
+ },
+ "fashion": {
+  "tool": "Generative fashion / apparel",
+  "image": {
+   "url": "https://verticalcrypto-gen-art-mainnet.s3.amazonaws.com/16000000.png",
+   "source_page": "https://www.artblocks.io/collection/generative-couture-by-nathan-cornes",
+   "caption": "Generative Couture #0, Nathan Cornes, 2023",
+   "credit": "Art Blocks token media for Generative Couture #0; © Nathan Cornes (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x32d4be5ee74376e08038d652d4dc26e62c67f436/16000000.png"
+  },
+  "intro": "Generative fashion and apparel put the work on bodies: tees, dresses, scarves. 9dcc × Snowfro's ITERATION-02 (2022) and Nathan Cornes's Generative Couture are examples.",
+  "history": [],
+  "get_started": [
+   "Export a tile-able pattern.",
+   "Order a print-on-demand sample.",
+   "Try it on and photograph it in daylight.",
+   "Decide how the garment links to the token (an NFC tag)."
+  ],
+  "starter_cost": "Print-on-demand samples cost tens of dollars [estimate].",
+  "humanity": [
+   "The body: the work moves with a person.",
+   "Care: choose fabric that lasts.",
+   "Place: photograph it where it will be worn."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Direct-to-garment printing",
+    "url": "https://en.wikipedia.org/wiki/Direct-to-garment_printing"
+   }
+  ],
+  "first_project": "Print one output on a shirt by direct-to-garment printing."
+ },
+ "textiles": {
+  "tool": "Textiles (any)",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/friendship-bracelets-by-alexis-andre",
+   "caption": "Friendship Bracelets #0, Alexis André, 2022",
+   "credit": "Art Blocks token media for Friendship Bracelets #0; © Alexis André (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x942bc2d3e7a589fe5bd4a5c6ef9727dfd82f5c8a/0.png"
+  },
+  "intro": "Textiles of any kind: weaving, knitting, embroidery, printing on fabric. Alexis André's Friendship Bracelets (2022) is the largest textile-linked project in our data.",
+  "history": [],
+  "get_started": [
+   "Pick one textile method.",
+   "Turn output into that method's file (grid or stitches).",
+   "Make one physical sample.",
+   "Photograph it next to the screen version."
+  ],
+  "starter_cost": "Varies by method [estimate].",
+  "humanity": [
+   "Care: textiles are made to be held and used.",
+   "Memory: use cloth with a history.",
+   "Collaboration: work with a maker and credit them.",
+   "The hand: leave one hand-finished detail."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Ink/Stitch home",
+    "url": "https://inkstitch.org/"
+   },
+   {
+    "label": "AYAB (open-source knitting control)",
+    "url": "https://www.ayab-knitting.com/"
+   }
+  ],
+  "first_project": "Start with embroidery: cheapest way into textile."
+ },
+ "laser": {
+  "tool": "Laser cutting",
+  "image": {
+   "url": "",
+   "source_page": "https://shawnkemp.art/p/fxmandala-2022",
+   "caption": "Example: fx(mandala) (Shawn Kemp)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Laser cutters cut or engrave wood, paper, acrylic and fabric from vector files. Shawn Kemp's fx(mandala) (2022, fxhash) is the example in our map.",
+  "history": [
+   {
+    "date": "1965",
+    "text": "The first production laser cutting machine is used to drill holes in diamond dies.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Laser_cutting",
+    "verify_keyword": "1965"
+   }
+  ],
+  "get_started": [
+   "Export SVG with cut lines and engrave fills separated.",
+   "Book a makerspace laser.",
+   "Cut in cardboard first, then the real material."
+  ],
+  "starter_cost": "Makerspace access often costs tens of dollars a month [estimate].",
+  "humanity": [
+   "The hand: assemble cut pieces by hand.",
+   "Imperfection: scorch marks are part of the material.",
+   "Place: cut from wood from a place you know."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Inkscape manual",
+    "url": "https://inkscape-manuals.readthedocs.io/en/latest/"
+   },
+   {
+    "label": "Wikipedia: Laser cutting",
+    "url": "https://en.wikipedia.org/wiki/Laser_cutting"
+   }
+  ],
+  "first_project": "Cut one SVG output in 3 mm plywood at a makerspace."
+ },
+ "cnc": {
+  "tool": "CNC milling / engraving",
+  "image": {
+   "url": "https://plottables-mainnet.s3.amazonaws.com/21000000.png",
+   "source_page": "https://www.artblocks.io/collection/scratch-by-matto",
+   "caption": "Scratch #0, Matto, 2023",
+   "credit": "Art Blocks token media for Scratch #0; © Matto (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa319c382a702682129fcbf55d514e61a16f97f9c/21000000.png"
+  },
+  "intro": "CNC machines mill or engrave material along computed toolpaths. Matto's Scratch (2023) is the Art Blocks example.",
+  "history": [
+   {
+    "date": "1940s–1950s",
+    "text": "The first numerically controlled machines are built, with motors following points fed in on punched tape.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Computer_numerical_control",
+    "verify_keyword": "punched tape"
+   }
+  ],
+  "get_started": [
+   "Export paths as SVG or DXF.",
+   "Generate toolpaths in CAM software.",
+   "Mill in foam or soft wood first."
+  ],
+  "starter_cost": "Makerspace CNC access varies [estimate].",
+  "humanity": [
+   "The hand: sand and finish by hand.",
+   "Place: mill wood from a local tree.",
+   "Imperfection: keep tool marks visible."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Numerical control",
+    "url": "https://en.wikipedia.org/wiki/Numerical_control"
+   }
+  ],
+  "first_project": "Engrave a 2D output into wood with a single V-bit pass."
+ },
+ "fdm": {
+  "tool": "3D printing: FDM / resin",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/368000000.png",
+   "source_page": "https://www.artblocks.io/collection/primitives-by-arandalasch",
+   "caption": "Primitives #0, Aranda\\Lasch, 2022",
+   "credit": "Art Blocks token media for Primitives #0; © Aranda\\Lasch (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/368000000.png"
+  },
+  "intro": "3D printing (FDM with plastic filament, or resin) builds objects layer by layer from a mesh. Aranda\\Lasch's Primitives (2022) shipped .obj files from the token.",
+  "history": [
+   {
+    "date": "1988",
+    "text": "S. Scott Crump, co-founder of Stratasys, develops fused deposition modeling.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Fused_filament_fabrication",
+    "verify_keyword": "Crump"
+   }
+  ],
+  "get_started": [
+   "Export a closed mesh (.obj or .stl) from three.js.",
+   "Check it in a slicer (Cura, PrusaSlicer).",
+   "Print small first.",
+   "Decide how owners get files or prints."
+  ],
+  "starter_cost": "Hobby printers cost a few hundred dollars [estimate].",
+  "humanity": [
+   "The hand: finish prints by sanding or painting.",
+   "Imperfection: let layer lines show.",
+   "Care: print in a material you would want to keep.",
+   "Collaboration: let owners print their own copy."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Prusa knowledge base",
+    "url": "https://help.prusa3d.com/"
+   },
+   {
+    "label": "OpenSCAD documentation",
+    "url": "https://openscad.org/documentation.html"
+   }
+  ],
+  "first_project": "Export a mesh from three.js and print it at 10 cm."
+ },
+ "ceramic3d": {
+  "tool": "3D printing: ceramic clay",
+  "image": {
+   "url": "https://images.ctfassets.net/7k34737a5krf/50XiB1b7HLcD8mnpiSxIGP/2d33db0a88dd2ca901c31a49b00a1839/parametric-pottery-og-5.jpg?q=90",
+   "source_page": "https://anatolyzenkov.com/parametric-pottery/info",
+   "caption": "Parametric Pottery, Anatoly Zenkov (no token)",
+   "credit": "Image: anatolyzenkov.com (artist site); © Anatoly Zenkov. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Clay 3D printers extrude wet clay in layers, then the piece is fired. Anatoly Zenkov's Parametric Pottery is the example in our map (no token).",
+  "history": [],
+  "get_started": [
+   "Export a spiral-vase mesh.",
+   "Find a ceramic 3D printer at a studio.",
+   "Fire and glaze."
+  ],
+  "starter_cost": "Studio access varies [estimate].",
+  "humanity": [
+   "The hand: glaze by hand.",
+   "Imperfection: clay slumps; let it.",
+   "Care: make a cup someone will use."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Parametric Pottery (Anatoly Zenkov)",
+    "url": "https://anatolyzenkov.com/parametric-pottery/info"
+   }
+  ],
+  "first_project": "Send 3 STL exports to a ceramic-printing studio (SRB's cheap test)."
+ },
+ "metal": {
+  "tool": "3D printing: metal / bronze casting",
+  "image": {
+   "url": "",
+   "source_page": "https://mosher.art/portfolio_entry.php?art_id=135&category=generative",
+   "caption": "Example: Specimens: Pods (Matthew Mosher)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Metal 3D printing and bronze casting turn a mesh into metal, often through lost-wax casting from a 3D print.",
+  "history": [
+   {
+    "date": "c. 3700 BC",
+    "text": "Lost-wax casting objects in the Nahal Mishmar hoard date to about 3700 BC or earlier.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Lost-wax_casting",
+    "verify_keyword": "Nahal Mishmar"
+   }
+  ],
+  "get_started": [
+   "Export a solid mesh.",
+   "Print it in castable resin or wax.",
+   "Send it to a foundry or a casting service."
+  ],
+  "starter_cost": "Foundry casting costs hundreds of dollars or more [estimate].",
+  "humanity": [
+   "The hand: chase and patinate by hand.",
+   "Time: bronze lasts millennia.",
+   "Collaboration: credit the foundry."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Lost-wax casting",
+    "url": "https://en.wikipedia.org/wiki/Lost-wax_casting"
+   }
+  ],
+  "first_project": "Print a small wax or resin pattern and get a foundry quote."
+ },
+ "ceramics": {
+  "tool": "Ceramics (hand / kiln)",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Etruscan_amphora_Louvre_E703_side_B.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Etruscan_amphora_Louvre_E703_side_B.jpg",
+   "caption": "Etruscan amphora (Pontic group), Silenus Painter, c. 540–530 BC, Louvre E703",
+   "credit": "Wikimedia Commons: Silenus Painter, Public domain",
+   "license": "Public domain",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Ceramics by hand and kiln: throwing, carving, glazing. Helena Sarin's La Potière Jalouse (PROOF) connects the medium to on-chain work.",
+  "history": [
+   {
+    "date": "c. 29,000 BC",
+    "text": "The Venus of Dolní Věstonice, among the oldest known ceramic objects, dates to about 29,000–25,000 BC.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Pottery",
+    "verify_keyword": "Dolní Věstonice"
+   }
+  ],
+  "get_started": [
+   "Take a beginner wheel or hand-building class.",
+   "Translate one output into a glaze or carved pattern.",
+   "Fire and photograph it."
+  ],
+  "starter_cost": "Community classes cost tens to hundreds of dollars [estimate].",
+  "humanity": [
+   "The hand: clay records every touch.",
+   "Imperfection: kiln results are never certain.",
+   "Care: make something to eat from."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Pottery",
+    "url": "https://en.wikipedia.org/wiki/Pottery"
+   }
+  ],
+  "first_project": "Use one output as a glaze pattern on a test tile."
+ },
+ "glass": {
+  "tool": "Glass / stained glass",
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Chartres_RosetteNord_121_DSC08241.jpg/1280px-Chartres_RosetteNord_121_DSC08241.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Chartres_RosetteNord_121_DSC08241.jpg",
+   "caption": "North rose window, Chartres Cathedral (13th century), photo 2015",
+   "credit": "Wikimedia Commons: PtrQs, CC BY-SA 4.0",
+   "license": "CC BY-SA 4.0",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Glass and stained glass: colour and light through cut pieces. Jeff Davis's Optimism #5 (2023, with TRAME) is a stained-glass sculpture from a generative design.",
+  "history": [
+   {
+    "date": "c. 950–1240",
+    "text": "Romanesque and early Gothic churches such as Chartres Cathedral fill large windows with glass held in iron frames; Chartres is known for its brilliant blue.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Stained_glass",
+    "verify_keyword": "Chartres"
+   }
+  ],
+  "get_started": [
+   "Reduce output to closed shapes with lead lines.",
+   "Export SVG at full size as a cartoon.",
+   "Work with a stained-glass studio."
+  ],
+  "starter_cost": "Studio commissions vary widely [estimate].",
+  "humanity": [
+   "Time: the work changes with daylight.",
+   "Place: design for one window.",
+   "Collaboration: credit the glass artist."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Stained glass",
+    "url": "https://en.wikipedia.org/wiki/Stained_glass"
+   }
+  ],
+  "first_project": "Generate a 6-colour cell pattern sized for a small panel."
+ },
+ "sculpt": {
+  "tool": "Sculpture / lighting objects",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/495000000.png",
+   "source_page": "https://www.artblocks.io/collection/bokeh-lamps-by-mpkoz",
+   "caption": "Bokeh (lamps) #0, mpkoz, 2024",
+   "credit": "Art Blocks token media for Bokeh (lamps) #0; © mpkoz (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xab0000000000aa06f89b268d604a9c1c41524ac6/495000000.png"
+  },
+  "intro": "Sculpture and lighting objects bring generative forms into a room. mpkoz's Bokeh (lamps) (2024) and Zach Lieberman's Box Light Studies (sculpture) are Art Blocks examples.",
+  "history": [],
+  "get_started": [
+   "Export a form or pattern.",
+   "Choose a fabrication method (print, cut, cast).",
+   "Make one prototype with a light source.",
+   "Document how the object links to the token."
+  ],
+  "starter_cost": "Varies by method [estimate].",
+  "humanity": [
+   "Place: an object made for one room.",
+   "Care: light that makes a room kinder.",
+   "The hand: assemble by hand.",
+   "Time: a lamp is used every evening."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "OpenSCAD documentation",
+    "url": "https://openscad.org/documentation.html"
+   }
+  ],
+  "first_project": "Model a parametric lamp shade in OpenSCAD from 3 seeded values."
+ },
+ "kinetic": {
+  "tool": "Kinetic sculpture",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Kuspit3-27-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Kuspit3-27-2.jpg",
+   "caption": "Kinetic Construction (Standing Wave), Naum Gabo, 1919–1920",
+   "credit": "Wikimedia Commons: Naum Gabo, CC0",
+   "license": "CC0",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Kinetic sculpture moves, by motor, wind or hand. DRIFT with Jeff Davis's Schema (2023) is the example in our map.",
+  "history": [
+   {
+    "date": "1920",
+    "text": "Naum Gabo makes the motor-driven Kinetic Construction, one of the first artworks with actual movement.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Kinetic_art",
+    "verify_keyword": "Gabo"
+   }
+  ],
+  "get_started": [
+   "Prototype motion in code first.",
+   "Build a small mechanism with a servo and microcontroller.",
+   "Map the token's traits to motion."
+  ],
+  "starter_cost": "Microcontroller and servo kits cost tens of dollars [estimate].",
+  "humanity": [
+   "The body: motion at the pace of breathing.",
+   "Time: slow movement over hours.",
+   "Care: make it quiet."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit Arduino lesson 14: servo motors",
+    "url": "https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors"
+   },
+   {
+    "label": "Wikipedia: Kinetic art",
+    "url": "https://en.wikipedia.org/wiki/Kinetic_art"
+   }
+  ],
+  "first_project": "Drive one servo from a seeded sequence with an Arduino."
+ },
+ "furniture": {
+  "tool": "Furniture / architecture",
+  "image": {
+   "url": "https://bright-moments-mainnet.s3.amazonaws.com/75000000.png",
+   "source_page": "https://www.artblocks.io/collection/enlace-by-arandalasch",
+   "caption": "Enlace #0, Aranda\\Lasch, 2024",
+   "credit": "Art Blocks token media for Enlace #0; © Aranda\\Lasch (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676/75000000.png"
+  },
+  "intro": "Furniture and architecture: generative designs built at human scale. Aranda\\Lasch's Enlace chairs (2024) are the example.",
+  "history": [],
+  "get_started": [
+   "Design one panel or surface.",
+   "Work with a fabricator.",
+   "Build a scale model first."
+  ],
+  "starter_cost": "Varies widely [estimate].",
+  "humanity": [
+   "The body: furniture is shaped by sitting.",
+   "Place: design for one room.",
+   "Care: make something used every day."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Parametric design",
+    "url": "https://en.wikipedia.org/wiki/Parametric_design"
+   }
+  ],
+  "first_project": "Generate a flat-pack chair profile and laser-cut a 1:5 model."
+ },
+ "physother": {
+  "tool": "Physical (other)",
+  "image": {
+   "url": "https://art-blocks-bright-moments-mainnet.s3.amazonaws.com/1000000.png",
+   "source_page": "https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas",
+   "caption": "923 EMPTY ROOMS #0, Casey REAS, 2023",
+   "credit": "Art Blocks token media for 923 EMPTY ROOMS #0; © Casey REAS (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000.png"
+  },
+  "intro": "Other physical outputs research-verified for an artist: objects, installations, wearables that don't fit one category.",
+  "history": [],
+  "get_started": [
+   "Read the verified claims in the Directory.",
+   "Follow the source.",
+   "Pick one method to try."
+  ],
+  "starter_cost": "",
+  "humanity": [
+   "Place: objects live somewhere.",
+   "The hand: physical making slows you down.",
+   "Care: make it to last."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Digital modeling and fabrication",
+    "url": "https://en.wikipedia.org/wiki/Digital_modeling_and_fabrication"
+   }
+  ],
+  "first_project": ""
+ },
+ "food": {
+  "tool": "Food",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/3D_Printed_Chocolate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:3D_Printed_Chocolate.jpg",
+   "caption": "3D-printed chocolate made on a Wiiboox Sweetin printer, photo 2020",
+   "credit": "Wikimedia Commons: FM1418, CC BY-SA 4.0",
+   "license": "CC BY-SA 4.0",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Food as output: 3D-printed chocolate, generative cakes. No token-linked work found; Dinara Kasko's algorithmic cakes are the reference.",
+  "history": [],
+  "get_started": [
+   "Export a mould shape as a mesh.",
+   "Print a food-safe mould.",
+   "Cast chocolate or sugar."
+  ],
+  "starter_cost": "Food-safe printing materials vary [estimate].",
+  "humanity": [
+   "Care: food is made to share.",
+   "Time: it lasts one meal.",
+   "Memory: a recipe from family, reshaped."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: 3D food printing",
+    "url": "https://en.wikipedia.org/wiki/3D_food_printing"
+   }
+  ],
+  "first_project": ""
+ },
+ "scent": {
+  "tool": "Scent / perfume",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/500000000.png",
+   "source_page": "https://www.artblocks.io/collection/ink-fragrances-by-iskra-velitchkova",
+   "caption": "INK (fragrances) #0, Iskra Velitchkova, 2024",
+   "credit": "Art Blocks token media for INK (fragrances) #0; © Iskra Velitchkova (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xab0000000000aa06f89b268d604a9c1c41524ac6/500000000.png"
+  },
+  "intro": "Scent and perfume: a generative formula turned into a fragrance. Iskra Velitchkova's INK (fragrances) (2024) is the Art Blocks example.",
+  "history": [],
+  "get_started": [
+   "Map traits to scent notes with a perfumer.",
+   "Make small samples.",
+   "Describe the scent in words in the token."
+  ],
+  "starter_cost": "Perfumer collaboration costs vary [estimate].",
+  "humanity": [
+   "Memory: smell carries memory strongly.",
+   "Collaboration: credit the perfumer.",
+   "Place: a scent of a place."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Perfume",
+    "url": "https://en.wikipedia.org/wiki/Perfume"
+   }
+  ],
+  "first_project": "Map 3 parameters to 3 accords with a perfumer (SRB's cheap test)."
+ },
+ "vinyl": {
+  "tool": "Vinyl / physical music releases",
+  "image": {
+   "url": "https://abstudio-74-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/pacific-spirit-by-emily-nicoll-and-747",
+   "caption": "Pacific Spirit #0, Emily Nicoll & 747, 2025",
+   "credit": "Art Blocks token media for Pacific Spirit #0; © Emily Nicoll & 747 (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x02f518c529a0002e505000795d00c500eb00534a/0.png"
+  },
+  "intro": "Vinyl and physical music releases: a generative sound or score pressed to record. Emily Nicoll & 747's Pacific Spirit (2025) and Trevor Paglen's PRELUDES are examples.",
+  "history": [
+   {
+    "date": "1948",
+    "text": "Vinyl (PVC) records are introduced; by 1958 they are standard.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Phonograph_record",
+    "verify_keyword": "polyvinyl"
+   }
+  ],
+  "get_started": [
+   "Render audio from one token.",
+   "Master for vinyl.",
+   "Order a short lathe-cut run."
+  ],
+  "starter_cost": "Short lathe-cut runs cost hundreds of dollars [estimate].",
+  "humanity": [
+   "Time: a record is played in real time.",
+   "Care: liner notes in your hand.",
+   "Collaboration: credit the musicians."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Phonograph record",
+    "url": "https://en.wikipedia.org/wiki/Phonograph_record"
+   }
+  ],
+  "first_project": "Print unique sleeves from token outputs for a small pressing."
+ },
+ "projector": {
+  "tool": "Projectors / projection mapping",
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Had_to_wait_for_5ENSES_to_close_to_avoid_spoilers_but_nice_projection_mapping_by_%40DoloresJoya_%40CODA_ME_codame_%28photo_by_j_bizzie%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Had_to_wait_for_5ENSES_to_close_to_avoid_spoilers_but_nice_projection_mapping_by_@DoloresJoya_@CODA_ME_codame_(photo_by_j_bizzie).jpg",
+   "caption": "Projection mapping by Dolores Joya at CODAME 5ENSES, photo 2013",
+   "credit": "Wikimedia Commons: j bizzie from MINNEAPOLIS, USA, CC BY 2.0",
+   "license": "CC BY 2.0",
+   "kind": "commons",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": true,
+   "proxy": ""
+  },
+  "intro": "Projectors and projection mapping throw images onto buildings, rooms and objects. Refik Anadol's Machine Hallucinations is the example in our map.",
+  "history": [
+   {
+    "date": "1969",
+    "text": "Disneyland's Haunted Mansion uses projection onto busts, an early example of projection mapping.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Projection_mapping",
+    "verify_keyword": "1969"
+   }
+  ],
+  "get_started": [
+   "Borrow a projector.",
+   "Map one output onto a real object with free software.",
+   "Test in the dark."
+  ],
+  "starter_cost": "A used projector costs a few hundred dollars [estimate].",
+  "humanity": [
+   "Place: the wall becomes part of the work.",
+   "Time: only visible at night.",
+   "Collaboration: project for a community event."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MadMapper",
+    "url": "https://madmapper.com/"
+   },
+   {
+    "label": "Wikipedia: Projection mapping",
+    "url": "https://en.wikipedia.org/wiki/Projection_mapping"
+   }
+  ],
+  "first_project": "Map a live token view onto a box with MadMapper's trial."
+ },
+ "led": {
+  "tool": "LED walls / pixel screens",
+  "image": {
+   "url": "",
+   "source_page": "https://interphase.ksawerykomputery.com/",
+   "caption": "Example: INTERPHASE (Ksawery Komputery)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "LED walls and pixel screens show works at architectural scale, from Times Square's Midnight Moment to small LED matrices.",
+  "history": [],
+  "get_started": [
+   "Run your sketch at the panel's pixel size.",
+   "Test brightness and frame rate.",
+   "Start with a small LED matrix."
+  ],
+  "starter_cost": "Small LED matrices cost tens of dollars [estimate].",
+  "humanity": [
+   "Place: a public screen reaches people who did not choose art.",
+   "Care: keep it calm at night.",
+   "Time: change with the hour."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit NeoPixel Überguide",
+    "url": "https://learn.adafruit.com/adafruit-neopixel-uberguide"
+   },
+   {
+    "label": "FastLED",
+    "url": "https://fastled.io/"
+   }
+  ],
+  "first_project": "Drive a 16x16 NeoPixel grid from a seeded pattern."
+ },
+ "frames": {
+  "tool": "Dynamic NFT displays (Infinite Objects, Tokenframe)",
+  "image": {
+   "url": "https://static-assets.artlogic.net//exhibit-e/5b6b5f6d6aa72c4f430fcc53/801b43a8f66fedec9bae72c6a9206821.png",
+   "source_page": "https://www.venusovermanhattan.com/exhibitions/snowfro-chromie-squiggles",
+   "caption": "Snowfro: Chromie Squiggles (exhibition with Infinite Objects displays), Venus Over Manhattan, 2022",
+   "credit": "Image: venusovermanhattan.com (gallery site); © the artist / gallery. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Dynamic NFT displays (Infinite Objects, Tokenframe) show a live token on a dedicated screen. Snowfro's Chromie Squiggles show at Venus Over Manhattan (Feb 2022) used Infinite Objects prints.",
+  "history": [
+   {
+    "date": "2022",
+    "text": "Snowfro: Chromie Squiggles opens at Venus Over Manhattan with Infinite Objects displays.",
+    "tag": "sourced",
+    "source": "https://www.venusovermanhattan.com/exhibitions/snowfro-chromie-squiggles",
+    "verify_keyword": "Squiggle"
+   }
+  ],
+  "get_started": [
+   "Check which display supports your chain and format.",
+   "Test your token at the display's resolution.",
+   "Write how owners connect their token."
+  ],
+  "starter_cost": "Displays cost hundreds of dollars [estimate].",
+  "humanity": [
+   "Place: a token on a wall at home.",
+   "Time: live works change over the day.",
+   "Care: choose a calm, dim mode for evenings."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: token and generator APIs",
+    "url": "https://docs.artblocks.io/developer/token-and-generator-apis/"
+   },
+   {
+    "label": "Infinite Objects",
+    "url": "https://infiniteobjects.com/"
+   }
+  ],
+  "first_project": "Open your token's live view (Art Blocks generator URL) full-screen on a spare tablet for a week."
+ },
+ "eink": {
+  "tool": "E-ink / e-paper",
+  "image": {
+   "url": "https://aelig.art/en/opengraph-image.jpg?opengraph-image.6ea23671.jpg",
+   "source_page": "https://aelig.art/frames",
+   "caption": "AELIG e-ink art frame (maker press image; the artwork shown is not credited on the page)",
+   "credit": "Image: aelig.art (maker site); © AELIG. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "E-ink and e-paper screens show images that stay without power, like paper. AELIG makes e-ink art frames.",
+  "history": [
+   {
+    "date": "1970s",
+    "text": "Nick Sheridon develops Gyricon, an early electronic paper, at Xerox PARC.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Electronic_paper",
+    "verify_keyword": "Gyricon"
+   }
+  ],
+  "get_started": [
+   "Render a grayscale or few-colour output.",
+   "Test on an e-ink device.",
+   "Update slowly: e-ink is made for still images."
+  ],
+  "starter_cost": "E-ink frames cost hundreds of dollars [estimate].",
+  "humanity": [
+   "Time: one image per day.",
+   "Care: no glow, no noise.",
+   "Memory: a daily image like a diary page."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit eInk display guide",
+    "url": "https://learn.adafruit.com/adafruit-eink-display-breakouts"
+   },
+   {
+    "label": "Waveshare e-paper ESP32 driver board",
+    "url": "https://www.waveshare.com/wiki/E-Paper_ESP32_Driver_Board"
+   }
+  ],
+  "first_project": "Render one frame per hour to a colour e-ink panel from an ESP32 (SRB's cheap test)."
+ },
+ "pcb": {
+  "tool": "Custom PCBs / handheld hardware",
+  "image": {
+   "url": "https://lcd.ertdfgcvb.xyz/img/LCD1_large.jpg",
+   "source_page": "https://lcd.ertdfgcvb.xyz/",
+   "caption": "LCD 1: device for ASCII art, Andreas Gysin",
+   "credit": "Image: lcd.ertdfgcvb.xyz (artist site); © Andreas Gysin. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Custom PCBs and handheld hardware: artists building their own devices. Andreas Gysin's LCD 1 and Generative Goods' mio are examples.",
+  "history": [
+   {
+    "date": "1936",
+    "text": "Paul Eisler makes an early printed circuit board as part of a radio.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Printed_circuit_board",
+    "verify_keyword": "Eisler"
+   }
+  ],
+  "get_started": [
+   "Start with a microcontroller board and one screen.",
+   "Run a tiny generative sketch on it.",
+   "Design a PCB in KiCad (free) once it works."
+  ],
+  "starter_cost": "Small PCB runs cost tens of dollars [estimate].",
+  "humanity": [
+   "The hand: something to hold.",
+   "Care: build it to repair.",
+   "Collaboration: open-source the design."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "KiCad docs",
+    "url": "https://docs.kicad.org/"
+   },
+   {
+    "label": "ESP32 get started",
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/"
+   }
+  ],
+  "first_project": "Run your sketch on an ESP32 with a small OLED before designing a board in KiCad."
+ },
+ "button": {
+  "tool": "Physical button",
+  "image": {
+   "url": "https://www.mioclick.com/opengraph-image.jpg?opengraph-image.3o0qajxkl-l4i.jpg",
+   "source_page": "https://www.mioclick.com/",
+   "caption": "mio, Generative Goods (2026)",
+   "credit": "Image: mioclick.com (maker site); © Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "A physical button as input, as on Generative Goods' mio.",
+  "history": [],
+  "get_started": [
+   "Wire one button to a microcontroller.",
+   "Send presses to a sketch.",
+   "Make each press count."
+  ],
+  "starter_cost": "A few dollars [estimate].",
+  "humanity": [
+   "The hand: a click you feel.",
+   "Time: count presses over a life.",
+   "Care: make it satisfying."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit Arduino lesson 6: digital inputs (buttons)",
+    "url": "https://learn.adafruit.com/adafruit-arduino-lesson-6-digital-inputs"
+   }
+  ],
+  "first_project": "Wire one button to an Arduino and reseed on press."
+ },
+ "screenhw": {
+  "tool": "Embedded screen",
+  "image": {
+   "url": "https://www.mioclick.com/opengraph-image.jpg?opengraph-image.3o0qajxkl-l4i.jpg",
+   "source_page": "https://www.mioclick.com/",
+   "caption": "mio, Generative Goods (2026)",
+   "credit": "Image: mioclick.com (maker site); © Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "An embedded screen inside an object, as on mio or LCD 1.",
+  "history": [],
+  "get_started": [
+   "Pick a small display module.",
+   "Run a tiny sketch on it.",
+   "Design the case around it."
+  ],
+  "starter_cost": "Tens of dollars [estimate].",
+  "humanity": [
+   "The hand: a screen you hold.",
+   "Place: the object sits somewhere.",
+   "Care: low brightness."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Adafruit: monochrome OLED breakouts",
+    "url": "https://learn.adafruit.com/monochrome-oled-breakouts"
+   }
+  ],
+  "first_project": "Draw a seeded pattern on a 128x64 OLED."
+ },
+ "handheld": {
+  "tool": "Handheld device",
+  "image": {
+   "url": "https://www.mioclick.com/opengraph-image.jpg?opengraph-image.3o0qajxkl-l4i.jpg",
+   "source_page": "https://www.mioclick.com/",
+   "caption": "mio, Generative Goods (2026)",
+   "credit": "Image: mioclick.com (maker site); © Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "A handheld device built for a work, like Generative Goods' mio.",
+  "history": [],
+  "get_started": [
+   "Prototype on a microcontroller.",
+   "Design a case.",
+   "Make a few by hand."
+  ],
+  "starter_cost": "Tens of dollars per prototype [estimate].",
+  "humanity": [
+   "The hand: shaped for one hand.",
+   "Care: repairable.",
+   "Memory: carried every day."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "ESP32 get started",
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/"
+   },
+   {
+    "label": "KiCad docs",
+    "url": "https://docs.kicad.org/"
+   }
+  ],
+  "first_project": "Battery-power the ESP32 + OLED build and put it in a printed case."
+ },
+ "rom": {
+  "tool": "Game ROMs / cartridges",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/232000000.png",
+   "source_page": "https://www.artblocks.io/collection/jiometory-no-compute-by-samsy",
+   "caption": "Jiometory No Compute - ジオメトリ ハ ケイサンサレマセン #0, Samsy, 2021",
+   "credit": "Art Blocks token media for Jiometory No Compute #0; © Samsy (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/232000000.png"
+  },
+  "intro": "Game ROMs and cartridges: works made to run on game hardware. Samsy's Jiometory No Compute (2021) and Snowfro's LIFT (a self portrait) (2025) are Art Blocks examples.",
+  "history": [
+   {
+    "date": "1976",
+    "text": "The Fairchild Channel F is the first home console to use ROM cartridges.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/ROM_cartridge",
+    "verify_keyword": "Fairchild"
+   }
+  ],
+  "get_started": [
+   "Learn a Game Boy or NES homebrew toolchain (GB Studio is free).",
+   "Port a tiny generative idea.",
+   "Run it on an emulator, then a flash cart."
+  ],
+  "starter_cost": "A flash cartridge costs tens of dollars [estimate].",
+  "humanity": [
+   "Memory: hardware from childhood.",
+   "Imperfection: tiny palettes and pixels.",
+   "Care: make it playable for years."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "gbdev (Game Boy development)",
+    "url": "https://gbdev.io/"
+   },
+   {
+    "label": "Pan Docs",
+    "url": "https://gbdev.io/pandocs/"
+   },
+   {
+    "label": "GBDK docs",
+    "url": "https://gbdk.org/docs/api/"
+   }
+  ],
+  "first_project": "Build a seeded Game Boy ROM with GBDK and run it in an emulator."
+ },
+ "nfc": {
+  "tool": "NFC chips",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/2000001.png",
+   "source_page": "https://www.artblocks.io/collection/marfamesh-by-harvey-rayner",
+   "caption": "marfaMESH #1, Harvey Rayner, 2023",
+   "credit": "Art Blocks token media for marfaMESH #1; © Harvey Rayner (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-ND 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x942bc2d3e7a589fe5bd4a5c6ef9727dfd82f5c8a/2000001.png"
+  },
+  "intro": "NFC chips are tiny tags a phone reads by tapping. Sewn or stuck into an object, they link it to its token. IYK chips on 9dcc × Snowfro ITERATION-02 tees (2022) and Harvey Rayner's marfaMESH are examples.",
+  "history": [
+   {
+    "date": "2004",
+    "text": "Nokia, Philips and Sony found the NFC Forum.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Near-field_communication",
+    "verify_keyword": "2004"
+   }
+  ],
+  "get_started": [
+   "Buy a pack of NTAG stickers.",
+   "Write a URL to one with a phone app.",
+   "Point it to the token page.",
+   "For authenticity, use a signed-chip service (like IYK)."
+  ],
+  "starter_cost": "NFC stickers cost cents each; signed chips cost more [estimate].",
+  "humanity": [
+   "The hand: a tap connects the object and the token.",
+   "Care: the link should outlast the company that made it.",
+   "Memory: each tap could add to a visit log.",
+   "Place: tags placed in a real location."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "IYK docs",
+    "url": "https://docs.iyk.app/"
+   },
+   {
+    "label": "IYK phygitals API",
+    "url": "https://docs.iyk.app/api-core/phygitals"
+   }
+  ],
+  "first_project": "Stick a tag on one plot and link the tap to the token page; then try a cryptographic chip platform."
+ },
+ "qr": {
+  "tool": "QR codes",
+  "image": {
+   "url": "https://art-blocks-bright-moments-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/metropolis-by-mpkoz",
+   "caption": "Metropolis #0, mpkoz, 2022",
+   "credit": "Art Blocks token media for Metropolis #0; © mpkoz (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/0.png"
+  },
+  "intro": "QR codes link a printed object to its token. They are easy and cheap but copyable. mpkoz's Metropolis is the Art Blocks example.",
+  "history": [
+   {
+    "date": "1994",
+    "text": "Denso Wave invents the QR code.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/QR_code",
+    "verify_keyword": "1994"
+   }
+  ],
+  "get_started": [
+   "Generate a QR code to the token URL.",
+   "Print it on the back of a print or plot.",
+   "Test with three phones."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "Care: make the code part of the design, not a sticker.",
+   "Memory: link to a note from the artist.",
+   "Place: codes in a real location."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Wikipedia: QR code",
+    "url": "https://en.wikipedia.org/wiki/QR_code"
+   }
+  ],
+  "first_project": "Print a QR code on the back of a plot that opens the token page."
+ },
+ "rfid": {
+  "tool": "RFID (UHF, non-NFC)",
+  "image": {
+   "url": "",
+   "source_page": "https://en.wikipedia.org/wiki/Radio-frequency_identification",
+   "caption": "Example: Wikipedia: Radio-frequency identification",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "RFID tags (UHF, non-NFC) are read from farther away by special readers, not phones. None found linked to tokens.",
+  "history": [
+   {
+    "date": "1948",
+    "text": "Harry Stockman's paper on reflected-power communication is early groundwork for RFID.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Radio-frequency_identification",
+    "verify_keyword": "Stockman"
+   }
+  ],
+  "get_started": [
+   "Read about UHF vs NFC.",
+   "Use NFC unless you need range.",
+   "Test a reader."
+  ],
+  "starter_cost": "Readers cost tens to hundreds of dollars [estimate].",
+  "humanity": [
+   "Place: objects that know where they are.",
+   "Care: privacy first.",
+   "Memory: an object's path."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Radio-frequency identification",
+    "url": "https://en.wikipedia.org/wiki/Radio-frequency_identification"
+   }
+  ],
+  "first_project": ""
+ },
+ "ble": {
+  "tool": "Bluetooth beacons",
+  "image": {
+   "url": "",
+   "source_page": "https://docs.arianee.org/docs/mint-nft",
+   "caption": "Example: Arianee ID methods",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Bluetooth beacons announce an object nearby. None found linked to tokens yet.",
+  "history": [
+   {
+    "date": "2013",
+    "text": "Apple introduces iBeacon.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Bluetooth_Low_Energy_beacon",
+    "verify_keyword": "iBeacon"
+   }
+  ],
+  "get_started": [
+   "Read MDN's Web Bluetooth API page.",
+   "Set up one beacon.",
+   "Show the work only near it."
+  ],
+  "starter_cost": "Beacons cost a few dollars [estimate].",
+  "humanity": [
+   "Place: the work appears only nearby.",
+   "Care: no tracking.",
+   "Collaboration: a work in a shared space."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Web Bluetooth API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API"
+   },
+   {
+    "label": "Wikipedia: Bluetooth low energy beacon",
+    "url": "https://en.wikipedia.org/wiki/Bluetooth_low_energy_beacon"
+   }
+  ],
+  "first_project": ""
+ },
+ "passport": {
+  "tool": "Physical-backed NFT passports (Arianee, IYK)",
+  "image": {
+   "url": "https://static.wixstatic.com/media/ae8cc5_b4919ff8e31049cdb45bc898eab885a2%7Emv2.png/v1/fit/w_2500,h_1330,al_c/ae8cc5_b4919ff8e31049cdb45bc898eab885a2%7Emv2.png",
+   "source_page": "https://www.estelletcha.com/physicalfirst",
+   "caption": "Physical First, Estelle Tcha, 2023",
+   "credit": "Image: estelletcha.com (artist site); © Estelle Tcha. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Physical-backed NFT passports (Arianee, IYK) certify a physical object with a token. Estelle Tcha's Physical First (2023) is the example.",
+  "history": [],
+  "get_started": [
+   "Read the Arianee or IYK docs.",
+   "Issue a test passport on a testnet.",
+   "Attach a chip to the object."
+  ],
+  "starter_cost": "Platform pricing varies [estimate].",
+  "humanity": [
+   "Care: the object's history travels with it.",
+   "Memory: owners add notes.",
+   "The hand: a signed object."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Arianee docs",
+    "url": "https://docs.arianee.org/"
+   },
+   {
+    "label": "IYK phygitals API",
+    "url": "https://docs.iyk.app/api-core/phygitals"
+   }
+  ],
+  "first_project": "Issue a test passport for one print on a testnet."
+ },
+ "live": {
+  "tool": "Live performance / live minting",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/505000000.png",
+   "source_page": "https://www.artblocks.io/collection/gas-wars-by-jack-butcher",
+   "caption": "Gas Wars #0, Jack Butcher, 2025",
+   "credit": "Art Blocks token media for Gas Wars #0; © Jack Butcher. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xab00000000002ade39f58f9d8278a31574ffbe77/505000000.png"
+  },
+  "intro": "Live performance and live minting: mints tied to an event. Jack Butcher's Gas Wars (2025) and Lauren Lee McCarthy's Seeing Voices are Art Blocks examples; Bright Moments ran in-person mints from 2021.",
+  "history": [
+   {
+    "date": "2021",
+    "text": "Bright Moments Venice Beach opens in May 2021 with daily in-person minting of CryptoVenetians.",
+    "tag": "sourced",
+    "source": "https://www.brightmoments.io/venice",
+    "verify_keyword": "Venice"
+   }
+  ],
+  "get_started": [
+   "Set up a set-price or allowlist minter on a testnet.",
+   "Run a small event with friends.",
+   "Record the room's conditions (time, place) in the work."
+  ],
+  "starter_cost": "Gas and event costs vary [estimate].",
+  "humanity": [
+   "Place: you had to be there.",
+   "Collaboration: the audience shapes the output.",
+   "Time: a work fixed to one evening.",
+   "The body: people in a room together."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: minters for artists",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/minters/"
+   }
+  ],
+  "first_project": "Mint at a small event with a set-price or allowlist minter on a testnet first."
+ },
+ "robot": {
+  "tool": "Robotics / robot arms",
+  "image": {
+   "url": "https://www.vam.ac.uk/blog/wp-content/uploads/2022NG9336.jpg",
+   "source_page": "https://www.vam.ac.uk/blog/digital/the-algorithmic-gesture-sougwen-chungs-memory",
+   "caption": "Drawing from Sougwen Chung's human–robot collaboration (V&A blog: \"The algorithmic gesture: Sougwen Chung's MEMORY\")",
+   "credit": "Image: vam.ac.uk blog; © Sougwen Chung / V&A. Loaded from the source page's own image URL, not rehosted.",
+   "license": "All rights reserved (assumed); linked with credit",
+   "kind": "artist",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/jpeg",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "Robot arms drawing or performing. Sougwen Chung has drawn alongside robot arms since 2015 (D.O.U.G.).",
+  "history": [
+   {
+    "date": "1961",
+    "text": "Unimate, the first industrial robot arm, starts work at General Motors.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/Unimate",
+    "verify_keyword": "1961"
+   },
+   {
+    "date": "2015",
+    "text": "Sougwen Chung begins drawing with robot arms (D.O.U.G.); her MEMORY later enters the V&A collection.",
+    "tag": "sourced",
+    "source": "https://www.vam.ac.uk/blog/digital/the-algorithmic-gesture-sougwen-chungs-memory",
+    "verify_keyword": "Chung"
+   }
+  ],
+  "get_started": [
+   "Send your SVG to a plotter first.",
+   "Try a hobby robot arm.",
+   "Draw together with it."
+  ],
+  "starter_cost": "Hobby arms cost hundreds of dollars [estimate].",
+  "humanity": [
+   "Collaboration: draw with the robot, as Sougwen Chung does.",
+   "The hand: your stroke and the arm's stroke side by side.",
+   "Imperfection: let the arm wobble."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Wikipedia: Robotic arm",
+    "url": "https://en.wikipedia.org/wiki/Robotic_arm"
+   }
+  ],
+  "first_project": "Send your SVG to a hobby arm or a plotter first; robots later."
+ },
+ "oracle": {
+  "tool": "Oracles / on-chain data feeds",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/5000001.png",
+   "source_page": "https://www.artblocks.io/collection/sendreceive-by-snowfro",
+   "caption": "send/receive #1, Snowfro, 2025",
+   "credit": "Art Blocks token media for send/receive #1; © Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xababababab20053426ad1c782de9ea8444358070/5000001.png"
+  },
+  "intro": "Oracles bring outside data onto the blockchain so contracts and tokens can read it. Snowfro's send/receive (2025) reads on-chain state in our data.",
+  "history": [],
+  "get_started": [
+   "Read Chainlink's data feeds docs.",
+   "Read one price feed on a testnet.",
+   "Map it to one colour."
+  ],
+  "starter_cost": "Testnet use is free; mainnet reads cost gas [estimate].",
+  "humanity": [
+   "Place: data from one real place.",
+   "Care: watch something that matters.",
+   "Time: the work changes as the world does."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Chainlink data feeds",
+    "url": "https://docs.chain.link/data-feeds"
+   }
+  ],
+  "first_project": "Read one price feed on a testnet and map it to a colour."
+ },
+ "mutable": {
+  "tool": "Mutable / evolving tokens (PMP, time, transfers)",
+  "image": {
+   "url": "https://abstudio-111-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/unravel-by-anna-lucia",
+   "caption": "Unravel #0, Anna Lucia, 2026",
+   "credit": "Art Blocks token media for Unravel #0; © Anna Lucia (license listed on Art Blocks: CC BY-NC-SA). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x00000096df621f2a8ef2f103b7299b7910d8cd99/0.png"
+  },
+  "intro": "Mutable or evolving tokens change after mint: with time, owner choices (Art Blocks PostParams), or transfers. Anna Lucia's Unravel decays on transfer; Matto's AnnoMetta uses post-mint parameters; Alexis André's 720 Minutes (2021) changes through the day.",
+  "history": [],
+  "get_started": [
+   "Read Art Blocks' PostParams docs.",
+   "Add one owner-settable parameter (a palette) to a test project.",
+   "Decide what can change and what never can.",
+   "Write the rules in the description."
+  ],
+  "starter_cost": "Testnet is free; mainnet changes cost gas [estimate].",
+  "humanity": [
+   "Time: the work ages, like paper or wood.",
+   "Care: an owner tends the work over years.",
+   "Memory: each change leaves a trace.",
+   "Collaboration: owner and artist share authorship."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   },
+   {
+    "label": "ABX: parameters",
+    "url": "https://docs.abx.io/docs/protocol/params"
+   },
+   {
+    "label": "Art Blocks: transfer hooks",
+    "url": "https://docs.artblocks.io/protocol/transfer-hooks/"
+   }
+  ],
+  "first_project": "Add one owner-settable parameter (a palette) to a test project and watch it change the render."
+ },
+ "decay": {
+  "tool": "Decay on transfer",
+  "image": {
+   "url": "https://abstudio-111-mainnet.s3.amazonaws.com/1.png",
+   "source_page": "https://www.artblocks.io/collection/unravel-by-anna-lucia",
+   "caption": "Unravel #1, Anna Lucia, 2026",
+   "credit": "Art Blocks token media for Unravel #1; © Anna Lucia (license listed on Art Blocks: CC BY-NC-SA). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC-SA",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x00000096df621f2a8ef2f103b7299b7910d8cd99/1.png"
+  },
+  "intro": "A token that changes each time it is transferred. Anna Lucia's Unravel (2026) is the example.",
+  "history": [],
+  "get_started": [
+   "Read Art Blocks' transfer-hooks docs.",
+   "Count transfers in a test project.",
+   "Fade one layer per transfer."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Time: the work remembers how often it moved.",
+   "Care: keeping it means keeping it whole.",
+   "Memory: each owner leaves a mark."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: transfer hooks",
+    "url": "https://docs.artblocks.io/protocol/transfer-hooks/"
+   },
+   {
+    "label": "ABX: custom mechanics (hooks)",
+    "url": "https://docs.abx.io/docs/using-abx/guides/custom-mechanics"
+   }
+  ],
+  "first_project": "Count transfers in a transfer hook and fade one layer per transfer (testnet)."
+ },
+ "onstate": {
+  "tool": "On-chain state",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/5000000.png",
+   "source_page": "https://www.artblocks.io/collection/sendreceive-by-snowfro",
+   "caption": "send/receive #0, Snowfro, 2025",
+   "credit": "Art Blocks token media for send/receive #0; © Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xababababab20053426ad1c782de9ea8444358070/5000000.png"
+  },
+  "intro": "Output that reads live chain state, like Snowfro's send/receive (2025).",
+  "history": [],
+  "get_started": [
+   "Read one on-chain value in your script.",
+   "Map it to one parameter.",
+   "Render a fallback."
+  ],
+  "starter_cost": "Free to read [estimate].",
+  "humanity": [
+   "Time: the work follows the chain's heartbeat.",
+   "Collaboration: other people's actions change it.",
+   "Memory: freeze a state at a meaningful block."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   },
+   {
+    "label": "ABX: parameters",
+    "url": "https://docs.abx.io/docs/protocol/params"
+   }
+  ],
+  "first_project": "Read one on-chain value in your script and map it to one parameter."
+ },
+ "onaudio": {
+  "tool": "On-chain audio",
+  "image": {
+   "url": "https://art-blocks-explorations-mainnet.s3.amazonaws.com/5000002.png",
+   "source_page": "https://www.artblocks.io/collection/sendreceive-by-snowfro",
+   "caption": "send/receive #2, Snowfro, 2025",
+   "credit": "Art Blocks token media for send/receive #2; © Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xababababab20053426ad1c782de9ea8444358070/5000002.png"
+  },
+  "intro": "Audio generated fully in the script, with no external files, as in Snowfro's send/receive.",
+  "history": [],
+  "get_started": [
+   "Generate a sound with Web Audio only.",
+   "Keep it small.",
+   "Start on a click."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "The body: breath-paced sound.",
+   "Place: tune to a room.",
+   "Time: never repeat."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: Using the Web Audio API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API"
+   },
+   {
+    "label": "Art Blocks: on-chain storage",
+    "url": "https://docs.artblocks.io/protocol/on-chain-storage/"
+   }
+  ],
+  "first_project": "Generate a sound entirely in script, with no external files."
+ },
+ "timebased": {
+  "tool": "Time-based change",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/364000000.png",
+   "source_page": "https://www.artblocks.io/collection/act-of-emotion-by-kelly-milligan",
+   "caption": "Act of Emotion #0, Kelly Milligan, 2022",
+   "credit": "Art Blocks token media for Act of Emotion #0; © Kelly Milligan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/364000000.png"
+  },
+  "intro": "Output that changes on a schedule. Kelly Milligan's Act of Emotion (2022) is in our data.",
+  "history": [],
+  "get_started": [
+   "Pick a schedule (hour, season).",
+   "Add a test mode.",
+   "Describe the schedule."
+  ],
+  "starter_cost": "Free.",
+  "humanity": [
+   "Time: seasons in a single work.",
+   "Memory: an anniversary state.",
+   "Place: the sun of one city."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "MDN: requestAnimationFrame",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+   },
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   }
+  ],
+  "first_project": "Make one element change by season."
+ },
+ "pmp": {
+  "tool": "Post-mint params",
+  "image": {
+   "url": "https://abstudio-13-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/annometta-by-matto",
+   "caption": "AnnoMetta #0, Matto, 2024",
+   "credit": "Art Blocks token media for AnnoMetta #0; © Matto (license listed on Art Blocks: CC-BY-NC-4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC-BY-NC-4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x000000cb8bad52b0d51f4190dd1c62ce1cde1e9d/0.png"
+  },
+  "intro": "Post-mint parameters (Art Blocks PostParams) let the owner or artist set values after mint. Matto's AnnoMetta and Snowfro's LIFT use them.",
+  "history": [],
+  "get_started": [
+   "Read Art Blocks' PostParams docs.",
+   "Add one owner-settable parameter in a test project.",
+   "Decide the range and who can set it."
+  ],
+  "starter_cost": "Testnet is free; mainnet changes cost gas [estimate].",
+  "humanity": [
+   "Care: let the owner tend the work.",
+   "Collaboration: owner and artist co-author.",
+   "Memory: every setting is recorded on-chain.",
+   "Time: change it once a year."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   },
+   {
+    "label": "ABX: parameters",
+    "url": "https://docs.abx.io/docs/protocol/params"
+   }
+  ],
+  "first_project": "Add one owner-settable parameter in a test project."
+ },
+ "redeem": {
+  "tool": "Physical redemption (token mechanic)",
+  "image": {
+   "url": "https://art-blocks-x-pace-mainnet.s3.amazonaws.com/2000000.png",
+   "source_page": "https://www.artblocks.io/collection/qwerty-by-tara-donovan",
+   "caption": "QWERTY #0, Tara Donovan, 2022",
+   "credit": "Art Blocks token media for QWERTY #0; © Tara Donovan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x64780ce53f6e966e18a22af13a2f97369580ec11/2000000.png"
+  },
+  "intro": "A token that can be redeemed for a physical object, with the redemption recorded. Tara Donovan's QWERTY and Aranda\\Lasch's Enlace are examples.",
+  "history": [],
+  "get_started": [
+   "Decide what the physical object is and who makes it.",
+   "Record 'redeemed' as an artist-set parameter on a test token.",
+   "Pair the object with an NFC tag.",
+   "Write the redemption terms plainly."
+  ],
+  "starter_cost": "Fabrication and shipping costs vary [estimate].",
+  "humanity": [
+   "The hand: a made object for a digital one.",
+   "Care: the object should outlast the platform.",
+   "Collaboration: credit the fabricator.",
+   "Place: the object goes to a home."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   },
+   {
+    "label": "ABX: parameters",
+    "url": "https://docs.abx.io/docs/protocol/params"
+   },
+   {
+    "label": "IYK docs",
+    "url": "https://docs.iyk.app/"
+   }
+  ],
+  "first_project": "Record 'redeemed' as an artist-set parameter on a test token, and pair it with an NFC tag on the object."
+ },
+ "quantum": {
+  "tool": "Quantum hardware",
+  "image": {
+   "url": "https://artblocks-mainnet.s3.amazonaws.com/275000000.png",
+   "source_page": "https://www.artblocks.io/collection/quantum-collapses-by-insigt",
+   "caption": "Quantum Collapses #0, Insigħt, 2022",
+   "credit": "Art Blocks token media for Quantum Collapses #0; © Insigħt (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "NFT License 2.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/275000000.png"
+  },
+  "intro": "Using a quantum computer as a source of randomness or input. Insigħt's Quantum Collapses (2022) ran a raffle on IBM's ibmq_quito.",
+  "history": [
+   {
+    "date": "2016",
+    "text": "IBM makes a small quantum computer available over the cloud.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/IBM_Quantum_Platform",
+    "verify_keyword": "2016"
+   }
+  ],
+  "get_started": [
+   "Make a free IBM Quantum account.",
+   "Run a tiny circuit.",
+   "Use the result as a seed."
+  ],
+  "starter_cost": "IBM has offered free access with limited monthly time [estimate: check current terms].",
+  "humanity": [
+   "Imperfection: quantum noise as texture.",
+   "Time: one measurement, one moment.",
+   "Collaboration: the machine as co-author."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "IBM Quantum Learning",
+    "url": "https://quantum.cloud.ibm.com/learning/en"
+   }
+  ],
+  "first_project": "Run a tiny circuit on IBM's free tier and use the result as a seed."
+ },
+ "fabfile": {
+  "tool": "Token as fabrication file",
+  "image": {
+   "url": "https://plottables-flex-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/instructions-for-defacement-by-steve-pikelny",
+   "caption": "Instructions for Defacement #0, Steve Pikelny, 2022",
+   "credit": "Art Blocks token media for Instructions for Defacement #0; © Steve Pikelny (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x18de6097ce5b5b2724c9cae6ac519917f3f178c0/0.png"
+  },
+  "intro": "The token outputs a machine file: SVG for plotters, DST stitch files, .obj meshes. Steve Pikelny's Instructions for Defacement (2022) is the earliest in our data.",
+  "history": [],
+  "get_started": [
+   "Add a key that downloads the current output as SVG or OBJ.",
+   "Test the file on a real machine.",
+   "Document the file format for owners."
+  ],
+  "starter_cost": "Free to add; making costs vary [estimate].",
+  "humanity": [
+   "The hand: the owner makes the object.",
+   "Collaboration: makers interpret the file.",
+   "Care: give clear instructions.",
+   "Place: made where the owner lives."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Ink/Stitch home",
+    "url": "https://inkstitch.org/"
+   },
+   {
+    "label": "three.js manual",
+    "url": "https://threejs.org/manual/"
+   }
+  ],
+  "first_project": "Add a key that downloads the current output as SVG or OBJ."
+ },
+ "mech": {
+  "tool": "Token mechanic (any)",
+  "image": {
+   "url": "https://aoi-engine-mainnet.s3.amazonaws.com/6000000.png",
+   "source_page": "https://www.artblocks.io/collection/risk-reward-by-kjetil-golid",
+   "caption": "Risk / Reward #0, Kjetil Golid, 2024",
+   "credit": "Art Blocks token media for Risk / Reward #0; © Kjetil Golid (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0x8cdbd7010bd197848e95c1fd7f6e870aac9b0d3c/6000000.png"
+  },
+  "intro": "Any verified on-chain token mechanic: post-mint params, transfer hooks, live mints, redemption.",
+  "history": [],
+  "get_started": [
+   "Browse the verified mechanics.",
+   "Read the Art Blocks docs.",
+   "Try one on a testnet."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Time: mechanics play out over years.",
+   "Care: owners tend works.",
+   "Collaboration: owners shape outputs."
+  ],
+  "care": "short",
+  "learn_links": [
+   {
+    "label": "Art Blocks: PostParams",
+    "url": "https://docs.artblocks.io/protocol/postparams/"
+   },
+   {
+    "label": "Art Blocks: minters for artists",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/minters/"
+   }
+  ],
+  "first_project": ""
+ },
+ "onchain": {
+  "tool": "Fully on-chain assets (ONCHAIN)",
+  "image": {
+   "url": "https://sothebys-gen-art-mainnet.s3.amazonaws.com/1000000.png",
+   "source_page": "https://www.artblocks.io/collection/event-by-bernar-venet",
+   "caption": "EVENT #0, Bernar Venet, 2024",
+   "credit": "Art Blocks token media for EVENT #0; © Bernar Venet. Loaded from Art Blocks' media server, not rehosted.",
+   "license": "not listed",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/1000000.png"
+  },
+  "intro": "Fully on-chain works store their code and assets on the blockchain itself, so they don't depend on a server. Art Blocks stores scripts on-chain; Bernar Venet's EVENT (2024) is the earliest ONCHAIN-asset project in our data.",
+  "history": [
+   {
+    "date": "2019",
+    "text": "Larva Labs launches Autoglyphs, which it describes as the first art project both generated and stored entirely on-chain.",
+    "tag": "sourced",
+    "source": "https://www.larvalabs.com/autoglyphs",
+    "verify_keyword": "Autoglyphs"
+   }
+  ],
+  "get_started": [
+   "Read Art Blocks' on-chain storage docs.",
+   "Keep your script and assets small.",
+   "Deploy a small SVG work on a testnet."
+  ],
+  "starter_cost": "Storage costs gas, which grows with size [estimate].",
+  "humanity": [
+   "Time: a work meant to last as long as the chain.",
+   "Care: keep it small and readable.",
+   "Memory: a permanent record."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: on-chain storage",
+    "url": "https://docs.artblocks.io/protocol/on-chain-storage/"
+   },
+   {
+    "label": "ABX: onchain storage",
+    "url": "https://docs.abx.io/docs/protocol/onchain-storage"
+   }
+  ],
+  "first_project": "Deploy a small SVG work with on-chain metadata on a testnet."
+ },
+ "ipfs": {
+  "tool": "External media on IPFS / Arweave",
+  "image": {
+   "url": "https://verse-mainnet.s3.amazonaws.com/0.png",
+   "source_page": "https://www.artblocks.io/collection/hypertype-by-mark-webster",
+   "caption": "Hypertype #0, Mark Webster, 2022",
+   "credit": "Art Blocks token media for Hypertype #0; © Mark Webster (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+   "license": "CC BY-NC 4.0",
+   "kind": "ab",
+   "status": "verified",
+   "http": "200",
+   "content_type": "image/png",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": "https://media-proxy.artblocks.io/0xbb5471c292065d3b01b2e81e299267221ae9a250/0.png"
+  },
+  "intro": "Large assets (images, audio, models) stored on IPFS or Arweave and referenced by the token. Mark Webster's Hypertype (2022) uses IPFS in our data.",
+  "history": [
+   {
+    "date": "2015",
+    "text": "IPFS is first released.",
+    "tag": "sourced",
+    "source": "https://en.wikipedia.org/wiki/InterPlanetary_File_System",
+    "verify_keyword": "2015"
+   }
+  ],
+  "get_started": [
+   "Upload one file to IPFS with a pinning service.",
+   "Reference it from a test token.",
+   "Pin it in more than one place."
+  ],
+  "starter_cost": "Pinning services have free tiers [estimate].",
+  "humanity": [
+   "Care: pin your own files; don't rely on one company.",
+   "Memory: an archive of your process.",
+   "Collaboration: share assets openly."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "Art Blocks: IPFS and Arweave assets (Engine Flex)",
+    "url": "https://docs.artblocks.io/creator-onboarding/artists/flex-assets/"
+   },
+   {
+    "label": "ABX: storage",
+    "url": "https://docs.abx.io/docs/using-abx/guides/storage"
+   },
+   {
+    "label": "IPFS docs",
+    "url": "https://docs.ipfs.tech/"
+   },
+   {
+    "label": "Arweave docs",
+    "url": "https://docs.arweave.org/developers"
+   }
+  ],
+  "first_project": "Upload one image to IPFS or Arweave and reference it from a test token."
+ },
+ "erc8048": {
+  "tool": "ERC-8048 onchain metadata",
+  "image": {
+   "url": "",
+   "source_page": "https://eips.ethereum.org/EIPS/eip-8048",
+   "caption": "Example: ERC-8048 spec",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ERC-8048 is a draft standard for a per-token key/value store kept on-chain, with a MetadataSet event. It could let a token carry 'physical: issued' or a chip ID without a server.",
+  "history": [
+   {
+    "date": "2025-09-30",
+    "text": "ERC-8048 draft created.",
+    "tag": "sourced",
+    "source": "https://eips.ethereum.org/EIPS/eip-8048",
+    "verify_keyword": "2025-09-30"
+   }
+  ],
+  "get_started": [
+   "Read the ERC-8048 spec.",
+   "Deploy the reference contract on a testnet.",
+   "Store two keys on one token and read them back."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Memory: a token that keeps notes about its own life.",
+   "Care: record repairs and owners.",
+   "Place: store where the object lives."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ERC-8048 spec",
+    "url": "https://eips.ethereum.org/EIPS/eip-8048"
+   },
+   {
+    "label": "Ethereum Magicians discussion",
+    "url": "https://ethereum-magicians.org/t/erc-8048-onchain-metadata-for-token-registries/25820"
+   },
+   {
+    "label": "Vyper reference implementation",
+    "url": "https://github.com/rafael-abuawad/erc-8048-vyper"
+   }
+  ],
+  "first_project": "On a testnet, store 'physical: issued' and a chip ID under two keys on one token, then read them back."
+ },
+ "721t": {
+  "tool": "721T (agent metadata profile)",
+  "image": {
+   "url": "",
+   "source_page": "https://x.com/nxt3d/status/2101005222197833954",
+   "caption": "Example: Loopers (nxt3d post)",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "721T is the Agent Metadata Profile of ERC-8048: reserved keys for an agent's context and endpoints. Loopers on Base is described as the first agent NFT project using it.",
+  "history": [],
+  "get_started": [
+   "Read the 721T README on GitHub.",
+   "Give one test token a context key.",
+   "Add a web endpoint that answers as the piece."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Collaboration: the artwork can answer questions.",
+   "Care: write its 'voice' carefully.",
+   "Memory: the piece remembers conversations (with consent)."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "721T on GitHub",
+    "url": "https://github.com/nxt3d/721t"
+   },
+   {
+    "label": "ERC-8048 spec (721T section)",
+    "url": "https://eips.ethereum.org/EIPS/eip-8048"
+   },
+   {
+    "label": "Loopers post (nxt3d)",
+    "url": "https://x.com/nxt3d/status/2101005222197833954"
+   }
+  ],
+  "first_project": "Give one test token a 721T context key describing the artwork's 'voice' and a web endpoint that answers as the piece."
+ },
+ "erc6551": {
+  "tool": "ERC-6551 token-bound accounts",
+  "image": {
+   "url": "",
+   "source_page": "https://eips.ethereum.org/EIPS/eip-6551",
+   "caption": "Example: ERC-6551 spec",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ERC-6551 gives an NFT its own smart-contract wallet (a token-bound account), so an artwork can hold other assets.",
+  "history": [
+   {
+    "date": "2023-02-23",
+    "text": "ERC-6551 created.",
+    "tag": "sourced",
+    "source": "https://eips.ethereum.org/EIPS/eip-6551",
+    "verify_keyword": "2023-02-23"
+   }
+  ],
+  "get_started": [
+   "Read the ERC-6551 spec and Tokenbound docs.",
+   "Create a token-bound account for one test token.",
+   "Send it a second NFT."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Memory: the artwork keeps gifts.",
+   "Care: owners add to it.",
+   "Collaboration: works that hold each other."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ERC-6551 spec",
+    "url": "https://eips.ethereum.org/EIPS/eip-6551"
+   },
+   {
+    "label": "Tokenbound docs",
+    "url": "https://docs.tokenbound.org/"
+   }
+  ],
+  "first_project": "Create a token-bound account for one test token and send it a second NFT, so the artwork 'owns' something."
+ },
+ "erc8004": {
+  "tool": "ERC-8004 trustless agents",
+  "image": {
+   "url": "",
+   "source_page": "https://eips.ethereum.org/EIPS/eip-8004",
+   "caption": "Example: ERC-8004 spec",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ERC-8004 is a draft for agent identity, reputation and validation registries.",
+  "history": [
+   {
+    "date": "2025-08-13",
+    "text": "ERC-8004 draft created.",
+    "tag": "sourced",
+    "source": "https://eips.ethereum.org/EIPS/eip-8004",
+    "verify_keyword": "2025-08-13"
+   }
+  ],
+  "get_started": [
+   "Read the identity registry section.",
+   "Sketch an artwork-agent's registration file.",
+   "Follow the discussion on Ethereum Magicians."
+  ],
+  "starter_cost": "Free to read.",
+  "humanity": [
+   "Care: say clearly who stands behind an agent.",
+   "Collaboration: an artwork as a participant.",
+   "Memory: reputation over time."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ERC-8004 spec",
+    "url": "https://eips.ethereum.org/EIPS/eip-8004"
+   },
+   {
+    "label": "Ethereum Magicians discussion",
+    "url": "https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098"
+   }
+  ],
+  "first_project": "Read the spec's identity registry section and sketch what an artwork-agent's registration file would say."
+ },
+ "erc8217": {
+  "tool": "ERC-8217 agent NFT identity bindings",
+  "image": {
+   "url": "",
+   "source_page": "https://eips.ethereum.org/EIPS/eip-8217",
+   "caption": "Example: ERC-8217 spec",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ERC-8217 is a draft protocol binding ERC-8004 agents to NFTs in other collections.",
+  "history": [
+   {
+    "date": "2026-04-05",
+    "text": "ERC-8217 draft created.",
+    "tag": "sourced",
+    "source": "https://eips.ethereum.org/EIPS/eip-8217",
+    "verify_keyword": "2026-04-05"
+   }
+  ],
+  "get_started": [
+   "Read the spec.",
+   "Walk through its verification flow on paper.",
+   "Bind one test token to one agent ID on a testnet."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Collaboration: an artwork with a voice.",
+   "Care: consent for bindings.",
+   "Memory: bindings over time."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ERC-8217 spec",
+    "url": "https://eips.ethereum.org/EIPS/eip-8217"
+   },
+   {
+    "label": "Ethereum Magicians discussion",
+    "url": "https://ethereum-magicians.org/t/add-erc-8217-agent-nft-identity-bindings/28339"
+   }
+  ],
+  "first_project": "Follow the spec's verification flow on paper for one artwork token bound to one agent ID."
+ },
+ "erc7160": {
+  "tool": "ERC-7160 multi-metadata",
+  "image": {
+   "url": "",
+   "source_page": "https://eips.ethereum.org/EIPS/eip-7160",
+   "caption": "Example: ERC-7160 spec",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ERC-7160 lets one ERC-721 token carry several metadata URIs, with one pinned as primary: a screen version and a plot version, for example.",
+  "history": [
+   {
+    "date": "2023-06-09",
+    "text": "ERC-7160 created.",
+    "tag": "sourced",
+    "source": "https://eips.ethereum.org/EIPS/eip-7160",
+    "verify_keyword": "2023-06-09"
+   }
+  ],
+  "get_started": [
+   "Read the spec.",
+   "Give a test token two renderings.",
+   "Let the owner pin one."
+  ],
+  "starter_cost": "Testnet is free [estimate].",
+  "humanity": [
+   "Care: the owner chooses how the work is seen.",
+   "Time: pin a different version by season.",
+   "Memory: keep every version."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ERC-7160 spec",
+    "url": "https://eips.ethereum.org/EIPS/eip-7160"
+   }
+  ],
+  "first_project": "Give a test token two renderings (screen and plot) and let the owner pin which one shows."
+ },
+ "abx": {
+  "tool": "ABX (Art Blocks)",
+  "image": {
+   "url": "",
+   "source_page": "https://www.abx.io/",
+   "caption": "Example: abx.io",
+   "credit": "",
+   "license": "",
+   "kind": "none",
+   "status": "placeholder",
+   "http": "",
+   "content_type": "",
+   "checked_at_ET": "2026-10-25 22:41 ET",
+   "embedded_thumbnail": false,
+   "proxy": ""
+  },
+  "intro": "ABX is Art Blocks' free, open-source (MIT) protocol and toolkit for putting digital objects on-chain, with a CLI, an agent skill and an SDK. Anyone can deploy without applying.",
+  "history": [
+   {
+    "date": "2026-09-30",
+    "text": "Art Blocks announces ABX.",
+    "tag": "sourced",
+    "source": "https://x.com/artblocks_io/status/2105359383626445289",
+    "verify_keyword": "ABX"
+   }
+  ],
+  "get_started": [
+   "Read the ABX quickstart.",
+   "Do a dry run.",
+   "Deploy one code project to the Base Sepolia testnet.",
+   "Read 'choose a project type' before mainnet."
+  ],
+  "starter_cost": "Free and open-source (MIT) [sourced: abx.io]; deploying on mainnet costs gas [estimate].",
+  "humanity": [
+   "Care: publish on your own terms, without a gatekeeper.",
+   "Collaboration: open-source tools invite others to build.",
+   "Time: on-chain work lasts.",
+   "Memory: a permanent record of a practice."
+  ],
+  "care": "full",
+  "learn_links": [
+   {
+    "label": "ABX quickstart",
+    "url": "https://docs.abx.io/docs/using-abx/quickstart"
+   },
+   {
+    "label": "ABX: choose a project",
+    "url": "https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset"
+   },
+   {
+    "label": "ABX source (GitHub)",
+    "url": "https://github.com/ArtBlocks/abx"
+   }
+  ],
+  "first_project": "Deploy one code project to the Base Sepolia testnet with the ABX quickstart, using its dry run first."
+ }
+}
