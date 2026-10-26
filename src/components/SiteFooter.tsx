@@ -75,6 +75,7 @@ export function SiteFooter() {
           </div>
         </div>
       </nav>
+      <p className="quiet">Private preview. Search engines are asked not to index this site.</p>
     </footer>
   );
 }

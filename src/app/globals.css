@@ -64,16 +64,6 @@ a:hover { text-decoration-thickness: 2px; }
 .wrap { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; }
 main { padding-bottom: 3rem; }
 
-.banner {
-  margin: 0;
-  padding: 0.55rem 1rem;
-  background: #1c1915;
-  color: #f6f1e8;
-  font-size: 0.95rem;
-  text-align: center;
-}
-.banner a { color: #f6f1e8; }
-
 .site-header { position: sticky; top: 0; z-index: 4; background: var(--paper); border-bottom: 1px solid var(--line); }
 .header-bar { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; }
 .brand { display: flex; align-items: center; color: var(--ink); text-decoration: none; }
@@ -94,7 +84,7 @@ main { padding-bottom: 3rem; }
 .nav-wide a, .nav-small a { color: var(--ink); }
 .nav-small summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
 .nav-small nav { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.4rem 0 0.8rem; }
-.nav-small[open] { position: absolute; right: 1rem; top: 5.2rem; background: var(--card); border: 1px solid var(--line); padding: 0.4rem 0.9rem; }
+.nav-small[open] { position: absolute; right: 1rem; top: 100%; background: var(--card); border: 1px solid var(--line); padding: 0.4rem 0.9rem; }
 
 .lede { font-size: 1.2rem; max-width: 40rem; }
 .quiet { color: var(--muted); font-size: 0.98rem; }
