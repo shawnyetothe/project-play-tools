@@ -30,7 +30,7 @@ npm run dev
 
 `python3 scripts/prepare.py` (also the first step of `npm run build`) turns those files into `src/generated/*.json`. The site reads that JSON. Do not hand-edit the generated files.
 
-Play matches a note or a file to tools in the browser. The rules are in `src/lib/play-match.ts`. Files are not read and not sent.
+Play matches a note or a file to one medium in the browser. The first tool in that medium is the one to open, and its sketch starts in the Maker step. A file beats a written note. Drawing tools are suggested only when no specific medium matched. The rules and the ten example messages are in `src/lib/play-match.ts`. Check them with `node --experimental-strip-types scripts/check-play.ts`. Files are not read and not sent.
 
 ## Suggestions
 
@@ -38,8 +38,8 @@ Every page has a “Suggest a tool, example, or fix” form. It does not save an
 
 Set the optional addresses in `.env.local` (see `.env.example`):
 
-- `NEXT_PUBLIC_SUGGEST_EMAIL`
-- `NEXT_PUBLIC_GITHUB_REPO` as `owner/repo`
+- `NEXT_PUBLIC_SUGGEST_EMAIL` — the local preview is set to Shawn Cheng’s address, `shawn.cheng@gmail.com`. Email opens a draft. This site does not store the message.
+- `NEXT_PUBLIC_GITHUB_REPO` as `owner/repo`. It is unset. There is no GitHub repository for issues yet, so the form does not invent one.
 
 Nothing goes live until a person reviews it. Artists are listed from the public Art Blocks record and are not featured beyond that record without consent.
 
@@ -49,4 +49,4 @@ The header uses the Play Key lockup. Light pages use `public/logo.svg` (PNG fall
 
 ## Images
 
-Example images on tool pages load from their original URLs. Each caption names the artist and the license and links to the source. “No verified image yet” is kept where the dataset has no image. This site does not generate artwork. The home carousel draws its own sketches and does not use other artists’ work as decoration.
+Example images on tool pages load from their original URLs. Each caption names the artist and the license and links to the source. Smartglasses and RFID use the lead photographs on the Wikipedia pages the dataset already cited (Wikimedia Commons, CC BY 2.0 and CC BY 4.0). The other sixteen tools with no image file stay on “No verified image yet,” with the source page linked. This site does not generate artwork. The home carousel draws its own sketches and does not use other artists’ work as decoration.

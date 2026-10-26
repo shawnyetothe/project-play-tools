@@ -97,6 +97,24 @@ void main() {
   gl_FragColor = vec4(color, 1.0);
 }`;
 
+const PLOTTER = `let seed = 11;
+function rnd() {
+  seed = (seed * 16807) % 2147483647;
+  return (seed - 1) / 2147483646;
+}
+let d = "M 28 200";
+let x = 28;
+for (let i = 0; i < 18; i++) {
+  x += 24;
+  const y = Math.round(40 + rnd() * 240);
+  d += " L " + x + " " + y;
+}
+document.body.innerHTML =
+  '<svg viewBox="0 0 480 320" width="480" height="320" xmlns="http://www.w3.org/2000/svg">' +
+  '<rect width="480" height="320" fill="#f6f1e8"/>' +
+  '<path d="' + d + '" fill="none" stroke="#1c1915" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+  "</svg>";`;
+
 const SVG = `let seed = 7;
 function rnd() {
   seed = (seed * 16807) % 2147483647;
@@ -200,6 +218,7 @@ export const STARTERS: Record<string, string> = {
   three: THREE,
   glsl: GLSL,
   svg: SVG,
+  plotter: PLOTTER,
   tone: TONE,
   webaudio: WEB_AUDIO,
   paper: PAPER,
@@ -270,7 +289,7 @@ else {
 }
 </script>`);
   }
-  if (kind === "svg") return page(runUser(code));
+  if (kind === "svg" || kind === "plotter") return page(runUser(code));
   if (kind === "tone") {
     return page(`<button id="play" type="button">Start sound</button>
 <script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.js"></script>
@@ -308,4 +327,8 @@ ${runUser(code)}
 
 export function sketchNeedsSound(kind: string): boolean {
   return kind === "tone" || kind === "webaudio";
+}
+
+export function sketchLoops(kind: string): boolean {
+  return ["three", "glsl", "canvas-clock", "zdog", "aframe", "regl", "babylon"].includes(kind);
 }

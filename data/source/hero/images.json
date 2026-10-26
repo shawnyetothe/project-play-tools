@@ -476,16 +476,16 @@
   "checked_at_ET": "2026-10-25 22:41 ET"
  },
  "glasses": {
-  "kind": "none",
-  "url": "",
+  "kind": "commons",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/A_Google_Glass_wearer.jpg",
   "page": "https://en.wikipedia.org/wiki/Smartglasses",
-  "caption": "Example: Wikipedia: Smartglasses",
-  "credit": "",
-  "license": "",
-  "http": "",
-  "ctype": "",
-  "status": "placeholder",
-  "checked_at_ET": "2026-10-25 22:41 ET"
+  "caption": "A Google Glass wearer, photograph by Loïc Le Meur",
+  "credit": "Loïc Le Meur, via Wikimedia Commons. The dataset pointed at Wikipedia: Smartglasses; this is that page's lead photograph.",
+  "license": "CC BY 2.0",
+  "http": "200",
+  "ctype": "image/jpeg",
+  "status": "verified",
+  "checked_at_ET": "2026-10-26 13:28 ET"
  },
  "spatial": {
   "kind": "ab",
@@ -949,16 +949,16 @@
   "checked_at_ET": "2026-10-25 22:41 ET"
  },
  "rfid": {
-  "kind": "none",
-  "url": "",
+  "kind": "commons",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/RFID_-_Tag_laverie_avec_EPC_imprim%C3%A9.png",
   "page": "https://en.wikipedia.org/wiki/Radio-frequency_identification",
-  "caption": "Example: Wikipedia: Radio-frequency identification",
-  "credit": "",
-  "license": "",
-  "http": "",
-  "ctype": "",
-  "status": "placeholder",
-  "checked_at_ET": "2026-10-25 22:41 ET"
+  "caption": "Textile RFID laundry tag with a printed EPC, photograph by Nicolas Eynaud",
+  "credit": "Nicolas Eynaud, own work, via Wikimedia Commons. The dataset pointed at Wikipedia: Radio-frequency identification; this is that page's lead photograph.",
+  "license": "CC BY 4.0",
+  "http": "200",
+  "ctype": "image/png",
+  "status": "verified",
+  "checked_at_ET": "2026-10-26 13:28 ET"
  },
  "ble": {
   "kind": "none",

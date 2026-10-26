@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Rich } from "@/components/RichText";
+import { SketchPad } from "@/components/SketchPad";
+import { STARTERS } from "@/components/sketches";
 import { matchPlay, matchRules, type FileHint } from "@/lib/play-match";
 
-export type PlayTool = { id: string; plain: string; name: string; humanity: string };
+export type PlayTool = { id: string; plain: string; name: string; humanity: string; sketch: string | null };
 export type PlayRecipe = { slug: string; plain: string; title: string };
 
 export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayRecipe[] }) {
@@ -58,7 +60,9 @@ export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           </details>
           {match.tools.length ? (
             <div aria-live="polite">
-              <p className="quiet">Why these came up:</p>
+              <p className="quiet">
+                One medium matched. Open {byId.get(match.primary?.toolId ?? "")?.plain ?? "the first tool"} first. The others are the same medium.
+              </p>
               <ul className="steps">
                 {match.rules.map((rule) => (
                   <li key={`${rule.id}-${rule.detail}`}>
@@ -111,26 +115,46 @@ export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           <h3>The Maker</h3>
           <p className="tech">Self-expression.</p>
           <p>The tool is the medium. You decide what stays, and when to stop.</p>
-          {match.tools.length ? (
-            <ul className="steps">
-              {match.tools
-                .map((hit) => byId.get(hit.id))
-                .filter((tool) => tool && tool.humanity)
-                .slice(0, 2)
-                .map((tool) => (
-                  <li key={tool!.id}>
-                    <Link href={`/tools/${tool!.id}/`}>{tool!.plain}</Link>
-                    {": "}
-                    <Rich text={tool!.humanity} />
-                    <span className="quiet"> A prompt from this tool’s notes.</span>
-                  </li>
-                ))}
-            </ul>
+          {match.primary ? (
+            <MakerStart
+              tool={byId.get(match.primary.toolId)}
+              recipe={match.primary.recipe ? byRecipe.get(match.primary.recipe) : undefined}
+            />
           ) : (
-            <p>After a match, this step offers a prompt from the tool notes. It is a suggestion, not a rule.</p>
+            <p>After a match, this step opens one tool, runs its sketch, and links the recipe. The recipe ends with Publish with ABX.</p>
           )}
         </li>
       </ol>
     </section>
+  );
+}
+
+function MakerStart({ tool, recipe }: { tool: PlayTool | undefined; recipe: PlayRecipe | undefined }) {
+  if (!tool) return <p>That tool is not in this guide.</p>;
+  const starter = tool.sketch ? STARTERS[tool.sketch] : "";
+  return (
+    <div>
+      <p>
+        Open <Link href={`/tools/${tool.id}/`}>{tool.plain}</Link> first.
+        {tool.plain !== tool.name ? <span className="tech"> {tool.name}</span> : null}
+      </p>
+      {tool.humanity ? (
+        <p>
+          <Rich text={tool.humanity} /> <span className="quiet">A prompt from this tool’s notes.</span>
+        </p>
+      ) : null}
+      {starter && tool.sketch ? (
+        <SketchPad kind={tool.sketch} initial={starter} autoRun />
+      ) : (
+        <p>This tool has no live sketch in the guide. The page has the steps.</p>
+      )}
+      {recipe ? (
+        <p>
+          Recipe: <Link href={`/recipes/${recipe.slug}/`}>{recipe.plain}</Link>. It ends with Publish with ABX.
+        </p>
+      ) : (
+        <p className="quiet">This medium has no recipe in the guide. The sketch is the start.</p>
+      )}
+    </div>
   );
 }

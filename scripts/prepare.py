@@ -136,6 +136,7 @@ SKETCH = {
     "jslegacy": "canvas",
     "interactive": "canvas",
     "svg": "svg",
+    "plotter": "plotter",
     "tonejs": "tone",
     "sound": "tone",
     "webaudio": "webaudio",

@@ -1,15 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import { sketchNeedsSound, sketchSrcdoc } from "./sketches";
+import { useEffect, useState } from "react";
+import { sketchLoops, sketchNeedsSound, sketchSrcdoc } from "./sketches";
 
-export function SketchPad({ kind, initial }: { kind: string; initial: string }) {
+export function SketchPad({ kind, initial, autoRun = true }: { kind: string; initial: string; autoRun?: boolean }) {
   const [code, setCode] = useState(initial);
   const [doc, setDoc] = useState("");
+  const [held, setHeld] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wait = autoRun && media.matches && sketchLoops(kind);
+    setHeld(wait);
+    setCode(initial);
+    setDoc(autoRun && !wait ? sketchSrcdoc(kind, initial) : "");
+  }, [autoRun, kind, initial]);
 
   return (
     <div className="sketch">
-      <label htmlFor="sketch-code">Starter sketch. Edit it, then press Run.</label>
+      <label htmlFor="sketch-code">
+        {doc ? "Starter sketch. It is running. Edit it, then press Run." : "Starter sketch. Edit it, then press Run."}
+      </label>
       <textarea
         id="sketch-code"
         value={code}
@@ -42,7 +53,9 @@ export function SketchPad({ kind, initial }: { kind: string; initial: string }) 
       {doc ? (
         <iframe title="Sketch preview" sandbox="allow-scripts" srcDoc={doc} className="sketch-frame" />
       ) : (
-        <p className="preview-wait">Press Run to preview the sketch.</p>
+        <p className="preview-wait">
+          {held ? "Motion is reduced, so this preview waits. Press Run to start it." : "Press Run to preview the sketch."}
+        </p>
       )}
     </div>
   );

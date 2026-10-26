@@ -8,9 +8,16 @@ export type ToolHit = {
   recipes: string[];
 };
 
+export type PlayPrimary = {
+  toolId: string;
+  recipe: string | null;
+  medium: string;
+};
+
 export type PlayMatch = {
   tools: ToolHit[];
   rules: FiredRule[];
+  primary: PlayPrimary | null;
 };
 
 type Rule = {
@@ -28,7 +35,7 @@ const IMAGE = ["photo", "photograph", "picture", "image", "pixel", "pixels", "sh
 const SLOW = ["slow", "slowly", "change", "changes", "changing", "changed", "clock", "season", "seasons", "decay", "mutable"];
 const PLOT = ["plot", "plotter", "plotters", "pen", "ink"];
 const OBJECT = ["3d", "sculpture", "stl", "print"];
-const CLOTH = ["stitch", "embroidery", "cloth", "fabric", "thread", "knit", "weave", "textile"];
+const CLOTH = ["stitch", "stitched", "embroidery", "embroidered", "cloth", "fabric", "thread", "knit", "weave", "textile"];
 const AGENT = ["agent", "agents", "wallet"];
 const TYPE = ["poem", "word", "words", "letter", "letters", "type", "font", "fonts", "text", "lyric", "lyrics", "phrase", "write", "writing"];
 
@@ -41,7 +48,7 @@ export const matchRules: { id: string; explain: string }[] = [
   { id: "cloth", explain: "Cloth and stitch words suggest embroidery and a vector file." },
   { id: "agent", explain: "Agent words suggest a token that can act on its own." },
   { id: "type", explain: "Type, poem, and letter words suggest tools that can draw type." },
-  { id: "words", explain: "Any written note also suggests tools that can draw type. This dataset has no separate typography tool." },
+  { id: "words", explain: "A written note suggests drawing tools only when no specific medium matched. This dataset has no separate typography tool." },
   { id: "file-audio", explain: "An audio file suggests Tone.js and Web Audio." },
   { id: "file-image", explain: "An image file suggests shaders and plotters." },
   { id: "file-text", explain: "A text file suggests tools that can draw type." },
@@ -104,14 +111,66 @@ function findWords(text: string, words: string[]): string[] {
   return found;
 }
 
+/** One medium wins. A file beats a note. Pen, cloth, and objects beat a general word. */
+const MEDIUM_OF: Record<string, string> = {
+  plot: "plot",
+  "file-svg": "plot",
+  cloth: "cloth",
+  object: "object",
+  "file-model": "object",
+  audio: "sound",
+  "file-audio": "sound",
+  slow: "slow",
+  "file-video": "slow",
+  image: "image",
+  "file-image": "image",
+  agent: "agent",
+  type: "type",
+  "file-text": "type",
+  words: "type",
+};
+
+const MEDIUMS: Record<string, { tools: string[]; recipe: string | null; rank: number }> = {
+  plot: { tools: ["plotter", "svg", "p5"], recipe: "plotter-edition", rank: 10 },
+  cloth: { tools: ["embroid", "svg", "textiles"], recipe: "embroidered-patch", rank: 20 },
+  object: { tools: ["three", "fdm", "fabfile"], recipe: "3d-printed-object", rank: 30 },
+  sound: { tools: ["tonejs", "webaudio", "sound"], recipe: "generative-sound", rank: 40 },
+  slow: { tools: ["clock", "timebased", "eink", "mutable"], recipe: "slow-token-eink", rank: 50 },
+  image: { tools: ["glsl", "plotter", "p5"], recipe: "plotter-edition", rank: 60 },
+  agent: { tools: ["721t", "erc6551", "erc8048"], recipe: "token-as-agent", rank: 70 },
+  type: { tools: ["p5", "svg", "canvas2d"], recipe: null, rank: 80 },
+};
+
+const FILE_RULES = new Set(["file-audio", "file-image", "file-svg", "file-text", "file-model", "file-video"]);
+
+/** The ten messages this guide opens first, and the tools that should stay out. */
+export const playJudgments: {
+  label: string;
+  note: string;
+  file?: FileHint;
+  toolId: string;
+  recipe: string | null;
+  absent: string[];
+}[] = [
+  { label: "lullaby", note: "a lullaby I hum to my kids", toolId: "tonejs", recipe: "generative-sound", absent: ["p5", "svg", "canvas2d"] },
+  { label: "song", note: "a song I sing at night", toolId: "tonejs", recipe: "generative-sound", absent: ["p5", "svg", "canvas2d"] },
+  { label: "photo", note: "a photo of the harbor", toolId: "glsl", recipe: "plotter-edition", absent: ["tonejs", "canvas2d"] },
+  { label: "slow", note: "slow change across a season", toolId: "clock", recipe: "slow-token-eink", absent: ["p5", "svg", "canvas2d"] },
+  { label: "pen", note: "a pen plot of a coastline", toolId: "plotter", recipe: "plotter-edition", absent: ["tonejs", "canvas2d"] },
+  { label: "sculpture", note: "a small sculpture I can print", toolId: "three", recipe: "3d-printed-object", absent: ["p5", "svg", "canvas2d"] },
+  { label: "patch", note: "an embroidered patch for a jacket", toolId: "embroid", recipe: "embroidered-patch", absent: ["p5", "tonejs"] },
+  { label: "poem", note: "a poem about rain", toolId: "p5", recipe: null, absent: ["tonejs", "glsl", "plotter"] },
+  { label: "agent", note: "an agent that can hold its own wallet", toolId: "721t", recipe: "token-as-agent", absent: ["p5", "svg", "canvas2d"] },
+  { label: "audio file", note: "", file: { name: "lullaby.wav", type: "audio/wav" }, toolId: "tonejs", recipe: "generative-sound", absent: ["p5", "svg", "canvas2d"] },
+];
+
 export function matchPlay(note: string, file: FileHint | null): PlayMatch {
   const text = note.trim();
   const fired: FiredRule[] = [];
-  const tools = new Map<string, ToolHit & { score: number }>();
+  const tools = new Map<string, ToolHit>();
 
-  function add(id: string, score: number, reason: string, recipe?: string) {
-    const current = tools.get(id) ?? { id, reasons: [], recipes: [], score: 0 };
-    current.score = Math.max(current.score, score);
+  function add(id: string, reason: string, recipe?: string) {
+    const current = tools.get(id) ?? { id, reasons: [], recipes: [] };
     if (!current.reasons.includes(reason)) current.reasons.push(reason);
     if (recipe && !current.recipes.includes(recipe)) current.recipes.push(recipe);
     tools.set(id, current);
@@ -129,18 +188,34 @@ export function matchPlay(note: string, file: FileHint | null): PlayMatch {
     const detail = bits.join("; ");
     fired.push({ id: rule.id, detail });
     const reason = `${detail}.`;
-    for (const id of rule.tools) add(id, 2, reason, rule.recipe);
+    for (const id of rule.tools) add(id, reason, rule.recipe);
   }
 
-  if (text.length >= 2) {
+  const specific = fired.some((rule) => rule.id !== "words");
+  if (!specific && text.length >= 2) {
     const reason = "You wrote words. These tools can draw type. This dataset has no separate typography tool.";
-    fired.push({ id: "words", detail: "the note is written text" });
-    for (const id of ["p5", "svg", "canvas2d"]) add(id, 1, reason);
+    fired.push({ id: "words", detail: "the note is written text, and no specific medium matched" });
+    for (const id of MEDIUMS.type.tools) add(id, reason);
   }
 
-  const ranked = [...tools.values()].sort((a, b) => b.score - a.score || a.reasons.length - b.reasons.length);
+  let best: { id: string; rank: number } | null = null;
+  for (const rule of fired) {
+    const medium = MEDIUM_OF[rule.id];
+    if (!medium) continue;
+    let rank = MEDIUMS[medium].rank;
+    if (FILE_RULES.has(rule.id)) rank -= 100;
+    if (!best || rank < best.rank) best = { id: medium, rank };
+  }
+
+  if (!best) return { tools: [], rules: fired, primary: null };
+
+  const spec = MEDIUMS[best.id];
+  const allowed = new Set(spec.tools);
+  const ranked = spec.tools.filter((id) => tools.has(id) && allowed.has(id)).map((id) => tools.get(id)!);
+  const keptRules = fired.filter((rule) => MEDIUM_OF[rule.id] === best.id);
   return {
-    tools: ranked.slice(0, 6).map(({ id, reasons, recipes }) => ({ id, reasons, recipes })),
-    rules: fired,
+    tools: ranked,
+    rules: keptRules,
+    primary: { toolId: spec.tools[0], recipe: spec.recipe, medium: best.id },
   };
 }

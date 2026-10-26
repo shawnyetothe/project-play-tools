@@ -16,6 +16,7 @@ export default function HomePage() {
     plain: tool.plain,
     name: tool.name,
     humanity: tool.humanity[0] ?? "",
+    sketch: tool.sketch,
   }));
   const recipes = meta.recipes.map((recipe) => ({
     slug: recipe.slug,

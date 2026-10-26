@@ -13,6 +13,7 @@ export function ToolFigure({ image, toolName }: { image: ToolImage; toolName: st
         <div className="placeholder" role="img" aria-label="No verified image yet">
           <p>No verified image yet</p>
           {image.caption ? <p>{image.caption}</p> : null}
+          {image.source ? <p>The source page is linked below. There is no image file with a license we could check.</p> : null}
         </div>
       ) : (
         <img
