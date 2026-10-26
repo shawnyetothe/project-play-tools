@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoMark } from "./LogoMark";
+import { LogoLockup } from "./LogoLockup";
 
 const links = [
   { href: "/#play", label: "Play" },
@@ -18,9 +18,8 @@ export function SiteHeader() {
         Private preview. Not approved for public release. Search engines are asked not to index this site.
       </p>
       <div className="header-bar">
-        <Link href="/" className="brand">
-          <LogoMark />
-          <span>Play Tools</span>
+        <Link href="/" className="brand" aria-label="Play Tools">
+          <LogoLockup />
         </Link>
         <nav className="nav-wide" aria-label="Primary">
           {links.map((link) => (

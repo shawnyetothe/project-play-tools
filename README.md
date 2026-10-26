@@ -45,14 +45,7 @@ Nothing goes live until a person reviews it. Artists are listed from the public 
 
 ## Logo
 
-The wordmark is text. A designer’s mark can replace these files. The header uses the first one it finds:
-
-- `public/logo.webm` — animated, skipped when the visitor prefers reduced motion
-- `public/logo.apng` — animated, same reduced-motion rule
-- `public/logo.png` — still image
-- `public/logo.svg` — still fallback, already in the repo
-
-`src/app/icon.svg` is the favicon. Do not redraw the Chromie Squiggle. Drop the finished files in place.
+The header uses the Play Key lockup. Light pages use `public/logo.svg` (PNG fallback `logo.png`). Dark header chrome uses `public/logo-dark.svg` (`logo-dark.png`). The mark animates from `logo-mark-animated.webm`, with `logo-mark-animated.mp4` and `logo-mark-animated-dark.mp4` for Safari, then `logo-mark-animated.apng`. Reduced motion keeps the still lockup. The favicon files and `manifest.webmanifest` are in `public/`. Do not redraw the squiggle.
 
 ## Images
 
