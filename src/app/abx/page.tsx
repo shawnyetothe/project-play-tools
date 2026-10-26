@@ -15,7 +15,12 @@ export default function AbxPage() {
       </p>
       <h1>Publish, protect, monetize</h1>
       <p className="lede">
-        ABX is Art Blocks’ open protocol and toolkit for putting digital objects on a blockchain. Anyone can deploy. There is no application. The curated flagship and Studio still use their own path.
+        ABX is Art Blocks’ open protocol and toolkit for putting digital objects on a blockchain. Anyone can deploy. There is no application. The curated flagship and Studio still use their own path.{" "}
+        <a href="https://abx.io">abx.io</a> is Art Blocks’ own site. Docs:{" "}
+        <a href="https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset">deploy a digital asset</a>.
+      </p>
+      <p>
+        You can deploy a whole folder of files as a numbered series (<code>abx deploy-series --dir ./art</code>). Uploads can go to Arweave, IPFS, or cloud storage. <code>abx mint-page</code> generates a static mint page. ETH sales for now.
       </p>
       <ul className="steps">
         {abx.intro.map((line) => (

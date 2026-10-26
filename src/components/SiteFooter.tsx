@@ -10,13 +10,71 @@ export function SiteFooter() {
         <SuggestForm />
       </Suspense>
       <p>
-        Artists on this site come from the public Art Blocks record, pulled {meta.pulledLabel}. We do not feature anyone beyond that record without consent.
+        Names and projects come from the public Art Blocks API, pulled {meta.pulledLabel}. Artists are not featured beyond that record without consent.
       </p>
-      <p className="links">
-        <Link href="/about/">How to read this</Link>
-        <a href="?suggest=removal#suggest">Request removal</a>
-        <a href="#suggest">Suggest a fix</a>
-      </p>
+      <p>Independent project, not affiliated with Art Blocks.</p>
+      <nav className="sitemap" aria-label="Site map">
+        <h2>Site map</h2>
+        <div className="sitemap-grid">
+          <div>
+            <h3>Begin</h3>
+            <ul className="link-list">
+              <li>
+                <Link href="/#play">Play</Link>
+              </li>
+              <li>
+                <Link href="/start/">Start here</Link>
+              </li>
+              <li>
+                <Link href="/abx/">ABX</Link>
+              </li>
+              <li>
+                <Link href="/explore/">Explore the data</Link>
+              </li>
+              <li>
+                <Link href="/about/">About</Link>
+              </li>
+              <li>
+                <a href="?suggest=removal#suggest">Request removal</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Make</h3>
+            <ul className="link-list">
+              {meta.paths.map((path) => (
+                <li key={path.slug}>
+                  <Link href={`/make/${path.slug}/`}>{path.plain}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Recipes</h3>
+            <ul className="link-list">
+              <li>
+                <Link href="/recipes/">All recipes</Link>
+              </li>
+              {meta.recipes.map((recipe) => (
+                <li key={recipe.slug}>
+                  <Link href={`/recipes/${recipe.slug}/`}>{recipe.plain}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Indexes</h3>
+            <ul className="link-list">
+              <li>
+                <Link href="/tools/">Tools</Link>
+              </li>
+              <li>
+                <Link href="/artists/">Artists</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </footer>
   );
 }

@@ -12,6 +12,10 @@ export function PublishWithAbx({ blurb }: { blurb?: string }) {
       <p className="warning" role="note">
         <strong>Prerelease, not independently audited.</strong> abx.io calls ABX prerelease software, not independently audited. The docs say ABX has not had an independent third-party audit, and that beta networks use real funds and irreversible state while ABX remains pre-1.0. Rehearse on a test network first.
       </p>
+      <p>
+        <a href="https://abx.io">abx.io</a> is Art Blocks’ own site for ABX. The deploy guide is{" "}
+        <a href="https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset">Choose a project</a>.
+      </p>
       {blurb ? (
         <p>
           <Rich text={blurb} />
@@ -25,6 +29,16 @@ export function PublishWithAbx({ blurb }: { blurb?: string }) {
         <li>
           <strong>Install the CLI.</strong> <code>npm install -g @artblocks/abx-cli</code>, then <code>abx skill install</code>. It needs Node 22.13 or newer. Every deploy starts with a dry run.{" "}
           <a href="https://docs.abx.io/docs/using-abx/quickstart">Quickstart</a>
+        </li>
+        <li>
+          <strong>Deploy a whole folder as a numbered series.</strong> <code>abx deploy-series --dir ./art</code> sorts the files into token IDs 0, 1, 2, and so on. Uploads can go to Arweave, IPFS, or cloud storage (<code>--backend arweave|ipfs|cloud</code>).{" "}
+          <a href="https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset">Deploy a digital asset</a>
+          {" · "}
+          <a href="https://docs.abx.io/docs/using-abx/guides/storage">Storage</a>
+        </li>
+        <li>
+          <strong>Generate a mint page.</strong> <code>abx mint-page</code> writes a static mint site for the shared minter. A series gets a gallery. The generated page supports ETH sales for now.{" "}
+          <a href="https://docs.abx.io/docs/using-abx/guides/sales">Sales and the mint page</a>
         </li>
         <li>
           <strong>Choose what to lock.</strong> Permanent locks: {locks.join(", ")}.{" "}

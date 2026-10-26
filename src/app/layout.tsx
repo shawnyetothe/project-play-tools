@@ -18,11 +18,11 @@ const serif = Newsreader({
 
 export const metadata: Metadata = {
   title: {
-    default: "Art Blocks Toolmakers",
-    template: "%s · Art Blocks Toolmakers",
+    default: "Play Tools",
+    template: "%s · Play Tools",
   },
   description:
-    "A private guide to digital creative tools, grounded in the public Art Blocks artist record.",
+    "A private guide to digital creative tools. Data comes from the public Art Blocks API. Independent project, not affiliated with Art Blocks.",
   robots: {
     index: false,
     follow: false,

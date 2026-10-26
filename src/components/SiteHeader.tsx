@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { LogoMark } from "./LogoMark";
 
 const links = [
+  { href: "/#play", label: "Play" },
   { href: "/start/", label: "Start here" },
   { href: "/tools/", label: "Tools" },
   { href: "/artists/", label: "Artists" },
@@ -17,8 +19,8 @@ export function SiteHeader() {
       </p>
       <div className="header-bar">
         <Link href="/" className="brand">
-          <img src="/logo.svg" alt="" width={40} height={40} />
-          <span>Art Blocks Toolmakers</span>
+          <LogoMark />
+          <span>Play Tools</span>
         </Link>
         <nav className="nav-wide" aria-label="Primary">
           {links.map((link) => (

@@ -12,8 +12,9 @@ export default function AboutPage() {
         <Link href="/">Home</Link> / How to read this
       </p>
       <h1>How to read this</h1>
+      <p>Independent project, not affiliated with Art Blocks.</p>
       <p>
-        The record is the Art Blocks public API ({meta.api}), pulled {meta.pulledLabel}. It covers {meta.counts.projects.toLocaleString()} projects and {meta.counts.artists.toLocaleString()} artists, plus one never-minted Factory project read from the token API.
+        The record is the public Art Blocks API ({meta.api}), pulled {meta.pulledLabel}. It covers {meta.counts.projects.toLocaleString()} projects and {meta.counts.artists.toLocaleString()} artists, plus one never-minted Factory project read from the token API.
       </p>
       <Legend />
       <ul className="steps">

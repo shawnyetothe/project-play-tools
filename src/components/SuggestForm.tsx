@@ -14,7 +14,7 @@ function buildBody(input: {
 }) {
   const kindLabel = suggestKinds.find((item) => item.id === input.kind)?.label ?? input.kind;
   return [
-    "Art Blocks Toolmakers — suggestion for review",
+    "Play Tools — suggestion for review",
     "",
     "Nothing in this message is published automatically.",
     "Nothing goes live until a person reviews it.",
@@ -53,7 +53,7 @@ export function SuggestForm() {
 
   const body = buildBody({ kind, page, name, about, details, source });
   const ready = consent && details.trim().length > 0;
-  const subject = `Art Blocks Toolmakers: ${suggestKinds.find((item) => item.id === kind)?.label ?? "suggestion"}`;
+  const subject = `Play Tools: ${suggestKinds.find((item) => item.id === kind)?.label ?? "suggestion"}`;
 
   function mailto() {
     const short = body.length > 1500 ? `${body.slice(0, 1400)}\n\n[truncated — paste the full text from the box]` : body;

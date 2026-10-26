@@ -1,6 +1,8 @@
-# Art Blocks Toolmakers
+# Play Tools
 
-A private, static guide to digital creative tools. It is built from the public Art Blocks artist record: every artist and project in the dataset, the tools behind the work, and short recipes for getting started.
+A private, static guide to digital creative tools. Data comes from the public Art Blocks API: every artist and project in the dataset, the tools behind the work, and short recipes for getting started.
+
+Independent project, not affiliated with Art Blocks.
 
 This is a preview. It is not approved for public release. Pages send `noindex, nofollow`, and `robots.txt` disallows all crawling.
 
@@ -28,6 +30,8 @@ npm run dev
 
 `python3 scripts/prepare.py` (also the first step of `npm run build`) turns those files into `src/generated/*.json`. The site reads that JSON. Do not hand-edit the generated files.
 
+Play matches a note or a file to tools in the browser. The rules are in `src/lib/play-match.ts`. Files are not read and not sent.
+
 ## Suggestions
 
 Every page has a “Suggest a tool, example, or fix” form. It does not save anything here. Copy the text, email it, or open a GitHub issue.
@@ -41,13 +45,15 @@ Nothing goes live until a person reviews it. Artists are listed from the public 
 
 ## Logo
 
-The wordmark is text. A designer’s logo can replace these two files:
+The wordmark is text. A designer’s mark can replace these files. The header uses the first one it finds:
 
-- `public/logo.svg` — shown beside the name
-- `src/app/icon.svg` — the favicon
+- `public/logo.webm` — animated, skipped when the visitor prefers reduced motion
+- `public/logo.apng` — animated, same reduced-motion rule
+- `public/logo.png` — still image
+- `public/logo.svg` — still fallback, already in the repo
 
-Do not redraw the Chromie Squiggle. Drop the finished files in place.
+`src/app/icon.svg` is the favicon. Do not redraw the Chromie Squiggle. Drop the finished files in place.
 
 ## Images
 
-Example images load from their original URLs. Each caption names the artist and the license and links to the source. “No verified image yet” is kept where the dataset has no image. This site does not generate artwork.
+Example images on tool pages load from their original URLs. Each caption names the artist and the license and links to the source. “No verified image yet” is kept where the dataset has no image. This site does not generate artwork. The home carousel draws its own sketches and does not use other artists’ work as decoration.

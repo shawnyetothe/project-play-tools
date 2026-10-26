@@ -1,35 +1,42 @@
-import Link from "next/link";
-import { meta } from "@/lib/data";
+import { PlayFlow } from "@/components/PlayFlow";
+import { ToolCarousel } from "@/components/ToolCarousel";
+import { meta, toolById, tools } from "@/lib/data";
+
+const QUOTE_SOURCE =
+  "https://www.cnbc.com/video/2024/11/13/ai-doesnat-stand-a-chance-against-actors-or-shakespeare-ben-affleck-says.html";
+
+const featured = ["p5", "three", "glsl", "plotter"]
+  .map((id) => toolById.get(id))
+  .filter((tool) => tool != null)
+  .map((tool) => ({ id: tool.id, plain: tool.plain, name: tool.name }));
 
 export default function HomePage() {
-  const { counts } = meta;
+  const catalog = tools.map((tool) => ({
+    id: tool.id,
+    plain: tool.plain,
+    name: tool.name,
+    humanity: tool.humanity[0] ?? "",
+  }));
+  const recipes = meta.recipes.map((recipe) => ({
+    slug: recipe.slug,
+    plain: recipe.plain,
+    title: recipe.title,
+  }));
+
   return (
-    <div className="wrap">
-      <p className="quiet">A guide for artists. Plain words first.</p>
-      <h1>What do you want to make?</h1>
-      <p className="lede">
-        Pick a kind of work. Each choice shows tools and a recipe. The tables sit one step further in, under Explore the data.
-      </p>
-      <div className="choice-grid">
-        {meta.paths.map((path) => (
-          <Link key={path.slug} href={`/make/${path.slug}/`} className="choice">
-            <span className="plain">{path.plain}</span>
-            <span className="line">{path.line}</span>
-            <span className="tech">{path.blurb}</span>
-          </Link>
-        ))}
+    <>
+      <div className="wrap hero">
+        <p className="quiet">A private guide for artists. Plain words first.</p>
+        <h1>Play Tools</h1>
+        <blockquote className="quote" cite={QUOTE_SOURCE}>
+          <p>Craft is knowing how to work; art is knowing when to stop.</p>
+          <footer>
+            <a href={QUOTE_SOURCE}>— Ben Affleck, CNBC Delivering Alpha, 2024</a>
+          </footer>
+        </blockquote>
       </div>
-      <p>
-        <Link href="/start/">Start here</Link> if you are new. It is a short path, then a test publish.
-      </p>
-      <p>
-        <Link href="/explore/">Explore the data</Link>
-        {" · "}
-        {counts.artists.toLocaleString()} artists, {counts.projects.toLocaleString()} projects, pulled {meta.pulledLabel}.
-      </p>
-      <p className="quiet">
-        Names come from the public Art Blocks record. We do not feature anyone beyond that record without consent.
-      </p>
-    </div>
+      <PlayFlow tools={catalog} recipes={recipes} />
+      <ToolCarousel tools={featured} />
+    </>
   );
 }
