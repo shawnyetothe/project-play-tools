@@ -6,6 +6,7 @@ import { Rich } from "@/components/RichText";
 import { SketchPad } from "@/components/SketchPad";
 import { STARTERS } from "@/components/sketches";
 import { matchPlay, matchRules, type FileHint } from "@/lib/play-match";
+import { suggestEmail } from "@/lib/site";
 
 export type PlayTool = { id: string; plain: string; name: string; humanity: string; sketch: string | null };
 export type PlayRecipe = { slug: string; plain: string; title: string };
@@ -22,6 +23,21 @@ export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
     <section className="wrap play" id="play" aria-labelledby="play-title">
       <h2 id="play-title">Play</h2>
       <p className="lede">Three steps. The match runs in this browser. Nothing is sent.</p>
+      <p>
+        If you are giving feedback, type a real message. Then say whether the tool it opens is the one you would have handed them.{" "}
+        <Link href="/about/">About</Link> explains “No verified image yet.”
+        {suggestEmail ? (
+          <>
+            {" "}
+            <a
+              href={`mailto:${suggestEmail}?subject=${encodeURIComponent("Play Tools: did this open the right tool?")}&body=${encodeURIComponent("The message I tried:\n\nThe tool it opened:\n\nThe tool I would have handed them:\n")}`}
+            >
+              Email that note
+            </a>
+            .
+          </>
+        ) : null}
+      </p>
       <ol className="play-steps">
         <li id="message">
           <h3>The Message</h3>

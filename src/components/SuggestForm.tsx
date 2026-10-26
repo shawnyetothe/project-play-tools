@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { githubRepo, suggestEmail, suggestKinds, type SuggestKind } from "@/lib/site";
@@ -89,7 +90,7 @@ export function SuggestForm() {
     >
       <h2>Suggest a tool, example, or fix</h2>
       <p>
-        This is a moderation queue, not a live edit. Nothing goes live until a person reviews it. Artists are never listed or featured beyond the public Art Blocks record without consent.
+        The question for this preview: type a real message under <Link href="/#play">Play</Link>, then say whether the tool it opens is the one you would have handed them. <Link href="/about/">About</Link> explains “No verified image yet.” This is a moderation queue, not a live edit. Nothing goes live until a person reviews it.
       </p>
       <label htmlFor="suggest-kind">What is this?</label>
       <select

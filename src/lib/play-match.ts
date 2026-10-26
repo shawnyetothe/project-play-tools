@@ -41,7 +41,7 @@ const TYPE = ["poem", "word", "words", "letter", "letters", "type", "font", "fon
 
 export const matchRules: { id: string; explain: string }[] = [
   { id: "audio", explain: "A sound word, such as lullaby, hum, song, or lyric, suggests Tone.js, Web Audio, and sound." },
-  { id: "image", explain: "An image word, or an image file, suggests shaders and plotters." },
+  { id: "image", explain: "An image word, or an image file, opens a shader first. A pen or plot word is what opens the plotter recipe." },
   { id: "slow", explain: "Words like slow or change suggest work that changes over time." },
   { id: "plot", explain: "Pen and plotter words suggest a plotter and a vector file." },
   { id: "object", explain: "Object and 3D words suggest a 3D scene and a printed object." },
@@ -50,7 +50,7 @@ export const matchRules: { id: string; explain: string }[] = [
   { id: "type", explain: "Type, poem, and letter words suggest tools that can draw type." },
   { id: "words", explain: "A written note suggests drawing tools only when no specific medium matched. This dataset has no separate typography tool." },
   { id: "file-audio", explain: "An audio file suggests Tone.js and Web Audio." },
-  { id: "file-image", explain: "An image file suggests shaders and plotters." },
+  { id: "file-image", explain: "An image file opens a shader first. It does not open the plotter recipe." },
   { id: "file-text", explain: "A text file suggests tools that can draw type." },
   { id: "file-model", explain: "A 3D file suggests a 3D scene and a printed object." },
   { id: "file-video", explain: "A video file suggests work that changes over time." },
@@ -58,7 +58,7 @@ export const matchRules: { id: string; explain: string }[] = [
 
 const rules: Rule[] = [
   { id: "audio", explain: "", keywords: AUDIO, tools: ["tonejs", "webaudio", "sound"], recipe: "generative-sound" },
-  { id: "image", explain: "", keywords: IMAGE, tools: ["glsl", "plotter", "p5"], recipe: "plotter-edition" },
+  { id: "image", explain: "", keywords: IMAGE, tools: ["glsl", "plotter", "p5"] },
   { id: "slow", explain: "", keywords: SLOW, tools: ["clock", "timebased", "eink", "mutable"], recipe: "slow-token-eink" },
   { id: "plot", explain: "", keywords: PLOT, tools: ["plotter", "svg", "p5"], recipe: "plotter-edition" },
   { id: "object", explain: "", keywords: OBJECT, tools: ["three", "fdm", "fabfile"], recipe: "3d-printed-object" },
@@ -66,7 +66,7 @@ const rules: Rule[] = [
   { id: "agent", explain: "", keywords: AGENT, tools: ["721t", "erc6551", "erc8048"], recipe: "token-as-agent" },
   { id: "type", explain: "", keywords: TYPE, tools: ["p5", "svg", "canvas2d"] },
   { id: "file-audio", explain: "", file: (file) => isAudio(file), tools: ["tonejs", "webaudio", "sound"], recipe: "generative-sound" },
-  { id: "file-image", explain: "", file: (file) => isImage(file), tools: ["glsl", "plotter", "p5"], recipe: "plotter-edition" },
+  { id: "file-image", explain: "", file: (file) => isImage(file), tools: ["glsl", "plotter", "p5"] },
   { id: "file-svg", explain: "", file: (file) => ext(file.name) === "svg", tools: ["svg", "plotter", "p5"], recipe: "plotter-edition" },
   { id: "file-text", explain: "", file: (file) => isTextFile(file), tools: ["p5", "svg", "canvas2d"] },
   { id: "file-model", explain: "", file: (file) => isModel(file), tools: ["three", "fdm", "fabfile"], recipe: "3d-printed-object" },
@@ -136,7 +136,7 @@ const MEDIUMS: Record<string, { tools: string[]; recipe: string | null; rank: nu
   object: { tools: ["three", "fdm", "fabfile"], recipe: "3d-printed-object", rank: 30 },
   sound: { tools: ["tonejs", "webaudio", "sound"], recipe: "generative-sound", rank: 40 },
   slow: { tools: ["clock", "timebased", "eink", "mutable"], recipe: "slow-token-eink", rank: 50 },
-  image: { tools: ["glsl", "plotter", "p5"], recipe: "plotter-edition", rank: 60 },
+  image: { tools: ["glsl", "plotter", "p5"], recipe: null, rank: 60 },
   agent: { tools: ["721t", "erc6551", "erc8048"], recipe: "token-as-agent", rank: 70 },
   type: { tools: ["p5", "svg", "canvas2d"], recipe: null, rank: 80 },
 };
@@ -154,7 +154,7 @@ export const playJudgments: {
 }[] = [
   { label: "lullaby", note: "a lullaby I hum to my kids", toolId: "tonejs", recipe: "generative-sound", absent: ["p5", "svg", "canvas2d"] },
   { label: "song", note: "a song I sing at night", toolId: "tonejs", recipe: "generative-sound", absent: ["p5", "svg", "canvas2d"] },
-  { label: "photo", note: "a photo of the harbor", toolId: "glsl", recipe: "plotter-edition", absent: ["tonejs", "canvas2d"] },
+  { label: "photo", note: "a photo of the harbor", toolId: "glsl", recipe: null, absent: ["tonejs", "canvas2d"] },
   { label: "slow", note: "slow change across a season", toolId: "clock", recipe: "slow-token-eink", absent: ["p5", "svg", "canvas2d"] },
   { label: "pen", note: "a pen plot of a coastline", toolId: "plotter", recipe: "plotter-edition", absent: ["tonejs", "canvas2d"] },
   { label: "sculpture", note: "a small sculpture I can print", toolId: "three", recipe: "3d-printed-object", absent: ["p5", "svg", "canvas2d"] },

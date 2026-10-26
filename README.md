@@ -4,7 +4,9 @@ A private, static guide to digital creative tools. Data comes from the public Ar
 
 Independent project, not affiliated with Art Blocks.
 
-This is a preview. It is not approved for public release. Pages send `noindex, nofollow`, and `robots.txt` disallows all crawling.
+This is a preview. It is not approved for public release. Pages send `noindex, nofollow`, `robots.txt` disallows all crawling, and `vercel.json` adds `X-Robots-Tag: noindex`. Do not attach a custom domain.
+
+A shareable link is an unlisted URL. The feedback question is on the banner and under Play: type a real message, then email whether that tool is the one you would have handed them. An image note opens a shader and does not attach the plotter recipe. Pen and plot words still open that recipe.
 
 ## Run it
 
