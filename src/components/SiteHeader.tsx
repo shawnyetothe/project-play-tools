@@ -21,7 +21,7 @@ export function SiteHeader() {
     <header className="site-header">
       <p className="banner">
         Private preview. Not approved for public release. Search engines are asked not to index this site.{" "}
-        <Link href="/#play">Try a real message in Play</Link>
+        <Link href="/#play">Start from one place in Play</Link>
         {feedbackHref ? (
           <>
             , then <a href={feedbackHref}>email whether that tool is the one you would have handed them</a>

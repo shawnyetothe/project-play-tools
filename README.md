@@ -32,7 +32,7 @@ npm run dev
 
 `python3 scripts/prepare.py` (also the first step of `npm run build`) turns those files into `src/generated/*.json`. The site reads that JSON. Do not hand-edit the generated files.
 
-Play matches a note or a file to one medium in the browser. The first tool in that medium is the one to open, and its sketch starts in the Maker step. A file beats a written note. Drawing tools are suggested only when no specific medium matched. The rules and the ten example messages are in `src/lib/play-match.ts`. Check them with `node --experimental-strip-types scripts/check-play.ts`. Files are not read and not sent.
+Play starts from one place: a message, a medium, or the maker. The match runs in the browser and opens the tools for that beginning. A file beats a written note. Drawing tools are suggested only when no specific medium matched. The rules and the ten example messages are in `src/lib/play-match.ts`. Check them with `node --experimental-strip-types scripts/check-play.ts`. Files are not read and not sent.
 
 ## Suggestions
 

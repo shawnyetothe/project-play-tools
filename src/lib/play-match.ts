@@ -143,6 +143,44 @@ const MEDIUMS: Record<string, { tools: string[]; recipe: string | null; rank: nu
 
 const FILE_RULES = new Set(["file-audio", "file-image", "file-svg", "file-text", "file-model", "file-video"]);
 
+/** Places a person can begin, before any note is written. */
+export const playMedia: { id: string; label: string; hint: string }[] = [
+  { id: "sound", label: "Sound", hint: "A piece you can hear" },
+  { id: "image", label: "Image", hint: "A photo, color, a shader" },
+  { id: "plot", label: "Pen", hint: "A line a machine can draw" },
+  { id: "slow", label: "Time", hint: "Work that changes slowly" },
+  { id: "object", label: "Object", hint: "Something you can hold" },
+  { id: "cloth", label: "Cloth", hint: "Stitch, thread, cloth" },
+  { id: "agent", label: "Agent", hint: "A token that can act" },
+  { id: "type", label: "Words", hint: "A poem, a letter, type" },
+];
+
+/** Maker beginnings taken from the tool notes. Each one opens that medium. */
+export const makerStarts: { id: string; label: string; hint: string; medium: string }[] = [
+  { id: "body", label: "The body", hint: "A tempo like a resting heartbeat", medium: "sound" },
+  { id: "hand", label: "The hand", hint: "A pen, then the paper", medium: "plot" },
+  { id: "time", label: "Time", hint: "A piece that needs a whole day", medium: "slow" },
+  { id: "room", label: "A room", hint: "Built from memory, not a measuring tape", medium: "object" },
+  { id: "stitch", label: "A few stitches", hint: "The machine starts, the hand finishes", medium: "cloth" },
+  { id: "line", label: "A pencil line", hint: "Keep the wobble", medium: "type" },
+];
+
+export function matchMedium(id: string): PlayMatch {
+  const spec = MEDIUMS[id];
+  const named = playMedia.find((item) => item.id === id);
+  if (!spec || !named) return { tools: [], rules: [], primary: null };
+  const reason = `You began with ${named.label.toLowerCase()}.`;
+  return {
+    tools: spec.tools.map((toolId) => ({
+      id: toolId,
+      reasons: [reason],
+      recipes: spec.recipe ? [spec.recipe] : [],
+    })),
+    rules: [{ id: "medium", detail: reason }],
+    primary: { toolId: spec.tools[0], recipe: spec.recipe, medium: id },
+  };
+}
+
 /** The ten messages this guide opens first, and the tools that should stay out. */
 export const playJudgments: {
   label: string;

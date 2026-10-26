@@ -251,6 +251,7 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; backgr
 pre code { display: block; padding: 0.8rem; overflow-x: auto; }
 
 @media (min-width: 720px) {
+  .begin-choices { grid-template-columns: 1fr 1fr 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .nav-wide { display: flex; }
   .nav-small { display: none; }
@@ -295,18 +296,56 @@ pre code { display: block; padding: 0.8rem; overflow-x: auto; }
 .quote footer { margin-top: 0.7rem; font-size: 1rem; }
 
 .play { margin-top: 2rem; }
-.play-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; counter-reset: play; }
-.play-steps > li {
-  background: var(--card);
+.begin { border: 0; margin: 1.2rem 0 0; padding: 0; }
+.begin legend { font-size: 1.05rem; margin-bottom: 0.7rem; }
+.begin-choices { display: grid; gap: 0.75rem; }
+.begin-choices label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 44px;
+  padding: 0.95rem 1rem 0.85rem 2.4rem;
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 1rem 1rem 0.4rem;
-  counter-increment: play;
+  background: var(--card);
+  cursor: pointer;
 }
-.play-steps > li > h3::before {
-  content: counter(play) ". ";
+.begin-choices input {
+  position: absolute;
+  left: 0.9rem;
+  top: 1.15rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--ink);
 }
-.play details { margin: 0.4rem 0 0.8rem; }
+.begin-choices label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 3px; }
+.begin-choices label.is-on { border-color: var(--ink); border-width: 2px; background: #fffdf8; }
+.begin-name { font-family: var(--font-newsreader), Georgia, serif; font-size: 1.55rem; line-height: 1.15; }
+.begin-panel, .play-result, .begin-sketch {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+.begin-panel h3, .play-result h3 { margin-top: 0; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0.8rem 0 1rem; }
+button.chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  background: transparent;
+  color: var(--ink);
+  border-radius: 10px;
+  text-align: left;
+  max-width: 16rem;
+}
+button.chip .quiet { color: var(--muted); }
+button.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+button.chip[aria-pressed="true"] .quiet { color: #e7e0d4; }
+.play details { margin: 1rem 0 0.8rem; }
 .play summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
 .suggest-list { list-style: none; padding: 0; display: grid; gap: 0.7rem; }
 .suggest-list > li {
