@@ -47,7 +47,7 @@ Nothing goes live until a person reviews it. Artists are listed from the public 
 
 ## Logo
 
-The header uses the Play Key lockup. Light pages use `public/logo.svg` (PNG fallback `logo.png`). Dark header chrome uses `public/logo-dark.svg` (`logo-dark.png`). The mark animates from `logo-mark-animated.webm`, with `logo-mark-animated.mp4` and `logo-mark-animated-dark.mp4` for Safari, then `logo-mark-animated.apng`. Reduced motion keeps the still lockup. The favicon files and `manifest.webmanifest` are in `public/`. Do not redraw the squiggle.
+The header and the hero use the approved PlayTools lockup: the Play Key (Chromie Squiggle #3937 at 65% on its own black field) and the one-word wordmark. “Play” takes the kit’s four-stop gradient from `src/app/playtools-gradient.css`, animated in step with the key. Reduced motion keeps the static gradient and the still key. Favicons, including the 16 px mark at 100% scale, are the kit files in `public/`. The social image is `public/playtools-og-image-1200x630.png` and the avatar is `public/playtools-avatar-400.png`. Do not redraw or recolor the squiggle.
 
 ## Images
 

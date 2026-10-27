@@ -56,12 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           property="og:description"
           content="A private guide to digital creative tools. Data comes from the public Art Blocks API. Independent project, not affiliated with Art Blocks."
         />
-        <meta property="og:image" content="/pt-og-image-1200x630.png" />
+        <meta property="og:image" content="/playtools-og-image-1200x630.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="PlayTools" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/pt-og-image-1200x630.png" />
+        <meta name="twitter:image" content="/playtools-og-image-1200x630.png" />
       </head>
       <body>
         <a className="skip" href="#main">

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { liveDrawers } from "./live-draw";
+import { LogoLockup } from "./LogoLockup";
 
 export type HeroWindow = {
   control: "play" | "pause" | "stop" | "rewind" | "forward";
@@ -82,6 +83,9 @@ export function PlayerHero({ windows }: { windows: HeroWindow[] }) {
     <section className="stage" ref={root} aria-labelledby="home-title">
       <div className="stage-inner">
         <h1 id="home-title" className="sr-only">PlayTools</h1>
+        <div className="stage-brand" aria-hidden="true">
+          <LogoLockup tone="dark" />
+        </div>
         <div className="player-row">
           {windows.map((item) => {
             const showImage = Boolean(item.image) && !failed[item.id];

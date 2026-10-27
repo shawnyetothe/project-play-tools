@@ -12,7 +12,7 @@ export function SiteFooter() {
       <p>
         Names and projects come from the public Art Blocks API, pulled {meta.pulledLabel}. Artists are not featured beyond that record without consent.
       </p>
-      <p>Independent project, not affiliated with Art Blocks.</p>
+      <p>PlayTools is an independent project, not affiliated with Art Blocks.</p>
       <nav className="sitemap" aria-label="Site map">
         <h2>Site map</h2>
         <div className="sitemap-grid">
