@@ -23,7 +23,7 @@ export function LogoLockup() {
       <img
         className="logo-still logo-still-light"
         src={lightSrc}
-        alt="Play Tools"
+        alt="PlayTools"
         width={168}
         height={50}
         onError={() => setLightSrc("/logo.png")}
@@ -31,7 +31,7 @@ export function LogoLockup() {
       <img
         className="logo-still logo-still-dark"
         src={darkSrc}
-        alt="Play Tools"
+        alt="PlayTools"
         width={168}
         height={50}
         onError={() => setDarkSrc("/logo-dark.png")}

@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="wrap">
       <h1>That page is not in this guide.</h1>
       <p>
-        <Link href="/">Back to Play Tools</Link>
+        <Link href="/">Back to PlayTools</Link>
       </p>
     </div>
   );

@@ -18,8 +18,8 @@ const serif = Newsreader({
 
 export const metadata: Metadata = {
   title: {
-    default: "Play Tools",
-    template: "%s · Play Tools",
+    default: "PlayTools",
+    template: "%s · PlayTools",
   },
   description:
     "A private guide to digital creative tools. Data comes from the public Art Blocks API. Independent project, not affiliated with Art Blocks.",
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <head>
-        <meta property="og:title" content="Play Tools" />
+        <meta property="og:title" content="PlayTools" />
         <meta
           property="og:description"
           content="A private guide to digital creative tools. Data comes from the public Art Blocks API. Independent project, not affiliated with Art Blocks."
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:image" content="/pt-og-image-1200x630.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Play Tools" />
+        <meta property="og:image:alt" content="PlayTools" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/pt-og-image-1200x630.png" />
       </head>

@@ -30,7 +30,7 @@ const doors: { id: Door; name: string; hint: string }[] = [
 const emptyMatch: PlayMatch = { tools: [], rules: [], primary: null };
 
 const feedbackHref = suggestEmail
-  ? `mailto:${suggestEmail}?subject=${encodeURIComponent("Play Tools: did this open the right tool?")}&body=${encodeURIComponent("Where I began:\n\nThe tool it opened:\n\nThe tool I would have handed them:\n")}`
+  ? `mailto:${suggestEmail}?subject=${encodeURIComponent("PlayTools: did this open the right tool?")}&body=${encodeURIComponent("Where I began:\n\nThe tool it opened:\n\nThe tool I would have handed them:\n")}`
   : "";
 
 export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayRecipe[] }) {

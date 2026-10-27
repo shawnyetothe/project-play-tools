@@ -1,4 +1,4 @@
-# Play Tools
+# PlayTools
 
 A private, static guide to digital creative tools. Data comes from the public Art Blocks API: every artist and project in the dataset, the tools behind the work, and short recipes for getting started.
 
@@ -6,7 +6,7 @@ Independent project, not affiliated with Art Blocks.
 
 This is a preview. It is not approved for public release. Pages send `noindex, nofollow`, `robots.txt` disallows all crawling, and `vercel.json` adds `X-Robots-Tag: noindex`. Do not attach a custom domain.
 
-A shareable link is an unlisted URL. A short private-preview line sits at the bottom of every page. The feedback question is under Play: type a real message, then email whether that tool is the one you would have handed them. An image note opens a shader and does not attach the plotter recipe. Pen and plot words still open that recipe.
+A shareable link is an unlisted URL. A short private-preview line sits at the bottom of every page. The home page opens with player-control windows (play, pause, stop, rewind, fast-forward) for p5.js, three.js, a shader, Tone.js, and a pen plotter, then category shortcuts, the live tool carousel, and the Message, Medium, Maker finder. The feedback question is under that finder. An image note opens a shader and does not attach the plotter recipe. Pen and plot words still open that recipe.
 
 ## Run it
 
