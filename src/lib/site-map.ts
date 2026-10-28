@@ -31,8 +31,23 @@ export const routes: RouteRow[] = [
   { path: "/lab/tools/", note: "Creative index.", params: [] },
   { path: "/lab/tools/{id}/", note: "One tool in the creative index.", params: [] },
   { path: "/lab/suggest/", note: "Suggest a tool, example, or fix.", params: ["suggest", "about"] },
-  { path: "/sitemap/", note: "This page. Every concrete URL is listed here.", params: [] },
+  { path: "/sitemap/", note: "Short index of routes, parameters, and section pages.", params: [] },
+  { path: "/sitemap/artists/", note: "Artist URLs by letter.", params: [] },
+  { path: "/sitemap/artists/{letter}/", note: "Artist URLs for one letter. letter is a–z or other.", params: [] },
+  { path: "/sitemap/projects/", note: "Project URLs by letter.", params: [] },
+  { path: "/sitemap/projects/{letter}/", note: "Project URLs for one letter. A long letter continues at {letter}-2, {letter}-3. letter is a–z or other.", params: [] },
+  { path: "/sitemap/tools/", note: "Every tool page and its creative-index page.", params: [] },
 ];
+
+/** First letter of a name. A–Z, or "other" for digits and other scripts. */
+export function sitemapLetter(name: string): string {
+  const ch = name.trim().charAt(0).toUpperCase();
+  return ch >= "A" && ch <= "Z" ? ch.toLowerCase() : "other";
+}
+
+export function sitemapLetterLabel(id: string): string {
+  return id === "other" ? "Other" : id.toUpperCase();
+}
 
 export const urlParams = [
   { name: "seed", routes: ["/lab/composed/", "/lab/hero-1/", "/lab/hero-2/", "/lab/hero-3/", "/lab/hero-4/", "/lab/hero-5/", "/lab/generate/"], values: "6 lowercase hex digits" },

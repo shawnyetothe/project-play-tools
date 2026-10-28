@@ -1,22 +1,56 @@
 import type { Metadata } from "next";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import Link from "next/link";
-import { artists, meta, projects, tools } from "@/lib/data";
 import { routes, urlParams } from "@/lib/site-map";
 
 export const metadata: Metadata = {
   title: "Site map",
-  description: "Every route and URL parameter on this PlayTools preview.",
+  description: "Routes, URL parameters, and links to the artist and project lists.",
 };
 
+type IndexFile = {
+  make: { path: string; plain: string }[];
+  recipes: { path: string; plain: string }[];
+};
+
+function readIndex(): IndexFile {
+  return JSON.parse(readFileSync(join(process.cwd(), "public/sitemap.json"), "utf8")) as IndexFile;
+}
+
 export default function SitemapPage() {
+  const index = readIndex();
   const staticRoutes = routes.filter((route) => !route.path.includes("{"));
   return (
     <article className="wrap site-map">
       <h1>Site map</h1>
-      <p>Every route on this preview, and every URL parameter the pages read. Concrete artist, project, tool, recipe, and make URLs are listed below.</p>
-      <p>
-        Machine-readable copies: <a href="/llms.txt">/llms.txt</a> and <a href="/tools.json">/tools.json</a>.
-      </p>
+      <p>Routes and URL parameters are on this page. Artist and project URLs are split by letter so each page stays small.</p>
+      <ul className="link-list">
+        <li>
+          <Link href="/sitemap/artists/">Artists</Link>
+          <span className="quiet"> — /sitemap/artists/</span>
+        </li>
+        <li>
+          <Link href="/sitemap/projects/">Projects</Link>
+          <span className="quiet"> — /sitemap/projects/</span>
+        </li>
+        <li>
+          <Link href="/sitemap/tools/">Tools</Link>
+          <span className="quiet"> — /sitemap/tools/</span>
+        </li>
+        <li>
+          <a href="/sitemap.json">sitemap.json</a>
+          <span className="quiet"> — routes, parameters, and letter files</span>
+        </li>
+        <li>
+          <a href="/sitemap.xml">sitemap.xml</a>
+          <span className="quiet"> — index of the path lists</span>
+        </li>
+        <li>
+          <a href="/llms.txt">llms.txt</a>
+          <span className="quiet"> — how an agent should read the site</span>
+        </li>
+      </ul>
 
       <h2>Routes</h2>
       <ul className="link-list">
@@ -51,9 +85,9 @@ export default function SitemapPage() {
 
       <h2>Make</h2>
       <ul className="link-list">
-        {meta.paths.map((path) => (
-          <li key={path.slug}>
-            <Link href={`/make/${path.slug}/`}>{`/make/${path.slug}/`}</Link>
+        {index.make.map((path) => (
+          <li key={path.path}>
+            <Link href={path.path}>{path.path}</Link>
             <span className="quiet"> — {path.plain}</span>
           </li>
         ))}
@@ -61,45 +95,14 @@ export default function SitemapPage() {
 
       <h2>Recipes</h2>
       <ul className="link-list">
-        {meta.recipes.map((recipe) => (
-          <li key={recipe.slug}>
-            <Link href={`/recipes/${recipe.slug}/`}>{`/recipes/${recipe.slug}/`}</Link>
+        {index.recipes.map((recipe) => (
+          <li key={recipe.path}>
+            <Link href={recipe.path}>{recipe.path}</Link>
             <span className="quiet"> — {recipe.plain}</span>
           </li>
         ))}
       </ul>
 
-      <h2>Tools</h2>
-      <ul className="link-list">
-        {tools.map((tool) => (
-          <li key={tool.id}>
-            <Link href={`/tools/${tool.id}/`}>{`/tools/${tool.id}/`}</Link>
-            {" · "}
-            <Link href={`/lab/tools/${tool.id}/`}>{`/lab/tools/${tool.id}/`}</Link>
-            <span className="quiet"> — {tool.plain}</span>
-          </li>
-        ))}
-      </ul>
-
-      <h2>Artists</h2>
-      <ul className="link-list">
-        {artists.map((artist) => (
-          <li key={artist.slug}>
-            <Link href={`/artists/${artist.slug}/`}>{`/artists/${artist.slug}/`}</Link>
-            <span className="quiet"> — {artist.name}</span>
-          </li>
-        ))}
-      </ul>
-
-      <h2>Projects</h2>
-      <ul className="link-list">
-        {projects.map((project) => (
-          <li key={project.slug}>
-            <Link href={`/projects/${project.slug}/`}>{`/projects/${project.slug}/`}</Link>
-            <span className="quiet"> — {project.name}</span>
-          </li>
-        ))}
-      </ul>
     </article>
   );
 }

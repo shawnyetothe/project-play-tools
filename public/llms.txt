@@ -81,7 +81,9 @@ Sources may be rng, time, color, movement, sound, data, sensor. Values stay on t
 
 ## Pages
 
-The full URL list is /sitemap/. It lists every concrete route. Parameters:
+The short index is /sitemap/. Artist URLs are /sitemap/artists/ and /sitemap/artists/{letter}/ (a–z or other). Project URLs are /sitemap/projects/ and /sitemap/projects/{letter}/. A letter with more than 40 names continues at {letter}-2. Tools are /sitemap/tools/ and continue at /sitemap/tools/2/. Machine-readable copies: /sitemap.json (routes, parameters, and links to letter files) and /sitemap.xml (an index of /sitemap/routes.xml, /sitemap/artists.xml, and /sitemap/projects.xml). Letter files such as /sitemap/artists/a.json list the concrete URLs. Do not parse the HTML for the long lists.
+
+Parameters:
 
 - / : no params.
 - /start/ /about/ /abx/ /artists/ /recipes/ /lab/ /lab/tools/ /sitemap/ : no params.
@@ -98,5 +100,5 @@ The full URL list is /sitemap/. It lists every concrete route. Parameters:
 - /lab/suggest/ is the suggestion form. Same fields and the same email draft as before.
 - /lab/hero-1/ through /lab/hero-5/ are the ingredients.
 - /tools/ is the tool index. /tools/{id}/ is one tool.
-- /sitemap/ lists every concrete URL.
+- /sitemap/ is the short index. /sitemap/artists/ and /sitemap/projects/ are the long lists, one letter per page.
 - /abx/ is the publish path.

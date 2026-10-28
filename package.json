@@ -5,7 +5,7 @@
   "scripts": {
     "prepare-data": "python3 scripts/prepare.py",
     "dev": "python3 scripts/prepare.py && next dev --turbopack -H 0.0.0.0 -p 47231",
-    "build": "python3 scripts/prepare.py && next build && python3 scripts/defer-lab-scripts.py",
+    "build": "python3 scripts/prepare.py && node scripts/build-sitemap-files.mjs && next build && python3 scripts/defer-lab-scripts.py",
     "preview": "python3 -m http.server 47231 --directory out --bind 0.0.0.0",
     "lint": "eslint"
   },
