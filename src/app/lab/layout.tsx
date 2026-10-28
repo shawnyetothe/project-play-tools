@@ -4,9 +4,12 @@ import "./lab.css";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
+  fallback: ["system-ui", "sans-serif"],
   variable: "--font-bricolage",
   axes: ["opsz"],
+  preload: false,
 });
 
 export const metadata: Metadata = {

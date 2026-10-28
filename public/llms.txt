@@ -73,7 +73,9 @@ A 16-piece curated set is edition=16, mode=curated, and output=sheet.
 
 Manifest JSON downloaded from the output step:
 
-seed, mix, mode, output, edition, balance, band.lo, band.hi, sources (each with on, weight, value), rules (text, fromCuration, maxDensity), strikes, showing.
+seed, mix, mode, output, edition, balance, band.lo, band.hi, sources (each with on, weight, value), rules (text, fromCuration, maxDensity), strikes, showing, sample.offset, sample.indexes.
+
+edition is the full edition. showing is the live page (at most 64 tiles). sample.indexes are that page. strikes lists every struck index in the edition, including frames that are not on the current page.
 
 Sources may be rng, time, color, movement, sound, data, sensor. Values stay on the device. Nothing is uploaded.
 

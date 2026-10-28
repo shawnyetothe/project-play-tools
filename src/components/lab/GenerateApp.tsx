@@ -16,6 +16,7 @@ import {
   logPosition,
   makeToken,
   parseGenerateSearch,
+  proofBalances,
   sampleIndexes,
   stepEdition,
   type Manifest,
@@ -61,14 +62,71 @@ function useReduced() {
   return reduced;
 }
 
+function ProofStrip({
+  seed,
+  balance,
+  salt,
+  palette,
+  reduced,
+  active,
+}: {
+  seed: string;
+  balance: number;
+  salt: string;
+  palette: string[];
+  reduced: boolean;
+  active: boolean;
+}) {
+  const host = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const node = host.current;
+    if (!node || !active) return;
+    let frame = 0;
+    const draw = () => {
+      const canvases = node.querySelectorAll("canvas");
+      proofBalances(balance).forEach((point, index) => {
+        const canvas = canvases[index];
+        if (!canvas) return;
+        const fitted = fitCanvas(canvas, 1.5);
+        if (!fitted) return;
+        drawToken(fitted.ctx, fitted.w, fitted.h, makeToken(seed, 0, point, salt), palette);
+      });
+    };
+    if (reduced) {
+      draw();
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      frame = window.requestAnimationFrame(draw);
+    }, 40);
+    return () => {
+      window.clearTimeout(timer);
+      window.cancelAnimationFrame(frame);
+    };
+  }, [seed, balance, salt, palette, reduced, active]);
+  return (
+    <div className="gen-proof" ref={host} aria-hidden="true">
+      {Array.from({ length: 6 }, (_, index) => (
+        <canvas key={index} width={72} height={96} />
+      ))}
+    </div>
+  );
+}
+
 function TileCanvas({ token, palette, struck }: { token: Token; palette: string[]; struck: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    const fitted = fitCanvas(canvas, 1.5);
-    if (!fitted) return;
-    drawToken(fitted.ctx, fitted.w, fitted.h, token, palette);
+    const draw = () => {
+      const fitted = fitCanvas(canvas, 1.5);
+      if (!fitted) return;
+      drawToken(fitted.ctx, fitted.w, fitted.h, token, palette);
+    };
+    draw();
+    const observer = new ResizeObserver(draw);
+    observer.observe(canvas);
+    return () => observer.disconnect();
   }, [token, palette]);
   return <canvas ref={ref} className="gen-art" style={{ opacity: struck ? 0.32 : 1 }} aria-hidden="true" />;
 }
@@ -94,6 +152,7 @@ export function GenerateApp() {
   const [palette, setPalette] = useState<string[]>(["#0B0B0F", "#C4513A", "#E2B857", "#3E6B8A"]);
   const [rules, setRules] = useState<Rule[]>([]);
   const [strikes, setStrikes] = useState<number[]>([]);
+  const [sampleOffset, setSampleOffset] = useState(0);
   const [developed, setDeveloped] = useState(0);
   const [output, setOutput] = useState<OutputMode>("sheet");
   const [copied, setCopied] = useState(false);
@@ -115,7 +174,7 @@ export function GenerateApp() {
 
   const band = bandFor(balance);
   const maxRule = rules.reduce<number | null>((acc, rule) => (rule.maxDensity == null ? acc : acc == null ? rule.maxDensity : Math.min(acc, rule.maxDensity)), null);
-  const indexes = useMemo(() => sampleIndexes(edition), [edition]);
+  const indexes = useMemo(() => sampleIndexes(edition, sampleOffset), [edition, sampleOffset]);
   const tokens = useMemo(
     () =>
       indexes
@@ -264,6 +323,7 @@ export function GenerateApp() {
       rules,
       strikes,
       showing: tokens.length,
+      sample: { offset: edition ? ((sampleOffset % edition) + edition) % edition : 0, indexes },
     };
   }
 
@@ -432,11 +492,14 @@ export function GenerateApp() {
                 <span>expression Variance {balance}%</span>
                 <p>allowed band: density {band.lo.toFixed(2)} – {band.hi.toFixed(2)}</p>
               </div>
-              <div className="gen-proof" aria-hidden="true">
-                {Array.from({ length: 6 }, (_, i) => (
-                  <span key={i} style={{ background: `hsl(${20 + balance + i * 8} 42% ${30 + i * 6}%)` }} />
-                ))}
-              </div>
+              <ProofStrip
+                seed={seed}
+                balance={balance}
+                salt={`${mix}|${values.time}|${values.movement}|${values.sound}|${values.data}|${values.sensor}`}
+                palette={palette}
+                reduced={reduced}
+                active={step === 2}
+              />
             </div>
           </section>
 
@@ -499,10 +562,22 @@ export function GenerateApp() {
 
           <section id="gen-grid" hidden={step !== 4 && step !== 5}>
             <h2>{step === 5 ? "Curate" : "Generated grid"}</h2>
-            <p className="gen-measure">
-              Showing {tokens.length} of {edition.toLocaleString()}
-              {edition > LIVE_CAP ? `, sampled to ${LIVE_CAP} live tiles` : ""}. Frame numbers sit under the art.
+            <p className="gen-measure gen-sample-label">
+              {edition > LIVE_CAP
+                ? `Showing ${indexes.length} of ${edition.toLocaleString()}. Shuffle the sample.`
+                : `Showing ${tokens.length} of ${edition.toLocaleString()}.`}
+              {" "}Frame numbers sit under the art.
             </p>
+            {edition > LIVE_CAP ? (
+              <div className="gen-sample-actions">
+                <button type="button" onClick={() => setSampleOffset((current) => (current + LIVE_CAP) % edition)}>
+                  Next page
+                </button>
+                <button type="button" onClick={() => setSampleOffset(Math.floor(Math.random() * edition))}>
+                  Shuffle sample
+                </button>
+              </div>
+            ) : null}
             <div className="gen-sheet-wrap">
               <div className="gen-sheet">
                 {tokens.map((token, order) => {

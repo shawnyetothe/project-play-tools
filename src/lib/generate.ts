@@ -111,10 +111,20 @@ export function makeToken(seed: string, index: number, balance: number, salt: st
   return { index, frame: String(index + 1).padStart(3, "0"), density, trait, hue };
 }
 
-export function sampleIndexes(edition: number, cap = LIVE_CAP): number[] {
+/** Six distinct constraint positions, tight to loose, in a window that follows the slider. */
+export function proofBalances(balance: number): number[] {
+  const current = Math.min(100, Math.max(0, Math.round(balance)));
+  const start = Math.max(0, Math.min(50, current - 25));
+  return Array.from({ length: 6 }, (_, i) => start + i * 10);
+}
+
+/** A window of the edition. Indexes are positions in the full edition, so strikes survive paging. */
+export function sampleIndexes(edition: number, offset = 0, cap = LIVE_CAP): number[] {
+  const count = Math.min(cap, Math.max(0, edition));
+  if (count === 0) return [];
+  const start = ((offset % edition) + edition) % edition;
   if (edition <= cap) return Array.from({ length: edition }, (_, i) => i);
-  const step = edition / cap;
-  return Array.from({ length: cap }, (_, i) => Math.min(edition - 1, Math.floor(i * step)));
+  return Array.from({ length: count }, (_, i) => (start + i) % edition);
 }
 
 export function histogram(edition: number, balance: number): { trait: string; count: number }[] {
@@ -167,6 +177,8 @@ export type Manifest = {
   rules: Rule[];
   strikes: number[];
   showing: number;
+  /** The full edition size. `showing` is only the live sample. */
+  sample: { offset: number; indexes: number[] };
 };
 
 export function parseGenerateSearch(search: string): {

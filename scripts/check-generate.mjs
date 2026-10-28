@@ -12,7 +12,7 @@ const gen = catalog.generate;
 check(Boolean(gen), "tools.json has a generate block");
 check(gen?.oneOfOne?.includes("edition=1") && gen.oneOfOne.includes("output=one"), "1 of 1 URL");
 check(gen?.curated16?.includes("edition=16") && gen.curated16.includes("mode=curated"), "16-piece curated URL");
-for (const field of ["seed", "mix", "mode", "output", "edition", "balance", "band", "sources", "rules", "strikes", "showing"]) {
+for (const field of ["seed", "mix", "mode", "output", "edition", "balance", "band", "sources", "rules", "strikes", "showing", "sample"]) {
   check(gen?.manifest?.includes(field), `manifest field ${field}`);
 }
 check(llms.includes("edition=1") && llms.includes("output=one"), "llms.txt can build a 1 of 1");

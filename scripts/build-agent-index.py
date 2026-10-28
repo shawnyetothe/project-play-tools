@@ -79,7 +79,7 @@ payload = {
         "oneOfOne": "/lab/generate/?seed=c19a4e&edition=1&output=one&mode=curated",
         "curated16": "/lab/generate/?seed=c19a4e&edition=16&output=sheet&mode=curated",
         "params": ["seed", "mix", "mode", "edition", "balance", "output", "strikes"],
-        "manifest": ["seed", "mix", "mode", "output", "edition", "balance", "band", "sources", "rules", "strikes", "showing"],
+        "manifest": ["seed", "mix", "mode", "output", "edition", "balance", "band", "sources", "rules", "strikes", "showing", "sample"],
     },
     "creativeIndex": {
         "page": "/lab/tools/",

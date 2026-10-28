@@ -17,16 +17,36 @@
   font-family: var(--font-atkinson), "Atkinson Hyperlegible", "Segoe UI", sans-serif;
 }
 
+/* Lab pages only. Keeps Newsreader off this route so the footer headings do not pull a second webfont ahead of the lede. */
+body:has(.lab) h1,
+body:has(.lab) h2,
+body:has(.lab) h3,
+body:has(.lab) h4 {
+  font-family: var(--font-atkinson), "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
 .lab h1,
-.lab h2 {
-  font-family: var(--font-bricolage), system-ui, sans-serif;
+.lab h2,
+body:has(.lab) .lab h1,
+body:has(.lab) .lab h2 {
+  font-family: "Bricolage Grotesque Fallback", system-ui, sans-serif;
   font-weight: 700;
   font-variation-settings: "opsz" 72, "wght" 650;
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
+body:has(.lab) .lab.fonts-ready h1,
+body:has(.lab) .lab.fonts-ready h2 {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+}
 
 .lab h1 { font-size: clamp(32px, 4.5vw, 56px); margin: 0 0 0.45rem; }
+.lab .lede,
+.lab .stage-lede,
+.lab .gen-measure {
+  /* Size-adjusted Arial from the lab font. No webfont, so the lede paints with the headline. */
+  font-family: "Bricolage Grotesque Fallback", system-ui, sans-serif;
+}
 .lab h2 { font-size: clamp(24px, 2.5vw, 32px); }
 .lab h3 { font-weight: 700; }
 

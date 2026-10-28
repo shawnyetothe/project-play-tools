@@ -93,7 +93,15 @@ body:has(.gen-app) .nav-small { display: none; }
 .gen-balance { display: grid; gap: 16px; }
 .gen-balance input { width: 100%; accent-color: #0b0b0f; }
 .gen-proof { display: flex; gap: 8px; }
-.gen-proof span { width: 36px; height: 48px; border-radius: 2px; display: block; }
+.gen-proof canvas {
+  width: 48px;
+  height: 64px;
+  border-radius: 2px;
+  display: block;
+  background: #f5f5f2;
+}
+.gen-sample-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.4rem 0 1rem; }
+.gen-sample-actions button { min-height: 44px; }
 .gen-edition { display: grid; gap: 12px; }
 .gen-log { position: relative; padding-bottom: 4.5rem; }
 .gen-log input { width: 100%; }

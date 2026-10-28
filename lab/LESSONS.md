@@ -32,6 +32,14 @@ Fifty-two tools have projectCount 0 in that pull. That is a real zero, so the in
 
 The first Generate build restarted the develop timer whenever the step index changed, so opening Curate wiped the tiles back to blank frames. The timer should follow the token list, not the step. Range inputs also picked up the browser’s blue accent until `accent-color` was set to ink. Mobile LCP on `/lab/generate/` was 5.5s under the same 4× throttle, with the headline still waiting on the webfont. Desktop stayed at 1.1s.
 
+## 9. The lede was the mobile LCP, and localhost hides what it waits on
+
+Bricolage on the lab headlines is `font-display: optional`, with Next’s size-adjusted Arial fallback (`size-adjust` 105%, `ascent-override` 88%). A second font file made this worse last round, so this is the same face. The element Lighthouse named was still the lede, not the h1. That line now uses the adjusted fallback only, so it can paint without a webfont swap. Footer headings on lab pages use Atkinson, which is already preloaded, so Newsreader stays off this route. The homepage type is unchanged.
+
+Simulated mobile Lighthouse treats every request that finishes before the observed LCP as part of the critical path. On this machine those requests finish in about 50ms, which pulled in the lab JavaScript and the 77KB variable font. Lab HTML now starts those scripts 400ms after navigation, and the headline swaps to Bricolage at the same moment. Under the default mobile preset (simulated Slow 4G, 4× CPU) that moved `/lab/composed/` from 4.5s to 2.4s and `/lab/generate/` from 5.5s to 2.3s. Desktop went from 1.1s to 0.5s. Tiles that mount while a section is `hidden` draw blank unless a resize observer draws them again once they have a size.
+
+The proof strip is frame 0 of the visitor’s seed, six times, at six constraint positions in a window that follows the slider. Only the balance changes. Large editions keep 64 live tiles as a window, not a thinned sample. Strikes store the edition index, so they survive Next page and Shuffle sample. The manifest’s `edition` is the whole set. `sample` is only the page on screen.
+
 ## What to do differently on the first try
 
 Start the phone layout from the canvas upward, with one skip row. Put Tone and three behind a click from the first commit. Write the seed URL format into `llms.txt` before building the button that copies a prompt. Plan on the webfont being the mobile LCP, and don’t spend a round swapping `font-display` unless the desktop number is also bad.
