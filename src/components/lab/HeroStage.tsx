@@ -126,6 +126,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
     }
     const salt = drawSalt(state.seed, state.door, state.phrase, state.tool);
     setLive("Sound on");
+    setSoundOn(true);
     try {
       await playSeed(state.seed, (note) => {
         const canvas = canvasRef.current;
@@ -147,9 +148,11 @@ export function HeroStage({ piece }: { piece: Piece }) {
 
   return (
     <div className="stage-grid">
-      <div className="stage-panel">
-        <h1>Start a piece.</h1>
-        <p>Your seed follows you down the page. Nothing is sent anywhere.</p>
+      <div className="stage-copy">
+        <h1 className="stage-title">Start a piece.</h1>
+        <p className="guide-phone">Play. Change. Share.</p>
+        <p className="stage-lede">Your seed follows you down the page. Nothing is sent anywhere.</p>
+        <div className="stage-ask">
         <p className="ask" id="make-label">
           What do you want to make?
         </p>
@@ -186,6 +189,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
         <p className="quiet reel-status" aria-live="polite">
           {live}
         </p>
+        </div>
       </div>
       <div className="stage-art" ref={artRef}>
         <canvas

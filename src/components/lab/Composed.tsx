@@ -51,14 +51,6 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
 
   return (
     <div className="lab-page">
-      <nav className="lab-jump wrap" aria-label="On this page">
-        <a href="#play">Play</a>
-        <a href="#lineage">Lineage</a>
-        <a href="#listen">Listen</a>
-        <a href="#find">Find</a>
-        <a href="#make">Make</a>
-        <a href="#publish">Publish</a>
-      </nav>
       <ProgressDots />
       <section className="lab-section lab-hero wrap" id="play">
         <HeroStage piece={piece} />
