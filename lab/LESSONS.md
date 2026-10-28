@@ -28,6 +28,10 @@ The mixer wanted “popular” and “rarely combined.” The 2026-10-25 pull co
 
 Fifty-two tools have projectCount 0 in that pull. That is a real zero, so the index says “few people make with this yet,” not “no data yet.” “No data yet” is reserved for the named effects, which this pull does not count, and for a missing projectCount. Category totals are omitted because one project can match several tools.
 
+## 8. Freeze the contact sheet when the step changes
+
+The first Generate build restarted the develop timer whenever the step index changed, so opening Curate wiped the tiles back to blank frames. The timer should follow the token list, not the step. Range inputs also picked up the browser’s blue accent until `accent-color` was set to ink. Mobile LCP on `/lab/generate/` was 5.5s under the same 4× throttle, with the headline still waiting on the webfont. Desktop stayed at 1.1s.
+
 ## What to do differently on the first try
 
 Start the phone layout from the canvas upward, with one skip row. Put Tone and three behind a click from the first commit. Write the seed URL format into `llms.txt` before building the button that copies a prompt. Plan on the webfont being the mobile LCP, and don’t spend a round swapping `font-display` unless the desktop number is also bad.
