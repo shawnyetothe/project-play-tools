@@ -12,6 +12,8 @@ export type Knobs = {
 export type PieceState = {
   seed: string;
   door: Door | "";
+  /** Which option inside the starting point, such as musician or plotter. */
+  pick: string;
   phrase: string;
   tool: number;
   knobs: Knobs;
@@ -89,7 +91,8 @@ export function drawSalt(seed: string, door: string, phrase: string, tool: numbe
 export function pieceSearch(state: PieceState): string {
   const params = new URLSearchParams();
   params.set("seed", state.seed);
-  if (state.door) params.set("door", state.door);
+  if (state.door) params.set("start", state.door);
+  if (state.pick) params.set("pick", state.pick);
   params.set("tool", String(state.tool + 1));
   if (state.phrase.trim()) params.set("make", state.phrase.trim());
   params.set("walk", String(state.knobs.walk));
@@ -112,12 +115,16 @@ function num(params: URLSearchParams, key: string): number | null {
   return Number.isFinite(value) ? value : null;
 }
 
+function asDoor(value: string | null): Door | "" {
+  return value === "message" || value === "medium" || value === "maker" ? value : "";
+}
+
 export function readPiece(search: string): PieceState | null {
   const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
-  const seed = normalizeSeed(params.get("seed"));
+  const door = asDoor(params.get("start") || params.get("door"));
+  const pick = (params.get("pick") || "").slice(0, 24).toLowerCase();
+  const seed = normalizeSeed(params.get("seed")) || (door ? hashSeed(["start", door, pick || "open"]) : null);
   if (!seed) return null;
-  const doorRaw = params.get("door") || "";
-  const door: Door | "" = doorRaw === "message" || doorRaw === "medium" || doorRaw === "maker" ? doorRaw : "";
   const toolRaw = Number(params.get("tool"));
   const tool = Number.isFinite(toolRaw) ? Math.min(6, Math.max(1, Math.round(toolRaw))) - 1 : 0;
   const base = knobsFromSeed(seed);
@@ -129,6 +136,7 @@ export function readPiece(search: string): PieceState | null {
   return {
     seed,
     door,
+    pick,
     phrase: (params.get("make") || "").slice(0, 180),
     tool,
     knobs,
@@ -143,7 +151,8 @@ export function readStoredPiece(): PieceState | null {
     const data = JSON.parse(raw) as Partial<PieceState>;
     const seed = normalizeSeed(data.seed);
     if (!seed) return null;
-    const door = data.door === "message" || data.door === "medium" || data.door === "maker" ? data.door : "";
+    const door = asDoor(typeof data.door === "string" ? data.door : "");
+    const pick = typeof data.pick === "string" ? data.pick.slice(0, 24) : "";
     const tool = typeof data.tool === "number" ? Math.min(5, Math.max(0, data.tool)) : 0;
     const knobs = knobsFromSeed(seed);
     if (data.knobs) {
@@ -155,6 +164,7 @@ export function readStoredPiece(): PieceState | null {
     return {
       seed,
       door,
+      pick,
       phrase: typeof data.phrase === "string" ? data.phrase.slice(0, 180) : "",
       tool,
       knobs,
@@ -172,6 +182,7 @@ export function writeStoredPiece(state: PieceState) {
       JSON.stringify({
         seed: state.seed,
         door: state.door,
+        pick: state.pick,
         phrase: state.phrase,
         tool: state.tool,
         knobs: state.knobs,
@@ -186,6 +197,7 @@ export function defaultPiece(): PieceState {
   return {
     seed: DEFAULT_SEED,
     door: "",
+    pick: "",
     phrase: "",
     tool: 0,
     knobs: knobsFromSeed(DEFAULT_SEED),

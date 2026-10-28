@@ -4,15 +4,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { fitCanvas } from "./canvas-fit";
 import type { Piece } from "./use-piece";
-import { FEATURED, drawSalt, type Door } from "@/lib/seed";
+import { FEATURED, drawSalt } from "@/lib/seed";
+import { STARTS, picksFor } from "@/lib/starts";
 import { burstPoint, drawHero, type Burst } from "@/lib/seed-draw";
 import { isPlaying, playSeed, stopSeed } from "@/lib/seed-audio";
-
-const DOORS: { id: Door; hint: string }[] = [
-  { id: "message", hint: "What you want to say" },
-  { id: "medium", hint: "What it is made of" },
-  { id: "maker", hint: "How you want to work" },
-];
 
 export function HeroStage({ piece }: { piece: Piece }) {
   const artRef = useRef<HTMLDivElement>(null);
@@ -24,7 +19,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
   const wake = useRef<() => void>(() => {});
   const [live, setLive] = useState("");
 
-  const { state, motion, reduced, soundOn, setSoundOn, setMotion, lock, shuffle, setDoor, setPhrase, setTool } = piece;
+  const { state, motion, reduced, soundOn, setSoundOn, setMotion, lock, shuffle, setDoor, setPick, clearStart, setPhrase, setTool } = piece;
 
   useEffect(() => {
     const node = artRef.current;
@@ -153,39 +148,66 @@ export function HeroStage({ piece }: { piece: Piece }) {
         <p className="stage-lede">Your seed follows you down the page. Nothing is sent anywhere.</p>
         <p className="stage-guide-line">Play · Change · Share</p>
         <div className="stage-ask">
-        <p className="ask" id="make-label">
-          What do you want to make?
-        </p>
-        <div className="chip-row" role="group" aria-labelledby="make-label">
-          {DOORS.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className="chip"
-              aria-pressed={state.door === item.id}
-              onClick={() => setDoor(item.id)}
-            >
-              {item.id[0].toUpperCase() + item.id.slice(1)}
-              <span className="quiet">{item.hint}</span>
-            </button>
-          ))}
-        </div>
-        {state.door === "message" ? (
-          <label>
-            Your message
-            <input
-              value={state.phrase}
-              onChange={(event) => setPhrase(event.target.value)}
-              placeholder="a lullaby I hum to my kids"
-              autoComplete="off"
-            />
-          </label>
-        ) : null}
-        <p>
-          <a className="lab-go" href="#find">
-            Start making
-          </a>
-        </p>
+          <h3 id="start-heading">Start from anywhere.</h3>
+          <p className="start-line">Pick a way in. You’ll get a matching sketch to play with and the tools that make it.</p>
+          <div className="chip-row" role="group" aria-labelledby="start-heading">
+            {STARTS.map((item, index) => (
+              <button
+                key={item.id}
+                id={`start-${item.id}`}
+                type="button"
+                className="chip start-chip"
+                aria-expanded={state.door === item.id}
+                aria-pressed={state.door === item.id}
+                aria-controls={state.door === item.id ? "start-panel" : undefined}
+                onClick={() => setDoor(item.id)}
+                onKeyDown={(event) => {
+                  if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) return;
+                  event.preventDefault();
+                  const step = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+                  const next = STARTS[(index + step + STARTS.length) % STARTS.length];
+                  setDoor(next.id);
+                  document.getElementById(`start-${next.id}`)?.focus();
+                }}
+              >
+                <span className="start-label">{item.label}</span>
+                <span className="start-q">{item.question}</span>
+                <span className="start-detail">{item.detail}</span>
+              </button>
+            ))}
+          </div>
+          {state.door ? (
+            <div className="start-panel" id="start-panel" role="region" aria-label={`${state.door} starting point`}>
+              <button type="button" className="text-btn" onClick={clearStart}>
+                All starting points
+              </button>
+              {state.door === "message" ? (
+                <label htmlFor="start-message">
+                  What do I want to say?
+                  <textarea
+                    id="start-message"
+                    rows={3}
+                    value={state.phrase}
+                    onChange={(event) => setPhrase(event.target.value)}
+                    placeholder="a lullaby I hum to my kids"
+                  />
+                </label>
+              ) : (
+                <div className="start-options" role="group" aria-label={state.door === "maker" ? "Who you are" : "What you want to make"}>
+                  {picksFor(state.door).map((item) => (
+                    <button key={item.id} type="button" aria-pressed={state.pick === item.id} onClick={() => setPick(item.id)}>
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : null}
+          <p>
+            <a className="lab-go" href="#find">
+              Start making
+            </a>
+          </p>
         </div>
       </div>
       <div className="stage-art" ref={artRef}>

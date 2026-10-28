@@ -14,6 +14,7 @@ import {
   type Knobs,
   type PieceState,
 } from "@/lib/seed";
+import { seedForStart, toolForStart } from "@/lib/starts";
 
 export function usePiece() {
   const [state, setState] = useState<PieceState>(defaultPiece);
@@ -50,7 +51,42 @@ export function usePiece() {
   }, []);
 
   const setDoor = useCallback((door: Door) => {
-    setState((current) => ({ ...current, door, locked: true }));
+    setState((current) => {
+      if (current.door === door) {
+        const fresh = defaultPiece();
+        return { ...fresh, locked: true };
+      }
+      const seed = seedForStart(door);
+      return {
+        ...current,
+        door,
+        pick: "",
+        seed,
+        knobs: knobsFromSeed(seed),
+        tool: toolForStart(door),
+        locked: true,
+      };
+    });
+  }, []);
+
+  const setPick = useCallback((pick: string) => {
+    setState((current) => {
+      if (!current.door) return current;
+      const seed = seedForStart(current.door, pick);
+      return {
+        ...current,
+        pick,
+        seed,
+        knobs: knobsFromSeed(seed),
+        tool: toolForStart(current.door, pick),
+        locked: true,
+      };
+    });
+  }, []);
+
+  const clearStart = useCallback(() => {
+    const fresh = defaultPiece();
+    setState({ ...fresh, locked: true });
   }, []);
 
   const setPhrase = useCallback((phrase: string) => {
@@ -83,6 +119,8 @@ export function usePiece() {
     lock,
     shuffle,
     setDoor,
+    setPick,
+    clearStart,
     setPhrase,
     setTool,
     setKnob,

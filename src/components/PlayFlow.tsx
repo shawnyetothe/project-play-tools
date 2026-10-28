@@ -38,12 +38,16 @@ export function PlayFlow({
   recipes,
   initialDoor = null,
   initialNote = "",
+  initialMediumId = null,
+  initialLead = null,
   embed = false,
 }: {
   tools: PlayTool[];
   recipes: PlayRecipe[];
   initialDoor?: Door | null;
   initialNote?: string;
+  initialMediumId?: string | null;
+  initialLead?: string | null;
   embed?: boolean;
 }) {
   const [door, setDoor] = useState<Door | null>(initialDoor);
@@ -58,29 +62,40 @@ export function PlayFlow({
     if (initialNote.trim()) {
       setDoor("message");
       setNote(initialNote);
-      return;
+    } else if (initialDoor) {
+      setDoor(initialDoor);
     }
-    if (initialDoor) setDoor(initialDoor);
-  }, [initialDoor, initialNote]);
+    if (initialMediumId) setMediumId(initialMediumId);
+  }, [initialDoor, initialNote, initialMediumId]);
 
   const byId = useMemo(() => new Map(tools.map((tool) => [tool.id, tool])), [tools]);
   const byRecipe = useMemo(() => new Map(recipes.map((recipe) => [recipe.slug, recipe])), [recipes]);
 
   const match = useMemo(() => {
-    if (door === "message") return note.trim() || file ? matchPlay(note, file) : emptyMatch;
-    if (door === "medium") {
-      if (mediumNote.trim().length >= 2) return matchPlay(mediumNote, null);
-      if (mediumId) return matchMedium(mediumId);
-      return emptyMatch;
+    let next = emptyMatch;
+    if (door === "message") next = note.trim() || file ? matchPlay(note, file) : emptyMatch;
+    else if (door === "medium") {
+      if (mediumNote.trim().length >= 2) next = matchPlay(mediumNote, null);
+      else if (mediumId) next = matchMedium(mediumId);
+    } else if (door === "maker") {
+      if (makerNote.trim().length >= 2) next = matchPlay(makerNote, null);
+      else {
+        const start = makerStarts.find((item) => item.id === makerId);
+        if (start) next = matchMedium(start.medium);
+      }
     }
-    if (door === "maker") {
-      if (makerNote.trim().length >= 2) return matchPlay(makerNote, null);
-      const start = makerStarts.find((item) => item.id === makerId);
-      if (start) return matchMedium(start.medium);
-      return emptyMatch;
+    if (!initialLead || next.tools.some((hit) => hit.id === initialLead)) {
+      if (!initialLead) return next;
+      const first = next.tools.find((hit) => hit.id === initialLead);
+      const rest = next.tools.filter((hit) => hit.id !== initialLead);
+      return first ? { ...next, tools: [first, ...rest], primary: next.primary ?? { toolId: initialLead, recipe: null, medium: "start" } } : next;
     }
-    return emptyMatch;
-  }, [door, note, file, mediumId, mediumNote, makerId, makerNote]);
+    return {
+      ...next,
+      tools: [{ id: initialLead, reasons: ["You started here."], recipes: [] }, ...next.tools],
+      primary: { toolId: initialLead, recipe: null, medium: "start" },
+    };
+  }, [door, note, file, mediumId, mediumNote, makerId, makerNote, initialLead]);
 
   function chooseDoor(next: Door) {
     setDoor(next);

@@ -2,10 +2,41 @@
   "name": "PlayTools",
   "independent": true,
   "robots": "noindex, nofollow, noarchive",
-  "seedUrl": "/lab/composed/?seed={6 hex}&door={message|medium|maker}&tool={1-6}&make={phrase}&walk={n}&noise={n}&grid={n}&count={n}&rd={n}&tile={n}",
+  "seedUrl": "/lab/composed/?seed={6 hex}&start={message|medium|maker}&pick={option}&tool={1-6}&make={phrase}&walk={n}&noise={n}&grid={n}&count={n}&rd={n}&tile={n}",
   "seedStorageKey": "playtools-seed",
   "seedNeverSent": true,
+  "startingPoints": [
+    {
+      "id": "message",
+      "question": "What do I want to say?",
+      "detail": "Start from a feeling or idea, and we'll suggest tools that can express it."
+    },
+    {
+      "id": "medium",
+      "question": "What do I want to make?",
+      "detail": "Start from the result: a print, plotter drawing, animation, sound or 3D.",
+      "picks": [
+        "print",
+        "plotter",
+        "animation",
+        "sound",
+        "3d"
+      ]
+    },
+    {
+      "id": "maker",
+      "question": "Who am I?",
+      "detail": "Start from you: new to code, designer, musician or artist. We'll match tools to how you work.",
+      "picks": [
+        "new",
+        "designer",
+        "musician",
+        "artist"
+      ]
+    }
+  ],
   "howToChoose": [
+    "If the URL has start=message, start=medium, or start=maker, begin there. pick= is the option inside that starting point.",
     "Read tools[].plain, name, category, what, and firstProject.",
     "If the phrase mentions lullaby, hum, song, music, sound, or note, choose id tonejs.",
     "If the phrase mentions pen, plot, plotter, or ink, choose id plotter.",

@@ -11,6 +11,7 @@ import { ShareCard } from "./ShareCard";
 import { usePiece } from "./use-piece";
 import { toolGroups } from "@/lib/tool-groups";
 import { retargetNotes } from "@/lib/seed-audio";
+import { leadForStart, mediumIdForStart } from "@/lib/starts";
 import type { PlayRecipe, PlayTool } from "@/components/PlayFlow";
 
 const Finder = dynamic(() => import("@/components/PlayFlow").then((mod) => mod.PlayFlow), {
@@ -108,9 +109,11 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
             <Finder
               tools={tools}
               recipes={recipes}
-              initialDoor={state.door || null}
-              initialNote={state.door === "message" ? state.phrase : ""}
-              embed
+            initialDoor={state.door || null}
+            initialNote={state.door === "message" ? state.phrase : ""}
+            initialMediumId={mediumIdForStart(state.door, state.pick)}
+            initialLead={leadForStart(state.door, state.pick, state.phrase)}
+            embed
             />
           </WhenNear>
         </div>
