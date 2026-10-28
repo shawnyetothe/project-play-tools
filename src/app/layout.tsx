@@ -14,6 +14,7 @@ const serif = Newsreader({
   subsets: ["latin"],
   weight: ["500", "600"],
   variable: "--font-newsreader",
+  preload: false,
 });
 
 export const metadata: Metadata = {

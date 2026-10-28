@@ -31,13 +31,9 @@ export function ProgressDots() {
 
   return (
     <nav className="seed-dots" aria-label="How far the seed has gone">
-      {STEPS.map((step, index) => (
+      {STEPS.map((step) => (
         <a key={step.id} href={`#${step.id}`} aria-current={current === step.id ? "true" : undefined}>
-          <span className="dot" aria-hidden="true" />
-          <span className="sr-only">
-            {index + 1}. {step.label}
-          </span>
-          <span aria-hidden="true">{step.label}</span>
+          {step.label}
         </a>
       ))}
     </nav>

@@ -22,7 +22,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
   const visible = useRef(true);
   const dirty = useRef(true);
   const wake = useRef<() => void>(() => {});
-  const [live, setLive] = useState("Sketch");
+  const [live, setLive] = useState("");
 
   const { state, motion, reduced, soundOn, setSoundOn, setMotion, lock, shuffle, setDoor, setPhrase, setTool } = piece;
 
@@ -150,8 +150,8 @@ export function HeroStage({ piece }: { piece: Piece }) {
     <div className="stage-grid">
       <div className="stage-copy">
         <h1 className="stage-title">Start a piece.</h1>
-        <p className="guide-phone">Play. Change. Share.</p>
         <p className="stage-lede">Your seed follows you down the page. Nothing is sent anywhere.</p>
+        <p className="stage-guide-line">Play · Change · Share</p>
         <div className="stage-ask">
         <p className="ask" id="make-label">
           What do you want to make?
@@ -186,41 +186,48 @@ export function HeroStage({ piece }: { piece: Piece }) {
             Start making
           </a>
         </p>
-        <p className="quiet reel-status" aria-live="polite">
-          {live}
-        </p>
         </div>
       </div>
       <div className="stage-art" ref={artRef}>
-        <canvas
-          ref={canvasRef}
-          className="stage-canvas"
-          aria-label="Live sketch from your seed"
-          onPointerDown={() => lock()}
-          onPointerMove={onPointer}
-        />
-        <div className="stage-guide">
-          <ol>
-            <li>Play. Tap the mark.</li>
-            <li>Change. Pick a chip, or shuffle.</li>
-            <li>Share. The address is the piece.</li>
-          </ol>
+        <div className="stage-frame">
+          <canvas
+            ref={canvasRef}
+            className="stage-canvas"
+            aria-label="Live sketch from your seed"
+            onPointerDown={() => lock()}
+            onPointerMove={onPointer}
+          />
         </div>
-        <div className="stage-hud">
+        <div className="stage-controls">
           <button type="button" className="play-mark" aria-pressed={soundOn} aria-label={soundOn ? "Stop sound" : "Play sound"} onClick={() => void onPlay()}>
-            <img src="/logo-mark.png" alt="" width={48} height={48} />
+            {soundOn ? (
+              <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+                <path fill="#F5F5F2" d="M1 1h3.2v10H1zM7.8 1H11v10H7.8z" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 12 14" width="12" height="14" aria-hidden="true">
+                <path fill="#F5F5F2" d="M1 1l10 6-10 6z" />
+              </svg>
+            )}
           </button>
-          <button type="button" className="reel" onClick={() => setTool(state.tool + 1)} aria-label={`Featured tool ${state.tool + 1} of 6, ${featured.name}. Next.`}>
-            {state.tool + 1} / 6
+          <button type="button" className="seed-count" onClick={() => setTool(state.tool + 1)} aria-label={`Seed ${state.tool + 1} of 6, ${featured.name}. Next.`}>
+            Seed {state.tool + 1} of 6
           </button>
-          <Link href={`/tools/${featured.id}/`}>{featured.name}</Link>
-          <button type="button" className="ghost" onClick={shuffle}>
-            Shuffle
-          </button>
-          <button type="button" className="ghost" aria-pressed={!motion} onClick={() => setMotion(!motion)}>
-            {motion ? "Pause" : "Play motion"}
-          </button>
+          <Link className="tool-tag" href={`/tools/${featured.id}/`}>
+            {featured.name}
+          </Link>
+          <span className="controls-end">
+            <button type="button" className="text-btn" onClick={shuffle}>
+              Shuffle
+            </button>
+            <button type="button" className="text-btn" aria-pressed={!motion} onClick={() => setMotion(!motion)}>
+              {motion ? "Pause" : "Play motion"}
+            </button>
+          </span>
         </div>
+        <p className="quiet reel-status" aria-live="polite">
+          {live}
+        </p>
       </div>
     </div>
   );

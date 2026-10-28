@@ -51,10 +51,10 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
 
   return (
     <div className="lab-page">
-      <ProgressDots />
       <section className="lab-section lab-hero wrap" id="play">
         <HeroStage piece={piece} />
       </section>
+      <ProgressDots />
       <nav className="wrap quick" aria-label="Tool shortcuts">
         <ul className="quick-row">
           {toolGroups.map((group) => (
@@ -82,7 +82,7 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
         <div className="trio">
           <article className="lab-card">
             <h3>Hear</h3>
-            <p>{soundOn ? "The loop is playing. Each note draws a burst on the sketch." : "Tap the mark in the hero. Sound starts on that tap, and each note draws a burst."}</p>
+            <p>{soundOn ? "The loop is playing. Each note draws a burst on the sketch." : "Tap play in the hero. Sound starts on that tap, and each note draws a burst."}</p>
             <p>
               <Link className="try" href="/tools/tonejs/">
                 Try it
@@ -95,36 +95,38 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           <SenseCard piece={piece} />
         </div>
       </section>
-      <section className="lab-section wrap" id="find">
-        <h2>Find your tool</h2>
-        <p className="lede">The same beginning, in the finder.</p>
-        <WhenNear fallback={<p>The finder opens as you reach it.</p>}>
-          <Finder
-            tools={tools}
-            recipes={recipes}
-            initialDoor={state.door || null}
-            initialNote={state.door === "message" ? state.phrase : ""}
-            embed
-          />
-        </WhenNear>
-      </section>
       <section className="lab-section wrap" id="make">
         <h2>Make it real</h2>
         <p className="lede">A plotter file from your field, and a few physical pieces that already exist.</p>
         <ShareCard piece={piece} />
       </section>
-      <section className="lab-section wrap" id="publish">
-        <h2>Publish</h2>
-        <p>
-          ABX is Art Blocks’ open protocol for putting a digital object on a blockchain. Anyone can deploy. This guide is not affiliated with Art Blocks.
-        </p>
-        <p>
-          <Link href="/abx/">The publish path in this guide</Link>
-          {" · "}
-          <a href="https://abx.io">abx.io</a>
-          {" · "}
-          <a href="https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset">Deploy a digital asset</a>
-        </p>
+      <section className="lab-section wrap find-publish" id="find">
+        <div>
+          <h2>Find your tool</h2>
+          <p className="lede">The same beginning, in the finder.</p>
+          <WhenNear fallback={<p>The finder opens as you reach it.</p>}>
+            <Finder
+              tools={tools}
+              recipes={recipes}
+              initialDoor={state.door || null}
+              initialNote={state.door === "message" ? state.phrase : ""}
+              embed
+            />
+          </WhenNear>
+        </div>
+        <div id="publish">
+          <h2>Publish</h2>
+          <p>
+            ABX is Art Blocks’ open protocol for putting a digital object on a blockchain. Anyone can deploy. This guide is not affiliated with Art Blocks.
+          </p>
+          <p>
+            <Link href="/abx/">The publish path in this guide</Link>
+            {" · "}
+            <a href="https://abx.io">abx.io</a>
+            {" · "}
+            <a href="https://docs.abx.io/docs/using-abx/guides/deploy-a-digital-asset">Deploy a digital asset</a>
+          </p>
+        </div>
       </section>
     </div>
   );
