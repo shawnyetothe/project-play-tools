@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 const STEPS = [
   { id: "play", label: "Play" },
   { id: "lineage", label: "Lineage" },
+  { id: "generate", label: "Generate" },
   { id: "listen", label: "Listen" },
   { id: "find", label: "Find" },
   { id: "make", label: "Make" },
   { id: "publish", label: "Publish" },
 ];
 
-export function ProgressDots() {
+export function ProgressDots({ generateHref = "/lab/generate/" }: { generateHref?: string }) {
   const [current, setCurrent] = useState("play");
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function ProgressDots() {
   return (
     <nav className="seed-dots" aria-label="How far the seed has gone">
       {STEPS.map((step) => (
-        <a key={step.id} href={`#${step.id}`} aria-current={current === step.id ? "true" : undefined}>
+        <a key={step.id} href={step.id === "generate" ? generateHref : `#${step.id}`} aria-current={current === step.id ? "true" : undefined}>
           {step.label}
         </a>
       ))}

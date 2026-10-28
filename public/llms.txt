@@ -56,6 +56,27 @@ Use only this file and /tools.json.
 - Category sums are not listed. A project can match more than one tool.
 - Named effects in mixes (flow field, boids, and the rest) have no project counts. Say no data yet.
 
+## Generate
+
+/lab/generate/ turns a seed into an edition. Params:
+
+- seed: 6 hex digits. Carried from /lab/composed/.
+- mix: two effect ids, for example flowfield+dither. Optional.
+- mode: long-form or curated.
+- edition: integer from 1 to 10000.
+- balance: 0 to 100. 0 is rules, 100 is variance.
+- output: one or sheet.
+- strikes: comma-separated frame indexes. Optional.
+
+A 1 of 1 is edition=1 and output=one.
+A 16-piece curated set is edition=16, mode=curated, and output=sheet.
+
+Manifest JSON downloaded from the output step:
+
+seed, mix, mode, output, edition, balance, band.lo, band.hi, sources (each with on, weight, value), rules (text, fromCuration, maxDensity), strikes, showing.
+
+Sources may be rng, time, color, movement, sound, data, sensor. Values stay on the device. Nothing is uploaded.
+
 ## Pages
 
 - /lab/composed/ is the whole piece.

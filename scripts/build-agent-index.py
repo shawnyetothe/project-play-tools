@@ -74,6 +74,13 @@ payload = {
             "picks": ["new", "designer", "musician", "artist"],
         },
     ],
+    "generate": {
+        "page": "/lab/generate/",
+        "oneOfOne": "/lab/generate/?seed=c19a4e&edition=1&output=one&mode=curated",
+        "curated16": "/lab/generate/?seed=c19a4e&edition=16&output=sheet&mode=curated",
+        "params": ["seed", "mix", "mode", "edition", "balance", "output", "strikes"],
+        "manifest": ["seed", "mix", "mode", "output", "edition", "balance", "band", "sources", "rules", "strikes", "showing"],
+    },
     "creativeIndex": {
         "page": "/lab/tools/",
         "pulledAt": "2026-10-25 19:40 ET",

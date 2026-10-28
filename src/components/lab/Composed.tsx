@@ -55,7 +55,7 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
       <section className="lab-section lab-hero wrap" id="play">
         <HeroStage piece={piece} />
       </section>
-      <ProgressDots />
+      <ProgressDots generateHref={`/lab/generate/?seed=${state.seed}${state.mix ? `&mix=${encodeURIComponent(state.mix)}` : ""}`} />
       <nav className="wrap quick" aria-label="Tool shortcuts">
         <ul className="quick-row">
           {toolGroups.map((group) => (
@@ -75,6 +75,11 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           <a href="https://natureofcode.com/autonomous-agents/">Nature of Code</a>. Reaction-diffusion uses feed and kill in the sense of{" "}
           <a href="https://www.karlsims.com/rd.html">Karl Sims</a>. Tiles follow the arc form in{" "}
           <a href="https://10print.org/">10 PRINT</a>.
+        </p>
+        <p>
+          <Link href={`/lab/generate/?seed=${state.seed}${state.mix ? `&mix=${encodeURIComponent(state.mix)}` : ""}`}>
+            Generate from this seed
+          </Link>
         </p>
       </section>
       <section className="lab-section wrap" id="listen">
