@@ -81,7 +81,22 @@ Sources may be rng, time, color, movement, sound, data, sensor. Values stay on t
 
 ## Pages
 
+The full URL list is /sitemap/. It lists every concrete route. Parameters:
+
+- / : no params.
+- /start/ /about/ /abx/ /artists/ /recipes/ /lab/ /lab/tools/ /sitemap/ : no params.
+- /explore/?tool= all, or a tool id from /tools.json.
+- /artists/{slug}/ one artist. /projects/{slug}/ one project.
+- /tools/?group= sound | image | plot | 3d | textile | hardware | agents. /tools/{id}/ one tool.
+- /recipes/{slug}/ one recipe. /make/{slug}/ one way of making.
+- /lab/composed/ and /lab/hero-1/ through /lab/hero-5/ read seed, start (door is the same), pick, mix, tool (1-6), make, walk, noise, grid, count, rd, tile.
+- /lab/generate/ reads seed, mix, mode (long-form | curated), edition (1-10000), balance (0-100), output (one | sheet), strikes (comma-separated frame indexes).
+- /lab/tools/{id}/ one tool in the creative index.
+- /lab/suggest/?suggest= tool | example | fix | claim | removal. about= the artist, tool, or page.
+
 - /lab/composed/ is the whole piece.
+- /lab/suggest/ is the suggestion form. Same fields and the same email draft as before.
 - /lab/hero-1/ through /lab/hero-5/ are the ingredients.
 - /tools/ is the tool index. /tools/{id}/ is one tool.
+- /sitemap/ lists every concrete URL.
 - /abx/ is the publish path.

@@ -57,6 +57,8 @@ body:has(.lab) .lab.fonts-ready h2 {
 }
 
 .lab-page { padding-bottom: 2rem; }
+.lab-quiet-link { margin: 1.25rem 0 0; font-size: 14px; }
+.lab-quiet-link a { color: #6b6b73; min-height: 44px; display: inline-flex; align-items: center; }
 
 .lab-jump {
   display: flex;

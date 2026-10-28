@@ -52,6 +52,8 @@ payload = {
     "name": "PlayTools",
     "independent": True,
     "robots": "noindex, nofollow, noarchive",
+    "sitemap": "/sitemap/",
+    "suggest": "/lab/suggest/?suggest={tool|example|fix|claim|removal}&about={text}",
     "seedUrl": "/lab/composed/?seed={6 hex}&start={message|medium|maker}&pick={option}&tool={1-6}&make={phrase}&walk={n}&noise={n}&grid={n}&count={n}&rd={n}&tile={n}",
     "seedStorageKey": "playtools-seed",
     "seedNeverSent": True,

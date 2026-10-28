@@ -9,6 +9,12 @@ function check(ok, message) {
 }
 
 check(llms.includes("/tools.json"), "llms.txt points at /tools.json");
+check(llms.includes("/sitemap/"), "llms.txt points at /sitemap/");
+check(llms.includes("/lab/suggest/"), "llms.txt points at /lab/suggest/");
+check(llms.includes("strikes"), "llms.txt documents strikes");
+check(llms.includes("group="), "llms.txt documents ?group=");
+check(catalog.sitemap === "/sitemap/", "tools.json points at /sitemap/");
+check(String(catalog.suggest || "").includes("/lab/suggest/"), "tools.json points at /lab/suggest/");
 check(llms.includes("playtools-seed"), "llms.txt names the localStorage key");
 check(llms.includes("noindex"), "llms.txt keeps the site noindex");
 check(/seed: 6 lowercase hex/.test(llms), "llms.txt documents the seed param");

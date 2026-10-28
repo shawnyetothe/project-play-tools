@@ -136,6 +136,9 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           </p>
         </div>
       </section>
+      <p className="wrap lab-quiet-link">
+        <Link href="/lab/suggest/">Suggest a tool, example, or fix</Link>
+      </p>
     </div>
   );
 }
