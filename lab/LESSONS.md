@@ -20,6 +20,14 @@ The composed route’s first load is 119 kB. Tone.js is a separate chunk because
 
 Comparing the first 80 characters of a canvas data URL always matches, because that is the PNG header. A stride over `getImageData` showed the Message chip actually changing the drawing (714326 → 352728). Also, the existing finder uses `id="play"`. Embedding it under the hero made two elements with that id, so “Start making” could hit the wrong one. The embedded finder drops the id.
 
+## 6. Do not call an effect pairing popular without a count
+
+The mixer wanted “popular” and “rarely combined.” The 2026-10-25 pull counts libraries (p5.js 842, shaders 394, three.js 84, Tone.js 17). Searching project names and libraries for flow, noise, glitch, boid, and particle found only a handful of title hits and no pair counts. Every pairing is labeled “try this pairing.” A cinemagraph tile that runs on load would also have fought the headline. Tiles draw one still frame, then move only while hovered, focused, or chosen, at about 30fps, and they stop offscreen. Mobile LCP stayed 4.5s.
+
+## 7. Zero is a count
+
+Fifty-two tools have projectCount 0 in that pull. That is a real zero, so the index says “few people make with this yet,” not “no data yet.” “No data yet” is reserved for the named effects, which this pull does not count, and for a missing projectCount. Category totals are omitted because one project can match several tools.
+
 ## What to do differently on the first try
 
 Start the phone layout from the canvas upward, with one skip row. Put Tone and three behind a click from the first commit. Write the seed URL format into `llms.txt` before building the button that copies a prompt. Plan on the webfont being the mobile LCP, and don’t spend a round swapping `font-display` unless the desktop number is also bad.

@@ -44,6 +44,18 @@ Use only this file and /tools.json.
 6. heroExample is credit for a real work. Do not copy or redraw it. If heroExample is null, there is no verified image.
 7. Write an original sketch that uses the seed as its random seed.
 
+## Creative index
+
+/lab/tools/ sizes tools by projectCount from /tools.json.
+
+- projectCount: projects in the Art Blocks pull of 2026-10-25 19:40 ET matched to that tool. Source: https://data.artblocks.io/v1/graphql. 0 is a real zero.
+- underused: true when projectCount is under 10. The cutoff is this guide's. The count is not an estimate.
+- projectCount null: no data yet. Do not invent a number.
+- beginnerFriendly: true only when the tool text says beginner.
+- hasStarter: this guide has a starter sketch.
+- Category sums are not listed. A project can match more than one tool.
+- Named effects in mixes (flow field, boids, and the rest) have no project counts. Say no data yet.
+
 ## Pages
 
 - /lab/composed/ is the whole piece.

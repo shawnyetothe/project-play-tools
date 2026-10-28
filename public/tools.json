@@ -35,6 +35,20 @@
       ]
     }
   ],
+  "creativeIndex": {
+    "page": "/lab/tools/",
+    "pulledAt": "2026-10-25 19:40 ET",
+    "source": "Art Blocks public GraphQL at https://data.artblocks.io/v1/graphql, stored in this guide's pull. projectCount is how many projects in that pull matched the tool. A project can match more than one tool. Category sums are not published because they would double-count.",
+    "underusedRule": "underused is true when projectCount is a real number under 10. The cutoff is this guide's. The count is not an estimate. 0 means zero matched projects, not missing data.",
+    "noDataYet": "projectCount null means no data yet. Named effects in mixes have no project counts.",
+    "beginnerFriendly": "true only when the tool text in this dataset says beginner. hasStarter means this guide includes a starter sketch."
+  },
+  "mixes": {
+    "param": "mix",
+    "example": "flowfield+dither",
+    "label": "try this pairing",
+    "why": "The 2026-10-25 19:40 ET Art Blocks pull counts libraries (p5.js 842, shaders 394, three.js 84, Tone.js 17). It does not count how often named effects such as flow field and dithering are combined, so pairings are not marked popular or rarely combined."
+  },
   "howToChoose": [
     "If the URL has start=message, start=medium, or start=maker, begin there. pick= is the option inside that starting point.",
     "Read tools[].plain, name, category, what, and firstProject.",
@@ -61,7 +75,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/tyler-hobbs/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 842,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": true
     },
     {
       "id": "glsl",
@@ -78,7 +96,11 @@
         "license": "NIFTY License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 394,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "three",
@@ -95,7 +117,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/dmitri-cherniak/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 84,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "vanilla",
@@ -112,7 +138,11 @@
         "license": "NIFTY License",
         "artist": "/artists/kjetil-golid/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 264,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "canvas2d",
@@ -129,7 +159,11 @@
         "license": "NFT License",
         "artist": "/artists/hideki-tsukamoto/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 174,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "svg",
@@ -146,7 +180,11 @@
         "license": "NFT License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 42,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "interactive",
@@ -163,7 +201,11 @@
         "license": "NFT License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 625,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "clock",
@@ -180,7 +222,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/alexis-andre/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "fetch",
@@ -197,7 +243,11 @@
         "license": "not listed",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 37,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "niche",
@@ -214,7 +264,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "regl",
@@ -231,7 +285,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/marcin-ignac/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 14,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "paper",
@@ -248,7 +306,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/john-provencher/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 4,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "babylon",
@@ -265,7 +327,11 @@
         "license": "CC BY-NC-ND 4.0",
         "artist": "/artists/john-gerrard/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 5,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "zdog",
@@ -282,7 +348,11 @@
         "license": "NIFTY License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "pjs",
@@ -299,7 +369,11 @@
         "license": "NFT License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 2,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "aframe",
@@ -316,7 +390,11 @@
         "license": "NFT License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "tonejs",
@@ -333,7 +411,11 @@
         "license": "NIFTY License",
         "artist": "/artists/han-x-nicolas-daniel/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 17,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "webaudio",
@@ -350,7 +432,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/aluan-wang/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 41,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "twemoji",
@@ -367,7 +453,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/steve-pikelny/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "jslegacy",
@@ -384,7 +474,11 @@
         "license": "NFT License 2.0",
         "artist": "/artists/bryan-brinkman/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "custom",
@@ -401,7 +495,11 @@
         "license": "NFT License",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 5,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "unspec",
@@ -418,7 +516,11 @@
         "license": "NFT License 2.0",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 22,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "codetool",
@@ -435,7 +537,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/william-mapan/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 23,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "sound",
@@ -452,7 +558,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/stefano-contiero/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 121,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "soundcode",
@@ -469,7 +579,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/che-yu-wu-x-white-castle/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 59,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "ai",
@@ -486,7 +600,11 @@
         "license": "CC BY-NC-ND 4.0",
         "artist": "/artists/sofia-crespo/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 41,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "sensor",
@@ -503,7 +621,11 @@
         "license": " CC BY-NC 4.0",
         "artist": "/artists/alexis-andre/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 16,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "mic",
@@ -520,7 +642,11 @@
         "license": "NIFTY license",
         "artist": "/artists/remo-x-dcsan/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 7,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "cv",
@@ -537,7 +663,11 @@
         "license": "CC BY-NC-SA 4.0",
         "artist": "/artists/nathaniel-stern-and-sasha-stiles/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "bio",
@@ -554,7 +684,11 @@
         "license": "NFT License 2.0",
         "artist": "/artists/beervangeer-studio-poca/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "eeg",
@@ -566,7 +700,11 @@
       "starter": "/tools/eeg/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "env",
@@ -583,7 +721,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "motion",
@@ -595,7 +737,11 @@
       "starter": "/tools/motion/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "haptics",
@@ -607,7 +753,11 @@
       "starter": "/tools/haptics/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "gps",
@@ -624,7 +774,11 @@
         "license": "CC BY-NC-ND 4.0",
         "artist": "/artists/harvey-rayner/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "xr",
@@ -641,7 +795,11 @@
         "license": "NFT License 2.0",
         "artist": "/artists/jeanvascript/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "mr",
@@ -653,7 +811,11 @@
       "starter": "/tools/mr/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "glasses",
@@ -670,7 +832,11 @@
         "license": "CC BY 2.0",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "spatial",
@@ -687,7 +853,11 @@
         "license": "NFT License 2.0",
         "artist": "/artists/thetechnocratic/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "holo",
@@ -704,7 +874,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/a-a-murakami/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "plotter",
@@ -721,7 +895,11 @@
         "license": "CC BY-NC-ND 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 46,
+      "underused": false,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "prints",
@@ -738,7 +916,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/matt-deslauriers/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 22,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "screen",
@@ -755,7 +937,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/dmitri-cherniak/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 9,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "riso",
@@ -767,7 +953,11 @@
       "starter": "/tools/riso/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": true
+      "physical": true,
+      "projectCount": 2,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "darkroom",
@@ -784,7 +974,11 @@
         "license": "Public domain",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "embroid",
@@ -801,7 +995,11 @@
         "license": "no license ",
         "artist": "/artists/generative-goods/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 10,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "weave",
@@ -818,7 +1016,11 @@
         "license": "Public domain",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 59,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "knit",
@@ -835,7 +1037,11 @@
         "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "fashion",
@@ -852,7 +1058,11 @@
         "license": "CC BY-NC-SA 4.0",
         "artist": "/artists/nathan-cornes/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "textiles",
@@ -869,7 +1079,11 @@
         "license": "NFT License",
         "artist": "/artists/alexis-andre/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 59,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "laser",
@@ -881,7 +1095,11 @@
       "starter": "/tools/laser/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "cnc",
@@ -898,7 +1116,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "fdm",
@@ -915,7 +1137,11 @@
         "license": "CC BY-NC-SA 4.0",
         "artist": "/artists/aranda-lasch/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "ceramic3d",
@@ -932,7 +1158,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "metal",
@@ -944,7 +1174,11 @@
       "starter": "/tools/metal/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "ceramics",
@@ -961,7 +1195,11 @@
         "license": "Public domain",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "glass",
@@ -978,7 +1216,11 @@
         "license": "CC BY-SA 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "sculpt",
@@ -995,7 +1237,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 31,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "kinetic",
@@ -1012,7 +1258,11 @@
         "license": "CC0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "furniture",
@@ -1029,7 +1279,11 @@
         "license": "CC BY-NC-SA 4.0",
         "artist": "/artists/aranda-lasch/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "physother",
@@ -1046,7 +1300,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 25,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "food",
@@ -1063,7 +1321,11 @@
         "license": "CC BY-SA 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "scent",
@@ -1080,7 +1342,11 @@
         "license": "CC BY-NC-SA 4.0",
         "artist": "/artists/iskra-velitchkova/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "vinyl",
@@ -1097,7 +1363,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/emily-nicoll-747/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "projector",
@@ -1114,7 +1384,11 @@
         "license": "CC BY 2.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "led",
@@ -1126,7 +1400,11 @@
       "starter": "/tools/led/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "frames",
@@ -1143,7 +1421,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/snowfro/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "eink",
@@ -1160,7 +1442,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "pcb",
@@ -1177,7 +1463,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/andreas-gysin/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "button",
@@ -1194,7 +1484,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/generative-goods/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "screenhw",
@@ -1211,7 +1505,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/generative-goods/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "handheld",
@@ -1228,7 +1526,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": "/artists/generative-goods/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "rom",
@@ -1245,7 +1547,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "nfc",
@@ -1262,7 +1568,11 @@
         "license": "CC BY-NC-ND 4.0",
         "artist": "/artists/harvey-rayner/"
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "qr",
@@ -1279,7 +1589,11 @@
         "license": "CC BY-NC 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "rfid",
@@ -1296,7 +1610,11 @@
         "license": "CC BY 4.0",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "ble",
@@ -1308,7 +1626,11 @@
       "starter": "/tools/ble/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "passport",
@@ -1325,7 +1647,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "live",
@@ -1342,7 +1668,11 @@
         "license": "not listed",
         "artist": "/artists/jack-butcher/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 3,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "robot",
@@ -1359,7 +1689,11 @@
         "license": "All rights reserved (assumed); linked with credit",
         "artist": null
       },
-      "physical": true
+      "physical": true,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "oracle",
@@ -1376,7 +1710,11 @@
         "license": "not listed",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "mutable",
@@ -1393,7 +1731,11 @@
         "license": "CC BY-NC-SA",
         "artist": "/artists/anna-lucia/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 3,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "decay",
@@ -1410,7 +1752,11 @@
         "license": "CC BY-NC-SA",
         "artist": "/artists/anna-lucia/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "onstate",
@@ -1427,7 +1773,11 @@
         "license": "not listed",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "onaudio",
@@ -1444,7 +1794,11 @@
         "license": "not listed",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "timebased",
@@ -1461,7 +1815,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/kelly-milligan/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 4,
+      "underused": true,
+      "hasStarter": true,
+      "beginnerFriendly": false
     },
     {
       "id": "pmp",
@@ -1478,7 +1836,11 @@
         "license": "CC-BY-NC-4.0",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 3,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "redeem",
@@ -1495,7 +1857,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/tara-donovan/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 6,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "quantum",
@@ -1512,7 +1878,11 @@
         "license": "NFT License 2.0",
         "artist": null
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 1,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "fabfile",
@@ -1529,7 +1899,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/steve-pikelny/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 7,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "mech",
@@ -1546,7 +1920,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/kjetil-golid/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 26,
+      "underused": false,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "onchain",
@@ -1563,7 +1941,11 @@
         "license": "not listed",
         "artist": "/artists/bernar-venet/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "ipfs",
@@ -1580,7 +1962,11 @@
         "license": "CC BY-NC 4.0",
         "artist": "/artists/mark-webster/"
       },
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "erc8048",
@@ -1592,7 +1978,11 @@
       "starter": "/tools/erc8048/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "721t",
@@ -1604,7 +1994,11 @@
       "starter": "/tools/721t/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "erc6551",
@@ -1616,7 +2010,11 @@
       "starter": "/tools/erc6551/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "erc8004",
@@ -1628,7 +2026,11 @@
       "starter": "/tools/erc8004/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "erc8217",
@@ -1640,7 +2042,11 @@
       "starter": "/tools/erc8217/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "erc7160",
@@ -1652,7 +2058,11 @@
       "starter": "/tools/erc7160/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     },
     {
       "id": "abx",
@@ -1664,7 +2074,11 @@
       "starter": "/tools/abx/",
       "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
       "heroExample": null,
-      "physical": false
+      "physical": false,
+      "projectCount": 0,
+      "underused": true,
+      "hasStarter": false,
+      "beginnerFriendly": false
     }
   ]
 }

@@ -5,6 +5,7 @@ export const metadata: Metadata = { title: "Hero lab" };
 
 const parts = [
   { href: "/lab/composed/", title: "Composed page", text: "The whole site as one piece. Your seed starts in the hero and is redrawn in every section." },
+  { href: "/lab/tools/", title: "Creative index", text: "How used or underused each tool is, from the Art Blocks pull." },
   { href: "/lab/hero-1/", title: "Sketch and prompt", text: "One live sketch, shuffle, and the Message, Medium, Maker chips." },
   { href: "/lab/hero-2/", title: "Lineage", text: "Walk, noise, field, flow, reaction, tiles. One knob each." },
   { href: "/lab/hero-3/", title: "Play", text: "The mark starts Tone.js. Each note draws a burst." },

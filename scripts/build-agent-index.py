@@ -26,6 +26,9 @@ for tool in tools:
     else:
         hero = None
         license_notes = "No verified example image. Starter sketches in this guide are original and are not an artist's project."
+    count = tool.get("projectCount")
+    has_count = isinstance(count, int)
+    text = f"{tool.get('plain') or ''} {tool.get('what') or ''} {tool.get('intro') or ''}".lower()
     rows.append(
         {
             "id": tool["id"],
@@ -38,6 +41,10 @@ for tool in tools:
             "licenseNotes": license_notes,
             "heroExample": hero,
             "physical": bool(tool.get("physical")),
+            "projectCount": count if has_count else None,
+            "underused": has_count and count < 10,
+            "hasStarter": bool(tool.get("sketch")),
+            "beginnerFriendly": "beginner" in text,
         }
     )
 
@@ -67,6 +74,14 @@ payload = {
             "picks": ["new", "designer", "musician", "artist"],
         },
     ],
+    "creativeIndex": {
+        "page": "/lab/tools/",
+        "pulledAt": "2026-10-25 19:40 ET",
+        "source": "Art Blocks public GraphQL at https://data.artblocks.io/v1/graphql, stored in this guide's pull. projectCount is how many projects in that pull matched the tool. A project can match more than one tool. Category sums are not published because they would double-count.",
+        "underusedRule": "underused is true when projectCount is a real number under 10. The cutoff is this guide's. The count is not an estimate. 0 means zero matched projects, not missing data.",
+        "noDataYet": "projectCount null means no data yet. Named effects in mixes have no project counts.",
+        "beginnerFriendly": "true only when the tool text in this dataset says beginner. hasStarter means this guide includes a starter sketch.",
+    },
     "mixes": {
         "param": "mix",
         "example": "flowfield+dither",
