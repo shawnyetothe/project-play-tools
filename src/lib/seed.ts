@@ -14,6 +14,8 @@ export type PieceState = {
   door: Door | "";
   /** Which option inside the starting point, such as musician or plotter. */
   pick: string;
+  /** Two effect ids joined by +, for example flowfield+dither. */
+  mix: string;
   phrase: string;
   tool: number;
   knobs: Knobs;
@@ -93,6 +95,7 @@ export function pieceSearch(state: PieceState): string {
   params.set("seed", state.seed);
   if (state.door) params.set("start", state.door);
   if (state.pick) params.set("pick", state.pick);
+  if (state.mix) params.set("mix", state.mix);
   params.set("tool", String(state.tool + 1));
   if (state.phrase.trim()) params.set("make", state.phrase.trim());
   params.set("walk", String(state.knobs.walk));
@@ -123,6 +126,8 @@ export function readPiece(search: string): PieceState | null {
   const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
   const door = asDoor(params.get("start") || params.get("door"));
   const pick = (params.get("pick") || "").slice(0, 24).toLowerCase();
+  const mixRaw = (params.get("mix") || "").toLowerCase();
+  const mix = /^[a-z0-9]+\+[a-z0-9]+$/.test(mixRaw) ? mixRaw : "";
   const seed = normalizeSeed(params.get("seed")) || (door ? hashSeed(["start", door, pick || "open"]) : null);
   if (!seed) return null;
   const toolRaw = Number(params.get("tool"));
@@ -137,6 +142,7 @@ export function readPiece(search: string): PieceState | null {
     seed,
     door,
     pick,
+    mix,
     phrase: (params.get("make") || "").slice(0, 180),
     tool,
     knobs,
@@ -153,6 +159,7 @@ export function readStoredPiece(): PieceState | null {
     if (!seed) return null;
     const door = asDoor(typeof data.door === "string" ? data.door : "");
     const pick = typeof data.pick === "string" ? data.pick.slice(0, 24) : "";
+    const mix = typeof data.mix === "string" && /^[a-z0-9]+\+[a-z0-9]+$/.test(data.mix) ? data.mix : "";
     const tool = typeof data.tool === "number" ? Math.min(5, Math.max(0, data.tool)) : 0;
     const knobs = knobsFromSeed(seed);
     if (data.knobs) {
@@ -165,6 +172,7 @@ export function readStoredPiece(): PieceState | null {
       seed,
       door,
       pick,
+      mix,
       phrase: typeof data.phrase === "string" ? data.phrase.slice(0, 180) : "",
       tool,
       knobs,
@@ -183,6 +191,7 @@ export function writeStoredPiece(state: PieceState) {
         seed: state.seed,
         door: state.door,
         pick: state.pick,
+        mix: state.mix,
         phrase: state.phrase,
         tool: state.tool,
         knobs: state.knobs,
@@ -198,6 +207,7 @@ export function defaultPiece(): PieceState {
     seed: DEFAULT_SEED,
     door: "",
     pick: "",
+    mix: "",
     phrase: "",
     tool: 0,
     knobs: knobsFromSeed(DEFAULT_SEED),

@@ -67,6 +67,12 @@ payload = {
             "picks": ["new", "designer", "musician", "artist"],
         },
     ],
+    "mixes": {
+        "param": "mix",
+        "example": "flowfield+dither",
+        "label": "try this pairing",
+        "why": "The 2026-10-25 19:40 ET Art Blocks pull counts libraries (p5.js 842, shaders 394, three.js 84, Tone.js 17). It does not count how often named effects such as flow field and dithering are combined, so pairings are not marked popular or rarely combined.",
+    },
     "howToChoose": [
         "If the URL has start=message, start=medium, or start=maker, begin there. pick= is the option inside that starting point.",
         "Read tools[].plain, name, category, what, and firstProject.",

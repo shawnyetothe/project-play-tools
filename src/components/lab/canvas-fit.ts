@@ -1,6 +1,7 @@
-export function fitCanvas(canvas: HTMLCanvasElement) {
+export function fitCanvas(canvas: HTMLCanvasElement, cap = 0) {
   const phone = window.matchMedia("(max-width: 720px)").matches;
-  const dpr = Math.min(window.devicePixelRatio || 1, phone ? 1.5 : 2);
+  const limit = cap > 0 ? cap : phone ? 1.5 : 2;
+  const dpr = Math.min(window.devicePixelRatio || 1, limit);
   const w = canvas.clientWidth;
   const h = canvas.clientHeight;
   if (w < 2 || h < 2) return null;

@@ -15,6 +15,7 @@ Composed page:
 - seed: 6 lowercase hex digits. Sketch parameters.
 - start: message, medium, or maker. The three starting points. Optional. `door` is accepted as the same value.
 - pick: the option inside that starting point. Medium: print, plotter, animation, sound, or 3d. Maker: new, designer, musician, or artist. Optional.
+- mix: two effect ids joined by +, for example flowfield+dither. Optional. Pairings are labeled "try this pairing" because this pull does not count how often those effects are combined. Library counts that are real: p5.js 842, shaders 394, three.js 84, Tone.js 17, pulled 2026-10-25 19:40 ET.
 - tool: 1 through 6. The featured tool on the hero. 1 p5.js, 2 GLSL, 3 Tone.js, 4 pen plotter, 5 SVG, 6 time.
 - make: the visitor's phrase. Optional. It prefills the Message finder.
 - walk, noise, grid, count, rd, tile: lineage knobs. Optional.

@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { fitCanvas } from "./canvas-fit";
+import { CineTile } from "./CineTile";
+import { MixRow } from "./MixRow";
 import type { Piece } from "./use-piece";
 import { FEATURED, drawSalt } from "@/lib/seed";
 import { STARTS, picksFor } from "@/lib/starts";
 import { burstPoint, drawHero, type Burst } from "@/lib/seed-draw";
+import { drawMix } from "@/lib/cine";
 import { isPlaying, playSeed, stopSeed } from "@/lib/seed-audio";
 
 export function HeroStage({ piece }: { piece: Piece }) {
@@ -18,6 +21,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
   const dirty = useRef(true);
   const wake = useRef<() => void>(() => {});
   const [live, setLive] = useState("");
+  const [hotKind, setHotKind] = useState("");
 
   const { state, motion, reduced, soundOn, setSoundOn, setMotion, lock, shuffle, setDoor, setPick, clearStart, setPhrase, setTool } = piece;
 
@@ -53,17 +57,21 @@ export function HeroStage({ piece }: { piece: Piece }) {
         if (fitted) {
           const salt = drawSalt(state.seed, state.door, state.phrase, state.tool);
           bursts.current = moving ? bursts.current.filter((burst) => now - burst.born < 900) : bursts.current.slice(-4);
-          drawHero(fitted.ctx, fitted.w, fitted.h, {
-            salt,
-            tool: state.tool,
-            door: state.door,
-            t: (now - start) / 1000,
-            pointer: pointer.current,
-            hour: new Date().getHours() + new Date().getMinutes() / 60,
-            bursts: bursts.current,
-            now,
-            still: !moving,
-          });
+          if (state.mix) {
+            drawMix(fitted.ctx, fitted.w, fitted.h, state.mix, salt, moving ? now : 0);
+          } else {
+            drawHero(fitted.ctx, fitted.w, fitted.h, {
+              salt,
+              tool: state.tool,
+              door: state.door,
+              t: (now - start) / 1000,
+              pointer: pointer.current,
+              hour: new Date().getHours() + new Date().getMinutes() / 60,
+              bursts: bursts.current,
+              now,
+              still: !moving,
+            });
+          }
           dirty.current = false;
         }
       }
@@ -90,7 +98,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
       cancelAnimationFrame(frame);
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [motion, state.seed, state.door, state.phrase, state.tool]);
+  }, [motion, state.seed, state.door, state.phrase, state.tool, state.mix]);
 
   useEffect(() => {
     if (!motion || reduced) return;
@@ -161,6 +169,10 @@ export function HeroStage({ piece }: { piece: Piece }) {
                 aria-pressed={state.door === item.id}
                 aria-controls={state.door === item.id ? "start-panel" : undefined}
                 onClick={() => setDoor(item.id)}
+                onPointerEnter={() => setHotKind(item.id)}
+                onPointerLeave={() => setHotKind("")}
+                onFocus={() => setHotKind(item.id)}
+                onBlur={() => setHotKind("")}
                 onKeyDown={(event) => {
                   if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) return;
                   event.preventDefault();
@@ -170,6 +182,7 @@ export function HeroStage({ piece }: { piece: Piece }) {
                   document.getElementById(`start-${next.id}`)?.focus();
                 }}
               >
+                <CineTile kind={item.id} seed={state.seed} hot={hotKind === item.id || state.door === item.id} reduced={reduced} />
                 <span className="start-label">{item.label}</span>
                 <span className="start-q">{item.question}</span>
                 <span className="start-detail">{item.detail}</span>
@@ -195,7 +208,17 @@ export function HeroStage({ piece }: { piece: Piece }) {
               ) : (
                 <div className="start-options" role="group" aria-label={state.door === "maker" ? "Who you are" : "What you want to make"}>
                   {picksFor(state.door).map((item) => (
-                    <button key={item.id} type="button" aria-pressed={state.pick === item.id} onClick={() => setPick(item.id)}>
+                    <button
+                      key={item.id}
+                      type="button"
+                      aria-pressed={state.pick === item.id}
+                      onClick={() => setPick(item.id)}
+                      onPointerEnter={() => setHotKind(item.id)}
+                      onPointerLeave={() => setHotKind("")}
+                      onFocus={() => setHotKind(item.id)}
+                      onBlur={() => setHotKind("")}
+                    >
+                      <CineTile kind={item.id} seed={state.seed} hot={hotKind === item.id || state.pick === item.id} reduced={reduced} />
                       {item.label}
                     </button>
                   ))}
@@ -247,10 +270,12 @@ export function HeroStage({ piece }: { piece: Piece }) {
             </button>
           </span>
         </div>
+        {state.mix ? <p className="mix-now">{state.mix.replace("+", " + ")}</p> : null}
         <p className="quiet reel-status" aria-live="polite">
           {live}
         </p>
       </div>
+      <MixRow piece={piece} />
     </div>
   );
 }

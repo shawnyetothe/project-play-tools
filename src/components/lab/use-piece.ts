@@ -10,11 +10,13 @@ import {
   readPiece,
   readStoredPiece,
   writeStoredPiece,
+  hashSeed,
   type Door,
   type Knobs,
   type PieceState,
 } from "@/lib/seed";
 import { seedForStart, toolForStart } from "@/lib/starts";
+import { MIXES } from "@/lib/cine";
 
 export function usePiece() {
   const [state, setState] = useState<PieceState>(defaultPiece);
@@ -45,10 +47,24 @@ export function usePiece() {
     setState((current) => (current.locked ? current : { ...current, locked: true }));
   }, []);
 
-  const shuffle = useCallback(() => {
-    const seed = randomSeed();
-    setState((current) => ({ ...current, seed, knobs: knobsFromSeed(seed), locked: true }));
+  const applyMix = useCallback((mix: string, seed: string) => {
+    setState((current) => ({
+      ...current,
+      mix,
+      seed,
+      door: "",
+      pick: "",
+      knobs: knobsFromSeed(seed),
+      tool: 0,
+      locked: true,
+    }));
   }, []);
+
+  const shuffle = useCallback(() => {
+    const pair = MIXES[Math.floor(Math.random() * MIXES.length)];
+    const mix = `${pair[0]}+${pair[1]}`;
+    applyMix(mix, hashSeed(["mix", mix, randomSeed()]));
+  }, [applyMix]);
 
   const setDoor = useCallback((door: Door) => {
     setState((current) => {
@@ -61,6 +77,7 @@ export function usePiece() {
         ...current,
         door,
         pick: "",
+        mix: "",
         seed,
         knobs: knobsFromSeed(seed),
         tool: toolForStart(door),
@@ -76,6 +93,7 @@ export function usePiece() {
       return {
         ...current,
         pick,
+        mix: "",
         seed,
         knobs: knobsFromSeed(seed),
         tool: toolForStart(current.door, pick),
@@ -118,6 +136,7 @@ export function usePiece() {
     setMotion,
     lock,
     shuffle,
+    applyMix,
     setDoor,
     setPick,
     clearStart,

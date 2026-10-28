@@ -99,6 +99,34 @@
   font-size: 15px;
   color: #6b6b73;
 }
+.cine-tile {
+  display: block;
+  width: calc(100% + 1.5rem);
+  height: 56px;
+  margin: 0 -0.75rem 0.55rem;
+  pointer-events: none;
+}
+.mix-row { grid-column: 1 / -1; }
+.mix-note { font-size: 15px; color: #6b6b73; max-width: 68ch; }
+.mix-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mix-chips button {
+  background: transparent;
+  color: #0b0b0f;
+  border: 1px solid rgba(11, 11, 15, 0.22);
+  border-radius: 8px;
+  min-height: 44px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 0.4rem 0.7rem;
+}
+.mix-chips button[aria-pressed="true"] { background: #0b0b0f; color: #f5f5f2; }
+.mix-tag { font-size: 12px; color: #6b6b73; font-weight: 400; }
+.mix-chips button[aria-pressed="true"] .mix-tag { color: #c8c8ce; }
+.mix-now { margin: 8px 0 0; font-size: 14px; color: #6b6b73; }
+.lab .start-options button { display: inline-flex; align-items: center; gap: 8px; }
+.lab .start-options .cine-tile { width: 64px; height: 40px; margin: 0; flex: none; }
 .stage-ask h3 { margin: 1.15rem 0 0.3rem; font-size: 1.15rem; }
 .start-line {
   margin: 0 0 0.75rem;
@@ -144,7 +172,8 @@
   min-height: 0;
   height: auto;
   margin: 0;
-  padding: 0.7rem 0.75rem;
+  padding: 0 0.75rem 0.7rem;
+  overflow: hidden;
   border-radius: 8px;
   border: 1px solid rgba(11, 11, 15, 0.22);
   background: transparent;
@@ -299,6 +328,7 @@
   .stage-guide-line { order: 3; }
   .stage-art { order: 4; }
   .stage-ask { order: 5; }
+  .mix-row { order: 6; }
   .stage-canvas { height: 42vh; min-height: 220px; }
   .seed-dots { display: none; }
 }
