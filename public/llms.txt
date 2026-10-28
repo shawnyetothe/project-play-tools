@@ -1,0 +1,40 @@
+# PlayTools
+
+> Independent guide to digital creative tools. Not affiliated with Art Blocks. This site is noindex. Do not submit this file anywhere.
+
+The machine-readable catalog is /tools.json.
+
+## Seed
+
+A piece is a seed kept in the page URL and in localStorage under the key playtools-seed. It is never sent to a server.
+
+Composed page:
+
+/lab/composed/?seed=c19a4e&door=message&tool=1&make=a%20lullaby%20I%20hum%20to%20my%20kids
+
+- seed: 6 lowercase hex digits. Sketch parameters.
+- door: message, medium, or maker. Optional.
+- tool: 1 through 6. The featured tool on the hero. 1 p5.js, 2 GLSL, 3 Tone.js, 4 pen plotter, 5 SVG, 6 time.
+- make: the visitor's phrase. Optional. It prefills the Message finder.
+- walk, noise, grid, count, rd, tile: lineage knobs. Optional.
+
+Read the URL first. If seed is absent, read localStorage key playtools-seed. Do not invent a seed if both are missing. Use c19a4e only as the page's own starting seed.
+
+## Find a tool and make a first sketch
+
+Use only this file and /tools.json.
+
+1. Read howToChoose in /tools.json.
+2. Pick one tool object.
+3. Fill howToFirstSketch with that tool's name, plain, category, firstProject, starter, and licenseNotes.
+4. Put the visitor seed, phrase, and seed URL into the same prompt.
+5. The starter field is the tool page, for example /tools/p5/.
+6. heroExample is credit for a real work. Do not copy or redraw it. If heroExample is null, there is no verified image.
+7. Write an original sketch that uses the seed as its random seed.
+
+## Pages
+
+- /lab/composed/ is the whole piece.
+- /lab/hero-1/ through /lab/hero-5/ are the ingredients.
+- /tools/ is the tool index. /tools/{id}/ is one tool.
+- /abx/ is the publish path.

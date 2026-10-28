@@ -1,0 +1,1639 @@
+{
+  "name": "PlayTools",
+  "independent": true,
+  "robots": "noindex, nofollow, noarchive",
+  "seedUrl": "/lab/composed/?seed={6 hex}&door={message|medium|maker}&tool={1-6}&make={phrase}&walk={n}&noise={n}&grid={n}&count={n}&rd={n}&tile={n}",
+  "seedStorageKey": "playtools-seed",
+  "seedNeverSent": true,
+  "howToChoose": [
+    "Read tools[].plain, name, category, what, and firstProject.",
+    "If the phrase mentions lullaby, hum, song, music, sound, or note, choose id tonejs.",
+    "If the phrase mentions pen, plot, plotter, or ink, choose id plotter.",
+    "If the phrase mentions 3d, sculpture, or scene, choose id three.",
+    "If the phrase mentions shader, pixel, or color, choose id glsl.",
+    "Otherwise choose the tool with the most overlapping words. If none overlap, choose id p5."
+  ],
+  "howToFirstSketch": "Build an original first sketch. Do not copy or redraw an existing artwork. Tool: {name}. Plain name: {plain}. Category: {category}. First project: {firstProject}. Starter page: {starter}. License: {licenseNotes}. Visitor seed: {seed}. Phrase: {make}. Seed URL: {seedUrl}. Use the seed as the random seed. Do not send the seed to a server.",
+  "tools": [
+    {
+      "id": "p5",
+      "name": "p5.js",
+      "plain": "Draw in the browser",
+      "category": "Code & rendering",
+      "what": "A beginner-friendly JavaScript library for drawing, animation and interaction in the browser; the most used library on Art Blocks.",
+      "firstProject": "Draw 100 random lines from one seed; change the seed and see a new output. That is long-form generative art in miniature.",
+      "starter": "/tools/p5/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Fidenza #0, Tyler Hobbs, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Fidenza #0, Tyler Hobbs, 2021",
+        "credit": "Art Blocks token media for Fidenza #0; \u00a9 Tyler Hobbs (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/tyler-hobbs/"
+      },
+      "physical": false
+    },
+    {
+      "id": "glsl",
+      "name": "WebGL / GLSL shaders",
+      "plain": "Color every pixel",
+      "category": "Code & rendering",
+      "what": "Programs that run on the graphics card, colouring every pixel in parallel; fast, dense, and a third of Art Blocks projects.",
+      "firstProject": "Write a fragment shader that maps a noise field to a two-colour palette, then feed it a seed.",
+      "starter": "/tools/glsl/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Ignition #0, ge1doot, 2021. NIFTY License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Ignition #0, ge1doot, 2021",
+        "credit": "Art Blocks token media for Ignition #0; \u00a9 ge1doot (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NIFTY License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "three",
+      "name": "three.js",
+      "plain": "Build a 3D scene",
+      "category": "Code & rendering",
+      "what": "The standard JavaScript 3D library: scenes, cameras, lights and meshes in the browser.",
+      "firstProject": "Generate a field of boxes whose heights come from a seed; orbit around it.",
+      "starter": "/tools/three/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: The Eternal Pump #0, Dmitri Cherniak, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "The Eternal Pump #0, Dmitri Cherniak, 2021",
+        "credit": "Art Blocks token media for The Eternal Pump #0; \u00a9 Dmitri Cherniak (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/dmitri-cherniak/"
+      },
+      "physical": false
+    },
+    {
+      "id": "vanilla",
+      "name": "Vanilla JS / canvas 2D",
+      "plain": "Draw with plain code",
+      "category": "Code & rendering",
+      "what": "Plain JavaScript drawing on the browser's canvas, with no framework; smaller scripts and full control.",
+      "firstProject": "Port a small p5 sketch to plain canvas 2D calls; compare file size.",
+      "starter": "/tools/vanilla/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Paper Armada #0, Kjetil Golid, 2021. NIFTY License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Paper Armada #0, Kjetil Golid, 2021",
+        "credit": "Art Blocks token media for Paper Armada #0; \u00a9 Kjetil Golid (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NIFTY License",
+        "artist": "/artists/kjetil-golid/"
+      },
+      "physical": false
+    },
+    {
+      "id": "canvas2d",
+      "name": "canvas 2D",
+      "plain": "Draw on a screen",
+      "category": "Code & rendering",
+      "what": "The browser's built-in 2D drawing API, used directly or under libraries.",
+      "firstProject": "Draw a seeded grid of circles with the canvas 2D API only.",
+      "starter": "/tools/canvas2d/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Singularity #0, Hideki Tsukamoto, 2021. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Singularity #0, Hideki Tsukamoto, 2021",
+        "credit": "Art Blocks token media for Singularity #0; \u00a9 Hideki Tsukamoto (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": "/artists/hideki-tsukamoto/"
+      },
+      "physical": false
+    },
+    {
+      "id": "svg",
+      "name": "SVG output in script",
+      "plain": "Make a vector file",
+      "category": "Code & rendering",
+      "what": "Vector output: shapes as paths, which plotters, cutters and embroidery software can read.",
+      "firstProject": "Render your sketch as SVG paths and open the file in a plotter or vector tool.",
+      "starter": "/tools/svg/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Unigrids #0, Zeblocks, 2021. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Unigrids #0, Zeblocks, 2021",
+        "credit": "Art Blocks token media for Unigrids #0; \u00a9 Zeblocks (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "interactive",
+      "name": "Interactivity (input handlers)",
+      "plain": "Respond to a click or a key",
+      "category": "Code & rendering",
+      "what": "Works that respond to mouse, touch or keys.",
+      "firstProject": "Let a click reseed one layer of the piece while the token hash fixes the rest.",
+      "starter": "/tools/interactive/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Chromie Squiggle #0, Snowfro, 2020. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Chromie Squiggle #0, Snowfro, 2020",
+        "credit": "Art Blocks token media for Chromie Squiggle #0; \u00a9 Snowfro (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "clock",
+      "name": "Clock / time-driven output",
+      "plain": "Change with the clock",
+      "category": "Code & rendering",
+      "what": "Works that read the clock and change by hour, day or season.",
+      "firstProject": "Shift the palette with the hour of day; check it at noon and midnight.",
+      "starter": "/tools/clock/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: 720 Minutes #0, Alexis Andr\u00e9, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "720 Minutes #0, Alexis Andr\u00e9, 2021",
+        "credit": "Art Blocks token media for 720 Minutes #0; \u00a9 Alexis Andr\u00e9 (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/alexis-andre/"
+      },
+      "physical": false
+    },
+    {
+      "id": "fetch",
+      "name": "Live network fetch in script",
+      "plain": "Pull in live data",
+      "category": "Code & rendering",
+      "what": "Scripts that pull live data from the web when they render.",
+      "firstProject": "Fetch one public value (for example a block number) and let it nudge a parameter; render a fallback when offline.",
+      "starter": "/tools/fetch/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: LIFT (together) #0, Snowfro, 2026. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "LIFT (together) #0, Snowfro, 2026",
+        "credit": "Art Blocks token media for LIFT (together) #0; \u00a9 Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "niche",
+      "name": "Niche libraries",
+      "plain": "Try a smaller library",
+      "category": "Code & rendering",
+      "what": "Smaller libraries (regl, babylon.js, paper.js, zdog, Processing.js) that were tried and mostly dropped.",
+      "firstProject": "Pick the one that matches your idea's shape (paper.js for vector paths, zdog for flat 3D) and rebuild one sketch.",
+      "starter": "/tools/niche/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Light Beams #0, Jason Ting, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Light Beams #0, Jason Ting, 2021",
+        "credit": "Art Blocks token media for Light Beams #0; \u00a9 Jason Ting (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "regl",
+      "name": "regl",
+      "plain": "Talk to the graphics card",
+      "category": "Code & rendering",
+      "what": "A functional wrapper for WebGL.",
+      "firstProject": "Draw one full-screen shader quad with regl.",
+      "starter": "/tools/regl/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Seadragons #0, Marcin Ignac, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Seadragons #0, Marcin Ignac, 2021",
+        "credit": "Art Blocks token media for Seadragons #0; \u00a9 Marcin Ignac (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/marcin-ignac/"
+      },
+      "physical": false
+    },
+    {
+      "id": "paper",
+      "name": "paper.js",
+      "plain": "Draw vector paths",
+      "category": "Code & rendering",
+      "what": "A vector-graphics scripting library built on canvas.",
+      "firstProject": "Generate and smooth a seeded path.",
+      "starter": "/tools/paper/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: spawn #0, john provencher, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "spawn #0, john provencher, 2021",
+        "credit": "Art Blocks token media for spawn #0; \u00a9 john provencher (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/john-provencher/"
+      },
+      "physical": false
+    },
+    {
+      "id": "babylon",
+      "name": "babylon.js",
+      "plain": "Build a 3D world",
+      "category": "Code & rendering",
+      "what": "A full 3D engine for the web.",
+      "firstProject": "Build a seeded scene from the playground examples.",
+      "starter": "/tools/babylon/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Petro National #0, John Gerrard, 2022. CC BY-NC-ND 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Petro National #0, John Gerrard, 2022",
+        "credit": "Art Blocks token media for Petro National #0; \u00a9 John Gerrard (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-ND 4.0",
+        "artist": "/artists/john-gerrard/"
+      },
+      "physical": false
+    },
+    {
+      "id": "zdog",
+      "name": "zdog",
+      "plain": "Draw flat 3D shapes",
+      "category": "Code & rendering",
+      "what": "A small pseudo-3D engine for flat, rounded shapes.",
+      "firstProject": "Model one seeded zdog object and spin it.",
+      "starter": "/tools/zdog/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: dino pals #0, hideo, 2021. NIFTY License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "dino pals #0, hideo, 2021",
+        "credit": "Art Blocks token media for dino pals #0; \u00a9 hideo (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NIFTY License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "pjs",
+      "name": "Processing.js",
+      "plain": "An older Processing for the web",
+      "category": "Code & rendering",
+      "what": "A retired JavaScript port of Processing; learn Processing or p5.js instead.",
+      "firstProject": "Start in p5.js, its successor.",
+      "starter": "/tools/pjs/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Genesis #0, DCA, 2020. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Genesis #0, DCA, 2020",
+        "credit": "Art Blocks token media for Genesis #0; \u00a9 DCA (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "aframe",
+      "name": "A-Frame",
+      "plain": "Place it in a headset",
+      "category": "Immersive",
+      "what": "An HTML-style framework for WebXR scenes.",
+      "firstProject": "Place a seeded set of shapes in an A-Frame scene and open it in a headset browser.",
+      "starter": "/tools/aframe/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Beatboxes #0, Zeblocks, 2021. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Beatboxes #0, Zeblocks, 2021",
+        "credit": "Art Blocks token media for Beatboxes #0; \u00a9 Zeblocks (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "tonejs",
+      "name": "Tone.js",
+      "plain": "Make notes in the browser",
+      "category": "Sound, performance & time",
+      "what": "A Web Audio framework for synths, sequencing and effects.",
+      "firstProject": "Sequence four notes whose pitches come from the seed; start on a click.",
+      "starter": "/tools/tonejs/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: AlgoRhythms #0, Han x Nicolas Daniel, 2021. NIFTY License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "AlgoRhythms #0, Han x Nicolas Daniel, 2021",
+        "credit": "Art Blocks token media for AlgoRhythms #0; \u00a9 Han x Nicolas Daniel (license listed on Art Blocks: NIFTY License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NIFTY License",
+        "artist": "/artists/han-x-nicolas-daniel/"
+      },
+      "physical": false
+    },
+    {
+      "id": "webaudio",
+      "name": "Web Audio",
+      "plain": "Make sound in the browser",
+      "category": "Sound, performance & time",
+      "what": "The browser's native audio API: oscillators, filters and sound graphs.",
+      "firstProject": "Make a seeded drone with two oscillators and a filter; start it on a click (autoplay rules).",
+      "starter": "/tools/webaudio/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Good Vibrations #0, Aluan Wang, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Good Vibrations #0, Aluan Wang, 2021",
+        "credit": "Art Blocks token media for Good Vibrations #0; \u00a9 Aluan Wang (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/aluan-wang/"
+      },
+      "physical": false
+    },
+    {
+      "id": "twemoji",
+      "name": "twemoji",
+      "plain": "Stamp with emoji",
+      "category": "",
+      "what": "An open-source emoji graphics set, used as a dependency by a few projects.",
+      "firstProject": "Use one emoji glyph as a seeded stamp.",
+      "starter": "/tools/twemoji/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Dopamine Machines #0, Steve Pikelny, 2023. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Dopamine Machines #0, Steve Pikelny, 2023",
+        "credit": "Art Blocks token media for Dopamine Machines #0; \u00a9 Steve Pikelny (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/steve-pikelny/"
+      },
+      "physical": false
+    },
+    {
+      "id": "jslegacy",
+      "name": "js-legacy",
+      "plain": "Early plain JavaScript",
+      "category": "Code & rendering",
+      "what": "Art Blocks' label for early plain-JavaScript projects.",
+      "firstProject": "Start with plain canvas 2D.",
+      "starter": "/tools/jslegacy/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: NimTeens #0, Bryan Brinkman, 2023. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "NimTeens #0, Bryan Brinkman, 2023",
+        "credit": "Art Blocks token media for NimTeens #0; \u00a9 Bryan Brinkman (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": "/artists/bryan-brinkman/"
+      },
+      "physical": false
+    },
+    {
+      "id": "custom",
+      "name": "custom",
+      "plain": "A custom code bundle",
+      "category": "",
+      "what": "A custom or bundled dependency rather than a registered library.",
+      "firstProject": "Read how Art Blocks loads dependencies before bundling your own.",
+      "starter": "/tools/custom/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Quine #0, Larva Labs, 2025. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Quine #0, Larva Labs, 2025",
+        "credit": "Art Blocks token media for Quine #0; \u00a9 Larva Labs (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "unspec",
+      "name": "(unspecified)",
+      "plain": "No library recorded",
+      "category": "",
+      "what": "No library recorded in the Art Blocks API for this project.",
+      "firstProject": "",
+      "starter": "/tools/unspec/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Iris #0, obekt, 2023. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Iris #0, obekt, 2023",
+        "credit": "Art Blocks token media for Iris #0; \u00a9 obekt (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "codetool",
+      "name": "Code/tool (verified)",
+      "plain": "A checked code claim",
+      "category": "",
+      "what": "A research-verified claim about the artist's code or tooling.",
+      "firstProject": "",
+      "starter": "/tools/codetool/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Anticyclone #0, William Mapan, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Anticyclone #0, William Mapan, 2022",
+        "credit": "Art Blocks token media for Anticyclone #0; \u00a9 William Mapan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/william-mapan/"
+      },
+      "physical": false
+    },
+    {
+      "id": "sound",
+      "name": "In-browser generative sound (Web Audio, Tone.js)",
+      "plain": "A piece you can hear",
+      "category": "Sound, performance & time",
+      "what": "Sound generated live in the browser from the token's seed.",
+      "firstProject": "Map three traits of a visual piece to pitch, tempo and timbre; start on a click.",
+      "starter": "/tools/sound/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Infinito #0, Stefano Contiero, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Infinito #0, Stefano Contiero, 2022",
+        "credit": "Art Blocks token media for Infinito #0; \u00a9 Stefano Contiero (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/stefano-contiero/"
+      },
+      "physical": false
+    },
+    {
+      "id": "soundcode",
+      "name": "Sound (in code)",
+      "plain": "Sound found in the code",
+      "category": "Sound, performance & time",
+      "what": "Audio APIs detected in the on-chain script.",
+      "firstProject": "Add a seeded drone to an existing sketch.",
+      "starter": "/tools/soundcode/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Sliderverse #0, Che-Yu Wu x White Castle, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Sliderverse #0, Che-Yu Wu x White Castle, 2021",
+        "credit": "Art Blocks token media for Sliderverse #0; \u00a9 Che-Yu Wu x White Castle (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/che-yu-wu-x-white-castle/"
+      },
+      "physical": false
+    },
+    {
+      "id": "ai",
+      "name": "AI models (training, in-browser inference)",
+      "plain": "Use a machine-learning model",
+      "category": "Data & AI",
+      "what": "Machine-learning models used to make or run the work, including small models in the browser.",
+      "firstProject": "Run a pretrained ml5.js model on your own drawing and let its output steer one parameter.",
+      "starter": "/tools/ai/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Time after vessels #0, Sofia Crespo, 2023. CC BY-NC-ND 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Time after vessels #0, Sofia Crespo, 2023",
+        "credit": "Art Blocks token media for Time after vessels #0; \u00a9 Sofia Crespo (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-ND 4.0",
+        "artist": "/artists/sofia-crespo/"
+      },
+      "physical": false
+    },
+    {
+      "id": "sensor",
+      "name": "Sensor / live data",
+      "plain": "Use a sensor or live data",
+      "category": "Code & rendering",
+      "what": "Work driven by sensors or live external data.",
+      "firstProject": "Fetch one live value and render a fallback when offline.",
+      "starter": "/tools/sensor/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: 24 Heures #0, Alexis Andr\u00e9, 2021.  CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "24 Heures #0, Alexis Andr\u00e9, 2021",
+        "credit": "Art Blocks token media for 24 Heures #0; \u00a9 Alexis Andr\u00e9 (license listed on Art Blocks:  CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": " CC BY-NC 4.0",
+        "artist": "/artists/alexis-andre/"
+      },
+      "physical": false
+    },
+    {
+      "id": "mic",
+      "name": "Microphone / audio input",
+      "plain": "Listen with a microphone",
+      "category": "Inputs & sensors",
+      "what": "Works that listen through the viewer's microphone.",
+      "firstProject": "Make the line weight follow microphone level; ask for permission on a click.",
+      "starter": "/tools/mic/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Talking Blocks #0, REMO x DCsan, 2021. NIFTY license Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Talking Blocks #0, REMO x DCsan, 2021",
+        "credit": "Art Blocks token media for Talking Blocks #0; \u00a9 REMO x DCsan (license listed on Art Blocks: NIFTY license). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NIFTY license",
+        "artist": "/artists/remo-x-dcsan/"
+      },
+      "physical": false
+    },
+    {
+      "id": "cv",
+      "name": "Cameras / computer vision",
+      "plain": "See with a camera",
+      "category": "Inputs & sensors",
+      "what": "Works that see through a camera, from pixels to pose detection.",
+      "firstProject": "Use the webcam image as a mask for a generative pattern.",
+      "starter": "/tools/cv/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Still Moving #0, Nathaniel Stern and Sasha Stiles, 2023. CC BY-NC-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Still Moving #0, Nathaniel Stern and Sasha Stiles, 2023",
+        "credit": "Art Blocks token media for Still Moving #0; \u00a9 Nathaniel Stern and Sasha Stiles (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA 4.0",
+        "artist": "/artists/nathaniel-stern-and-sasha-stiles/"
+      },
+      "physical": false
+    },
+    {
+      "id": "bio",
+      "name": "Heart rate / biometric",
+      "plain": "Use a heartbeat",
+      "category": "Inputs & sensors",
+      "what": "Works shaped by body data such as heartbeat.",
+      "firstProject": "Capture heart rate once at mint from a Bluetooth chest strap and use it as a seed (capture once, store nothing else).",
+      "starter": "/tools/bio/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Totem : Symbols of Change #0, Beervangeer & Studio Poca, 2023. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Totem : Symbols of Change #0, Beervangeer & Studio Poca, 2023",
+        "credit": "Art Blocks token media for Totem : Symbols of Change #0; \u00a9 Beervangeer & Studio Poca (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": "/artists/beervangeer-studio-poca/"
+      },
+      "physical": false
+    },
+    {
+      "id": "eeg",
+      "name": "EEG",
+      "plain": "Use brain signals",
+      "category": "Inputs & sensors",
+      "what": "Brain-signal input from consumer EEG headsets.",
+      "firstProject": "Stream an OpenBCI signal into a sketch and smooth it heavily.",
+      "starter": "/tools/eeg/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "env",
+      "name": "Environmental sensors (weather, air)",
+      "plain": "Read the weather or the air",
+      "category": "Inputs & sensors",
+      "what": "Air quality, temperature or weather read by a local sensor.",
+      "firstProject": "Wire a PM2.5 sensor to a microcontroller and let the reading change density in a running token view.",
+      "starter": "/tools/env/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: CryptoSpirits, Frederik De Wilde. All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "CryptoSpirits, Frederik De Wilde",
+        "credit": "Image: frederik-de-wilde.com (artist site); \u00a9 Frederik De Wilde. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "motion",
+      "name": "Motion / accelerometer",
+      "plain": "Use tilt and motion",
+      "category": "Inputs & sensors",
+      "what": "Phone tilt and motion as input.",
+      "firstProject": "Tilt the phone to rotate the composition.",
+      "starter": "/tools/motion/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "haptics",
+      "name": "Haptics (vibration output)",
+      "plain": "Buzz the phone",
+      "category": "Inputs & sensors",
+      "what": "Vibration as output on phones.",
+      "firstProject": "Pulse the phone in a seeded rhythm.",
+      "starter": "/tools/haptics/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "gps",
+      "name": "GPS / location",
+      "plain": "Use a place",
+      "category": "Inputs & sensors",
+      "what": "Location as input or as a condition to mint.",
+      "firstProject": "Change the palette by city (coarse location only, with consent).",
+      "starter": "/tools/gps/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: marfaMESH #0, Harvey Rayner, 2023. CC BY-NC-ND 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "marfaMESH #0, Harvey Rayner, 2023",
+        "credit": "Art Blocks token media for marfaMESH #0; \u00a9 Harvey Rayner (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-ND 4.0",
+        "artist": "/artists/harvey-rayner/"
+      },
+      "physical": false
+    },
+    {
+      "id": "xr",
+      "name": "VR / AR (WebXR)",
+      "plain": "View it in VR or AR",
+      "category": "Immersive",
+      "what": "Immersive scenes in a headset or phone browser.",
+      "firstProject": "Load a three.js piece in WebXR and walk around it.",
+      "starter": "/tools/xr/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: VOX\u039eL #0, JEANVASCRIPT, 2022. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "VOX\u039eL #0, JEANVASCRIPT, 2022",
+        "credit": "Art Blocks token media for VOX\u039eL #0; \u00a9 JEANVASCRIPT (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": "/artists/jeanvascript/"
+      },
+      "physical": false
+    },
+    {
+      "id": "mr",
+      "name": "MR headsets (Vision Pro)",
+      "plain": "Mix it with the room",
+      "category": "Immersive",
+      "what": "Mixed-reality headsets that blend the work with the room.",
+      "firstProject": "Open a WebXR version of your piece in the headset browser before building a native app.",
+      "starter": "/tools/mr/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "glasses",
+      "name": "Smart glasses",
+      "plain": "Smart glasses",
+      "category": "Immersive",
+      "what": "Head-worn displays; no art example found.",
+      "firstProject": "",
+      "starter": "/tools/glasses/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: A Google Glass wearer, photograph by Lo\u00efc Le Meur. CC BY 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "A Google Glass wearer, photograph by Lo\u00efc Le Meur",
+        "credit": "Lo\u00efc Le Meur, via Wikimedia Commons. The dataset pointed at Wikipedia: Smartglasses; this is that page's lead photograph.",
+        "license": "CC BY 2.0",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "spatial",
+      "name": "Spatial / binaural audio",
+      "plain": "Place sound around you",
+      "category": "Immersive",
+      "what": "Sound placed in 3D around the listener.",
+      "firstProject": "Pan three seeded voices around the listener with a PannerNode.",
+      "starter": "/tools/spatial/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: 3 Minute Meditations #0, thetechnocratic, 2022. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "3 Minute Meditations #0, thetechnocratic, 2022",
+        "credit": "Art Blocks token media for 3 Minute Meditations #0; \u00a9 thetechnocratic (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": "/artists/thetechnocratic/"
+      },
+      "physical": false
+    },
+    {
+      "id": "holo",
+      "name": "Holographic / volumetric / stereoscopic",
+      "plain": "Show depth without a headset",
+      "category": "Immersive",
+      "what": "Displays that show depth without a headset.",
+      "firstProject": "Export a three.js scene to a light-field display.",
+      "starter": "/tools/holo/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Floating World Genesis, A.A. Murakami (Pace Gallery journal). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Floating World Genesis, A.A. Murakami (Pace Gallery journal)",
+        "credit": "Image: pacegallery.com; \u00a9 A.A. Murakami / Pace. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/a-a-murakami/"
+      },
+      "physical": false
+    },
+    {
+      "id": "plotter",
+      "name": "Pen plotters",
+      "plain": "Draw with a pen machine",
+      "category": "Physical: drawing & print",
+      "what": "A machine that draws your vector output with real pens.",
+      "firstProject": "Export one SVG from your sketch, optimise it with vpype and plot it on A4.",
+      "starter": "/tools/plotter/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Running Moon #0, Licia He, 2022. CC BY-NC-ND 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Running Moon #0, Licia He, 2022",
+        "credit": "Art Blocks token media for Running Moon #0; \u00a9 Licia He (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-ND 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "prints",
+      "name": "Inkjet / gicl\u00e9e / archival prints",
+      "plain": "Print on paper",
+      "category": "Physical: drawing & print",
+      "what": "High-resolution prints of a token's output.",
+      "firstProject": "Render your token at print resolution (set pixelDensity, then saveCanvas) and proof it at a local print shop.",
+      "starter": "/tools/prints/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Meridian #0, Matt DesLauriers, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Meridian #0, Matt DesLauriers, 2021",
+        "credit": "Art Blocks token media for Meridian #0; \u00a9 Matt DesLauriers (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/matt-deslauriers/"
+      },
+      "physical": true
+    },
+    {
+      "id": "screen",
+      "name": "Screen print / silkscreen",
+      "plain": "Print with a screen",
+      "category": "Physical: drawing & print",
+      "what": "Ink pushed through a mesh stencil, one colour per screen.",
+      "firstProject": "Separate your output into 2 colour layers and print a test with a local studio.",
+      "starter": "/tools/screen/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Ringers #962: The LACMA Iterations (screen prints), Dmitri Cherniak, 2023. All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Ringers #962: The LACMA Iterations (screen prints), Dmitri Cherniak, 2023",
+        "credit": "Image: dmitricherniak.com (artist site); \u00a9 Dmitri Cherniak. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/dmitri-cherniak/"
+      },
+      "physical": true
+    },
+    {
+      "id": "riso",
+      "name": "Risograph",
+      "plain": "Print on a risograph",
+      "category": "Physical: drawing & print",
+      "what": "A stencil duplicator with spot-colour drums; cheap per sheet.",
+      "firstProject": "Export each colour as its own greyscale layer and run 10 different outputs.",
+      "starter": "/tools/riso/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": true
+    },
+    {
+      "id": "darkroom",
+      "name": "Darkroom / film / cyanotype",
+      "plain": "Print with light and chemistry",
+      "category": "Physical: drawing & print",
+      "what": "Light-sensitive processes such as cyanotype prints from digital negatives.",
+      "firstProject": "Print your output as a transparency and make a cyanotype in sunlight.",
+      "starter": "/tools/darkroom/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Photographs of British Algae: Cyanotype Impressions (a cyanotype photogram), Anna Atkins, 1843. Public domain Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Photographs of British Algae: Cyanotype Impressions (a cyanotype photogram), Anna Atkins, 1843",
+        "credit": "Wikimedia Commons: Atkins, Anna, 1799-1871, Public domain",
+        "license": "Public domain",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "embroid",
+      "name": "Embroidery",
+      "plain": "Stitch with a machine",
+      "category": "Physical: textile",
+      "what": "Machine embroidery from stitch files (DST) generated by code.",
+      "firstProject": "Turn one SVG output into a stitch file with Ink/Stitch and sew a 10 cm patch.",
+      "starter": "/tools/embroid/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: {LOGO} #0, Generative Goods, 2024. no license  Do not reproduce that image.",
+      "heroExample": {
+        "caption": "{LOGO} #0, Generative Goods, 2024",
+        "credit": "Art Blocks token media for {LOGO} #0; \u00a9 Generative Goods (license listed on Art Blocks: no license ). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "no license ",
+        "artist": "/artists/generative-goods/"
+      },
+      "physical": true
+    },
+    {
+      "id": "weave",
+      "name": "Weaving / Jacquard / tapestry / cane",
+      "plain": "Weave cloth",
+      "category": "Physical: textile",
+      "what": "Woven output from a loom file; Jacquard looms control each thread.",
+      "firstProject": "Quantise your output to 6 colours and a thread grid; ask a weaving studio for a sample quote.",
+      "starter": "/tools/weave/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: \u00c0 la m\u00e9moire de J.M. Jacquard, portrait woven in silk on a Jacquard loom by Michel Marie Carquillat after Claude Bonnefond, second quarter of the 19th century. Public domain Do not reproduce that image.",
+      "heroExample": {
+        "caption": "\u00c0 la m\u00e9moire de J.M. Jacquard, portrait woven in silk on a Jacquard loom by Michel Marie Carquillat after Claude Bonnefond, second quarter of the 19th century",
+        "credit": "Wikimedia Commons: Michel Marie Carquillat (tisseur) d'apr\u00e8s Claude Bonnefond, Public domain",
+        "license": "Public domain",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "knit",
+      "name": "Machine knitting",
+      "plain": "Knit with a machine",
+      "category": "Physical: textile",
+      "what": "Knitted output from a computer-controlled knitting machine.",
+      "firstProject": "Make a 2-colour seeded pattern and knit it with AYAB on a supported machine.",
+      "starter": "/tools/knit/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Yarntificial City #0, Licia He, 2026. Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Yarntificial City #0, Licia He, 2026",
+        "credit": "Art Blocks token media for Yarntificial City #0; \u00a9 Licia He (license listed on Art Blocks: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "fashion",
+      "name": "Generative fashion / apparel",
+      "plain": "Print or stitch clothing",
+      "category": "Physical: textile",
+      "what": "Clothing printed or stitched from generative output.",
+      "firstProject": "Print one output on a shirt by direct-to-garment printing.",
+      "starter": "/tools/fashion/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Generative Couture #0, Nathan Cornes, 2023. CC BY-NC-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Generative Couture #0, Nathan Cornes, 2023",
+        "credit": "Art Blocks token media for Generative Couture #0; \u00a9 Nathan Cornes (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA 4.0",
+        "artist": "/artists/nathan-cornes/"
+      },
+      "physical": true
+    },
+    {
+      "id": "textiles",
+      "name": "Textiles (any)",
+      "plain": "Work in cloth",
+      "category": "Physical: textile",
+      "what": "Textile output: weaving, knitting, embroidery, rugs.",
+      "firstProject": "Start with embroidery: cheapest way into textile.",
+      "starter": "/tools/textiles/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Friendship Bracelets #0, Alexis Andr\u00e9, 2022. NFT License Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Friendship Bracelets #0, Alexis Andr\u00e9, 2022",
+        "credit": "Art Blocks token media for Friendship Bracelets #0; \u00a9 Alexis Andr\u00e9 (license listed on Art Blocks: NFT License). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License",
+        "artist": "/artists/alexis-andre/"
+      },
+      "physical": true
+    },
+    {
+      "id": "laser",
+      "name": "Laser cutting",
+      "plain": "Cut with a laser",
+      "category": "Physical: fabrication & object",
+      "what": "Cutting or engraving sheet material from vector paths.",
+      "firstProject": "Cut one SVG output in 3 mm plywood at a makerspace.",
+      "starter": "/tools/laser/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": true
+    },
+    {
+      "id": "cnc",
+      "name": "CNC milling / engraving",
+      "plain": "Carve with a machine",
+      "category": "Physical: fabrication & object",
+      "what": "Computer-controlled carving from toolpaths.",
+      "firstProject": "Engrave a 2D output into wood with a single V-bit pass.",
+      "starter": "/tools/cnc/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Scratch #0, Matto, 2023. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Scratch #0, Matto, 2023",
+        "credit": "Art Blocks token media for Scratch #0; \u00a9 Matto (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "fdm",
+      "name": "3D printing: FDM / resin",
+      "plain": "3D-print an object",
+      "category": "Physical: fabrication & object",
+      "what": "Printing a 3D model layer by layer.",
+      "firstProject": "Export a mesh from three.js and print it at 10 cm.",
+      "starter": "/tools/fdm/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Primitives #0, Aranda\\Lasch, 2022. CC BY-NC-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Primitives #0, Aranda\\Lasch, 2022",
+        "credit": "Art Blocks token media for Primitives #0; \u00a9 Aranda\\Lasch (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA 4.0",
+        "artist": "/artists/aranda-lasch/"
+      },
+      "physical": true
+    },
+    {
+      "id": "ceramic3d",
+      "name": "3D printing: ceramic clay",
+      "plain": "3D-print clay",
+      "category": "Physical: fabrication & object",
+      "what": "Extruding clay with a 3D printer, then firing it.",
+      "firstProject": "Send 3 STL exports to a ceramic-printing studio (SRB's cheap test).",
+      "starter": "/tools/ceramic3d/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Parametric Pottery, Anatoly Zenkov (no token). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Parametric Pottery, Anatoly Zenkov (no token)",
+        "credit": "Image: anatolyzenkov.com (artist site); \u00a9 Anatoly Zenkov. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "metal",
+      "name": "3D printing: metal / bronze casting",
+      "plain": "Cast or print metal",
+      "category": "Physical: fabrication & object",
+      "what": "Metal parts by printing or lost-wax casting from a printed pattern.",
+      "firstProject": "Print a small wax or resin pattern and get a foundry quote.",
+      "starter": "/tools/metal/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": true
+    },
+    {
+      "id": "ceramics",
+      "name": "Ceramics (hand / kiln)",
+      "plain": "Make ceramics",
+      "category": "Physical: fabrication & object",
+      "what": "Hand-built or thrown ceramics guided by generative designs.",
+      "firstProject": "Use one output as a glaze pattern on a test tile.",
+      "starter": "/tools/ceramics/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Etruscan amphora (Pontic group), Silenus Painter, c. 540\u2013530 BC, Louvre E703. Public domain Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Etruscan amphora (Pontic group), Silenus Painter, c. 540\u2013530 BC, Louvre E703",
+        "credit": "Wikimedia Commons: Silenus Painter, Public domain",
+        "license": "Public domain",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "glass",
+      "name": "Glass / stained glass",
+      "plain": "Make glass",
+      "category": "Physical: fabrication & object",
+      "what": "Generative designs cut and leaded in glass.",
+      "firstProject": "Generate a 6-colour cell pattern sized for a small panel.",
+      "starter": "/tools/glass/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: North rose window, Chartres Cathedral (13th century), photo 2015. CC BY-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "North rose window, Chartres Cathedral (13th century), photo 2015",
+        "credit": "Wikimedia Commons: PtrQs, CC BY-SA 4.0",
+        "license": "CC BY-SA 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "sculpt",
+      "name": "Sculpture / lighting objects",
+      "plain": "Make a sculpture or a lamp",
+      "category": "Physical: fabrication & object",
+      "what": "Physical objects and lamps shaped by code.",
+      "firstProject": "Model a parametric lamp shade in OpenSCAD from 3 seeded values.",
+      "starter": "/tools/sculpt/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Bokeh (lamps) #0, mpkoz, 2024. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Bokeh (lamps) #0, mpkoz, 2024",
+        "credit": "Art Blocks token media for Bokeh (lamps) #0; \u00a9 mpkoz (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "kinetic",
+      "name": "Kinetic sculpture",
+      "plain": "Make something that moves",
+      "category": "Physical: fabrication & object",
+      "what": "Moving physical work driven by motors.",
+      "firstProject": "Drive one servo from a seeded sequence with an Arduino.",
+      "starter": "/tools/kinetic/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Kinetic Construction (Standing Wave), Naum Gabo, 1919\u20131920. CC0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Kinetic Construction (Standing Wave), Naum Gabo, 1919\u20131920",
+        "credit": "Wikimedia Commons: Naum Gabo, CC0",
+        "license": "CC0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture / architecture",
+      "plain": "Make furniture",
+      "category": "Physical: fabrication & object",
+      "what": "Furniture or built forms from parametric designs.",
+      "firstProject": "Generate a flat-pack chair profile and laser-cut a 1:5 model.",
+      "starter": "/tools/furniture/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Enlace #0, Aranda\\Lasch, 2024. CC BY-NC-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Enlace #0, Aranda\\Lasch, 2024",
+        "credit": "Art Blocks token media for Enlace #0; \u00a9 Aranda\\Lasch (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA 4.0",
+        "artist": "/artists/aranda-lasch/"
+      },
+      "physical": true
+    },
+    {
+      "id": "physother",
+      "name": "Physical (other)",
+      "plain": "Another physical output",
+      "category": "",
+      "what": "Other physical outputs.",
+      "firstProject": "",
+      "starter": "/tools/physother/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: 923 EMPTY ROOMS #0, Casey REAS, 2023. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "923 EMPTY ROOMS #0, Casey REAS, 2023",
+        "credit": "Art Blocks token media for 923 EMPTY ROOMS #0; \u00a9 Casey REAS (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "food",
+      "name": "Food",
+      "plain": "Make food",
+      "category": "Physical: sensory & sound",
+      "what": "Edible output; nothing token-linked found.",
+      "firstProject": "",
+      "starter": "/tools/food/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: 3D-printed chocolate made on a Wiiboox Sweetin printer, photo 2020. CC BY-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "3D-printed chocolate made on a Wiiboox Sweetin printer, photo 2020",
+        "credit": "Wikimedia Commons: FM1418, CC BY-SA 4.0",
+        "license": "CC BY-SA 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "scent",
+      "name": "Scent / perfume",
+      "plain": "Make a scent",
+      "category": "Physical: sensory & sound",
+      "what": "Fragrances composed from a token's parameters.",
+      "firstProject": "Map 3 parameters to 3 accords with a perfumer (SRB's cheap test).",
+      "starter": "/tools/scent/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: INK (fragrances) #0, Iskra Velitchkova, 2024. CC BY-NC-SA 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "INK (fragrances) #0, Iskra Velitchkova, 2024",
+        "credit": "Art Blocks token media for INK (fragrances) #0; \u00a9 Iskra Velitchkova (license listed on Art Blocks: CC BY-NC-SA 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA 4.0",
+        "artist": "/artists/iskra-velitchkova/"
+      },
+      "physical": true
+    },
+    {
+      "id": "vinyl",
+      "name": "Vinyl / physical music releases",
+      "plain": "Press a record",
+      "category": "Physical: sensory & sound",
+      "what": "Records and sleeves tied to generative work.",
+      "firstProject": "Print unique sleeves from token outputs for a small pressing.",
+      "starter": "/tools/vinyl/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Pacific Spirit #0, Emily Nicoll & 747, 2025. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Pacific Spirit #0, Emily Nicoll & 747, 2025",
+        "credit": "Art Blocks token media for Pacific Spirit #0; \u00a9 Emily Nicoll & 747 (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/emily-nicoll-747/"
+      },
+      "physical": true
+    },
+    {
+      "id": "projector",
+      "name": "Projectors / projection mapping",
+      "plain": "Project it on a wall",
+      "category": "Display & hardware",
+      "what": "Projecting work onto walls or objects.",
+      "firstProject": "Map a live token view onto a box with MadMapper's trial.",
+      "starter": "/tools/projector/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Projection mapping by Dolores Joya at CODAME 5ENSES, photo 2013. CC BY 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Projection mapping by Dolores Joya at CODAME 5ENSES, photo 2013",
+        "credit": "Wikimedia Commons: j bizzie from MINNEAPOLIS, USA, CC BY 2.0",
+        "license": "CC BY 2.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "led",
+      "name": "LED walls / pixel screens",
+      "plain": "Show it on lights",
+      "category": "Display & hardware",
+      "what": "Large LED or addressable-pixel displays.",
+      "firstProject": "Drive a 16x16 NeoPixel grid from a seeded pattern.",
+      "starter": "/tools/led/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": true
+    },
+    {
+      "id": "frames",
+      "name": "Dynamic NFT displays (Infinite Objects, Tokenframe)",
+      "plain": "Show it in a frame at home",
+      "category": "Display & hardware",
+      "what": "Screens and frames that show a token at home.",
+      "firstProject": "Open your token's live view (Art Blocks generator URL) full-screen on a spare tablet for a week.",
+      "starter": "/tools/frames/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Snowfro: Chromie Squiggles (exhibition with Infinite Objects displays), Venus Over Manhattan, 2022. All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Snowfro: Chromie Squiggles (exhibition with Infinite Objects displays), Venus Over Manhattan, 2022",
+        "credit": "Image: venusovermanhattan.com (gallery site); \u00a9 the artist / gallery. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/snowfro/"
+      },
+      "physical": true
+    },
+    {
+      "id": "eink",
+      "name": "E-ink / e-paper",
+      "plain": "Show it on a paper-like screen",
+      "category": "Display & hardware",
+      "what": "Low-power paper-like displays; good for slow, time-based tokens.",
+      "firstProject": "Render one frame per hour to a colour e-ink panel from an ESP32 (SRB's cheap test).",
+      "starter": "/tools/eink/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: AELIG e-ink art frame (maker press image; the artwork shown is not credited on the page). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "AELIG e-ink art frame (maker press image; the artwork shown is not credited on the page)",
+        "credit": "Image: aelig.art (maker site); \u00a9 AELIG. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "pcb",
+      "name": "Custom PCBs / handheld hardware",
+      "plain": "Build a small circuit",
+      "category": "Display & hardware",
+      "what": "Bespoke circuit boards and handheld objects that run the work.",
+      "firstProject": "Run your sketch on an ESP32 with a small OLED before designing a board in KiCad.",
+      "starter": "/tools/pcb/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: LCD 1: device for ASCII art, Andreas Gysin. All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "LCD 1: device for ASCII art, Andreas Gysin",
+        "credit": "Image: lcd.ertdfgcvb.xyz (artist site); \u00a9 Andreas Gysin. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/andreas-gysin/"
+      },
+      "physical": true
+    },
+    {
+      "id": "button",
+      "name": "Physical button",
+      "plain": "Use a physical button",
+      "category": "Display & hardware",
+      "what": "A physical button as the interface.",
+      "firstProject": "Wire one button to an Arduino and reseed on press.",
+      "starter": "/tools/button/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: mio, Generative Goods (2026). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "mio, Generative Goods (2026)",
+        "credit": "Image: mioclick.com (maker site); \u00a9 Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/generative-goods/"
+      },
+      "physical": true
+    },
+    {
+      "id": "screenhw",
+      "name": "Embedded screen",
+      "plain": "Put a screen in an object",
+      "category": "Display & hardware",
+      "what": "A small screen built into the object.",
+      "firstProject": "Draw a seeded pattern on a 128x64 OLED.",
+      "starter": "/tools/screenhw/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: mio, Generative Goods (2026). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "mio, Generative Goods (2026)",
+        "credit": "Image: mioclick.com (maker site); \u00a9 Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/generative-goods/"
+      },
+      "physical": true
+    },
+    {
+      "id": "handheld",
+      "name": "Handheld device",
+      "plain": "Hold it in your hand",
+      "category": "Display & hardware",
+      "what": "A handheld object carrying the work.",
+      "firstProject": "Battery-power the ESP32 + OLED build and put it in a printed case.",
+      "starter": "/tools/handheld/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: mio, Generative Goods (2026). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "mio, Generative Goods (2026)",
+        "credit": "Image: mioclick.com (maker site); \u00a9 Generative Goods. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": "/artists/generative-goods/"
+      },
+      "physical": true
+    },
+    {
+      "id": "rom",
+      "name": "Game ROMs / cartridges",
+      "plain": "Put it on a game cartridge",
+      "category": "Display & hardware",
+      "what": "Game Boy-style programs stored in the token or on a cartridge.",
+      "firstProject": "Build a seeded Game Boy ROM with GBDK and run it in an emulator.",
+      "starter": "/tools/rom/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Jiometory No Compute - \u30b8\u30aa\u30e1\u30c8\u30ea \u30cf \u30b1\u30a4\u30b5\u30f3\u30b5\u30ec\u30de\u30bb\u30f3 #0, Samsy, 2021. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Jiometory No Compute - \u30b8\u30aa\u30e1\u30c8\u30ea \u30cf \u30b1\u30a4\u30b5\u30f3\u30b5\u30ec\u30de\u30bb\u30f3 #0, Samsy, 2021",
+        "credit": "Art Blocks token media for Jiometory No Compute #0; \u00a9 Samsy (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "nfc",
+      "name": "NFC chips",
+      "plain": "Tap to verify",
+      "category": "Linking token to object",
+      "what": "Tap-to-verify chips that link an object to its token.",
+      "firstProject": "Stick a tag on one plot and link the tap to the token page; then try a cryptographic chip platform.",
+      "starter": "/tools/nfc/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: marfaMESH #1, Harvey Rayner, 2023. CC BY-NC-ND 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "marfaMESH #1, Harvey Rayner, 2023",
+        "credit": "Art Blocks token media for marfaMESH #1; \u00a9 Harvey Rayner (license listed on Art Blocks: CC BY-NC-ND 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-ND 4.0",
+        "artist": "/artists/harvey-rayner/"
+      },
+      "physical": true
+    },
+    {
+      "id": "qr",
+      "name": "QR codes",
+      "plain": "Link with a printed code",
+      "category": "Linking token to object",
+      "what": "Printed codes that link to the token; easy, but copyable.",
+      "firstProject": "Print a QR code on the back of a plot that opens the token page.",
+      "starter": "/tools/qr/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Metropolis #0, mpkoz, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Metropolis #0, mpkoz, 2022",
+        "credit": "Art Blocks token media for Metropolis #0; \u00a9 mpkoz (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "rfid",
+      "name": "RFID (UHF, non-NFC)",
+      "plain": "Use a long-range tag",
+      "category": "Linking token to object",
+      "what": "Long-range tags that phones can't read.",
+      "firstProject": "",
+      "starter": "/tools/rfid/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Textile RFID laundry tag with a printed EPC, photograph by Nicolas Eynaud. CC BY 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Textile RFID laundry tag with a printed EPC, photograph by Nicolas Eynaud",
+        "credit": "Nicolas Eynaud, own work, via Wikimedia Commons. The dataset pointed at Wikipedia: Radio-frequency identification; this is that page's lead photograph.",
+        "license": "CC BY 4.0",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "ble",
+      "name": "Bluetooth beacons",
+      "plain": "Announce it nearby",
+      "category": "Linking token to object",
+      "what": "Small radios that announce an object nearby.",
+      "firstProject": "",
+      "starter": "/tools/ble/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": true
+    },
+    {
+      "id": "passport",
+      "name": "Physical-backed NFT passports (Arianee, IYK)",
+      "plain": "Certify the object",
+      "category": "Linking token to object",
+      "what": "Digital passports that certify a physical object.",
+      "firstProject": "Issue a test passport for one print on a testnet.",
+      "starter": "/tools/passport/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Physical First, Estelle Tcha, 2023. All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Physical First, Estelle Tcha, 2023",
+        "credit": "Image: estelletcha.com (artist site); \u00a9 Estelle Tcha. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "live",
+      "name": "Live performance / live minting",
+      "plain": "Mint at a live event",
+      "category": "Sound, performance & time",
+      "what": "Mints tied to an event or performance.",
+      "firstProject": "Mint at a small event with a set-price or allowlist minter on a testnet first.",
+      "starter": "/tools/live/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Gas Wars #0, Jack Butcher, 2025. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Gas Wars #0, Jack Butcher, 2025",
+        "credit": "Art Blocks token media for Gas Wars #0; \u00a9 Jack Butcher. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": "/artists/jack-butcher/"
+      },
+      "physical": false
+    },
+    {
+      "id": "robot",
+      "name": "Robotics / robot arms",
+      "plain": "Draw with a robot arm",
+      "category": "Sound, performance & time",
+      "what": "Robot arms drawing or performing the work.",
+      "firstProject": "Send your SVG to a hobby arm or a plotter first; robots later.",
+      "starter": "/tools/robot/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Drawing from Sougwen Chung's human\u2013robot collaboration (V&A blog: \"The algorithmic gesture: Sougwen Chung's MEMORY\"). All rights reserved (assumed); linked with credit Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Drawing from Sougwen Chung's human\u2013robot collaboration (V&A blog: \"The algorithmic gesture: Sougwen Chung's MEMORY\")",
+        "credit": "Image: vam.ac.uk blog; \u00a9 Sougwen Chung / V&A. Loaded from the source page's own image URL, not rehosted.",
+        "license": "All rights reserved (assumed); linked with credit",
+        "artist": null
+      },
+      "physical": true
+    },
+    {
+      "id": "oracle",
+      "name": "Oracles / on-chain data feeds",
+      "plain": "Read data from the chain",
+      "category": "Data & AI",
+      "what": "On-chain data from outside the chain, read by the token.",
+      "firstProject": "Read one price feed on a testnet and map it to a colour.",
+      "starter": "/tools/oracle/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: send/receive #1, Snowfro, 2025. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "send/receive #1, Snowfro, 2025",
+        "credit": "Art Blocks token media for send/receive #1; \u00a9 Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "mutable",
+      "name": "Mutable / evolving tokens (PMP, time, transfers)",
+      "plain": "Let it change after mint",
+      "category": "Data & AI",
+      "what": "Tokens whose output changes after mint: by time, by owner choices, or by transfers.",
+      "firstProject": "Add one owner-settable parameter (a palette) to a test project and watch it change the render.",
+      "starter": "/tools/mutable/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Unravel #0, Anna Lucia, 2026. CC BY-NC-SA Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Unravel #0, Anna Lucia, 2026",
+        "credit": "Art Blocks token media for Unravel #0; \u00a9 Anna Lucia (license listed on Art Blocks: CC BY-NC-SA). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA",
+        "artist": "/artists/anna-lucia/"
+      },
+      "physical": false
+    },
+    {
+      "id": "decay",
+      "name": "Decay on transfer",
+      "plain": "Let a transfer change it",
+      "category": "Data & AI",
+      "what": "A token that changes each time it is transferred.",
+      "firstProject": "Count transfers in a transfer hook and fade one layer per transfer (testnet).",
+      "starter": "/tools/decay/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Unravel #1, Anna Lucia, 2026. CC BY-NC-SA Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Unravel #1, Anna Lucia, 2026",
+        "credit": "Art Blocks token media for Unravel #1; \u00a9 Anna Lucia (license listed on Art Blocks: CC BY-NC-SA). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC-SA",
+        "artist": "/artists/anna-lucia/"
+      },
+      "physical": false
+    },
+    {
+      "id": "onstate",
+      "name": "On-chain state",
+      "plain": "Read chain state",
+      "category": "Data & AI",
+      "what": "Output that reads live chain state.",
+      "firstProject": "Read one on-chain value in your script and map it to one parameter.",
+      "starter": "/tools/onstate/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: send/receive #0, Snowfro, 2025. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "send/receive #0, Snowfro, 2025",
+        "credit": "Art Blocks token media for send/receive #0; \u00a9 Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "onaudio",
+      "name": "On-chain audio",
+      "plain": "Keep the sound on-chain",
+      "category": "Sound, performance & time",
+      "what": "Audio stored or generated fully on-chain.",
+      "firstProject": "Generate a sound entirely in script, with no external files.",
+      "starter": "/tools/onaudio/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: send/receive #2, Snowfro, 2025. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "send/receive #2, Snowfro, 2025",
+        "credit": "Art Blocks token media for send/receive #2; \u00a9 Snowfro. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "timebased",
+      "name": "Time-based change",
+      "plain": "Let time change it",
+      "category": "Code & rendering",
+      "what": "Output that changes on a schedule.",
+      "firstProject": "Make one element change by season.",
+      "starter": "/tools/timebased/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Act of Emotion #0, Kelly Milligan, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Act of Emotion #0, Kelly Milligan, 2022",
+        "credit": "Art Blocks token media for Act of Emotion #0; \u00a9 Kelly Milligan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/kelly-milligan/"
+      },
+      "physical": false
+    },
+    {
+      "id": "pmp",
+      "name": "Post-mint params",
+      "plain": "Let the owner change a setting",
+      "category": "Data & AI",
+      "what": "Parameters set after mint by the owner or artist (Art Blocks PostParams).",
+      "firstProject": "Add one owner-settable parameter in a test project.",
+      "starter": "/tools/pmp/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: AnnoMetta #0, Matto, 2024. CC-BY-NC-4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "AnnoMetta #0, Matto, 2024",
+        "credit": "Art Blocks token media for AnnoMetta #0; \u00a9 Matto (license listed on Art Blocks: CC-BY-NC-4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC-BY-NC-4.0",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "redeem",
+      "name": "Physical redemption (token mechanic)",
+      "plain": "Redeem a physical object",
+      "category": "Chain & token mechanics",
+      "what": "A token that can be redeemed for a physical object.",
+      "firstProject": "Record 'redeemed' as an artist-set parameter on a test token, and pair it with an NFC tag on the object.",
+      "starter": "/tools/redeem/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: QWERTY #0, Tara Donovan, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "QWERTY #0, Tara Donovan, 2022",
+        "credit": "Art Blocks token media for QWERTY #0; \u00a9 Tara Donovan (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/tara-donovan/"
+      },
+      "physical": false
+    },
+    {
+      "id": "quantum",
+      "name": "Quantum hardware",
+      "plain": "Use a quantum computer",
+      "category": "Data & AI",
+      "what": "Using a quantum computer as a source of randomness or input.",
+      "firstProject": "Run a tiny circuit on IBM's free tier and use the result as a seed.",
+      "starter": "/tools/quantum/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Quantum Collapses #0, Insig\u0127t, 2022. NFT License 2.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Quantum Collapses #0, Insig\u0127t, 2022",
+        "credit": "Art Blocks token media for Quantum Collapses #0; \u00a9 Insig\u0127t (license listed on Art Blocks: NFT License 2.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "NFT License 2.0",
+        "artist": null
+      },
+      "physical": false
+    },
+    {
+      "id": "fabfile",
+      "name": "Token as fabrication file",
+      "plain": "Output a file a machine can make",
+      "category": "Chain & token mechanics",
+      "what": "The token outputs a machine file (SVG, DST stitch file, .obj mesh).",
+      "firstProject": "Add a key that downloads the current output as SVG or OBJ.",
+      "starter": "/tools/fabfile/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Instructions for Defacement #0, Steve Pikelny, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Instructions for Defacement #0, Steve Pikelny, 2022",
+        "credit": "Art Blocks token media for Instructions for Defacement #0; \u00a9 Steve Pikelny (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/steve-pikelny/"
+      },
+      "physical": false
+    },
+    {
+      "id": "mech",
+      "name": "Token mechanic (any)",
+      "plain": "A token mechanic",
+      "category": "",
+      "what": "Any verified on-chain mechanic.",
+      "firstProject": "",
+      "starter": "/tools/mech/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Risk / Reward #0, Kjetil Golid, 2024. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Risk / Reward #0, Kjetil Golid, 2024",
+        "credit": "Art Blocks token media for Risk / Reward #0; \u00a9 Kjetil Golid (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/kjetil-golid/"
+      },
+      "physical": false
+    },
+    {
+      "id": "onchain",
+      "name": "Fully on-chain assets (ONCHAIN)",
+      "plain": "Store it on the chain",
+      "category": "Chain & token mechanics",
+      "what": "Scripts and assets stored on the blockchain itself.",
+      "firstProject": "Deploy a small SVG work with on-chain metadata on a testnet.",
+      "starter": "/tools/onchain/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: EVENT #0, Bernar Venet, 2024. not listed Do not reproduce that image.",
+      "heroExample": {
+        "caption": "EVENT #0, Bernar Venet, 2024",
+        "credit": "Art Blocks token media for EVENT #0; \u00a9 Bernar Venet. Loaded from Art Blocks' media server, not rehosted.",
+        "license": "not listed",
+        "artist": "/artists/bernar-venet/"
+      },
+      "physical": false
+    },
+    {
+      "id": "ipfs",
+      "name": "External media on IPFS / Arweave",
+      "plain": "Store media on IPFS or Arweave",
+      "category": "Chain & token mechanics",
+      "what": "Large assets stored on decentralized storage and referenced by the token.",
+      "firstProject": "Upload one image to IPFS or Arweave and reference it from a test token.",
+      "starter": "/tools/ipfs/",
+      "licenseNotes": "Starter sketches in this guide are original and are not an artist's project. Example: Hypertype #0, Mark Webster, 2022. CC BY-NC 4.0 Do not reproduce that image.",
+      "heroExample": {
+        "caption": "Hypertype #0, Mark Webster, 2022",
+        "credit": "Art Blocks token media for Hypertype #0; \u00a9 Mark Webster (license listed on Art Blocks: CC BY-NC 4.0). Loaded from Art Blocks' media server, not rehosted.",
+        "license": "CC BY-NC 4.0",
+        "artist": "/artists/mark-webster/"
+      },
+      "physical": false
+    },
+    {
+      "id": "erc8048",
+      "name": "ERC-8048 onchain metadata",
+      "plain": "Store notes on the token",
+      "category": "Chain & token mechanics",
+      "what": "A draft standard for a per-token key/value store kept on-chain: metadata(tokenId, key) and a MetadataSet event.",
+      "firstProject": "On a testnet, store 'physical: issued' and a chip ID under two keys on one token, then read them back.",
+      "starter": "/tools/erc8048/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "721t",
+      "name": "721T (agent metadata profile)",
+      "plain": "Let a token act as an agent",
+      "category": "Tokens as agents",
+      "what": "The Agent Metadata Profile of ERC-8048: reserved keys for an agent's context, MCP/A2A/web/x402 endpoints and per-chain addresses.",
+      "firstProject": "Give one test token a 721T context key describing the artwork's 'voice' and a web endpoint that answers as the piece.",
+      "starter": "/tools/721t/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "erc6551",
+      "name": "ERC-6551 token-bound accounts",
+      "plain": "Give a token its own wallet",
+      "category": "Tokens as agents",
+      "what": "Gives an NFT its own smart-contract wallet that can hold assets and act.",
+      "firstProject": "Create a token-bound account for one test token and send it a second NFT, so the artwork 'owns' something.",
+      "starter": "/tools/erc6551/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "erc8004",
+      "name": "ERC-8004 trustless agents",
+      "plain": "Give an agent an identity",
+      "category": "Tokens as agents",
+      "what": "Draft registries for agent identity, reputation and validation.",
+      "firstProject": "Read the spec's identity registry section and sketch what an artwork-agent's registration file would say.",
+      "starter": "/tools/erc8004/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "erc8217",
+      "name": "ERC-8217 agent NFT identity bindings",
+      "plain": "Bind an agent to a token",
+      "category": "Tokens as agents",
+      "what": "Draft protocol that binds ERC-8004 agents to NFTs in other collections.",
+      "firstProject": "Follow the spec's verification flow on paper for one artwork token bound to one agent ID.",
+      "starter": "/tools/erc8217/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "erc7160",
+      "name": "ERC-7160 multi-metadata",
+      "plain": "Keep more than one version",
+      "category": "Chain & token mechanics",
+      "what": "Lets one ERC-721 token carry several metadata URIs, with one pinned as primary.",
+      "firstProject": "Give a test token two renderings (screen and plot) and let the owner pin which one shows.",
+      "starter": "/tools/erc7160/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    },
+    {
+      "id": "abx",
+      "name": "ABX (Art Blocks)",
+      "plain": "Publish it on-chain",
+      "category": "Chain & token mechanics",
+      "what": "Art Blocks' free, open-source (MIT) protocol and toolkit for putting digital objects on-chain, with a CLI, an agent skill and an SDK.",
+      "firstProject": "Deploy one code project to the Base Sepolia testnet with the ABX quickstart, using its dry run first.",
+      "starter": "/tools/abx/",
+      "licenseNotes": "No verified example image. Starter sketches in this guide are original and are not an artist's project.",
+      "heroExample": null,
+      "physical": false
+    }
+  ]
+}

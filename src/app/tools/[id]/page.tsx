@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AgentPrompt } from "@/components/AgentPrompt";
 import { PublishWithAbx } from "@/components/PublishWithAbx";
 import { Rich } from "@/components/RichText";
 import { SketchPad } from "@/components/SketchPad";
@@ -34,14 +35,38 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
   const sketch = tool.sketch ? STARTERS[tool.sketch] : "";
   const counts = tool.evidenceCounts;
 
+  const licenseNotes = tool.image.status === "verified" && tool.image.caption
+    ? `Starter sketches in this guide are original and are not an artist's project. Example: ${tool.image.caption}. ${tool.image.license || "No license line."} Do not reproduce that image.`
+    : "No verified example image. Starter sketches in this guide are original and are not an artist's project.";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    applicationCategory: tool.category,
+    description: tool.what,
+    isPartOf: "PlayTools",
+    ...(tool.image.status === "verified" && tool.image.caption
+      ? { citation: tool.image.caption, license: tool.image.license }
+      : {}),
+  };
+
   return (
     <div className="wrap">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <p className="quiet">
         <Link href="/">Home</Link> / <Link href="/tools/">Tools</Link> / {tool.plain}
       </p>
       <h1>{tool.plain}</h1>
       {tool.plain !== tool.name ? <p className="tech">{tool.name}</p> : null}
       <p>{tool.what}</p>
+      <AgentPrompt
+        name={tool.name}
+        plain={tool.plain}
+        category={tool.category}
+        firstProject={tool.firstProject}
+        starter={`/tools/${tool.id}/`}
+        licenseNotes={licenseNotes}
+      />
       <div className="hero-layout">
         <ToolFigure image={tool.image} toolName={tool.name} />
         <div>

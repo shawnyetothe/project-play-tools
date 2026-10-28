@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import { Prototype } from "@/components/lab/Prototype";
+
+export const metadata: Metadata = { title: "Play" };
+
+export default function Page() {
+  return <Prototype which={3} />;
+}

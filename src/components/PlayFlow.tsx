@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Rich } from "@/components/RichText";
 import { SketchPad } from "@/components/SketchPad";
 import { STARTERS } from "@/components/sketches";
@@ -33,14 +33,35 @@ const feedbackHref = suggestEmail
   ? `mailto:${suggestEmail}?subject=${encodeURIComponent("PlayTools: did this open the right tool?")}&body=${encodeURIComponent("Where I began:\n\nThe tool it opened:\n\nThe tool I would have handed them:\n")}`
   : "";
 
-export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayRecipe[] }) {
-  const [door, setDoor] = useState<Door | null>(null);
-  const [note, setNote] = useState("");
+export function PlayFlow({
+  tools,
+  recipes,
+  initialDoor = null,
+  initialNote = "",
+  embed = false,
+}: {
+  tools: PlayTool[];
+  recipes: PlayRecipe[];
+  initialDoor?: Door | null;
+  initialNote?: string;
+  embed?: boolean;
+}) {
+  const [door, setDoor] = useState<Door | null>(initialDoor);
+  const [note, setNote] = useState(initialNote);
   const [file, setFile] = useState<FileHint | null>(null);
   const [mediumId, setMediumId] = useState<string | null>(null);
   const [mediumNote, setMediumNote] = useState("");
   const [makerId, setMakerId] = useState<string | null>(null);
   const [makerNote, setMakerNote] = useState("");
+
+  useEffect(() => {
+    if (initialNote.trim()) {
+      setDoor("message");
+      setNote(initialNote);
+      return;
+    }
+    if (initialDoor) setDoor(initialDoor);
+  }, [initialDoor, initialNote]);
 
   const byId = useMemo(() => new Map(tools.map((tool) => [tool.id, tool])), [tools]);
   const byRecipe = useMemo(() => new Map(recipes.map((recipe) => [recipe.slug, recipe])), [recipes]);
@@ -66,7 +87,7 @@ export function PlayFlow({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
   }
 
   return (
-    <section className="wrap play" id="play" aria-labelledby="play-title">
+    <section className={embed ? "play" : "wrap play"} id={embed ? "finder" : "play"} aria-labelledby="play-title">
       <h2 id="play-title">Begin</h2>
       <p className="lede">Start from one place. The tools follow. Nothing is sent.</p>
       <fieldset className="begin">
