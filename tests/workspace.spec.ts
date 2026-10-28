@@ -17,7 +17,8 @@ test("hero draws at 390px and takes a drag", async ({ page }) => {
   const canvas = page.getByTestId("hero-canvas");
   const box = await canvas.boundingBox();
   expect(box && box.width).toBeGreaterThan(300);
-  expect(box && box.height).toBeGreaterThan(300);
+  expect(box && box.height).toBeGreaterThan(240);
+  await expect(page.locator("[data-tray='open']")).toHaveCount(0);
   await drag(page);
   await expect(page.locator("[data-doors='open']")).toBeVisible();
 });

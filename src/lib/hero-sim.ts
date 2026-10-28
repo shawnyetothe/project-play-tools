@@ -21,8 +21,15 @@ export function hash32(text: string): number {
 }
 
 export function unit(seed: number): number {
-  const n = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-  return n / 4294967296;
+  let h = seed >>> 0;
+  h = Math.imul(h ^ (h >>> 16), 0x7feb352d);
+  h = Math.imul(h ^ (h >>> 15), 0x846ca68b);
+  h = (h ^ (h >>> 16)) >>> 0;
+  return h / 4294967296;
+}
+
+function mix(base: number, index: number, salt: number): number {
+  return unit(Math.imul(base ^ salt, 0x9e3779b9) ^ Math.imul(index + 1, 0x85ebca6b));
 }
 
 export type Particle = {
@@ -35,6 +42,7 @@ export type Particle = {
   ink: string;
   size: number;
   along: number;
+  shell: number;
   normal: number;
   flow: boolean;
 };
@@ -42,9 +50,8 @@ export type Particle = {
 export function makeSwarm(seed: string, count: number): Particle[] {
   const base = hash32(seed || "play");
   const particles: Particle[] = [];
-  let cursor = 0;
   for (let i = 0; i < count; i++) {
-    const roll = unit(base ^ Math.imul(i + 1, 0x9e3779b9));
+    const roll = mix(base, i, 1);
     let ink = INKS[INKS.length - 1].color;
     let acc = 0;
     for (const item of INKS) {
@@ -54,18 +61,18 @@ export function makeSwarm(seed: string, count: number): Particle[] {
         break;
       }
     }
-    cursor += 1;
     particles.push({
       x: 0,
       y: 0,
       vx: 0,
       vy: 0,
-      angle: unit(base ^ cursor) * Math.PI * 2,
-      speed: 0.02 + unit(base ^ (cursor + 9)) * 0.03,
+      angle: mix(base, i, 2) * Math.PI * 2,
+      speed: 0.02 + mix(base, i, 3) * 0.03,
       ink,
-      size: SIZES[Math.floor(unit(base ^ (cursor + 3)) * SIZES.length)],
-      along: unit(base ^ (cursor + 11)),
-      normal: (unit(base ^ (cursor + 17)) - 0.5) * 0.04,
+      size: SIZES[Math.floor(mix(base, i, 4) * SIZES.length)],
+      along: i / count,
+      shell: Math.pow(mix(base, i, 6), 0.55),
+      normal: (mix(base, i, 5) - 0.5) * 0.045,
       flow: false,
     });
   }
@@ -74,11 +81,12 @@ export function makeSwarm(seed: string, count: number): Particle[] {
 
 export function shellPoint(particle: Particle, w: number, h: number): Vec {
   const radius = Math.min(w, h) * 0.3;
-  const shell = radius * (0.45 + (particle.along * 0.55));
-  return {
-    x: w / 2 + Math.cos(particle.angle) * shell * 1.25,
-    y: h * 0.42 + Math.sin(particle.angle) * shell * 0.95,
-  };
+  const shell = radius * (0.45 + particle.shell * 0.55);
+  const x = w / 2 + Math.cos(particle.angle) * shell * 1.25;
+  let y = h * 0.42 + Math.sin(particle.angle) * shell * 0.95;
+  const horizon = h * 0.8 - 6;
+  if (y > horizon) y = h * 0.42 - Math.abs(Math.sin(particle.angle)) * shell * 0.95;
+  return { x, y };
 }
 
 export function resample(points: Vec[], count = 40): Vec[] {
@@ -156,12 +164,10 @@ export function flowTarget(particle: Particle, line: Vec[], h: number): Vec {
 }
 
 export function stepSwarm(particles: Particle[], line: Vec[] | null, w: number, h: number, dt: number, reduced: boolean) {
-  const horizon = h * 0.8;
   for (const particle of particles) {
     if (!reduced && !particle.flow) particle.angle += particle.speed * dt;
-    if (particle.flow && line && line.length > 1 && !reduced) particle.along += particle.speed * dt * 0.35;
+    if (particle.flow && line && line.length > 1 && !reduced) particle.along += dt * 0.18;
     const target = particle.flow && line && line.length > 1 ? flowTarget(particle, line, h) : shellPoint(particle, w, h);
-    if (target.y > horizon - 4) target.y = horizon - 4;
     if (reduced) {
       particle.x = target.x;
       particle.y = target.y;
@@ -169,7 +175,7 @@ export function stepSwarm(particles: Particle[], line: Vec[] | null, w: number, 
       particle.vy = 0;
       continue;
     }
-    const k = 9;
+    const k = particle.flow ? 42 : 9;
     const damp = 2 * Math.sqrt(k);
     const ax = (target.x - particle.x) * k - particle.vx * damp;
     const ay = (target.y - particle.y) * k - particle.vy * damp;
@@ -181,5 +187,8 @@ export function stepSwarm(particles: Particle[], line: Vec[] | null, w: number, 
 }
 
 export function assignFlow(particles: Particle[]) {
-  for (const particle of particles) particle.flow = true;
+  particles.forEach((particle, index) => {
+    particle.flow = true;
+    particle.along = index / particles.length;
+  });
 }

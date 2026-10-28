@@ -12,8 +12,9 @@ html.fonts-ready .workspace h1, html.fonts-ready .workspace h2 {
 .hero-copy h1 { font-size: 34px; line-height: 36px; margin: 0 0 0.4rem; }
 .hero-copy .sub { color: #6b6b73; font-size: 17px; margin: 0 0 0.8rem; }
 .hero-kicker { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b73; margin: 0 0 0.4rem; }
-.hero-frame { position: relative; width: 100%; height: 400px; border: 1px solid #0b0b0f; background: #f5f5f2; }
+.hero-frame { position: relative; width: 100%; height: 320px; border: 1px solid #0b0b0f; background: #f5f5f2; }
 .hero-poster, .hero-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-frame.is-live .hero-poster { opacity: 0; }
 .hero-art { touch-action: none; cursor: crosshair; }
 .hero-readout, .hero-hint, .hero-rule { font-family: var(--font-mono-jb), ui-monospace, monospace; font-size: 11px; color: #6b6b73; }
 .hero-readout { display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem; margin: 0.6rem 0 0.2rem; }
@@ -40,10 +41,11 @@ html.fonts-ready .workspace h1, html.fonts-ready .workspace h2 {
   radial-gradient(circle at 60% 50%, #e4572e 0 2px, transparent 3px),
   #f5f5f2; }
 .fact-line { color: #6b6b73; }
-main { padding-bottom: 7.5rem; }
-.phone-nav { position: fixed; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(4, 1fr); background: #f5f5f2; border-top: 1px solid #e2e2de; z-index: 5; }
+main { padding-bottom: 5.5rem; }
+body:has(.tray) main { padding-bottom: 9rem; }
+.phone-nav { position: fixed; left: 0; right: 0; bottom: 0; height: 56px; display: grid; grid-template-columns: repeat(4, 1fr); background: #f5f5f2; border-top: 1px solid #e2e2de; z-index: 5; }
 .phone-nav a { text-decoration: none; color: #0b0b0f; font-size: 13px; font-weight: 700; }
-.tray { position: fixed; left: 0; right: 0; bottom: 56px; display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: #fff; border-top: 1px solid #e2e2de; z-index: 6; }
+.tray { position: fixed; left: 0; right: 0; bottom: 56px; min-height: 56px; display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: #fff; border-top: 1px solid #e2e2de; z-index: 6; }
 .tray-thumb { width: 36px; height: 36px; border: 1px solid #0b0b0f; background: #f5f5f2; flex: 0 0 auto; }
 .tray-meta { display: grid; font-family: var(--font-mono-jb), ui-monospace, monospace; font-size: 11px; }
 .tray a, .tray button { background: transparent; border: 0; color: #0b0b0f; font-weight: 700; text-decoration: none; padding: 0 0.4rem; }
@@ -56,7 +58,7 @@ main { padding-bottom: 7.5rem; }
   .hero-copy h1 { font-size: 48px; line-height: 50px; }
   .hero-copy .sub { font-size: 19px; }
   .hero-stage { order: 1; }
-  .hero-frame { height: 620px; }
+  .hero-frame { height: 520px; }
   .hero-readout { font-size: 13px; }
   .lineage-grid { grid-template-columns: repeat(3, 1fr); }
   .phone-nav { display: none; }

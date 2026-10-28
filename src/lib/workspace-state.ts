@@ -49,7 +49,7 @@ export function readPublic(search: string): PieceState {
     pick: (params.get("pick") || "").slice(0, 24),
     var: (params.get("var") || DEFAULT_STATE.var).slice(0, 24),
     n: Number.isFinite(parsedN) ? Math.min(10000, Math.max(1, Math.round(parsedN))) : DEFAULT_STATE.n,
-    interacted: params.get("door") != null || params.get("rule") != null,
+    interacted: params.get("played") === "1",
   };
 }
 
@@ -62,6 +62,7 @@ export function writePublic(state: PieceState): string {
   if (state.pick) params.set("pick", state.pick);
   if (state.var) params.set("var", state.var);
   if (state.n) params.set("n", String(state.n));
+  if (state.interacted) params.set("played", "1");
   const query = params.toString();
   return query ? `?${query}` : "";
 }

@@ -13,7 +13,7 @@ const MAKERS = [
 ];
 
 function posterPoints(seed: string) {
-  const swarm = makeSwarm(seed, 72);
+  const swarm = makeSwarm(seed, 220);
   return swarm.map((particle) => {
     const point = shellPoint(particle, 880, 620);
     return { x: point.x / 880, y: point.y / 620, ink: particle.ink, size: particle.size };
@@ -25,8 +25,9 @@ export function HeroPoster({ seed }: { seed: string }) {
   return (
     <svg className="hero-poster" viewBox="0 0 880 620" role="img" aria-label="Idle sketch">
       <rect width="880" height="620" fill="#F5F5F2" />
-      <circle cx="440" cy="260" r="150" fill="none" stroke="#0B0B0F" strokeOpacity="0.12" />
-      <circle cx="440" cy="260" r="225" fill="none" stroke="#0B0B0F" strokeOpacity="0.12" strokeDasharray="3 5" />
+      <circle cx="440" cy="260" r="186" fill="none" stroke="#0B0B0F" strokeOpacity="0.22" strokeDasharray="3 5" />
+      <circle cx="440" cy="260" r="279" fill="none" stroke="#0B0B0F" strokeOpacity="0.12" />
+      <path d="M505 260 A65 65 0 0 0 473 316" fill="none" stroke="#0B0B0F" strokeOpacity="0.4" />
       <line x1="40" y1="496" x2="840" y2="496" stroke="#0B0B0F" strokeOpacity="0.55" />
       {points.map((point, index) => (
         <circle key={index} cx={point.x * 880} cy={point.y * 620} r={point.size} fill={point.ink} />
@@ -70,12 +71,6 @@ export function HeroToy() {
     let interval = 1000 / 60;
     const grid = document.createElement("canvas");
     particles.current = makeSwarm(state.seed, count);
-    const placed = wrap.getBoundingClientRect();
-    for (const particle of particles.current) {
-      const home = shellPoint(particle, placed.width, placed.height);
-      particle.x = home.x;
-      particle.y = home.y;
-    }
     if (settled.current) assignFlow(particles.current);
 
     const fit = () => {
@@ -94,15 +89,29 @@ export function HeroToy() {
       if (!g) return;
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
       g.clearRect(0, 0, w, h);
+      const radius = Math.min(w, h) * 0.3;
+      const cx = w / 2;
+      const cy = h * 0.42;
       g.strokeStyle = "rgba(11,11,15,0.22)";
       g.setLineDash([3, 5]);
       g.beginPath();
-      g.arc(w / 2, h * 0.42, Math.min(w, h) * 0.3, 0, Math.PI * 2);
+      g.arc(cx, cy, radius, 0, Math.PI * 2);
       g.stroke();
       g.setLineDash([]);
       g.strokeStyle = "rgba(11,11,15,0.12)";
       g.beginPath();
-      g.arc(w / 2, h * 0.42, Math.min(w, h) * 0.45, 0, Math.PI * 2);
+      g.arc(cx, cy, radius * 1.5, 0, Math.PI * 2);
+      g.stroke();
+      g.strokeStyle = "rgba(11,11,15,0.25)";
+      g.beginPath();
+      g.moveTo(cx, cy);
+      g.lineTo(cx + radius, cy);
+      g.moveTo(cx, cy);
+      g.lineTo(cx + Math.cos(Math.PI / 3) * radius, cy + Math.sin(Math.PI / 3) * radius);
+      g.stroke();
+      g.strokeStyle = "rgba(11,11,15,0.4)";
+      g.beginPath();
+      g.arc(cx, cy, radius * 0.35, 0, Math.PI / 3);
       g.stroke();
       g.strokeStyle = "rgba(11,11,15,0.55)";
       g.beginPath();
@@ -112,12 +121,19 @@ export function HeroToy() {
       g.strokeStyle = "rgba(11,11,15,0.1)";
       for (let i = -8; i <= 8; i++) {
         g.beginPath();
-        g.moveTo(w / 2, h * 0.42);
-        g.lineTo(w / 2 + i * 28, h);
+        g.moveTo(cx, cy);
+        g.lineTo(cx + i * (w / 16), h);
         g.stroke();
       }
     };
     fit();
+    const placed = wrap.getBoundingClientRect();
+    for (const particle of particles.current) {
+      const home = shellPoint(particle, placed.width || 342, placed.height || 320);
+      particle.x = home.x;
+      particle.y = home.y;
+    }
+    wrap.classList.add("is-live");
     const pending = (window as Window & { __playStroke?: LinePoint[] }).__playStroke;
     if (pending && pending.length > 1) {
       const rect = wrap.getBoundingClientRect();
@@ -146,7 +162,8 @@ export function HeroToy() {
         if (ctx) {
           const dpr = Math.min(2, window.devicePixelRatio || 1);
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          ctx.clearRect(0, 0, w, h);
+          ctx.fillStyle = "#F5F5F2";
+          ctx.fillRect(0, 0, w, h);
           ctx.drawImage(grid, 0, 0, w, h);
           const byInk = new Map<string, Particle[]>();
           for (const particle of particles.current) {
