@@ -4,7 +4,9 @@
   <url><loc>/about/</loc></url>
   <url><loc>/abx/</loc></url>
   <url><loc>/artists/</loc></url>
+  <url><loc>/examples/</loc></url>
   <url><loc>/explore/</loc></url>
+  <url><loc>/generate/</loc></url>
   <url><loc>/lab/</loc></url>
   <url><loc>/lab/composed/</loc></url>
   <url><loc>/lab/generate/</loc></url>
@@ -115,6 +117,7 @@
   <url><loc>/lab/tools/webaudio/</loc></url>
   <url><loc>/lab/tools/xr/</loc></url>
   <url><loc>/lab/tools/zdog/</loc></url>
+  <url><loc>/learn/</loc></url>
   <url><loc>/make/fabric/</loc></url>
   <url><loc>/make/objects/</loc></url>
   <url><loc>/make/on-their-own/</loc></url>
@@ -286,6 +289,7 @@
   <url><loc>/sitemap/projects/y/</loc></url>
   <url><loc>/sitemap/projects/z.json</loc></url>
   <url><loc>/sitemap/projects/z/</loc></url>
+  <url><loc>/sitemap/tools/</loc></url>
   <url><loc>/start/</loc></url>
   <url><loc>/tools/</loc></url>
   <url><loc>/tools/721t/</loc></url>

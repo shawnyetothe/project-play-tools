@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Atkinson_Hyperlegible, Newsreader } from "next/font/google";
+import { Atkinson_Hyperlegible, Bricolage_Grotesque, JetBrains_Mono, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { PhoneNav, Tray, WorkspaceProvider } from "@/components/workspace/Workspace";
+import { meta } from "@/lib/data";
 import "./globals.css";
+import "./workspace.css";
 
 const sans = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -15,6 +18,21 @@ const serif = Newsreader({
   weight: ["500", "600"],
   variable: "--font-newsreader",
   preload: false,
+});
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "optional",
+  preload: false,
+  variable: "--font-bricolage",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  display: "optional",
+  preload: false,
+  variable: "--font-mono-jb",
 });
 
 export const metadata: Metadata = {
@@ -50,8 +68,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${display.variable} ${mono.variable}`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var arm="a";try{arm=localStorage.getItem("playtools-arm")||"";if(arm!=="a"&&arm!=="b"){var b=new Uint8Array(1);crypto.getRandomValues(b);arm=b[0]<128?"a":"b";localStorage.setItem("playtools-arm",arm);}}catch(e){arm="a";}document.documentElement.dataset.arm=arm;})();`,
+          }}
+        />
         <meta property="og:title" content="PlayTools" />
         <meta
           property="og:description"
@@ -65,12 +88,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:image" content="/playtools-og-image-1200x630.png" />
       </head>
       <body>
-        <a className="skip" href="#main">
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        <WorkspaceProvider>
+          <a className="skip" href="#main">
+            Skip to content
+          </a>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter
+            pulledLabel={meta.pulledLabel}
+            makePaths={meta.paths.map((item) => ({ slug: item.slug, plain: item.plain }))}
+            recipes={meta.recipes.map((item) => ({ slug: item.slug, plain: item.plain }))}
+          />
+          <Tray />
+          <PhoneNav />
+        </WorkspaceProvider>
       </body>
     </html>
   );

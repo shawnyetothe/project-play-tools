@@ -6,5 +6,11 @@
         { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/lab/composed", "destination": "/", "permanent": false },
+    { "source": "/lab/composed/", "destination": "/", "permanent": false },
+    { "source": "/lab/generate", "destination": "/generate/", "permanent": false },
+    { "source": "/lab/generate/", "destination": "/generate/", "permanent": false }
   ]
 }

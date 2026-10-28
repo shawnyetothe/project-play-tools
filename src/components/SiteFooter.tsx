@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
-import { meta } from "@/lib/data";
 import { SuggestForm } from "./SuggestForm";
 
 function cleanPath(path: string) {
@@ -11,11 +10,11 @@ function cleanPath(path: string) {
   return trimmed || "/";
 }
 
-function Disclaimer() {
+function Disclaimer({ pulledLabel }: { pulledLabel: string }) {
   return (
     <>
       <p>
-        Names and projects come from the public Art Blocks API, pulled {meta.pulledLabel}. Artists are not featured beyond that record without consent.
+        Names and projects come from the public Art Blocks API, pulled {pulledLabel}. Artists are not featured beyond that record without consent.
       </p>
       <p>PlayTools is an independent project, not affiliated with Art Blocks.</p>
       <p className="quiet">Private preview. Search engines are asked not to index this site.</p>
@@ -23,19 +22,28 @@ function Disclaimer() {
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({
+  pulledLabel,
+  makePaths,
+  recipes,
+}: {
+  pulledLabel: string;
+  makePaths: { slug: string; plain: string }[];
+  recipes: { slug: string; plain: string }[];
+}) {
   const path = cleanPath(usePathname() || "/");
+  const workspace = path === "/" || ["/generate", "/examples", "/tools", "/learn"].some((item) => path === item || path.startsWith(`${item}/`));
   const lab = path === "/lab" || path.startsWith("/lab/");
   const map = path === "/sitemap" || path.startsWith("/sitemap/");
 
-  if (lab || map) {
+  if (workspace || lab || map) {
     return (
       <footer className="site-footer">
         <p className="footer-minis">
           <Link href="/lab/suggest/">Suggest a tool, example, or fix</Link>
           <Link href="/sitemap/">Site map</Link>
         </p>
-        <Disclaimer />
+        <Disclaimer pulledLabel={pulledLabel} />
       </footer>
     );
   }
@@ -46,7 +54,7 @@ export function SiteFooter() {
         <SuggestForm />
       </Suspense>
       <p>
-        Names and projects come from the public Art Blocks API, pulled {meta.pulledLabel}. Artists are not featured beyond that record without consent.
+        Names and projects come from the public Art Blocks API, pulled {pulledLabel}. Artists are not featured beyond that record without consent.
       </p>
       <p>PlayTools is an independent project, not affiliated with Art Blocks.</p>
       <nav className="sitemap" aria-label="Site map">
@@ -78,7 +86,7 @@ export function SiteFooter() {
           <div>
             <h3>Make</h3>
             <ul className="link-list">
-              {meta.paths.map((item) => (
+                {makePaths.map((item) => (
                 <li key={item.slug}>
                   <Link href={`/make/${item.slug}/`}>{item.plain}</Link>
                 </li>
@@ -91,7 +99,7 @@ export function SiteFooter() {
               <li>
                 <Link href="/recipes/">All recipes</Link>
               </li>
-              {meta.recipes.map((recipe) => (
+                {recipes.map((recipe) => (
                 <li key={recipe.slug}>
                   <Link href={`/recipes/${recipe.slug}/`}>{recipe.plain}</Link>
                 </li>

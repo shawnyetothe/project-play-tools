@@ -7,7 +7,11 @@ export type RouteRow = {
 };
 
 export const routes: RouteRow[] = [
-  { path: "/", note: "Home.", params: [] },
+  { path: "/", note: "Home. Hero, three lineages, a generate preview.", params: ["seed", "rule", "palette", "var", "door", "pick", "n"] },
+  { path: "/generate/", note: "Rule, variance, and palette, then edition and curation.", params: ["seed", "rule", "palette", "var", "n"] },
+  { path: "/examples/", note: "Example list with type filters.", params: ["door", "pick"] },
+  { path: "/examples/{slug}/", note: "One example. Use this rule loads it into the tray.", params: ["seed", "rule"] },
+  { path: "/learn/", note: "Links grouped by maker type.", params: [] },
   { path: "/start/", note: "Start here.", params: [] },
   { path: "/about/", note: "About this guide.", params: [] },
   { path: "/abx/", note: "Publish path.", params: [] },

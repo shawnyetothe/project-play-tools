@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Defer lab-page JavaScript until after first paint.
 
-The headline and lede are in the HTML. Next's chunk scripts are not needed to
+The headline and poster are in the HTML. Next's chunk scripts are not needed to
 paint them, but on a fast origin they finish before LCP and Lighthouse then
-treats them as part of the mobile critical path. Homepage HTML is left alone.
+treats them as part of the mobile critical path.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "out" / "lab"
+OUT = ROOT / "out"
 
 SCRIPT_RE = re.compile(
     r'<script src="(/_next/static/chunks/[^"]+)"([^>]*)></script>',
@@ -31,8 +31,7 @@ def loader(srcs: list[tuple[str, bool]]) -> str:
         "(function(){"
         f"var list=[{payload}];"
         "function load(){"
-        "var lab=document.querySelector('.lab');"
-        "if(lab)lab.classList.add('fonts-ready');"
+        "document.documentElement.classList.add('fonts-ready');"
         "for(var i=0;i<list.length;i++){"
         "var s=document.createElement('script');"
         "s.src=list[i].s;"
@@ -69,11 +68,21 @@ def rewrite(path: Path) -> None:
     print(f"{path.relative_to(ROOT)} deferred {len(srcs)} scripts")
 
 
+def wanted(path: Path) -> bool:
+    rel = path.relative_to(OUT).as_posix()
+    if rel.startswith("lab/"):
+        return True
+    if rel in {"index.html", "generate/index.html", "examples/index.html", "learn/index.html", "tools/index.html"}:
+        return True
+    return rel.startswith("examples/") and rel.endswith("/index.html")
+
+
 def main() -> None:
     if not OUT.exists():
-        raise SystemExit("out/lab is missing. Run next build first.")
+        raise SystemExit("out is missing. Run next build first.")
     for path in sorted(OUT.rglob("*.html")):
-        rewrite(path)
+        if wanted(path):
+            rewrite(path)
 
 
 if __name__ == "__main__":
