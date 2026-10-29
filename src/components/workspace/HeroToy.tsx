@@ -73,16 +73,16 @@ export function HeroToy() {
     particles.current = makeSwarm(state.seed, count);
     if (settled.current) assignFlow(particles.current);
 
+    const contentBox = () => ({
+      w: Math.max(2, wrap.clientWidth),
+      h: Math.max(2, wrap.clientHeight),
+    });
     const fit = () => {
-      const rect = wrap.getBoundingClientRect();
       const dpr = Math.min(2, window.devicePixelRatio || 1);
-      const w = Math.max(2, rect.width);
-      const h = Math.max(2, rect.height);
+      const { w, h } = contentBox();
       setSize({ w: Math.round(w), h: Math.round(h) });
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
       grid.width = canvas.width;
       grid.height = canvas.height;
       const g = grid.getContext("2d");
@@ -127,17 +127,17 @@ export function HeroToy() {
       }
     };
     fit();
-    const placed = wrap.getBoundingClientRect();
+    const placed = contentBox();
     for (const particle of particles.current) {
-      const home = shellPoint(particle, placed.width || 342, placed.height || 320);
+      const home = shellPoint(particle, placed.w || 342, placed.h || 320);
       particle.x = home.x;
       particle.y = home.y;
     }
     wrap.classList.add("is-live");
     const pending = (window as Window & { __playStroke?: LinePoint[] }).__playStroke;
     if (pending && pending.length > 1) {
-      const rect = wrap.getBoundingClientRect();
-      const pixels = pending.map((point) => ({ x: point.x * rect.width, y: point.y * rect.height }));
+      const rect = contentBox();
+      const pixels = pending.map((point) => ({ x: point.x * rect.w, y: point.y * rect.h }));
       settled.current = pixels;
       stroke.current = pixels.slice();
       assignFlow(particles.current);
@@ -154,8 +154,7 @@ export function HeroToy() {
       if (!hidden && visible) {
         const dt = Math.min(0.05, (now - last) / 1000);
         last = now;
-        const w = box.width;
-        const h = box.height;
+        const { w, h } = contentBox();
         const line = stroke.current.length > 1 ? stroke.current : settled.current;
         stepSwarm(particles.current, line, w, h, reduced ? 0 : dt || 0.016, reduced);
         const ctx = canvas.getContext("2d");

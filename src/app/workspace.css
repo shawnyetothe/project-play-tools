@@ -8,11 +8,12 @@
 html.fonts-ready .workspace h1, html.fonts-ready .workspace h2 {
   font-family: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
 }
-.hero-home { display: grid; gap: 1.25rem; padding: 1rem 1rem 2rem; }
+.hero-home { display: grid; gap: 1.25rem; padding: 1rem 0 2rem; }
+.hero-copy, .hero-stage, .hero-block, .hero-frame { min-width: 0; max-width: 100%; }
 .hero-copy h1 { font-size: 34px; line-height: 36px; margin: 0 0 0.4rem; }
 .hero-copy .sub { color: #6b6b73; font-size: 17px; margin: 0 0 0.8rem; }
 .hero-kicker { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b73; margin: 0 0 0.4rem; }
-.hero-frame { position: relative; width: 100%; height: 320px; border: 1px solid #0b0b0f; background: #f5f5f2; }
+.hero-frame { position: relative; width: 100%; height: 320px; border: 1px solid #0b0b0f; background: #f5f5f2; box-sizing: border-box; overflow: hidden; }
 .hero-poster, .hero-art { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-frame.is-live .hero-poster { opacity: 0; }
 .hero-art { touch-action: none; cursor: crosshair; }
@@ -52,6 +53,14 @@ body:has(.tray) main { padding-bottom: 9rem; }
 .gen-screen { display: grid; gap: 1rem; padding-bottom: 1rem; }
 .gen-screen label { font-weight: 700; }
 .site-header .nav-wide { display: none; }
+@media (max-width: 959px) {
+  .hero-home.wrap {
+    width: auto;
+    max-width: none;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
 @media (min-width: 960px) {
   .hero-home { grid-template-columns: minmax(0, 880px) 360px; align-items: start; padding: 2rem 4rem 3rem; }
   .hero-copy { order: 2; background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 24px; }
