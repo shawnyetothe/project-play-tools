@@ -46,14 +46,21 @@ export function KeyHints() {
     };
   }, [href, reset, router, share]);
 
+  return null;
+}
+
+export function KeyHintLine() {
   return (
-    <p className="key-hints" data-keys="">
+    <p className="key-hints">
       <kbd>[G]</kbd>
       <kbd>[E]</kbd>
       <kbd>[T]</kbd>
       <kbd>[L]</kbd>
-      <kbd>[S]</kbd> share
-      <kbd>[R]</kbd> reset
+      <span className="key-gap" />
+      <kbd>[S]</kbd>
+      <span>share</span>
+      <kbd>[R]</kbd>
+      <span>reset</span>
     </p>
   );
 }

@@ -3,15 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { assignFlow, makeSwarm, resample, shellPoint, stepSwarm, type Particle, type Vec } from "@/lib/hero-sim";
+import { KeyHintLine } from "./Keys";
 import { useWorkspace } from "./Workspace";
 import type { LinePoint } from "@/lib/workspace-state";
-
-const MAKERS = [
-  { id: "new", label: "New to code" },
-  { id: "designer", label: "Designer" },
-  { id: "musician", label: "Musician" },
-  { id: "artist", label: "Artist" },
-];
 
 function posterPoints(seed: string) {
   const swarm = makeSwarm(seed, 220);
@@ -38,7 +32,7 @@ export function HeroPoster({ seed }: { seed: string }) {
 }
 
 export function HeroToy() {
-  const { state, line, setLine, setState, markInteracted, href } = useWorkspace();
+  const { state, line, setLine, markInteracted, href } = useWorkspace();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const particles = useRef<Particle[]>([]);
@@ -48,7 +42,6 @@ export function HeroToy() {
   const stroke = useRef<Vec[]>([]);
   const settled = useRef<Vec[] | null>(line.length ? line.map((point) => ({ x: point.x, y: point.y })) : null);
   const [status, setStatus] = useState(line.length ? "settled" : "orbiting");
-  const [doors, setDoors] = useState(state.interacted);
   const [fps, setFps] = useState(60);
   const [size, setSize] = useState({ w: 880, h: 620 });
   const [reduced, setReduced] = useState(false);
@@ -147,7 +140,6 @@ export function HeroToy() {
       stroke.current = pixels.slice();
       assignFlow(particles.current);
       setLine(pending);
-      setDoors(true);
       setStatus(reduced ? "paused" : "settled");
     }
 
@@ -249,7 +241,6 @@ export function HeroToy() {
     setLine(smooth as LinePoint[]);
     setStatus(reduced ? "paused" : "re-forming");
     window.setTimeout(() => setStatus(reduced ? "paused" : "settled"), reduced ? 0 : 900);
-    if (!doors) window.setTimeout(() => setDoors(true), reduced ? 0 : 400);
     markInteracted();
   }
 
@@ -292,32 +283,7 @@ export function HeroToy() {
         <span>state: {reduced && status === "orbiting" ? "paused" : status}</span>
         <Link className="source-link" href={href("/examples/orbit/")}>source ↗</Link>
       </p>
-      {doors ? (
-        <div className="door-stack" data-doors="open">
-          <p>Pick a way in</p>
-          {(
-            [
-              ["message", "Message", "Say something"],
-              ["medium", "Medium", "Make something"],
-              ["maker", "Maker", "Find your style"],
-            ] as const
-          ).map(([id, label, detail]) => (
-            <button key={id} type="button" aria-pressed={state.door === id} onClick={() => setState({ door: id, pick: id === "maker" ? state.pick : "" })}>
-              <strong>{label}</strong>
-              <span>{detail}</span>
-            </button>
-          ))}
-          {state.door === "maker" ? (
-            <div className="maker-row" data-makers="open">
-              {MAKERS.map((maker) => (
-                <button key={maker.id} type="button" aria-pressed={state.pick === maker.id} onClick={() => setState({ pick: maker.id })}>
-                  {maker.label}
-                </button>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      <KeyHintLine />
       <p className="hero-hint">{line.length ? "the line stays. points flow along it." : ""}</p>
     </div>
   );

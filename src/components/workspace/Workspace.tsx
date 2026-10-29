@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { KeyHintLine } from "./Keys";
 import { LineThumb } from "./LineThumb";
 import {
   DEFAULT_STATE,
@@ -135,6 +136,7 @@ export function Tray() {
       <Link href={href("/generate/")}>Generate</Link>
       <button type="button" onClick={() => void share()}>{shared ? "Copied" : "Share"}</button>
       <button type="button" onClick={reset}>Reset</button>
+      <KeyHintLine />
     </aside>
   );
 }

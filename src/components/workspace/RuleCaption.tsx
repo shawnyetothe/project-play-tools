@@ -102,10 +102,10 @@ export function RuleCaption() {
             max={0.12}
             step={0.01}
             label="Orbit speed in radians per second"
-            text={`${speed.toFixed(2)} rad/s`}
+            text={`${speed.toFixed(2)} rad/s.`}
             onChange={(next) => setState({ speed: next })}
-          />
-          .<sup>1</sup> Draw a line and they take it as their path, spread{" "}
+          /><sup>1</sup>{" "}
+          Draw a line and they take it as their path, spread{" "}
           <Scrub
             value={spread}
             min={0}
@@ -114,8 +114,7 @@ export function RuleCaption() {
             label="Spread on either side of the line"
             text={`${(spread * 100).toFixed(1)}%`}
             onChange={(next) => setState({ spread: next })}
-          />{" "}
-          on either side.<sup>2</sup>
+          />{" "}on either side.<sup>2</sup>
         </p>
       </figcaption>
       <ol className="fig-notes">

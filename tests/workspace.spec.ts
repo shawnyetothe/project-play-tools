@@ -11,6 +11,32 @@ async function drag(page: import("@playwright/test").Page) {
   await page.mouse.up();
 }
 
+async function clearOfBar(page: import("@playwright/test").Page, selector: string) {
+  const items = page.locator(selector);
+  const count = await items.count();
+  for (let index = 0; index < count; index += 1) {
+    const item = items.nth(index);
+    const overlap = await item.evaluate((node) => {
+      document.documentElement.style.scrollBehavior = "auto";
+      node.scrollIntoView({ block: "center", inline: "nearest" });
+      const phone = document.querySelector(".phone-nav");
+      const tray = document.querySelector("[data-tray='open']");
+      const bar = phone && getComputedStyle(phone).display !== "none"
+        ? phone
+        : tray && getComputedStyle(tray).display !== "none"
+          ? tray
+          : null;
+      if (!bar) return 0;
+      const nudge = node.getBoundingClientRect().bottom - bar.getBoundingClientRect().top;
+      if (nudge > 0) window.scrollBy(0, nudge + 12);
+      const box = node.getBoundingClientRect();
+      const limit = bar.getBoundingClientRect();
+      return Math.max(0, Math.min(box.bottom, limit.bottom) - Math.max(box.top, limit.top));
+    });
+    expect(overlap).toBeLessThan(1);
+  }
+}
+
 async function frameBox(page: import("@playwright/test").Page) {
   return page.evaluate(() => {
     const frame = document.querySelector(".hero-frame");
@@ -69,6 +95,10 @@ for (const viewport of [
     expect(drawn.left).toBeGreaterThanOrEqual(12);
     expect(drawn.right).toBeLessThanOrEqual(drawn.vw - 12);
     if (viewport.width === 390) expect(Math.abs(drawn.left - drawn.rightGap)).toBeLessThan(1.5);
+    await clearOfBar(page, ".hero-caption");
+    await clearOfBar(page, ".door-stack > button");
+    const label = await page.locator(".door-stack strong").first().evaluate((node) => getComputedStyle(node).color);
+    expect(label).toBe("rgb(11, 11, 15)");
   });
 }
 
@@ -94,8 +124,13 @@ test("scrub values change the live sketch", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-keys", "1");
   const speed = page.getByRole("slider", { name: "Orbit speed in radians per second" });
-  const box = await speed.boundingBox();
-  expect(box && box.height).toBeGreaterThanOrEqual(48);
+  const hit = await speed.evaluate((node) => {
+    const before = getComputedStyle(node, "::before");
+    return { height: parseFloat(before.height), width: parseFloat(before.width), line: parseFloat(getComputedStyle(node.parentElement!).lineHeight) };
+  });
+  expect(hit.height).toBeGreaterThanOrEqual(48);
+  expect(hit.width).toBeGreaterThanOrEqual(48);
+  expect(hit.line).toBeLessThan(40);
   const before = Number(await speed.getAttribute("aria-valuenow"));
   await speed.press("ArrowRight");
   await expect.poll(async () => Number(await speed.getAttribute("aria-valuenow"))).toBeGreaterThan(before);

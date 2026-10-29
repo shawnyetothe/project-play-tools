@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { examples } from "@/lib/examples";
 import { meta, tools } from "@/lib/data";
+import { Doors } from "@/components/workspace/Doors";
 import { HeroToy } from "@/components/workspace/HeroToy";
 import { RuleCaption } from "@/components/workspace/RuleCaption";
 
@@ -10,14 +11,17 @@ export default function HomePage() {
   return (
     <div className="workspace">
       <section className="hero-home wrap">
-        <p className="hero-kicker">PlayTools · live sketch</p>
-        <div className="hero-titles">
-          <h1 className="arm-a">Draw a line. Watch the rule take it.</h1>
-          <h1 className="arm-b">Your move. The rules do the rest.</h1>
-          <p className="sub">Play it. Then read the rules.</p>
+        <div className="hero-copy">
+          <p className="hero-kicker">PlayTools · live sketch</p>
+          <div className="hero-titles">
+            <h1 className="arm-a">Draw a line. Watch the rule take it.</h1>
+            <h1 className="arm-b">Your move. The rules do the rest.</h1>
+            <p className="sub">Play it. Then read the rules.</p>
+          </div>
+          <p className="hero-prompt">→ Drag across the drawing</p>
+          <RuleCaption />
+          <Doors />
         </div>
-        <p className="hero-prompt">→ Drag across the drawing</p>
-        <RuleCaption />
         <HeroToy />
         <script
           dangerouslySetInnerHTML={{
