@@ -2,6 +2,7 @@ import Link from "next/link";
 import { examples } from "@/lib/examples";
 import { meta, tools } from "@/lib/data";
 import { HeroToy } from "@/components/workspace/HeroToy";
+import { RuleCaption } from "@/components/workspace/RuleCaption";
 
 const p5 = tools.find((tool) => tool.id === "p5");
 
@@ -9,21 +10,20 @@ export default function HomePage() {
   return (
     <div className="workspace">
       <section className="hero-home wrap">
-        <div className="hero-copy">
-          <p className="hero-kicker">PlayTools · live sketch</p>
+        <p className="hero-kicker">PlayTools · live sketch</p>
+        <div className="hero-titles">
           <h1 className="arm-a">Draw a line. Watch the rule take it.</h1>
           <h1 className="arm-b">Your move. The rules do the rest.</h1>
           <p className="sub">Play it. Then read the rules.</p>
         </div>
-        <div className="hero-stage">
-          <p className="hero-kicker">fig. 01 · rule: points orbit the circle; a drawn line becomes their new path</p>
-          <HeroToy />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(){function bind(){var canvas=document.querySelector("canvas.hero-art");if(!canvas||canvas.dataset.bound)return;canvas.dataset.bound="1";var pts=[];var drawing=false;function point(e){var r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}canvas.addEventListener("pointerdown",function(e){drawing=true;try{canvas.setPointerCapture(e.pointerId);}catch(err){}pts=[point(e)];});canvas.addEventListener("pointermove",function(e){if(!drawing)return;pts.push(point(e));});canvas.addEventListener("pointerup",function(){if(!drawing||pts.length<2){drawing=false;return;}drawing=false;var r=canvas.getBoundingClientRect();window.__playStroke=pts.map(function(p){return {x:p.x/r.width,y:p.y/r.height};});canvas.dataset.drawn="1";});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();})();`,
-            }}
-          />
-        </div>
+        <p className="hero-prompt">→ Drag across the drawing</p>
+        <RuleCaption />
+        <HeroToy />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){function bind(){var canvas=document.querySelector("canvas.hero-art");if(!canvas||canvas.dataset.bound)return;canvas.dataset.bound="1";var pts=[];var drawing=false;function point(e){var r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}function end(){drawing=false;document.documentElement.dataset.drawing="0";if(pts.length<2)return;var r=canvas.getBoundingClientRect();window.__playStroke=pts.map(function(p){return {x:p.x/r.width,y:p.y/r.height};});canvas.dataset.drawn="1";}canvas.addEventListener("pointerdown",function(e){drawing=true;document.documentElement.dataset.drawing="1";try{canvas.setPointerCapture(e.pointerId);}catch(err){}pts=[point(e)];});canvas.addEventListener("pointermove",function(e){if(!drawing)return;pts.push(point(e));});canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();})();`,
+          }}
+        />
       </section>
       <section className="wrap lineage-grid" aria-label="Three lineages">
         {examples.filter((item) => item.kind === "lineage").slice(0, 3).map((item) => (

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { LineThumb } from "./LineThumb";
 import {
   DEFAULT_STATE,
   STORAGE_KEY,
@@ -122,14 +123,14 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function Tray() {
-  const { state, href, share, shared, reset } = useWorkspace();
+  const { state, line, href, share, shared, reset } = useWorkspace();
   if (!state.interacted) return null;
   return (
     <aside className="tray" data-tray="open" aria-label="Current piece">
-      <span className="tray-thumb" aria-hidden="true" />
+      <LineThumb line={line} />
       <span className="tray-meta">
         <strong>{state.seed}</strong>
-        <span>{state.door || "no door"}</span>
+        <span>rule {state.rule} · {state.door || "no door"}</span>
       </span>
       <Link href={href("/generate/")}>Generate</Link>
       <button type="button" onClick={() => void share()}>{shared ? "Copied" : "Share"}</button>
@@ -138,26 +139,58 @@ export function Tray() {
   );
 }
 
+const PHONE_LINKS = [
+  { href: "/generate/", label: "Generate", num: "01" },
+  { href: "/examples/", label: "Examples", num: "02" },
+  { href: "/tools/", label: "Tools", num: "03" },
+  { href: "/learn/", label: "Learn", num: "04" },
+];
+
 export function PhoneNav() {
   const pathname = usePathname() || "/";
-  const { href } = useWorkspace();
-  const links = [
-    { href: "/generate/", label: "Generate" },
-    { href: "/examples/", label: "Examples" },
-    { href: "/tools/", label: "Tools" },
-    { href: "/learn/", label: "Learn" },
-  ];
+  const { href, state, line, share, shared, reset } = useWorkspace();
+  const [sheet, setSheet] = useState(false);
   return (
-    <nav className="phone-nav" aria-label="Workspace">
-      {links.map((link) => {
-        const current = pathname === link.href || pathname.startsWith(link.href);
-        return (
-          <Link key={link.href} href={href(link.href)} aria-current={current ? "page" : undefined}>
-            {link.label}
-          </Link>
-        );
-      })}
-    </nav>
+    <>
+      <nav className="phone-nav" aria-label="Workspace">
+        {PHONE_LINKS.map((link) => {
+          const current = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+          if (link.href === "/generate/" && state.interacted) {
+            return (
+              <button key={link.href} type="button" className="phone-cell" aria-current={current ? "page" : undefined} onClick={() => setSheet(true)}>
+                <LineThumb line={line} />
+                <span>{link.label}</span>
+              </button>
+            );
+          }
+          return (
+            <Link key={link.href} className="phone-cell" href={href(link.href)} aria-current={current ? "page" : undefined}>
+              <span className="phone-num">{link.num}</span>
+              <span>{link.label}</span>
+            </Link>
+          );
+        })}
+      </nav>
+      {sheet ? (
+        <div className="sheet-back" onClick={() => setSheet(false)}>
+          <div className="sheet" role="dialog" aria-label="This drawing" onClick={(event) => event.stopPropagation()}>
+            <span className="sheet-grab" aria-hidden="true" />
+            <div className="sheet-row">
+              <LineThumb line={line} />
+              <p>
+                <strong>seed {state.seed}</strong>
+                <span>rule {state.rule} · {state.door || "no door"}</span>
+              </p>
+            </div>
+            <div className="sheet-actions">
+              <Link className="sheet-primary" href={href("/generate/")} onClick={() => setSheet(false)}>Open in Generate</Link>
+              <button type="button" onClick={() => void share()}>{shared ? "Copied" : "Share"}</button>
+              <button type="button" onClick={() => { reset(); setSheet(false); }}>Reset</button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
 

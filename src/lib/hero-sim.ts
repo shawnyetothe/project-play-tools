@@ -72,7 +72,7 @@ export function makeSwarm(seed: string, count: number): Particle[] {
       size: SIZES[Math.floor(mix(base, i, 4) * SIZES.length)],
       along: i / count,
       shell: Math.pow(mix(base, i, 6), 0.55),
-      normal: (mix(base, i, 5) - 0.5) * 0.045,
+      normal: mix(base, i, 5) - 0.5,
       flow: false,
     });
   }
@@ -143,7 +143,7 @@ export function samplePath(points: Vec[], t: number): { point: Vec; tangent: Vec
 }
 
 /** Flow along the stroke. Near either end the tangent curls so the swarm loops instead of scattering. */
-export function flowTarget(particle: Particle, line: Vec[], h: number): Vec {
+export function flowTarget(particle: Particle, line: Vec[], h: number, spread = 0.045): Vec {
   const along = ((particle.along % 1) + 1) % 1;
   const sample = samplePath(line, along);
   let curl = 0;
@@ -155,7 +155,7 @@ export function flowTarget(particle: Particle, line: Vec[], h: number): Vec {
   const ty = sample.tangent.x * sin + sample.tangent.y * cos;
   const nx = -sample.tangent.y;
   const ny = sample.tangent.x;
-  const gap = h * particle.normal;
+  const gap = h * particle.normal * 2 * spread;
   const curlPush = Math.abs(curl) * h * 0.06;
   return {
     x: sample.point.x + nx * gap + tx * curlPush,
@@ -163,11 +163,11 @@ export function flowTarget(particle: Particle, line: Vec[], h: number): Vec {
   };
 }
 
-export function stepSwarm(particles: Particle[], line: Vec[] | null, w: number, h: number, dt: number, reduced: boolean) {
+export function stepSwarm(particles: Particle[], line: Vec[] | null, w: number, h: number, dt: number, reduced: boolean, orbit = 0.03, spread = 0.045) {
   for (const particle of particles) {
-    if (!reduced && !particle.flow) particle.angle += particle.speed * dt;
+    if (!reduced && !particle.flow) particle.angle += orbit * dt;
     if (particle.flow && line && line.length > 1 && !reduced) particle.along += dt * 0.18;
-    const target = particle.flow && line && line.length > 1 ? flowTarget(particle, line, h) : shellPoint(particle, w, h);
+    const target = particle.flow && line && line.length > 1 ? flowTarget(particle, line, h, spread) : shellPoint(particle, w, h);
     if (reduced) {
       particle.x = target.x;
       particle.y = target.y;

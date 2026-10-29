@@ -13,6 +13,8 @@ export type PieceState = {
   var: string;
   n: number;
   interacted: boolean;
+  speed: number;
+  spread: number;
 };
 
 export type LinePoint = { x: number; y: number };
@@ -26,6 +28,8 @@ export const DEFAULT_STATE: PieceState = {
   var: "rng",
   n: 16,
   interacted: false,
+  speed: 0.03,
+  spread: 0.045,
 };
 
 const DOORS: Door[] = ["", "message", "medium", "maker"];
@@ -41,6 +45,10 @@ export function readPublic(search: string): PieceState {
   const door = params.get("door") || "";
   const rawN = params.get("n");
   const parsedN = rawN == null || rawN === "" ? DEFAULT_STATE.n : Number(rawN);
+  const speedParam = params.get("speed");
+  const spreadParam = params.get("spread");
+  const rawSpeed = speedParam == null || speedParam === "" ? Number.NaN : Number(speedParam);
+  const rawSpread = spreadParam == null || spreadParam === "" ? Number.NaN : Number(spreadParam);
   return {
     seed: normalizeSeed(params.get("seed")),
     rule: (params.get("rule") || DEFAULT_STATE.rule).slice(0, 24),
@@ -50,6 +58,8 @@ export function readPublic(search: string): PieceState {
     var: (params.get("var") || DEFAULT_STATE.var).slice(0, 24),
     n: Number.isFinite(parsedN) ? Math.min(10000, Math.max(1, Math.round(parsedN))) : DEFAULT_STATE.n,
     interacted: params.get("played") === "1",
+    speed: Number.isFinite(rawSpeed) && rawSpeed > 0 ? Math.min(0.2, Math.max(0.01, rawSpeed)) : DEFAULT_STATE.speed,
+    spread: Number.isFinite(rawSpread) && rawSpread >= 0 ? Math.min(0.2, rawSpread) : DEFAULT_STATE.spread,
   };
 }
 
@@ -62,6 +72,8 @@ export function writePublic(state: PieceState): string {
   if (state.pick) params.set("pick", state.pick);
   if (state.var) params.set("var", state.var);
   if (state.n) params.set("n", String(state.n));
+  if (state.speed && state.speed !== DEFAULT_STATE.speed) params.set("speed", String(Math.round(state.speed * 1000) / 1000));
+  if (state.spread !== DEFAULT_STATE.spread) params.set("spread", String(Math.round(state.spread * 1000) / 1000));
   if (state.interacted) params.set("played", "1");
   const query = params.toString();
   return query ? `?${query}` : "";

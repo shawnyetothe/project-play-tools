@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Atkinson_Hyperlegible, Bricolage_Grotesque, JetBrains_Mono, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { KeyHints } from "@/components/workspace/Keys";
 import { PhoneNav, Tray, WorkspaceProvider } from "@/components/workspace/Workspace";
 import { meta } from "@/lib/data";
 import "./globals.css";
@@ -63,7 +64,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f1e8",
+  themeColor: "#f5f5f2",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -101,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
           <Tray />
           <PhoneNav />
+          <KeyHints />
         </WorkspaceProvider>
       </body>
     </html>

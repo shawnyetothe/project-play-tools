@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { assignFlow, makeSwarm, resample, shellPoint, stepSwarm, type Particle, type Vec } from "@/lib/hero-sim";
 import { useWorkspace } from "./Workspace";
@@ -37,13 +38,16 @@ export function HeroPoster({ seed }: { seed: string }) {
 }
 
 export function HeroToy() {
-  const { state, line, setLine, setState, markInteracted } = useWorkspace();
+  const { state, line, setLine, setState, markInteracted, href } = useWorkspace();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const particles = useRef<Particle[]>([]);
+  const tune = useRef({ speed: state.speed || 0.03, spread: state.spread ?? 0.045 });
+  tune.current.speed = state.speed || 0.03;
+  tune.current.spread = state.spread ?? 0.045;
   const stroke = useRef<Vec[]>([]);
   const settled = useRef<Vec[] | null>(line.length ? line.map((point) => ({ x: point.x, y: point.y })) : null);
-  const [status, setStatus] = useState(line.length ? "settled" : "live");
+  const [status, setStatus] = useState(line.length ? "settled" : "orbiting");
   const [doors, setDoors] = useState(state.interacted);
   const [fps, setFps] = useState(60);
   const [size, setSize] = useState({ w: 880, h: 620 });
@@ -133,7 +137,8 @@ export function HeroToy() {
       particle.x = home.x;
       particle.y = home.y;
     }
-    wrap.classList.add("is-live");
+    const motionOff = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!motionOff) wrap.classList.add("is-live");
     const pending = (window as Window & { __playStroke?: LinePoint[] }).__playStroke;
     if (pending && pending.length > 1) {
       const rect = contentBox();
@@ -156,7 +161,7 @@ export function HeroToy() {
         last = now;
         const { w, h } = contentBox();
         const line = stroke.current.length > 1 ? stroke.current : settled.current;
-        stepSwarm(particles.current, line, w, h, reduced ? 0 : dt || 0.016, reduced);
+        stepSwarm(particles.current, line, w, h, reduced ? 0 : dt || 0.016, reduced, tune.current.speed, tune.current.spread);
         const ctx = canvas.getContext("2d");
         if (ctx) {
           const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -249,8 +254,9 @@ export function HeroToy() {
   }
 
   return (
-    <div className="hero-block" data-hero="live" data-reduced={reduced ? "true" : "false"}>
-      <div className="hero-frame" ref={wrapRef}>
+    <div className="hero-toy" data-hero="live" data-reduced={reduced ? "true" : "false"}>
+      <p className="fig-label">FIG. 01</p>
+      <div className="hero-frame" ref={wrapRef} data-orbit={state.speed || 0.03} data-spread={state.spread ?? 0.045}>
         <HeroPoster seed={state.seed} />
         <canvas
           ref={canvasRef}
@@ -259,6 +265,7 @@ export function HeroToy() {
           aria-label="Live sketch. Drag to draw a line."
           onPointerDown={(event) => {
             event.currentTarget.setPointerCapture(event.pointerId);
+            document.documentElement.dataset.drawing = "1";
             stroke.current = [localPoint(event)];
             setStatus("drawing");
           }}
@@ -267,28 +274,24 @@ export function HeroToy() {
             stroke.current.push(localPoint(event));
           }}
           onPointerUp={(event) => {
+            document.documentElement.dataset.drawing = "0";
+            if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
             if (stroke.current.length < 2) {
               stroke.current = [];
               return;
             }
             commit(stroke.current);
-            if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
           }}
         />
       </div>
       <p className="hero-readout" data-testid="hero-readout">
         <span>seed {state.seed}</span>
         <span>edition open</span>
-        <span>{size.w}×{size.h}</span>
-        <span>fps {reduced ? "—" : fps}</span>
         <span>pts {particles.current.length || (size.w < 720 ? 500 : 1200)}</span>
-        <span>{reduced && status === "live" ? "paused" : status}</span>
+        <span>fps {reduced ? "—" : fps}</span>
+        <span>state: {reduced && status === "orbiting" ? "paused" : status}</span>
+        <Link className="source-link" href={href("/examples/orbit/")}>source ↗</Link>
       </p>
-      <p className="hero-hint">{line.length ? "the line stays. points flow along it." : "drag on the drawing to draw"}</p>
-      <div className="hero-actions">
-        <button type="button" className="hero-primary" onClick={() => canvasRef.current?.focus()}>Keep playing</button>
-        <a className="hero-secondary" href="#rule">See the code</a>
-      </div>
       {doors ? (
         <div className="door-stack" data-doors="open">
           <p>Pick a way in</p>
@@ -315,9 +318,7 @@ export function HeroToy() {
           ) : null}
         </div>
       ) : null}
-      <p id="rule" className="hero-rule">
-        Idle, points orbit an ellipse above the horizon. After a drag they flow along your line and curl at the ends. The line is kept.
-      </p>
+      <p className="hero-hint">{line.length ? "the line stays. points flow along it." : ""}</p>
     </div>
   );
 }

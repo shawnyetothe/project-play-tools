@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useWorkspace } from "./workspace/Workspace";
 
 const links = [
-  { href: "/generate/", label: "Generate" },
-  { href: "/examples/", label: "Examples" },
-  { href: "/tools/", label: "Tools" },
-  { href: "/learn/", label: "Learn" },
+  { href: "/generate/", label: "Generate", num: "01" },
+  { href: "/examples/", label: "Examples", num: "02" },
+  { href: "/tools/", label: "Tools", num: "03" },
+  { href: "/learn/", label: "Learn", num: "04" },
 ];
 
 export function SiteHeader() {
@@ -24,6 +24,7 @@ export function SiteHeader() {
         <nav className="nav-wide" aria-label="Primary">
           {links.map((link) => (
             <Link key={link.href} href={href(link.href)} aria-current={pathname === link.href || pathname.startsWith(link.href) ? "page" : undefined}>
+              <span className="nav-num">{link.num}</span>
               {link.label}
             </Link>
           ))}

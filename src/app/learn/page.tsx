@@ -16,21 +16,20 @@ export default function LearnPage() {
     <div className="workspace wrap">
       <h1>Learn</h1>
       <p>Grouped by who is making. Each link is a tool page from this guide. Counts on those pages come from the Art Blocks pull.</p>
-      {GROUPS.map((group) => {
-        const tool = toolById.get(group.tool);
-        return (
-          <section key={group.id}>
-            <h2>{group.title}</h2>
-            {tool ? (
-              <p>
-                <Link href={`/tools/${tool.id}/`}>{tool.plain}</Link>
-                {" — "}
-                {tool.what} {typeof tool.projectCount === "number" ? `(${tool.projectCount.toLocaleString()} projects in the pull)` : ""}
-              </p>
-            ) : null}
-          </section>
-        );
-      })}
+      <ol className="index-rows">
+        {GROUPS.map((group, index) => {
+          const tool = toolById.get(group.tool);
+          return (
+            <li key={group.id}>
+              <Link className="index-row" href={tool ? `/tools/${tool.id}/` : "/tools/"}>
+                <span className="index-num">{String(index + 1).padStart(2, "0")}</span>
+                <span className="index-label">{group.title}</span>
+                <span className="index-desc">{tool ? tool.what : group.title}</span>
+              </Link>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }
