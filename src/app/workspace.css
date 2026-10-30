@@ -34,21 +34,26 @@ html.fonts-ready .workspace h1, html.fonts-ready .workspace h2 {
 .fig-sentence { margin: 0; font-size: 15px; line-height: 1.5; }
 .fig-notes { margin: 0.35rem 0 0; padding-left: 1.1rem; color: #6b6b73; font-size: 12px; }
 .fig-notes li { margin: 0.1rem 0; }
-.scrub {
+.scrub, button.scrub {
   position: relative;
   font: inherit;
+  font-weight: 600;
   line-height: inherit;
-  color: inherit;
+  color: #0b0b0f;
   background: transparent;
   border: 0;
-  border-bottom: 1.5px dashed #e4572e;
-  padding: 0 0.05rem;
+  border-bottom: 2px dashed #e4572e;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 1px;
   margin: 0 0.05rem;
   cursor: ew-resize;
   display: inline-block;
   min-height: 0;
+  height: auto;
   vertical-align: baseline;
 }
+.nav-wide .kbd { display: none; }
 .scrub::before {
   content: "";
   position: absolute;

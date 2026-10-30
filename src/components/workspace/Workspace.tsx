@@ -73,6 +73,7 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!ready) return;
+    if (pathname === "/generate" || pathname.startsWith("/generate/")) return;
     const query = writePublic(state);
     const hash = writeHash(line);
     const next = `${pathname}${query}${hash}`;
@@ -113,7 +114,14 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const href = useCallback((path: string) => withState(path, state, writeHash(line)), [state, line]);
+  const href = useCallback(
+    (path: string) => {
+      const base = path.split("?")[0].split("#")[0];
+      if (base === "/generate" || base === "/generate/") return "/generate/";
+      return withState(path, state, writeHash(line));
+    },
+    [state, line],
+  );
 
   const value = useMemo(
     () => ({ state, line, href, setState, setLine, markInteracted, reset, share, shared }),
@@ -124,7 +132,9 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function Tray() {
+  const pathname = usePathname() || "/";
   const { state, line, href, share, shared, reset } = useWorkspace();
+  if (pathname === "/generate" || pathname.startsWith("/generate/")) return null;
   if (!state.interacted) return null;
   return (
     <aside className="tray" data-tray="open" aria-label="Current piece">

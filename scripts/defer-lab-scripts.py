@@ -77,12 +77,33 @@ def wanted(path: Path) -> bool:
     return rel.startswith("examples/") and rel.endswith("/index.html")
 
 
+def fix_generate_card(path: Path) -> None:
+    """The generate route has its own card. Drop the sitewide image and keep the path relative."""
+    html = path.read_text()
+    html = html.replace("http://localhost:3000/og/generate.png", "/og/generate.png")
+    sitewide = [
+        '<meta property="og:title" content="PlayTools"/>',
+        '<meta property="og:description" content="A private guide to digital creative tools. Data comes from the public Art Blocks API. Independent project, not affiliated with Art Blocks."/>',
+        '<meta property="og:image" content="/playtools-og-image-1200x630.png"/>',
+        '<meta property="og:image:width" content="1200"/>',
+        '<meta property="og:image:height" content="630"/>',
+        '<meta property="og:image:alt" content="PlayTools"/>',
+        '<meta name="twitter:image" content="/playtools-og-image-1200x630.png"/>',
+    ]
+    for tag in sitewide:
+        html = html.replace(tag, "", 1)
+    path.write_text(html)
+
+
 def main() -> None:
     if not OUT.exists():
         raise SystemExit("out is missing. Run next build first.")
     for path in sorted(OUT.rglob("*.html")):
         if wanted(path):
             rewrite(path)
+    card = OUT / "generate" / "index.html"
+    if card.exists():
+        fix_generate_card(card)
 
 
 if __name__ == "__main__":

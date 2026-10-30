@@ -25,6 +25,9 @@ export function KeyHints() {
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target?.isContentEditable) return;
       if (document.documentElement.dataset.drawing === "1") return;
       const key = event.key.toLowerCase();
+      const onGenerate = window.location.pathname === "/generate" || window.location.pathname.startsWith("/generate/");
+      if (onGenerate && ["r", "s", "c", "f", "escape"].includes(key)) return;
+      if (onGenerate && key.startsWith("arrow")) return;
       if (key in ROUTES) {
         event.preventDefault();
         router.push(href(ROUTES[key]));

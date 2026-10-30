@@ -30,7 +30,7 @@ const display = Bricolage_Grotesque({
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
   display: "optional",
   preload: false,
   variable: "--font-mono-jb",
