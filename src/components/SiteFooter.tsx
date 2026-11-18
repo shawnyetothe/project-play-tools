@@ -10,6 +10,16 @@ function cleanPath(path: string) {
   return trimmed || "/";
 }
 
+function PoweredBy() {
+  return (
+    <p className="abx-credit">
+      <a href="https://www.artblocks.io" data-testid="abx-credit">
+        Powered by ABX · inspired by Art Blocks
+      </a>
+    </p>
+  );
+}
+
 function Disclaimer({ pulledLabel }: { pulledLabel: string }) {
   return (
     <>
@@ -18,6 +28,7 @@ function Disclaimer({ pulledLabel }: { pulledLabel: string }) {
       </p>
       <p>PlayTools is an independent project, not affiliated with Art Blocks.</p>
       <p className="quiet">Private preview. Search engines are asked not to index this site.</p>
+      <PoweredBy />
     </>
   );
 }
@@ -120,6 +131,7 @@ export function SiteFooter({
         </div>
       </nav>
       <p className="quiet">Private preview. Search engines are asked not to index this site.</p>
+      <PoweredBy />
     </footer>
   );
 }

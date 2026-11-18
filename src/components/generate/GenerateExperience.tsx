@@ -417,6 +417,11 @@ export function GenerateExperience() {
 
   return (
     <div className={`gen-app${ready ? " is-ready" : ""}`} data-ready={ready ? "1" : "0"} data-kind={view.kind}>
+      <p className="gen-credit abx-credit">
+        <a href="https://www.artblocks.io" data-testid="abx-credit">
+          Powered by ABX · inspired by Art Blocks
+        </a>
+      </p>
       {view.kind === "grid" ? (
         <div className="gen-wrap">
           <Story step={2} phoneLabel="The grid" />
