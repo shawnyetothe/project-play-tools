@@ -93,6 +93,20 @@
     "Otherwise choose the tool with the most overlapping words. If none overlap, choose id p5."
   ],
   "howToFirstSketch": "Build an original first sketch. Do not copy or redraw an existing artwork. Tool: {name}. Plain name: {plain}. Category: {category}. First project: {firstProject}. Starter page: {starter}. License: {licenseNotes}. Visitor seed: {seed}. Phrase: {make}. Seed URL: {seedUrl}. Use the seed as the random seed. Do not send the seed to a server.",
+  "keepForever": {
+    "filename": "playtools-<seed>.html",
+    "home": "/",
+    "generate": "/generate/",
+    "contains": "inline JavaScript and the seed. The home file also includes the pen-plotter SVG. The Generate file also includes a PNG. Neither file makes a network call.",
+    "abxFs": {
+      "site": "https://fs.abx.io",
+      "docs": "https://docs.fs.abx.io",
+      "utilities": "https://docs.abx.io/docs/using-abx/guides/utilities",
+      "steps": ["Download your file.", "Open fs.abx.io.", "Drop it in."],
+      "warning": "ABX FS is early, unaudited software and may have bugs. What you publish is public and permanent. On production chains, real funds are at risk. Try a testnet first.",
+      "thisSite": "PlayTools does not connect a wallet, upload a file, or send a transaction."
+    }
+  },
   "tools": [
     {
       "id": "p5",

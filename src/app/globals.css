@@ -184,6 +184,46 @@ label { display: block; margin: 0.8rem 0 0.25rem; font-weight: 700; }
   align-items: center;
 }
 .abx-credit a:hover { color: #0b0b0f; border-bottom-color: #0b0b0f; }
+.keep-forever {
+  margin: 28px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e2de;
+}
+.keep-forever h2, .keep-forever h3 {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.keep-forever h2 { font-size: 28px; line-height: 1.1; }
+.keep-forever h3 { font-size: 18px; margin-top: 18px; }
+.keep-forever p { margin: 0 0 10px; }
+.keep-forever button {
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #0b0b0f;
+  background: #0b0b0f;
+  color: #f5f5f2;
+  font-weight: 700;
+}
+.keep-name, .keep-warn {
+  font-family: var(--font-mono-jb), ui-monospace, monospace;
+  font-size: 12px;
+  color: #6b6b73;
+}
+.keep-warn {
+  border-left: 2px solid #e2e2de;
+  padding-left: 10px;
+}
+.keep-steps { margin: 0 0 12px; padding-left: 1.2rem; }
+.keep-steps li { margin: 4px 0; }
+.keep-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.keep-links a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  color: #0b0b0f;
+}
 .site-map h1 { margin-top: 1.5rem; }
 .site-map .link-list { list-style: none; padding: 0; }
 .site-map .link-list li { margin: 0.2rem 0; }

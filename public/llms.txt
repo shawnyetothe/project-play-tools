@@ -79,6 +79,20 @@ edition is the full edition. showing is the live page (at most 64 tiles). sample
 
 Sources may be rng, time, color, movement, sound, data, sensor. Values stay on the device. Nothing is uploaded.
 
+## Keep it forever
+
+The home page and /generate/ can download one file named playtools-<seed>.html. The file holds the seed and inline JavaScript. The home file also includes the pen-plotter SVG. The Generate file also includes a PNG. Opening either file makes no network calls.
+
+ABX FS handoff, link only. This site does not connect a wallet, upload a file, or send a transaction.
+
+1. Download your file.
+2. Open https://fs.abx.io
+3. Drop the file in.
+
+ABX FS says it is early, unaudited software and may have bugs. What you publish is public and permanent. On production chains, real funds are at risk. Try a testnet first.
+
+Docs: https://docs.fs.abx.io and https://docs.abx.io/docs/using-abx/guides/utilities
+
 ## Pages
 
 The short index is /sitemap/. Artist URLs are /sitemap/artists/ and /sitemap/artists/{letter}/ (a–z or other). Project URLs are /sitemap/projects/ and /sitemap/projects/{letter}/. A letter with more than 40 names continues at {letter}-2. Tools are /sitemap/tools/ and continue at /sitemap/tools/2/. Machine-readable copies: /sitemap.json (routes, parameters, and links to letter files) and /sitemap.xml (an index of /sitemap/routes.xml, /sitemap/artists.xml, and /sitemap/projects.xml). Letter files such as /sitemap/artists/a.json list the concrete URLs. Do not parse the HTML for the long lists.

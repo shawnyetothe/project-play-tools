@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { KeepForever } from "@/components/KeepForever";
+import { downloadHtml, heroHtml } from "@/lib/keep-file";
 import { HeroStage } from "./HeroStage";
 import { LineageStrip } from "./LineageStrip";
 import { ProgressDots } from "./ProgressDots";
@@ -136,6 +138,15 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
           </p>
         </div>
       </section>
+      <div className="lab-section wrap">
+        <KeepForever
+          filename={`playtools-${state.seed}.html`}
+          onDownload={() => {
+            piece.lock();
+            downloadHtml(`playtools-${state.seed}.html`, heroHtml(state));
+          }}
+        />
+      </div>
       <p className="wrap lab-quiet-link">
         <Link href="/lab/suggest/">Suggest a tool, example, or fix</Link>
       </p>

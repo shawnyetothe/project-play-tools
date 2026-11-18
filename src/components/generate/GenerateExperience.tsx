@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { KeepForever } from "@/components/KeepForever";
+import { downloadHtml, rasterHtml } from "@/lib/keep-file";
 import { drawPiece, stampPiece } from "@/lib/piece-draw";
 import {
   DEFAULT_G,
@@ -592,6 +594,21 @@ export function GenerateExperience() {
           </div>
         </div>
       )}
+      <div className="gen-wrap">
+        <KeepForever
+          filename={`playtools-${hex4(view.kind === "piece" ? view.s : (shown[0] ?? view.s))}.html`}
+          onDownload={() => {
+            const seed = view.kind === "piece" ? view.s : (shown[0] ?? view.s);
+            const canvas = document.createElement("canvas");
+            canvas.width = 800;
+            canvas.height = 800;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+            drawPiece(ctx, 800, 800, seed, view.r, view.sp);
+            downloadHtml(`playtools-${hex4(seed)}.html`, rasterHtml(hex4(seed), view.r, view.sp, canvas.toDataURL("image/png")));
+          }}
+        />
+      </div>
       {toast ? (
         <p className="toast" role="status">
           {toast}
