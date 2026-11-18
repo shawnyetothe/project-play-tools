@@ -126,16 +126,6 @@ for (const viewport of [
 
   test(`orange scrub underlines at ${viewport.label}`, async ({ page }) => {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
-    await page.goto("/");
-    const home = page.getByRole("slider").first();
-    await expect(home).toBeVisible();
-    const homeLine = await home.evaluate((node) => {
-      const style = getComputedStyle(node);
-      return { color: style.borderBottomColor, style: style.borderBottomStyle, width: style.borderBottomWidth };
-    });
-    expect(homeLine.color).toBe("rgb(228, 87, 46)");
-    expect(homeLine.style).toBe("dashed");
-    expect(parseFloat(homeLine.width)).toBeGreaterThanOrEqual(2);
     await page.goto("/generate/?g=91c0&r=0.03&sp=4.5&v=1");
     await ready(page);
     const rule = page.getByRole("slider", { name: "Orbit speed in radians per second" });

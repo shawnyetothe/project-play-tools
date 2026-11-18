@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 const STEPS = [
   { id: "play", label: "Play" },
   { id: "lineage", label: "Lineage" },
-  { id: "generate", label: "Generate" },
+  { id: "generate", label: "Make sixteen" },
   { id: "listen", label: "Listen" },
   { id: "find", label: "Find" },
   { id: "make", label: "Make" },
   { id: "publish", label: "Publish" },
 ];
 
-export function ProgressDots({ generateHref = "/lab/generate/" }: { generateHref?: string }) {
+export function ProgressDots({ generateHref = "/generate/" }: { generateHref?: string }) {
   const [current, setCurrent] = useState("play");
 
   useEffect(() => {

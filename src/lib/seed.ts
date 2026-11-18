@@ -108,7 +108,7 @@ export function pieceSearch(state: PieceState): string {
 }
 
 export function piecePath(state: PieceState): string {
-  return `/lab/composed/?${pieceSearch(state)}`;
+  return `/?${pieceSearch(state)}`;
 }
 
 function num(params: URLSearchParams, key: string): number | null {

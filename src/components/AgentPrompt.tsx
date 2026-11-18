@@ -32,7 +32,7 @@ export function AgentPrompt({
     if (door) params.set("door", door);
     if (tool) params.set("tool", tool);
     if (make) params.set("make", make);
-    const seedUrl = `${window.location.origin}/lab/composed/${params.toString() ? `?${params}` : ""}`;
+    const seedUrl = `${window.location.origin}/${params.toString() ? `?${params}` : ""}`;
     const prompt = [
       "Build an original first sketch. Do not copy or redraw an existing artwork.",
       "",

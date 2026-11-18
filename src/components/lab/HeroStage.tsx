@@ -238,8 +238,18 @@ export function HeroStage({ piece }: { piece: Piece }) {
           <canvas
             ref={canvasRef}
             className="stage-canvas"
+            data-testid="hero-canvas"
             aria-label="Live sketch from your seed"
-            onPointerDown={() => lock()}
+            onPointerDown={() => {
+              lock();
+              document.documentElement.dataset.drawing = "1";
+            }}
+            onPointerUp={() => {
+              document.documentElement.dataset.drawing = "0";
+            }}
+            onPointerCancel={() => {
+              document.documentElement.dataset.drawing = "0";
+            }}
             onPointerMove={onPointer}
           />
         </div>
@@ -265,6 +275,9 @@ export function HeroStage({ piece }: { piece: Piece }) {
             <button type="button" className="text-btn" onClick={shuffle}>
               Shuffle
             </button>
+            <Link className="text-btn" href={`/generate/?g=${state.seed.slice(0, 4)}&r=0.03&sp=4.5&v=1`}>
+              Make sixteen
+            </Link>
             <button type="button" className="text-btn" aria-pressed={!motion} onClick={() => setMotion(!motion)}>
               {motion ? "Pause" : "Play motion"}
             </button>

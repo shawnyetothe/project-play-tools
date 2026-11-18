@@ -73,7 +73,13 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!ready) return;
-    if (pathname === "/generate" || pathname.startsWith("/generate/")) return;
+    if (
+      pathname === "/" ||
+      pathname === "/generate" ||
+      pathname.startsWith("/generate/") ||
+      pathname === "/lab/composed" ||
+      pathname.startsWith("/lab/composed/")
+    ) return;
     const query = writePublic(state);
     const hash = writeHash(line);
     const next = `${pathname}${query}${hash}`;
