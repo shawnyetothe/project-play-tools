@@ -27,17 +27,14 @@ body:has(.lab) h4 {
 
 .lab h1,
 .lab h2,
+.lab h3,
 body:has(.lab) .lab h1,
-body:has(.lab) .lab h2 {
-  font-family: "Bricolage Grotesque Fallback", system-ui, sans-serif;
+body:has(.lab) .lab h2,
+body:has(.lab) .lab h3 {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
   font-weight: 700;
-  font-variation-settings: "opsz" 72, "wght" 650;
   letter-spacing: -0.02em;
   line-height: 1.05;
-}
-body:has(.lab) .lab.fonts-ready h1,
-body:has(.lab) .lab.fonts-ready h2 {
-  font-family: var(--font-bricolage), system-ui, sans-serif;
 }
 
 .lab h1 { font-size: clamp(32px, 4.5vw, 56px); margin: 0 0 0.45rem; }
@@ -101,11 +98,12 @@ body:has(.lab) .lab.fonts-ready h2 {
 .seed-dots a[aria-current="true"] { color: #0b0b0f; }
 
 .lab-section {
-  padding-block: clamp(64px, 8vw, 112px);
+  padding-block: 72px;
   scroll-margin-top: 7.5rem;
   border-top: 1px solid rgba(11, 11, 15, 0.08);
 }
-.lab-hero { border-top: 0; padding-top: 1.25rem; }
+.lab .lab-section > h2 { margin-top: 0; margin-bottom: 0.6rem; }
+.lab-hero { border-top: 0; padding-top: 1.25rem; padding-bottom: 72px; }
 
 .stage-grid {
   display: grid;
@@ -385,6 +383,36 @@ body:has(.lab) .lab.fonts-ready h2 {
     max-width: none;
   }
   .lab .stage-ask button.chip { min-height: 56px; width: 100%; }
+}
+
+.public-hero {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+.public-hero-panel {
+  background: #fff;
+  border: 1px solid #e2e2de;
+  border-radius: 8px;
+  padding: 24px;
+}
+.public-hero-panel h1 { font-size: 32px; margin: 0 0 0.35rem; }
+.public-hero .sub { color: #6b6b73; margin: 0 0 0.85rem; font-size: 17px; }
+.public-hero .door-stack { order: 0; margin-top: 0.2rem; }
+.public-hero .hero-caption { margin-top: 0.75rem; }
+.public-hero .hero-frame { background: #f5f5f2; }
+.public-hero .hero-actions a,
+.public-hero .hero-actions button { text-decoration: none; }
+@media (min-width: 960px) {
+  .public-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+    column-gap: 2.5rem;
+  }
+  .public-hero-panel h1 { font-size: 40px; }
+  .public-hero .hero-frame { height: 500px; }
+}
+@media (max-width: 959px) {
+  .public-hero .hero-frame { height: 248px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

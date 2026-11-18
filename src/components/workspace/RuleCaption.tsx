@@ -91,7 +91,7 @@ export function RuleCaption() {
   const speed = state.speed || 0.03;
   const spread = state.spread ?? 0.045;
   return (
-    <figure className="hero-caption">
+    <figure className="hero-caption" id="rule">
       <figcaption>
         <p className="fig-kicker">FIG. 01 · THE RULE</p>
         <p className="fig-sentence">

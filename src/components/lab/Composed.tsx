@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { KeepForever } from "@/components/KeepForever";
 import { downloadHtml, heroHtml } from "@/lib/keep-file";
+import { PublicHero } from "@/components/home/PublicHero";
 import { HeroStage } from "./HeroStage";
 import { LineageStrip } from "./LineageStrip";
 import { ProgressDots } from "./ProgressDots";
@@ -44,7 +45,15 @@ function WhenNear({ children, fallback }: { children: ReactNode; fallback: React
   return <div ref={ref}>{show ? children : fallback}</div>;
 }
 
-export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayRecipe[] }) {
+export function Composed({
+  tools,
+  recipes,
+  home = false,
+}: {
+  tools: PlayTool[];
+  recipes: PlayRecipe[];
+  home?: boolean;
+}) {
   const piece = usePiece();
   const { state, soundOn } = piece;
 
@@ -55,7 +64,7 @@ export function Composed({ tools, recipes }: { tools: PlayTool[]; recipes: PlayR
   return (
     <div className="lab-page">
       <section className="lab-section lab-hero wrap" id="play">
-        <HeroStage piece={piece} />
+        {home ? <PublicHero piece={piece} /> : <HeroStage piece={piece} />}
       </section>
       <ProgressDots generateHref={`/generate/?g=${state.seed.slice(0, 4)}&r=0.03&sp=4.5&v=1`} />
       <nav className="wrap quick" aria-label="Tool shortcuts">

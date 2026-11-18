@@ -8,11 +8,26 @@ for (const viewport of [
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
     await expect(page.locator("html")).toHaveAttribute("data-keys", "1");
-    await expect(page.getByRole("heading", { name: "Start a piece." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Draw a line. Watch the rule take it." })).toBeVisible();
+    await expect(page.getByText("Play it. Then read the rules.")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Keep playing" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "See the code" })).toBeVisible();
+    await expect(page.getByText("Pick a way in")).toBeVisible();
+    await expect(page.getByText("FIG. 01 · THE RULE")).toBeVisible();
+    await expect(page.getByTestId("hero-readout")).toBeVisible();
     const canvas = page.getByTestId("hero-canvas");
     await expect(canvas).toBeVisible();
     const box = await canvas.boundingBox();
     if (!box) throw new Error("no sketch");
+    if (viewport.width > 800) {
+      const title = await page.getByRole("heading", { name: "Draw a line. Watch the rule take it." }).boundingBox();
+      if (!title) throw new Error("no title");
+      expect(box.x + box.width).toBeLessThanOrEqual(title.x + 8);
+      const keep = await page.getByRole("button", { name: "Keep playing" }).boundingBox();
+      if (!keep) throw new Error("no keep button");
+      const onArt = keep.x < box.x + box.width && keep.x + keep.width > box.x && keep.y < box.y + box.height && keep.y + keep.height > box.y;
+      expect(onArt).toBe(false);
+    }
     await page.mouse.move(box.x + 20, box.y + box.height * 0.4);
     await page.mouse.down();
     await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.6, { steps: 8 });

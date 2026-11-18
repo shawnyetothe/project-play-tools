@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { assignFlow, makeSwarm, resample, shellPoint, stepSwarm, type Particle, type Vec } from "@/lib/hero-sim";
 import { KeyHintLine } from "./Keys";
 import { useWorkspace } from "./Workspace";
@@ -31,8 +30,17 @@ export function HeroPoster({ seed }: { seed: string }) {
   );
 }
 
-export function HeroToy() {
-  const { state, line, setLine, markInteracted, href } = useWorkspace();
+export function HeroToy({
+  seed: seedProp,
+  onInteract,
+  caption,
+}: {
+  seed?: string;
+  onInteract?: () => void;
+  caption?: ReactNode;
+} = {}) {
+  const { state, line, setLine, markInteracted } = useWorkspace();
+  const swarmSeed = seedProp || state.seed;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const particles = useRef<Particle[]>([]);
@@ -67,7 +75,7 @@ export function HeroToy() {
     let slow = 0;
     let interval = 1000 / 60;
     const grid = document.createElement("canvas");
-    particles.current = makeSwarm(state.seed, count);
+    particles.current = makeSwarm(swarmSeed, count);
     if (settled.current) assignFlow(particles.current);
 
     const contentBox = () => ({
@@ -223,7 +231,7 @@ export function HeroToy() {
       document.removeEventListener("visibilitychange", onVis);
       io.disconnect();
     };
-  }, [state.seed, reduced]);
+  }, [swarmSeed, reduced, setLine]);
 
   function localPoint(event: React.PointerEvent<HTMLCanvasElement>): Vec {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -246,19 +254,21 @@ export function HeroToy() {
 
   return (
     <div className="hero-toy" data-hero="live" data-reduced={reduced ? "true" : "false"}>
-      <p className="fig-label">FIG. 01</p>
+      {caption ? null : <p className="fig-label">FIG. 01</p>}
       <div className="hero-frame" ref={wrapRef} data-orbit={state.speed || 0.03} data-spread={state.spread ?? 0.045}>
         <HeroPoster seed={state.seed} />
         <canvas
           ref={canvasRef}
           className="hero-art"
           data-testid="hero-canvas"
+          tabIndex={0}
           aria-label="Live sketch. Drag to draw a line."
           onPointerDown={(event) => {
             event.currentTarget.setPointerCapture(event.pointerId);
             document.documentElement.dataset.drawing = "1";
             stroke.current = [localPoint(event)];
             setStatus("drawing");
+            onInteract?.();
           }}
           onPointerMove={(event) => {
             if (stroke.current.length === 0 || !event.currentTarget.hasPointerCapture(event.pointerId)) return;
@@ -275,13 +285,13 @@ export function HeroToy() {
           }}
         />
       </div>
+      {caption}
       <p className="hero-readout" data-testid="hero-readout">
-        <span>seed {state.seed}</span>
+        <span>seed {swarmSeed}</span>
         <span>edition open</span>
         <span>pts {particles.current.length || (size.w < 720 ? 500 : 1200)}</span>
         <span>fps {reduced ? "—" : fps}</span>
         <span>state: {reduced && status === "orbiting" ? "paused" : status}</span>
-        <Link className="source-link" href={href("/examples/orbit/")}>source ↗</Link>
       </p>
       <KeyHintLine />
       <p className="hero-hint">{line.length ? "the line stays. points flow along it." : ""}</p>

@@ -16,8 +16,8 @@ export default function HomePage() {
     title: recipe.title,
   }));
   return (
-    <div className="lab">
-      <Composed tools={catalog} recipes={recipes} />
+    <div className="lab workspace public-home">
+      <Composed tools={catalog} recipes={recipes} home />
     </div>
   );
 }

@@ -140,7 +140,7 @@ export function WorkspaceProvider({ children }: { children: React.ReactNode }) {
 export function Tray() {
   const pathname = usePathname() || "/";
   const { state, line, href, share, shared, reset } = useWorkspace();
-  if (pathname === "/generate" || pathname.startsWith("/generate/")) return null;
+  if (pathname === "/" || pathname === "/generate" || pathname.startsWith("/generate/")) return null;
   if (!state.interacted) return null;
   return (
     <aside className="tray" data-tray="open" aria-label="Current piece">
